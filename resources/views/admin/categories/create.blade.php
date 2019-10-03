@@ -9,7 +9,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Devices</span>
+                <span>Categories</span>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span>Create</span>
             </li>
         </ul>
         <div class="page-toolbar">
@@ -32,7 +36,7 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route(categories.store) }}" method="post">
+                    <form action="{{ route('admin.categories.store') }}" method="post">
                         @csrf
                         <div class="form-body">
                             <div class="row">
@@ -48,7 +52,7 @@
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <a href="javascript:;" class="btn green">Submit</a>
+                                    <input type="submit" class="btn green" value="Submit">
                                     <a href="javascript:;" class="btn default">Cancel</a>
                                 </div>
                             </div>

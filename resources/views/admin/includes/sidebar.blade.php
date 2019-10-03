@@ -49,7 +49,13 @@
                 <h3 class="uppercase">Features</h3>
             </li>
             <li class="nav-item  ">
-                <a href="{{ route() }}" class="nav-link">
+                <a href="{{ route('admin.categories.index') }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Categories</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link">
                     <i class="icon-layers"></i>
                     <span class="title">Super Categories</span>
                 </a>
