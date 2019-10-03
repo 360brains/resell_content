@@ -26,7 +26,10 @@
 
         <!-- START content here -->
         <div class="page-content-wrapper">
-            @yield('content')
+            <!-- BEGIN CONTENT BODY -->
+            <div class="page-content">
+                @yield('content')
+            </div>
         </div>
         <!-- END content here -->
 

@@ -49,6 +49,19 @@
                 <h3 class="uppercase">Features</h3>
             </li>
             <li class="nav-item  ">
+                <a href="{{ route() }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Super Categories</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Sub Categories</span>
+                </a>
+            </li>
+
+            <li class="nav-item  ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-layers"></i>
                     <span class="title">Projects</span>
@@ -70,6 +83,7 @@
                         </a>
                     </li>
                 </ul>
+            </li>
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->
