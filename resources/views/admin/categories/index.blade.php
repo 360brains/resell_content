@@ -12,21 +12,17 @@
                 <span>Categories</span>
                 <i class="fa fa-circle"></i>
             </li>
-            <li>
-                <span>Create</span>
-            </li>
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b>Back</b>
-                    <i class="fa fa-backward"></i>
+                <a href="{{ route('admin.categories.create') }}" class="btn red btn-sm" > <b>Add</b>
+{{--                    <i class="fa fa-backward"></i>--}}
                 </a>
             </div>
         </div>
 
     </div>
     <h3 class="page-title">Categories
-        <small>Create Category</small>
     </h3>
 
     <div class="row">
@@ -38,25 +34,39 @@
                     <table class="table table-bordered table-striped flip-content">
                         <thead class="flip-content">
                         <tr>
-                            <th width="20%"> Code </th>
-                            <th> Company </th>
-                            <th class="numeric"> Price </th>
-                            <th class="numeric"> Change </th>
+                            <th width="20%"> Sr No. </th>
+                            <th> Category Name </th>
+                            <th> Created </th>
+                            <th> Last Updated </th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td> AGK </td>
-                            <td> AGL ENERGY LIMITED </td>
-                            <td class="numeric"> $13.82 </td>
-                            <td class="numeric"> +0.02 </td>
-                        </tr>
-                        <tr>
-                            <td> AGO </td>
-                            <td> ATLAS IRON LIMITED </td>
-                            <td class="numeric"> $3.17 </td>
-                            <td class="numeric"> -0.02 </td>
-                        </tr>
+                        @php
+                        $i = 0;
+                        @endphp
+                            @forelse($categories as $category)
+                                <tr>
+                                    <td> {{ ++$i }} </td>
+                                    <td> {{ $category->name }} </td>
+                                    <td> {{ $category->created_at }} </td>
+                                    <td> {{ $category->updated_at }} </td>
+                                    <td>
+                                        <form action="{{ route('admin.categories.destroy',$category->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <a class="btn btn-primary" href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>
+
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @empty
+                                    No Categories Found
+                            @endforelse
+
                         </tbody>
                     </table>
 

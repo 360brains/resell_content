@@ -54,8 +54,8 @@
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <input type="submit" class="btn green" value="Submit">
-                                    <a href="javascript:;" class="btn default">Cancel</a>
+                                    <button type="button" class="btn green">Submit</button>
+                                    <button type="reset" class="btn default">Clear</button>
                                 </div>
                             </div>
                         </div>
