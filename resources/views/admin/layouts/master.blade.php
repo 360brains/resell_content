@@ -39,6 +39,9 @@
 <!-- START footer here -->
 @include("admin.includes.footer")
 <!-- END footer here -->
+@include('admin.includes.notifications')
+@include('admin.includes.script')
+@stack('scripts')
 
 </body>
 </html>
