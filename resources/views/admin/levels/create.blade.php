@@ -55,6 +55,29 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                <div class="form-group form-md-line-input">
+                                    <select class="form-control" name="active">
+                                        <option value="">Status</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Deactive</option>
+                                    </select>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="type_id">
+                                            <option value="">Select a Type</option>
+                                            @foreach($types as $type)
+                                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                         <div class="form-actions">
