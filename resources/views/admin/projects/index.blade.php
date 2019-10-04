@@ -9,19 +9,19 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Categories</span>
+                <span>Projects</span>
             </li>
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ route('admin.categories.create') }}" class="btn red btn-sm" > <b>Add</b>
+                <a href="{{ route('admin.projects.create') }}" class="btn red btn-sm" > <b>Add</b>
 {{--                    <i class="fa fa-backward"></i>--}}
                 </a>
             </div>
         </div>
 
     </div>
-    <h3 class="page-title">Categories
+    <h3 class="page-title">Projects
     </h3>
 
     <div class="row">
@@ -34,10 +34,15 @@
                         <thead class="flip-content">
                         <tr>
                             <th width="20%"> Sr No. </th>
-                            <th> Category Name </th>
+                            <th> Projects Name </th>
+                            <th> Quantity </th>
+                            <th> Type </th>
+                            <th> Description </th>
+                            <th> Deadline </th>
+                            <th> Category </th>
+                            <th> Level </th>
                             <th> Created </th>
                             <th> Last Updated </th>
-                            <th> Super Category </th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -45,26 +50,20 @@
                         @php
                         $i = 0;
                         @endphp
-                            @forelse($categories as $category)
+                            @forelse($projects as $project)
                                 <tr>
                                     <td> {{ ++$i }} </td>
-                                    <td><a href="{{ route('admin.categories.show', $category->id) }}"> {{ $category->name }} </a></td>
-                                    <td> {{ $category->created_at }} </td>
-                                    <td> {{ $category->updated_at }} </td>
-                                    <td>{{ $category->parentCategory->name ?? 'None' }}</td>
+                                    <td><a href="{{ route('admin.projects.show', $project->id) }}"> {{ $project->name }} </a></td>
+                                    <td> {{ $project->created_at }} </td>
+                                    <td> {{ $project->updated_at }} </td>
                                     <td>
-                                        <form action="{{ route('admin.categories.destroy',$category->id) }}" method="POST">
+                                        <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 
-                                            <a class="btn btn-primary" href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>
+                                            <a class="btn btn-primary" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
+                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
 
-                                            @if($category->childCategories->count() > 0)
-                                                <a class="btn btn-danger btn-outline sbold uppercase " id="demo_5"> Delete </a>
-                                                <button type="submit" class="btn btn-danger btn-outline sbold uppercase hidden-button" id="delete_category">Delete</button>
-                                            @else
-                                                <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
-                                            @endif
                                         </form>
                                     </td>
                                 </tr>
@@ -74,7 +73,7 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                    {{$categories->links()}}
+                    {{$projects->links()}}
                     </div>
             </div>
         </div>

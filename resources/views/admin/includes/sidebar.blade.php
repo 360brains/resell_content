@@ -83,11 +83,12 @@
 {{--            </li>--}}
 
             <li class="nav-item  ">
-                <a href="javascript:;" class="nav-link nav-toggle">
+                <a href="{{ route('admin.projects.index') }}" class="nav-link nav-toggle">
                     <i class="icon-layers"></i>
                     <span class="title">Projects</span>
                     <span class="arrow"></span>
                 </a>
+                <!--
                 <ul class="sub-menu">
                     <li class="nav-item  ">
                         <a href="ui_colors.html" class="nav-link ">
@@ -104,6 +105,7 @@
                         </a>
                     </li>
                 </ul>
+                -->
             </li>
         </ul>
         <!-- END SIDEBAR MENU -->
