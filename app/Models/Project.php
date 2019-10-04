@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use App\Level;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    protected $fillable = ['name', 'quantity', 'type_id', 'deadline', 'category_id', 'level_id', 'description', 'active'];
+
     function type(){
         return $this->belongsTo(Type::class);
     }
@@ -15,5 +16,14 @@ class Project extends Model
     }
     function level(){
         return $this->belongsTo(Level::class);
+    }
+    public function getCreatedAtAttribute($date)
+    {
+        return date('d-M-Y', strtotime($date));
+    }
+
+    public function getUpdatedAtAttribute($date)
+    {
+        return date('d-M-Y', strtotime($date));
     }
 }

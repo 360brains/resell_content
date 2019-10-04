@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Level;
+use App\Models\Level;
 use App\Models\Category;
 use App\Models\Type;
 use App\Models\Project;
@@ -32,7 +32,7 @@ class ProjectController extends Controller
     {
         $data['types'] = Type::get();
         $data['categories'] = Category::get();
-        //$data['levels'] = Level::all();
+        $data['levels'] = Level::all();
         return view("admin.projects.create", $data);
     }
 
@@ -51,12 +51,21 @@ class ProjectController extends Controller
             'level'         => 'required',
         ]);
 
-        $name = $request->name;
+        $data = [
+        'name'         => $request->name,
+        'quantity'     => $request->quantity,
+        'type_id'      => $request->type,
+        'deadline'     => $request->deadline,
+        'category_id'  => $request->category,
+        'level_id'     => $request->level,
+        'description'  => $request->description,
+        'active'       => $request->active,
+        ];
 
-        $response = Project::create($request->all());
+        $response = Project::create($data);
 
         if ($response){
-            return redirect()->route('admin.projects.index')->with("success", "Project created successfully.");
+            return redirect()->route('admin.projects.index')->with("success", "Completed successfully.");
         }else{
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
