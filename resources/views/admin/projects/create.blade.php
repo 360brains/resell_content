@@ -41,18 +41,17 @@
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
+
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Project Name">
                                         <label for="form_control_1">Project Name</label>
                                     </div>
-                                </div>
-                                <div class="col-md-8 col-md-offset-2">
+
                                     <div class="form-group form-md-line-input">
                                         <input type="number" name="quantity" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks">
-                                        <label for="form_control_1">Quantity</label>
+                                        <label for="form_control_1">Number of Tasks</label>
                                     </div>
-                                </div>
-                                <div class="col-md-8 col-md-offset-2">
+
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="type">
                                             <option value="">Select type of project</option>
@@ -61,16 +60,13 @@
                                             @endforeach
                                         </select>
                                         <label for="form_control_1">Project Type</label>
-                                        <span class="help-block">Select a type of the project...</span>
                                     </div>
-                                </div>
-                                <div class="col-md-8 col-md-offset-2">
+
                                     <div class="form-group form-md-line-input">
                                         <input type="date" name="deadline" class="form-control" id="form_control_1" placeholder="Give a deadline">
                                         <label for="form_control_1">Project Deadline</label>
                                     </div>
-                                </div>
-                                <div class="col-md-8 col-md-offset-2">
+
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="category">
                                             <option value="">Select Category of project</option>
@@ -79,24 +75,26 @@
                                             @endforeach
                                         </select>
                                         <label for="form_control_1">Project Category</label>
-                                        <span class="help-block">Select a Category of the project...</span>
                                     </div>
-                                </div>
-{{--                                <div class="col-md-8 col-md-offset-2">--}}
-{{--                                    <div class="form-group form-md-line-input">--}}
-{{--                                        <select class="form-control" name="level">--}}
-{{--                                            <option value="">Select User Level for the project</option>--}}
-{{--                                            @foreach($levels as $level)--}}
-{{--                                                <option value="{{ $level->id }}">{{ $level->name }}</option>--}}
-{{--                                            @endforeach--}}
-{{--                                        </select>--}}
-{{--                                        <label for="form_control_1">Project Level</label>--}}
-{{--                                        <span class="help-block">Select a user level for the project...</span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                --}}
 
-                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="level">
+                                            <option value="">Select User Level for the project</option>
+                                            @foreach($levels as $level)
+                                                <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <label for="form_control_1">Project Level</label>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="active">
+                                            <option value="">Status</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Deactive</option>
+                                        </select>
+                                    </div>
+
                                     <div class="portlet-body form">
                                             <div class="form-body">
                                                 <div class="form-group last">
@@ -104,12 +102,9 @@
                                                 </div>
                                             </div>
                                     </div>
-                                </div>
-
-
 
                             </div>
-
+                            </div>
                         </div>
                         <div class="form-actions">
                             <div class="row">
