@@ -41,33 +41,70 @@
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
+
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Project Name">
                                         <label for="form_control_1">Project Name</label>
                                     </div>
-                                </div>
-                                <div class="col-md-8 col-md-offset-2">
+
                                     <div class="form-group form-md-line-input">
-                                        <input type="number" name="quantity" class="form-control" id="mask_number form_control_2" placeholder="Enter Number of Tasks">
-                                        <label for="form_control_2">Quantity</label>
+                                        <input type="number" name="quantity" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks">
+                                        <label for="form_control_1">Number of Tasks</label>
                                     </div>
-                                </div>
-                                <div class="form-group form-md-line-input">
-                                    <select class="form-control" name="type">
-                                        <option value="">Select type of project</option>
 
-                                        @foreach($types as $type)
-                                            <option value="{{ $type->id }}">{{ $type->name }}</option>
-                                        @endforeach
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="type">
+                                            <option value="">Select type of project</option>
+                                            @foreach($types as $type)
+                                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <label for="form_control_1">Project Type</label>
+                                    </div>
 
-                                    </select>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="date" name="deadline" class="form-control" id="form_control_1" placeholder="Give a deadline">
+                                        <label for="form_control_1">Project Deadline</label>
+                                    </div>
 
-                                    <label for="form_control_1">Super Type</label>
-                                    <span class="help-block">Select a type of the project...</span>
-                                </div>
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="category">
+                                            <option value="">Select Category of project</option>
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <label for="form_control_1">Project Category</label>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="level">
+                                            <option value="">Select User Level for the project</option>
+                                            @foreach($levels as $level)
+                                                <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <label for="form_control_1">Project Level</label>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="active">
+                                            <option value="">Status</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Deactive</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group last">
+                                                    <textarea name="description" class="summernote" cols="30" rows="10"></textarea>
+                                                </div>
+                                            </div>
+                                    </div>
 
                             </div>
-
+                            </div>
                         </div>
                         <div class="form-actions">
                             <div class="row">

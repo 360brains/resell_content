@@ -54,6 +54,12 @@
                                 <tr>
                                     <td> {{ ++$i }} </td>
                                     <td><a href="{{ route('admin.projects.show', $project->id) }}"> {{ $project->name }} </a></td>
+                                    <td> {{ $project->quantity }} </td>
+                                    <td> {{ $project->type->name }} </td>
+                                    <td> {{ $project->description }} </td>
+                                    <td> {{ $project->category->name }} </td>
+                                    <td> {{ $project->level->name }} </td>
+                                    <td> abc </td>
                                     <td> {{ $project->created_at }} </td>
                                     <td> {{ $project->updated_at }} </td>
                                     <td>

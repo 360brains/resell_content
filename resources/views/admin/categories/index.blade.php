@@ -33,12 +33,12 @@
                     <table class="table table-bordered table-striped flip-content">
                         <thead class="flip-content">
                         <tr>
-                            <th width="20%"> Sr No. </th>
+                            <th width="70px"> Sr No. </th>
                             <th> Category Name </th>
+                            <th> Parent Category </th>
                             <th> Created </th>
                             <th> Last Updated </th>
-                            <th> Super Category </th>
-                            <th>Action</th>
+                            <th> Action </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -49,9 +49,9 @@
                                 <tr>
                                     <td> {{ ++$i }} </td>
                                     <td><a href="{{ route('admin.categories.show', $category->id) }}"> {{ $category->name }} </a></td>
+                                    <td>{{ $category->parentCategory->name ?? 'None' }}</td>
                                     <td> {{ $category->created_at }} </td>
                                     <td> {{ $category->updated_at }} </td>
-                                    <td>{{ $category->parentCategory->name ?? 'None' }}</td>
                                     <td>
                                         <form action="{{ route('admin.categories.destroy',$category->id) }}" method="POST">
                                             @csrf

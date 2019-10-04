@@ -56,6 +56,8 @@
 <script src="{{ asset('admin/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js') }}" type="text/javascript"></script>
 <script src="{{ asset('admin/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js') }}" type="text/javascript"></script>
 <script src="{{ asset('admin/assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js') }}" type="text/javascript"></script>
+<script src="{{ asset('admin/assets/global/plugins/bootstrap-summernote/summernote.min.js') }}" type="text/javascript"></script>
+
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="{{ asset('admin/assets/global/scripts/app.min.js') }}" type="text/javascript"></script>
