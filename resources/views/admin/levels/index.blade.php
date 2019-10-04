@@ -49,7 +49,7 @@
                                 <tr>
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $level->name }} </td>
-                                    <td> {{ $level->type_id }} </td>
+                                    <td> {{ $level->types->name }} </td>
                                     <td> {{ $level->created_at }} </td>
                                     <td> {{ $level->updated_at }} </td>
                                     <td>

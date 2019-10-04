@@ -33,14 +33,12 @@
                         <tr>
                             <th width="75px"> Sr No. </th>
                             <th> Projects Name </th>
-                            <th> Quantity </th>
+                            <th> No. of Tasks </th>
                             <th> Type </th>
-                            <th> Description </th>
                             <th> Deadline </th>
                             <th> Category </th>
                             <th> Level </th>
-                            <th> Created </th>
-                            <th> Last Updated </th>
+                            <th> Status </th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -54,17 +52,16 @@
                                     <td><a href="{{ route('admin.projects.show', $project->id) }}"> {{ $project->name }} </a></td>
                                     <td> {{ $project->quantity }} </td>
                                     <td> {{ $project->type->name }} </td>
-                                    <td> {{ $project->description }} </td>
+                                    <td> {{ $project->deadline }} </td>
                                     <td> {{ $project->category->name }} </td>
                                     <td> {{ $project->level->name }} </td>
                                     <td> abc </td>
-                                    <td> {{ $project->created_at }} </td>
-                                    <td> {{ $project->updated_at }} </td>
                                     <td>
                                         <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 
+                                            <a class="btn btn-success" href="{{ route('admin.projects.show', $project->id) }}">Show</a>
                                             <a class="btn btn-primary" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
                                             <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
 

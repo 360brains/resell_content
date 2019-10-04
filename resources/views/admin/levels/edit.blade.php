@@ -82,7 +82,7 @@
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <button type="button" class="btn green">Submit</button>
+                                    <input type="submit" class="btn green">
                                     <button type="reset" class="btn default">Clear</button>
                                 </div>
                             </div>

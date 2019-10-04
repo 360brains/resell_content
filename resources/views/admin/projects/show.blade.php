@@ -1,6 +1,14 @@
+
 @extends('admin.layouts.master')
 
 @section('content')
+    <style>
+        .description{
+            background: #8080800d;
+            padding: 1px 10px 15px 25px;
+        }
+    </style>
+
 
     <div class="page-bar">
         <ul class="page-breadcrumb">
@@ -9,80 +17,74 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Category</span>
+                <span> Project</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Show</span>
+                <span> Show</span>
             </li>
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b><i class="fa fa-backward"></i> Back</b></a>
+                <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b>Back</b>
+                    <i class="fa fa-backward"></i>
+                </a>
             </div>
         </div>
 
     </div>
-    <h3 class="page-title"> Sub-categories of <b>{{ $category->name }}</b>
+
+    <h3 class="page-title">Details of <b>{{ $project->name }}</b>
     </h3>
 
     <div class="row">
         <div class="col-md-12">
-            <!-- BEGIN VALIDATION STATES-->
             <div class="portlet light portlet-fit bordered">
 
-                <div class="portlet-body flip-scroll">
-                    <table class="table table-bordered table-striped flip-content">
-                        <thead class="flip-content">
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover">
                         <tr>
-                            <th width="20%"> Sr No. </th>
-                            <th> Category Name </th>
-                            <th> Created </th>
-                            <th> Last Updated </th>
-                            <th></th>
-                            <th></th>
+                            <th>Project Name</th>
+                            <td>{{$project->name}}</td>
                         </tr>
-                        </thead>
-                        <tbody>
-                        @php
-                            $i = 0;
-                        @endphp
-                        @forelse($categories as $category)
-                            <tr>
-                                <td> {{ ++$i }} </td>
-                                <td><a href="{{ route('admin.categories.show', $category->id) }}"> {{ $category->name }}</a> </td>
-                                <td> {{ $category->created_at }} </td>
-                                <td class="d-none">
-                                    {{ $category->updated_at }}
-                                </td>
-                                <td>
-                                    <form action="{{ route('admin.categories.destroy',$category->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
 
-                                        <a class="btn btn-primary" href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>
+                        <tr>
+                            <th>Project Type</th>
+                            <td>{{$project->type->name}}</td>
+                        </tr>
 
-                                        @if($category->childCategories->count() > 0)
-                                            <a class="btn btn-danger btn-outline sbold uppercase " id="demo_5"> Delete </a>
-                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase hidden-button" id="delete_category">Delete</button>
-                                        @else
-                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
-                                        @endif
+                        <tr>
+                            <th>Number of Tasks</th>
+                            <td>{{$project->quantity}}</td>
+                        </tr>
 
-                                    </form>
-                                </td>
-                            </tr>
-                        @empty
-                            <h3> No Sub-Categories Found</h3>
-                        @endforelse
-                        </tbody>
+                        <tr>
+                            <th>Category</th>
+                            <td>{{$project->category->name}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Complaint Type</th>
+                            <td>{{$project->level->name}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Created</th>
+                            <td>{{$project->created_at}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Last Update</th>
+                            <td>{{$project->updated_at}}</td>
+                        </tr>
+
                     </table>
-                    <div class="text-center">
-                        {{$categories->links()}}
-                    </div>
+
+                    <h3 >Description</h3>
+                    <div class="description">{!! $project->description !!}</div>
 
                 </div>
             </div>
         </div>
+    </div>
 @endsection
-
