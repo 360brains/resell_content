@@ -69,7 +69,11 @@
                                     </td>
                                 </tr>
                                 @empty
-                                <h3> No Categories Found</h3>
+                                <tr>
+                                    <td colspan="9">
+                                        Data Not Found
+                                    </td>
+                                </tr>
                             @endforelse
                         </tbody>
                     </table>

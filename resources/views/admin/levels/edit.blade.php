@@ -42,7 +42,7 @@
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="name" value="{{$level->name}}" class="form-control" id="form_control_1" placeholder="Enter Level Name">
-                                        <label for="form_control_1">Level Name</label>
+                                        <label>Level Name</label>
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="description" value="{{$level->description}}" class="form-control" id="form_control_1" placeholder="Enter Description">
-                                        <label for="form_control_1">Description</label>
+                                        <label>Description</label>
                                     </div>
                                 </div>
                             </div>

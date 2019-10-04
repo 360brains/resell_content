@@ -42,7 +42,7 @@
 
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Category Name">
-                                        <label for="form_control_1">Category Name</label>
+                                        <label>Category Name</label>
                                     </div>
                                     <div class="form-group form-md-line-input">
 
@@ -55,7 +55,7 @@
 
                                         </select>
 
-                                        <label for="form_control_1">Super Category</label>
+                                        <label>Super Category</label>
                                         <span class="help-block">Select a super category if it is a sub category...</span>
                                     </div>
                                 </div>
