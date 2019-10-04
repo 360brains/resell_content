@@ -79,7 +79,8 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        $data['project'] = $project;
+        return view('admin.projects.show', $data);
     }
 
     /**
