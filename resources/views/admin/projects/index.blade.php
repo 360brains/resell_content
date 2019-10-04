@@ -14,9 +14,7 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ route('admin.projects.create') }}" class="btn red btn-sm" > <b>Add</b>
-{{--                    <i class="fa fa-backward"></i>--}}
-                </a>
+                <a href="{{ route('admin.projects.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b></a>
             </div>
         </div>
 
@@ -33,7 +31,7 @@
                     <table class="table table-bordered table-striped flip-content">
                         <thead class="flip-content">
                         <tr>
-                            <th width="20%"> Sr No. </th>
+                            <th width="75px"> Sr No. </th>
                             <th> Projects Name </th>
                             <th> Quantity </th>
                             <th> Type </th>

@@ -18,9 +18,7 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b>Back</b>
-                    <i class="fa fa-backward"></i>
-                </a>
+                <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b> <i class="fa fa-backward"></i> Back</b></a>
             </div>
         </div>
 
