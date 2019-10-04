@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-//use App\Models\Type;
+use App\Models\Type;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,8 +28,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //$data['types'] = $pr->projectType();
-        return view("admin.projects.create");
+        $data['types'] = Type::all();
+        return view("admin.projects.create", $data);
     }
 
     /**
