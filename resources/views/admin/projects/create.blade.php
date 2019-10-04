@@ -52,21 +52,19 @@
                                         <label for="form_control_2">Quantity</label>
                                     </div>
                                 </div>
-                                <!--
                                 <div class="form-group form-md-line-input">
                                     <select class="form-control" name="type">
                                         <option value="">Select type of project</option>
 
-{{--                                        @foreach($projects as $project)--}}
-{{--                                            <option value="{{ $project->projectType->id }}">{{ $project->projectType->name }}</option>--}}
-{{--                                        @endforeach--}}
+                                        @foreach($types as $type)
+                                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                        @endforeach
 
                                     </select>
 
                                     <label for="form_control_1">Super Type</label>
                                     <span class="help-block">Select a type of the project...</span>
                                 </div>
-                                -->
 
                             </div>
 
