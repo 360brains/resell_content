@@ -9,7 +9,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Categories</span>
+                <span>Test</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -25,8 +25,8 @@
         </div>
 
     </div>
-    <h3 class="page-title">Categories
-        <small>Create Category</small>
+    <h3 class="page-title">Tests
+        <small>Create Test</small>
     </h3>
 
     <div class="row">

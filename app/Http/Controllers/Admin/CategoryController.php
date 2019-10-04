@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         //$categories = Category::orderBy('name', 'asc')->paginate();
-        $data['categories'] = Category::orderBy('name', 'asc')->paginate();
+        $data['categories'] = Category::orderBy('name', 'asc')->paginate(4);
         return view('admin.categories.index', $data);
     }
 
@@ -27,7 +27,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view("admin.categories.create");
+        $data['categories'] = Category::orderBy('name', 'asc')->get();
+        return view("admin.categories.create", $data);
     }
 
     /**
@@ -64,7 +65,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $data['categories'] = $category->child_categories()->paginate(20);
+        return view("admin.categories.show", $data);
     }
 
     /**
@@ -75,6 +77,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        $data['categories'] = Category::orderBy('name', 'asc')->get();
         $data['category'] = $category;
         return view('admin.categories.edit', $data);
     }

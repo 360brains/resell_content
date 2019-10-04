@@ -9,11 +9,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Categories</span>
+                <span>Tests</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Create</span>
+                <span>Edit</span>
             </li>
         </ul>
         <div class="page-toolbar">
@@ -25,8 +25,8 @@
         </div>
 
     </div>
-    <h3 class="page-title">Categories
-        <small>Create Category</small>
+    <h3 class="page-title">Test
+        <small>Edit</small>
     </h3>
 
     <div class="row">
@@ -36,14 +36,15 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route('admin.categories.store') }}" method="post">
+                    <form action="{{ route('admin.categories.update', $category->id) }}" method="post">
                         @csrf
+                        {{ method_field('PATCH') }}
+
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Category Name">
+                                        <input type="text" name="name" value="{{ $category->name }}" class="form-control" id="form_control_1" placeholder="Enter Category Name">
                                         <label for="form_control_1">Category Name</label>
                                     </div>
                                     <div class="form-group form-md-line-input">
@@ -67,8 +68,8 @@
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <input type="submit" class="btn green" value="Submit">
-                                    <a href="javascript:;" class="btn default">Cancel</a>
+                                    <button type="submit" class="btn green">Submit</button>
+                                    <button type="reset" class="btn default">Cancel</button>
                                 </div>
                             </div>
                         </div>
