@@ -18,8 +18,7 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ route('admin.categories.create') }}" class="btn red btn-sm" > <b>Add</b>
-                    {{--                    <i class="fa fa-backward"></i>--}}
+                <a href="{{ route('admin.categories.create') }}" class="btn red btn-sm" > <b><i class="fa fa-backward"></i> Add</b>
                 </a>
             </div>
         </div>
