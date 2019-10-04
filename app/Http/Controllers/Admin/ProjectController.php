@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Level;
+use App\Models\Category;
 use App\Models\Type;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -28,7 +30,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $data['types'] = Type::all();
+        $data['types'] = Type::get();
+        $data['categories'] = Category::get();
+        //$data['levels'] = Level::all();
         return view("admin.projects.create", $data);
     }
 
@@ -46,6 +50,8 @@ class ProjectController extends Controller
             'description'   => 'required',
             'level'         => 'required',
         ]);
+
+        $name = $request->name;
 
         $response = Project::create($request->all());
 

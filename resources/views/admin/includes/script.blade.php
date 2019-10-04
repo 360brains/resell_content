@@ -1,5 +1,10 @@
 <script>
 
+
+    $(".summernote").summernote({
+        height: 300
+    })
+
     $('.device').change(function(){
         var deviceID = $(this).val();
         if(deviceID){
