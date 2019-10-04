@@ -59,7 +59,6 @@
                                         </select>
 
                                         <label for="form_control_1">Super Category</label>
-                                        <span class="help-block">Select a super category if it is a sub category...</span>
                                     </div>
                                 </div>
                             </div>

@@ -79,6 +79,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        $data['types'] = Type::get();
+        $data['categories'] = Category::get();
+        $data['levels'] = Level::all();
         $data['project'] = $project;
         return view('admin.projects.show', $data);
     }
@@ -91,7 +94,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        $data['project'] = $project;
+        return view('admin.projects.edit', $data);
     }
 
     /**

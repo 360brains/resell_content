@@ -64,8 +64,13 @@
                         </tr>
 
                         <tr>
-                            <th>Complaint Type</th>
+                            <th>User Level for Project</th>
                             <td>{{$project->level->name}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Deadline</th>
+                            <td>{{$project->deadline ?? 'None'}}</td>
                         </tr>
 
                         <tr>
