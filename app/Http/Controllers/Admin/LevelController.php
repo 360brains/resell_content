@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Level;
+use App\Models\Level;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -26,7 +26,7 @@ class LevelController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.levels.create");
     }
 
     /**
@@ -37,7 +37,18 @@ class LevelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $response = Level::create($request->all());
+
+        if ($response){
+            return redirect()->route('admin.categories.index')->with("success", "Category created successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 
     /**
@@ -82,6 +93,12 @@ class LevelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $response = Level::findOrFail($id)->delete();
+
+        if ($response){
+            return redirect()->route('admin.levels.index')->with("success", "Category deleted successfully.");
+        }else{
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
     }
 }

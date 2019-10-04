@@ -9,7 +9,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Categories</span>
+                <span>Levels</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -25,8 +25,8 @@
         </div>
 
     </div>
-    <h3 class="page-title">Categories
-        <small>Create Category</small>
+    <h3 class="page-title">Levels
+        <small>Create Level</small>
     </h3>
 
     <div class="row">
@@ -36,14 +36,22 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route('admin.categories.store') }}" method="post">
+                    <form action="{{ route('admin.levels.store') }}" method="post">
                         @csrf
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Category Name">
-                                        <label for="form_control_1">Category Name</label>
+                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Level Name">
+                                        <label for="form_control_1">Level Name</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group form-md-line-input">
+                                        <input type="text" name="description" class="form-control" id="form_control_1" placeholder="Enter Description">
+                                        <label for="form_control_1">Description</label>
                                     </div>
                                 </div>
                             </div>

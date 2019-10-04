@@ -15,14 +15,14 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="" class="btn red btn-sm" > <b>Add</b>
+                <a href="{{ route('admin.levels.create') }}" class="btn red btn-sm" > <b>Add</b>
 {{--                    <i class="fa fa-backward"></i>--}}
                 </a>
             </div>
         </div>
 
     </div>
-    <h3 class="page-title">:Levels
+    <h3 class="page-title">Levels
     </h3>
 
     <div class="row">
@@ -55,11 +55,11 @@
                                     <td> {{ $level->created_at }} </td>
                                     <td> {{ $level->updated_at }} </td>
                                     <td>
-                                        <form action="" method="POST">
+                                        <form action="{{ route('admin.levels.destroy',$level->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 
-                                            <a class="btn btn-primary" href="">Edit</a>
+                                            <a class="btn btn-primary" href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
 
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
