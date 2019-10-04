@@ -15,8 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('name', 'asc')->paginate();
-        return view('admin.categories.index', $categories);
+        //$categories = Category::orderBy('name', 'asc')->paginate();
+        $data['categories'] = Category::orderBy('name', 'asc')->paginate(4);
+        return view('admin.categories.index', $data);
     }
 
     /**
@@ -26,7 +27,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view("admin.categories.create");
+        $data['categories'] = Category::orderBy('name', 'asc')->get();
+        return view("admin.categories.create", $data);
     }
 
     /**
@@ -46,7 +48,13 @@ class CategoryController extends Controller
 //
 //        $response = $category->save();
 
-        Category::create($request->all());
+        $response = Category::create($request->all());
+
+        if ($response){
+            return redirect()->route('admin.categories.index')->with("success", "Category created successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 
     /**
@@ -57,7 +65,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $data['categories'] = $category->child_categories()->paginate(20);
+        return view("admin.categories.show", $data);
     }
 
     /**
@@ -68,7 +77,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', $category);
+        $data['categories'] = Category::orderBy('name', 'asc')->get();
+        $data['category'] = $category;
+        return view('admin.categories.edit', $data);
     }
 
     /**
@@ -80,7 +91,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $response = $category->update($request->all());
+
+        if ($response){
+            return redirect()->route('admin.categories.index')->with("success", "Category updated successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 
     /**
@@ -91,6 +112,13 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $response = $category->delete();
+
+        if ($response){
+            return redirect()->route('admin.categories.index')->with("success", "Category deleted successfully.");
+        }else{
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
     }
+
 }

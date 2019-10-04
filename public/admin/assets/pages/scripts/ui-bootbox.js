@@ -3,21 +3,21 @@ var UIBootbox = function () {
     var handleDemo = function() {
 
         $('#demo_1').click(function(){
-                bootbox.alert("Hello world!");    
+                bootbox.alert("Hello world!");
             });
             //end #demo_1
 
             $('#demo_2').click(function(){
                 bootbox.alert("Hello world!", function() {
                     alert("Hello world callback");
-                });  
+                });
             });
             //end #demo_2
-        
+
             $('#demo_3').click(function(){
                 bootbox.confirm("Are you sure?", function(result) {
                    alert("Confirm result: "+result);
-                }); 
+                });
             });
             //end #demo_3
 
@@ -34,28 +34,20 @@ var UIBootbox = function () {
 
             $('#demo_5').click(function(){
                 bootbox.dialog({
-                    message: "I am a custom dialog",
-                    title: "Custom title",
+                    message: "This category contains sub-categories. Are you sure you want to delete this category and the sub-caegories?",
+                    title: "Contains sub-categories!",
                     buttons: {
                       success: {
-                        label: "Success!",
+                        label: "Cancel",
                         className: "green",
                         callback: function() {
-                          alert("great success");
                         }
                       },
                       danger: {
-                        label: "Danger!",
+                        label: "Delete",
                         className: "red",
                         callback: function() {
-                          alert("uh oh, look out!");
-                        }
-                      },
-                      main: {
-                        label: "Click ME!",
-                        className: "blue",
-                        callback: function() {
-                          alert("Primary button");
+                          $('#delete_category').click();
                         }
                       }
                     }
@@ -75,6 +67,6 @@ var UIBootbox = function () {
 
 }();
 
-jQuery(document).ready(function() {    
+jQuery(document).ready(function() {
    UIBootbox.init();
 });

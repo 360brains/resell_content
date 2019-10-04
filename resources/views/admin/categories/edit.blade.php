@@ -25,8 +25,8 @@
         </div>
 
     </div>
-    <h3 class="page-title">Categories
-        <small>Edit Category</small>
+    <h3 class="page-title">Category
+        <small>Edit</small>
     </h3>
 
     <div class="row">
@@ -47,6 +47,20 @@
                                         <input type="text" name="name" value="{{ $category->name }}" class="form-control" id="form_control_1" placeholder="Enter Category Name">
                                         <label for="form_control_1">Category Name</label>
                                     </div>
+                                    <div class="form-group form-md-line-input">
+
+                                        <select class="form-control" name="parent_id">
+                                            <option value="">Select a Super Category</option>
+
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+
+                                        </select>
+
+                                        <label for="form_control_1">Super Category</label>
+                                        <span class="help-block">Select a super category if it is a sub category...</span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -54,8 +68,8 @@
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <input type="submit" class="btn green" value="Submit">
-                                    <a href="javascript:;" class="btn default">Cancel</a>
+                                    <button type="submit" class="btn green">Submit</button>
+                                    <button type="reset" class="btn default">Cancel</button>
                                 </div>
                             </div>
                         </div>
