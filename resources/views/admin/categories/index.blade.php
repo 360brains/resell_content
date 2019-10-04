@@ -10,7 +10,6 @@
             </li>
             <li>
                 <span>Categories</span>
-                <i class="fa fa-circle"></i>
             </li>
         </ul>
         <div class="page-toolbar">
@@ -38,6 +37,7 @@
                             <th> Category Name </th>
                             <th> Created </th>
                             <th> Last Updated </th>
+                            <th> Super Category </th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -49,9 +49,10 @@
                             @forelse($categories as $category)
                                 <tr>
                                     <td> {{ ++$i }} </td>
-                                    <td> {{ $category->name }} </td>
+                                    <td><a href="{{ route('admin.categories.show', $category->id) }}"> {{ $category->name }} </a></td>
                                     <td> {{ $category->created_at }} </td>
                                     <td> {{ $category->updated_at }} </td>
+                                    <td>{{ $category->parent_category->name ?? 'None' }}</td>
                                     <td>
                                         <form action="{{ route('admin.categories.destroy',$category->id) }}" method="POST">
                                             @csrf
@@ -59,20 +60,23 @@
 
                                             <a class="btn btn-primary" href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>
 
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            @if($category->child_categories->count() > 0)
+                                                <a class="btn btn-danger btn-outline sbold uppercase " id="demo_5"> Delete </a>
+                                                <button type="submit" class="btn btn-danger btn-outline sbold uppercase hidden-button" id="delete_category">Delete</button>
+                                            @else
+                                                <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
+                                            @endif
                                         </form>
                                     </td>
                                 </tr>
                                 @empty
-                                    No Categories Found
+                                <h3> No Categories Found</h3>
                             @endforelse
-
                         </tbody>
                     </table>
-
-                </div>
-
-
+                    <div class="text-center">
+                    {{$categories->links()}}
+                    </div>
             </div>
         </div>
     </div>
