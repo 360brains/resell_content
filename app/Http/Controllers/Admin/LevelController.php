@@ -16,7 +16,7 @@ class LevelController extends Controller
      */
     public function index()
     {
-        $data['levels'] = Level::orderBy('name', 'asc')->paginate(10);
+        $data['levels'] = Level::with('types')->orderBy('name', 'asc')->paginate(10);
         return view('admin.levels.index', $data);
     }
 
@@ -102,14 +102,12 @@ class LevelController extends Controller
             'active'        => 'required',
         ]);
 
-        $data = [
-            'name'          => $request->name,
-            'description'   => $request->description,
-            'type_id'       => $request->type_id,
-            'active'        => $request->active,
-        ];
+            $level->name          = $request->name;
+            $level->description   = $request->description;
+            $level->type_id       = $request->type_id;
+            $level->active        = $request->active;
 
-        $response = Level::update($data);
+        $response = $level->save();
 
         if ($response){
             return redirect()->route('admin.levels.index')->with("success", "Successfully Completed.");
@@ -126,6 +124,14 @@ class LevelController extends Controller
      */
     public function destroy(Level $level)
     {
-        //
+
+        $level->active  = $level->active == 0 ? 1 : 0;
+        $response       = $level->save();
+
+        if ($response){
+            return redirect()->route('admin.levels.index')->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
     }
 }

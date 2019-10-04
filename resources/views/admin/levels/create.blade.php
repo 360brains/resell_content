@@ -42,32 +42,23 @@
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Level Name">
-                                        <label for="form_control_1">Level Name</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Level Name">
+                                        <label>Level Name</label>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="description" class="form-control" id="form_control_1" placeholder="Enter Description">
-                                        <label for="form_control_1">Description</label>
+                                        <label>Description</label>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                <div class="form-group form-md-line-input">
-                                    <select class="form-control" name="active">
-                                        <option value="">Status</option>
+
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="active">
+                                            <option value="">Status</option>
                                             <option value="1">Active</option>
                                             <option value="0">Deactive</option>
-                                    </select>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
+                                        </select>
+                                        <label>Status</label>
+                                    </div>
+
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="type_id">
                                             <option value="">Select a Type</option>
@@ -75,10 +66,10 @@
                                                 <option value="{{ $type->id }}">{{ $type->name }}</option>
                                             @endforeach
                                         </select>
+                                        <label>Type</label>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <div class="form-actions">
                             <div class="row">
