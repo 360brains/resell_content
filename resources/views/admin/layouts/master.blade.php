@@ -8,7 +8,7 @@
 @include('admin.includes.head')
 <!-- END HEAD -->
 
-<body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-content-white page-md">
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md">
 
 <div id="app">
     <!-- BEGIN HEADER -->

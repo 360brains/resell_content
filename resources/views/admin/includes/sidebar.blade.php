@@ -66,6 +66,21 @@
                     <span class="title">Sub Categories</span>
                 </a>
             </li>
+            <li class="nav-item  ">
+                <a href="{{ route('admin.levels.index') }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Levels</span>
+                </a>
+            </li>
+
+{{--            <li class="nav-item">--}}
+{{--                <a href="{{ route('admin.levels') }}" class="nav-link nav-toggle">--}}
+{{--                    <i class="icon-home"></i>--}}
+{{--                    <span class="title">Levels</span>--}}
+{{--                    <span class="selected"></span>--}}
+{{--                    <span class="arrow open"></span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
 
             <li class="nav-item  ">
                 <a href="{{ route('admin.projects.index') }}" class="nav-link nav-toggle">
