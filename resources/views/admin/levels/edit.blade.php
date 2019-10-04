@@ -9,7 +9,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Categories</span>
+                <span>Levels</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -25,10 +25,9 @@
         </div>
 
     </div>
-    <h3 class="page-title">Categories
-        <small>Edit Category</small>
+    <h3 class="page-title">Levels
+        <small>Edit Level</small>
     </h3>
-
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN VALIDATION STATES-->
@@ -36,7 +35,7 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route('admin.categories.update', $category->id) }}" method="post">
+                    <form action="{{ route('admin.levels.update', $level->id) }}" method="post">
                         @csrf
                         {{ method_field('PATCH') }}
 
@@ -44,8 +43,39 @@
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" value="{{ $category->name }}" class="form-control" id="form_control_1" placeholder="Enter Category Name">
-                                        <label for="form_control_1">Category Name</label>
+                                        <input type="text" name="name" value="{{$level->name}}" class="form-control" id="form_control_1" placeholder="Enter Level Name">
+                                        <label for="form_control_1">Level Name</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group form-md-line-input">
+                                        <input type="text" name="description" value="{{$level->description}}" class="form-control" id="form_control_1" placeholder="Enter Description">
+                                        <label for="form_control_1">Description</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="active" value="">
+                                            <option value="">Status</option>
+                                            <option value="1" {{ $level->active = 1 ? 'selected' : ''}}>Active</option>
+                                            <option value="0" {{ $level->active = 0 ? 'selected' : ''}}>Deactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="type_id">
+                                            <option value="">Select a Type</option>
+                                            @foreach($types as $type)
+                                                <option value="{{ $type->id }}" {{ $type->id ==  $level->type_id ? 'selected' : '' }}>{{ $type->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>

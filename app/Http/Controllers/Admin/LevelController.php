@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Level;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -26,7 +27,8 @@ class LevelController extends Controller
      */
     public function create()
     {
-        return view("admin.levels.create");
+        $data['types'] = Type::get();
+        return view("admin.levels.create", $data);
     }
 
     /**
@@ -38,14 +40,23 @@ class LevelController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'description' => 'required',
+            'name'          => 'required',
+            'description'   => 'required',
+            'type_id'       => 'required',
+            'active'        => 'required',
         ]);
 
-        $response = Level::create($request->all());
+        $data = [
+            'name'          => $request->name,
+            'description'   => $request->description,
+            'type_id'       => $request->type_id,
+            'active'        => $request->active,
+        ];
+
+        $response = Level::create($data);
 
         if ($response){
-            return redirect()->route('admin.categories.index')->with("success", "Category created successfully.");
+            return redirect()->route('admin.levels.index')->with("success", "Successfully Completed.");
         }else{
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
@@ -54,10 +65,10 @@ class LevelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Level  $level
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Level $level)
     {
         //
     }
@@ -65,40 +76,56 @@ class LevelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Level  $level
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Level $level)
     {
-        //
+        $data['level'] = $level;
+        $data['types'] = Type::get();
+        return view('admin.levels.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Level  $level
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Level $level)
     {
-        //
+        $request->validate([
+            'name'          => 'required',
+            'description'   => 'required',
+            'type_id'       => 'required',
+            'active'        => 'required',
+        ]);
+
+        $data = [
+            'name'          => $request->name,
+            'description'   => $request->description,
+            'type_id'       => $request->type_id,
+            'active'        => $request->active,
+        ];
+
+        $response = Level::update($data);
+
+        if ($response){
+            return redirect()->route('admin.levels.index')->with("success", "Successfully Completed.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Level  $level
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Level $level)
     {
-        $response = Level::findOrFail($id)->delete();
-
-        if ($response){
-            return redirect()->route('admin.levels.index')->with("success", "Category deleted successfully.");
-        }else{
-            return redirect()->back()->with("error", "Something went wrong. Please try again.");
-        }
+        //
     }
 }

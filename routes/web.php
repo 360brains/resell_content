@@ -22,8 +22,10 @@ Auth::routes();
 Route::get('admin/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'admin', 'as' => 'admin.'], function (){
+
     Route::resource('categories', 'CategoryController');
     Route::resource('projects', 'ProjectController');
     Route::resource('levels', 'LevelController');
     Route::resource('tests', 'TestController');
+
 });
