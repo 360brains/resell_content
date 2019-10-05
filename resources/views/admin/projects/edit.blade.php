@@ -36,6 +36,8 @@
                     <!-- BEGIN FORM-->
                     <form action="{{ route('admin.projects.update', $project->id) }}" method="post">
                         @csrf
+                        {{ method_field('PATCH') }}
+
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
@@ -51,7 +53,7 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="type">
+                                        <select class="form-control" id="form_control_1" name="type">
                                             <option value="">Select type of project</option>
                                             @foreach($types as $type)
                                                 <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : ''}}>{{ $type->name }}</option>
@@ -61,12 +63,12 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="date" name="deadline" value="{{ $project->deadline }} class="form-control" id="form_control_1" placeholder="Give a deadline">
+                                        <input type="date" name="deadline" value="{{ $project->deadline }}" class="form-control date-picker " id="form_control_1" placeholder="Give a deadline">
                                         <label for="form_control_1">Project Deadline</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="category">
+                                        <select class="form-control" id="form_control_1" name="category">
                                             <option value="">Select Category of project</option>
                                             @foreach($categories as $category)
                                                 <option value="{{ $category->id }}" {{ $project->id == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
@@ -76,7 +78,7 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="level">
+                                        <select class="form-control" id="form_control_1" name="level">
                                             <option value="">Select User Level for the project</option>
                                             @foreach($levels as $level)
                                                 <option value="{{ $level->id }}" {{ $project->id == $level->id ? 'selected' : ''}}>{{ $level->name }}</option>
@@ -86,11 +88,12 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="active">
+                                        <select class="form-control" id="form_control_1" name="active">
                                             <option value="">Status</option>
                                             <option value="1" {{ $project->active = 1 ? 'selected' : ''}}>Active</option>
                                             <option value="0" {{ $project->active = 0 ? 'selected' : ''}}>Deactive</option>
                                         </select>
+                                        <label for="form_control_1">Project Status</label>
                                     </div>
 
                                     <div class="portlet-body form">

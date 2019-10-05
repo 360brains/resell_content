@@ -79,9 +79,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        $data['types'] = Type::get();
-        $data['categories'] = Category::get();
-        $data['levels'] = Level::all();
         $data['project'] = $project;
         return view('admin.projects.show', $data);
     }
@@ -94,6 +91,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        $data['types'] = Type::get();
+        $data['categories'] = Category::get();
+        $data['levels'] = Level::all();
         $data['project'] = $project;
         return view('admin.projects.edit', $data);
     }
@@ -107,7 +107,31 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $request->validate([
+            'name'          => 'required',
+            'type'          => 'required',
+            'description'   => 'required',
+            'level'         => 'required',
+        ]);
+
+        $data = [
+            'name'         => $request->name,
+            'quantity'     => $request->quantity,
+            'type_id'      => $request->type,
+            'deadline'     => $request->deadline,
+            'category_id'  => $request->category,
+            'level_id'     => $request->level,
+            'description'  => $request->description,
+            'active'       => $request->active,
+        ];
+
+        $response = $project->update($data);
+
+        if ($response){
+            return redirect()->route('admin.projects.index')->with("success", "Completed successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 
     /**
@@ -118,6 +142,16 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $data = [
+            'active'     => 0,
+        ];
+
+        $response = $project->update($data);
+
+        if ($response){
+            return redirect()->route('admin.projects.index')->with("success", "Completed successfully.");
+        }else{
+            return redirect()->back()->withInput($project->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 }

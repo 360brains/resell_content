@@ -34,7 +34,7 @@
                             <th width="75px"> Sr No. </th>
                             <th> Projects Name </th>
                             <th> No. of Tasks </th>
-                            <th> Type </th>
+                            <th> Type
                             <th> Deadline </th>
                             <th> Category </th>
                             <th> Level </th>
@@ -55,7 +55,7 @@
                                     <td> {{ $project->deadline }} </td>
                                     <td> {{ $project->category->name }} </td>
                                     <td> {{ $project->level->name }} </td>
-                                    <td> abc </td>
+                                    <td> {{ $project->active = 1 ? 'Active' : 'Deactive'}} </td>
                                     <td>
                                         <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
                                             @csrf
