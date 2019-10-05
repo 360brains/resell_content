@@ -32,7 +32,7 @@ class ProjectController extends Controller
     {
         $data['types'] = Type::get();
         $data['categories'] = Category::get();
-        $data['levels'] = Level::all();
+        $data['levels'] = Level::get();
         return view("admin.projects.create", $data);
     }
 

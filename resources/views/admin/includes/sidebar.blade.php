@@ -75,6 +75,11 @@
                     <i class="icon-layers"></i>
                     <span class="title">Projects</span>
                 </a>
+            <li class="nav-item  ">
+                <a href="{{ route('admin.tasks.index') }}" class="nav-link nav-toggle">
+                    <i class="icon-layers"></i>
+                    <span class="title">Tasks</span>
+                </a>
                 <!--
                 <ul class="sub-menu">
                     <li class="nav-item  ">
