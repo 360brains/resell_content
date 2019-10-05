@@ -37,46 +37,42 @@
                             <th> Type </th>
                             <th> Created </th>
                             <th> Last Updated </th>
-                            <th></th>
-                            <th></th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @php
-                        $i = 0;
+                            $i = 0;
                         @endphp
-                            @forelse($levels as $level)
-                                <tr>
-                                    <td> {{ ++$i }} </td>
-                                    <td> {{ $level->name }} </td>
-                                    <td> {{ $level->types->name }} </td>
-                                    <td> {{ $level->created_at }} </td>
-                                    <td> {{ $level->updated_at }} </td>
-                                    <td>
-                                        <form action="{{ route('admin.levels.destroy',$level->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
+                        @forelse($levels as $level)
+                            <tr>
+                                <td> {{ ++$i }} </td>
+                                <td> {{ $level->name }} </td>
+                                <td> {{ $level->types->name }} </td>
+                                <td> {{ $level->created_at }} </td>
+                                <td> {{ $level->updated_at }} </td>
+                                <td>
+                                    <form action="{{ route('admin.levels.destroy',$level->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
 
-                                            <a class="btn btn-primary" href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
+                                        <a class="btn btn-primary" href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
 
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="6">
-                                        Data Not Found
-                                    </td>
-                                </tr>
-                            @endforelse
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="6">
+                                    Data Not Found
+                                </td>
+                            </tr>
+                        @endforelse
 
                         </tbody>
                     </table>
-
                 </div>
-
-
             </div>
         </div>
     </div>
