@@ -16,7 +16,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span> Project</span>
+                <span> Traininga</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -33,7 +33,7 @@
 
     </div>
 
-    <h3 class="page-title">Details of <b>{{ $project->name }}</b>
+    <h3 class="page-title">Details of <b>{{ $trainings->name }}</b>
     </h3>
 
     <div class="row">
@@ -43,49 +43,44 @@
                 <div class="portlet-body">
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
-                            <th>Project Name</th>
-                            <td>{{$project->name}}</td>
+                            <th>Test Name</th>
+                            <td>{{$trainings->name}}</td>
                         </tr>
 
                         <tr>
-                            <th>Project Type</th>
-                            <td>{{$project->type->name}}</td>
+                            <th>Test Type</th>
+                            <td>{{$trainings->types->name}}</td>
                         </tr>
 
                         <tr>
-                            <th>Number of Tasks</th>
-                            <td>{{$project->quantity}}</td>
+                            <th>Test Level</th>
+                            <td>{{$trainings->levels->name}}</td>
                         </tr>
 
                         <tr>
-                            <th>Category</th>
-                            <td>{{$project->category->name}}</td>
+                            <th>Fee</th>
+                            <td>{{$trainings->fee}}</td>
                         </tr>
 
                         <tr>
-                            <th>User Level for Project</th>
-                            <td>{{$project->level->name}}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Deadline</th>
-                            <td>{{$project->deadline ?? 'None'}}</td>
+                            <th>Status</th>
+                            <td>{{$trainings->active==1?'Active':'Deactive'}}</td>
                         </tr>
 
                         <tr>
                             <th>Created</th>
-                            <td>{{$project->created_at}}</td>
+                            <td>{{$trainings->created_at}}</td>
                         </tr>
 
                         <tr>
                             <th>Last Update</th>
-                            <td>{{$project->updated_at}}</td>
+                            <td>{{$trainings->updated_at}}</td>
                         </tr>
 
                     </table>
 
                     <h3 >Description</h3>
-                    <div class="description">{!! $project->description !!}</div>
+                    <div class="description">{!! $trainings->description !!}</div>
 
                 </div>
             </div>

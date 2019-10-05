@@ -35,10 +35,10 @@
                             <th width="75px"> Sr No. </th>
                             <th> Level Name </th>
                             <th> Type </th>
+                            <th> Status </th>
                             <th> Created </th>
                             <th> Last Updated </th>
-                            <th></th>
-                            <th></th>
+                            <th> Action </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -50,15 +50,15 @@
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $level->name }} </td>
                                     <td> {{ $level->types->name }} </td>
+                                    <td> {{ $level->active == 1 ? 'Active' : 'Deactive' }} </td>
                                     <td> {{ $level->created_at }} </td>
                                     <td> {{ $level->updated_at }} </td>
                                     <td>
                                         <form action="{{ route('admin.levels.destroy',$level->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-
+                                            <a class="btn btn-success" href="{{ route('admin.levels.show', $level->id) }}">Show</a>
                                             <a class="btn btn-primary" href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
-
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>

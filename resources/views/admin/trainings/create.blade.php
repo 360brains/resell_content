@@ -9,7 +9,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Levels</span>
+                <span>Trainings</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -18,13 +18,13 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b> <i class="fa fa-backward"></i> Back</b></a>
+                <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b><i class="fa fa-backward"></i> Back</b></a>
             </div>
         </div>
 
     </div>
-    <h3 class="page-title">Levels
-        <small>Create Level</small>
+    <h3 class="page-title">Test
+        <small>Create Training</small>
     </h3>
 
     <div class="row">
@@ -34,32 +34,48 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route('admin.levels.store') }}" method="post">
+                    <form action="{{ route('admin.trainings.store') }}" method="post">
                         @csrf
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
+
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" placeholder="Enter Level Name">
-                                        <label>Level Name</label>
-                                    </div>
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="active">
-                                            <option value="">Status</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Deactive</option>
-                                        </select>
-                                        <label>Status</label>
+                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Test Name">
+                                        <label>Training Name</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="type_id">
-                                            <option value="">Select a Type</option>
+                                        <input type="number" name="fee" class="form-control" id="mask_number form_control_1" placeholder="Enter Fee">
+                                        <label>Fee</label>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="type">
+                                            <option value="">Select type of Training</option>
                                             @foreach($types as $type)
                                                 <option value="{{ $type->id }}">{{ $type->name }}</option>
                                             @endforeach
                                         </select>
                                         <label>Type</label>
+                                    </div>
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="level">
+                                            <option value="">Select level of Training</option>
+                                            @foreach($levels as $level)
+                                                <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <label>Level</label>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="active">
+                                            <option value="">Select status of Training</option>
+                                                <option value="1">Active</option>
+                                                <option value="0">Deactive</option>
+                                        </select>
+                                        <label>Status</label>
                                     </div>
                                     <div class="form-group form-md-line-input">
                                         <textarea name="description" class="summernote" placeholder="Description"></textarea>

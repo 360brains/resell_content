@@ -97,6 +97,12 @@
                     <span class="title">Test</span>
                 </a>
             </li>
+            <li class="nav-item  ">
+                <a href="{{ route('admin.trainings.index') }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Trainings</span>
+                </a>
+            </li>
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->

@@ -16,7 +16,7 @@ class Level extends Model
     {
         return $this->hasMany(Test::class, 'type_id');
     }
-
-
-
+    public function trainings(){
+        return $this->hasMany(Training::class);
+    }
 }

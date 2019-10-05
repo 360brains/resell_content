@@ -70,7 +70,8 @@ class LevelController extends Controller
      */
     public function show(Level $level)
     {
-        //
+        $data['levels'] = $level;
+        return view('admin.levels.show', $data);
     }
 
     /**
@@ -107,7 +108,6 @@ class LevelController extends Controller
             $level->type_id       = $request->type_id;
             $level->active        = $request->active;
         $response = $level->save();
-
         if ($response){
             return redirect()->route('admin.levels.index')->with("success", "Successfully Completed.");
         }else{
