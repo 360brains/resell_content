@@ -32,6 +32,7 @@ class TaskController extends Controller
         $data['types']      = Type::get();
         $data['categories'] = Category::get();
         $data['levels']     = Level::get();
+
         return view("admin.tasks.create", $data);
     }
 
@@ -106,7 +107,31 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $request->validate([
+            'name'          => 'required',
+            'type'          => 'required',
+            'description'   => 'required',
+            'level'         => 'required',
+        ]);
+
+        $data = [
+            'name'         => $request->name,
+            'quantity'     => $request->quantity,
+            'type_id'      => $request->type,
+            'deadline'     => $request->deadline,
+            'category_id'  => $request->category,
+            'level_id'     => $request->level,
+            'description'  => $request->description,
+            'active'       => $request->active,
+        ];
+
+        $response = $task->update($data);
+
+        if ($response){
+            return redirect()->route('admin.tasks.index')->with("success", "Completed successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 
     /**
@@ -115,8 +140,15 @@ class TaskController extends Controller
      * @param  \App\Models\UserTask  $userTask
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $userTask)
+    public function destroy(Task $task)
     {
-        //
+        $task->active   = $task->active == 0 ? 1 : 0;
+        $response       = $task->save();
+
+        if ($response){
+            return redirect()->route('admin.tasks.index')->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
     }
 }

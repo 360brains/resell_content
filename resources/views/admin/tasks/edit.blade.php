@@ -83,16 +83,23 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="active">
+
+                                        <select class="form-control" id="form_control_1" name="active">
                                             <option value="">Status</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Deactive</option>
+                                            <option value="1" {{ $task->active = 1 ? 'selected' : ''}}>Active</option>
+                                            <option value="0" {{ $task->active = 0 ? 'selected' : ''}}>Deactive</option>
                                         </select>
                                         <label>Status</label>
                                     </div>
 
-                                    <div class="form-group form-md-line-input">
-                                        <textarea name="description" class="summernote" placeholder="Description"></textarea>
+
+                                    <div class="portlet-body form">
+                                        <div class="form-body">
+                                            <div class="form-group last">
+                                                <textarea name="description" class="summernote" cols="30" rows="10">{!! $task->description
+                                                 !!}</textarea>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
