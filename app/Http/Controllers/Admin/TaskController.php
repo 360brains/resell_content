@@ -64,7 +64,7 @@ class TaskController extends Controller
         $response = Task::create($data);
 
         if ($response){
-            return redirect()->route('admin.tasks.index')->with("success", "Completed successfully.");
+            return redirect()->route('admin.tasks.index')->with("success", "Completed Successfully.");
         }else{
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }

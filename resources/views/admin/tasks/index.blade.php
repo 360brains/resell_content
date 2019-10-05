@@ -61,7 +61,11 @@
 
                                             <a class="btn btn-success" href="{{ route('admin.tasks.show', $task->id) }}">Show</a>
                                             <a class="btn btn-primary" href="{{ route('admin.tasks.edit', $task->id) }}">Edit</a>
-                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
+                                            @if($task->active == 0)
+                                                <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>
+                                            @else
+                                                <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Inactive</button>
+                                            @endif
 
                                         </form>
                                     </td>

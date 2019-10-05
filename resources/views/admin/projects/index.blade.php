@@ -55,7 +55,7 @@
                                     <td> {{ $project->deadline }} </td>
                                     <td> {{ $project->category->name }} </td>
                                     <td> {{ $project->level->name }} </td>
-                                    <td> {{ $project->active = 1 ? 'Active' : 'Deactive'}} </td>
+                                    <td> {{ $project->active = 1 ? 'Active' : 'Inactive'}} </td>
                                     <td>
                                         <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
                                             @csrf
@@ -63,7 +63,11 @@
 
                                             <a class="btn btn-success" href="{{ route('admin.projects.show', $project->id) }}">Show</a>
                                             <a class="btn btn-primary" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
-                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
+                                            @if($project->active == 0)
+                                                <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>
+                                            @else
+                                                <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Inactive</button>
+                                            @endif
 
                                         </form>
                                     </td>

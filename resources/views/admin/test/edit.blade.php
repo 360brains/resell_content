@@ -74,7 +74,7 @@
                                         <select class="form-control" name="active">
                                             <option value="">Select status of test</option>
                                             <option value="1" {{ $test->active = 1 ? 'selected' : ''}}>Active</option>
-                                            <option value="0" {{ $test->active = 0 ? 'selected' : ''}}>Deactive</option>
+                                            <option value="0" {{ $test->active = 0 ? 'selected' : ''}}>Inactive</option>
                                         </select>
                                         <label>Status</label>
                                     </div>

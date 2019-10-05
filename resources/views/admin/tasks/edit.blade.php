@@ -91,7 +91,7 @@
                                         <select class="form-control" id="form_control_1" name="active">
                                             <option value="">Status</option>
                                             <option value="1" {{ $project->active = 1 ? 'selected' : ''}}>Active</option>
-                                            <option value="0" {{ $project->active = 0 ? 'selected' : ''}}>Deactive</option>
+                                            <option value="0" {{ $project->active = 0 ? 'selected' : ''}}>Inactive</option>
                                         </select>
                                         <label for="form_control_1">Project Status</label>
                                     </div>

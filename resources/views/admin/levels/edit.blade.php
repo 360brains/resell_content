@@ -60,7 +60,7 @@
                                         <select class="form-control" name="active" value="">
                                             <option value="">Status</option>
                                             <option value="1" {{ $level->active = 1 ? 'selected' : ''}}>Active</option>
-                                            <option value="0" {{ $level->active = 0 ? 'selected' : ''}}>Deactive</option>
+                                            <option value="0" {{ $level->active = 0 ? 'selected' : ''}}>Inactive</option>
                                         </select>
                                     </div>
                                 </div>

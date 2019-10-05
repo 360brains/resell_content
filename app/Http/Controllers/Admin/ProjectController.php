@@ -65,7 +65,7 @@ class ProjectController extends Controller
         $response = Project::create($data);
 
         if ($response){
-            return redirect()->route('admin.projects.index')->with("success", "Completed successfully.");
+            return redirect()->route('admin.projects.index')->with("success", "Completed Successfully.");
         }else{
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
@@ -128,7 +128,7 @@ class ProjectController extends Controller
         $response = $project->update($data);
 
         if ($response){
-            return redirect()->route('admin.projects.index')->with("success", "Completed successfully.");
+            return redirect()->route('admin.projects.index')->with("success", "Completed Successfully.");
         }else{
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
@@ -142,16 +142,13 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        $data = [
-            'active'     => 0,
-        ];
-
-        $response = $project->update($data);
+        $project->active    = $project->active == 0 ? 1 : 0;
+        $response           = $project->save();
 
         if ($response){
-            return redirect()->route('admin.projects.index')->with("success", "Completed successfully.");
+            return redirect()->back()->with("success", "Completed Successfully.");
         }else{
-            return redirect()->back()->withInput($project->all())->with("error", "Something went wrong. Please try again.");
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
         }
     }
 }

@@ -36,27 +36,31 @@
                             <th> Type </th>
                             <th> Level </th>
                             <th> Status </th>
-                            <th></th>
+                            <th> Action </th>
                         </tr>
                         </thead>
                         <tbody>
                         @php
                             $i = 0;
                         @endphp
-                        @forelse($test as $t)
+                        @forelse($tests as $test)
                             <tr>
                                 <td> {{ ++$i }} </td>
-                                <td> {{ $t->name }}</td>
-                                <td> {{ $t->types->name }} </td>
-                                <td> {{ $t->levels->name }} </td>
-                                <td>{{ $t->active == 0 ? 'Deactive':'Active' }}</td>
+                                <td> {{ $test->name }}</td>
+                                <td> {{ $test->types->name }} </td>
+                                <td> {{ $test->levels->name }} </td>
+                                <td> {{ $test->active == 0 ? 'Inactive':'Active' }} </td>
                                 <td>
-                                    <form action="{{ route('admin.test.destroy',$t->id) }}" method="POST">
+                                    <form action="{{ route('admin.test.destroy',$test->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
 
-                                        <a class="btn btn-primary" href="{{ route('admin.test.edit', $t->id) }}">Edit</a>
-                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
+                                        <a class="btn btn-primary" href="{{ route('admin.test.edit', $test->id) }}">Edit</a>
+                                        @if($test->active == 0)
+                                            <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>
+                                            @else
+                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Inactive</button>
+                                        @endif
                                     </form>
                                 </td>
                             </tr>

@@ -84,7 +84,7 @@
                                         <select class="form-control" name="active">
                                             <option value="">Status</option>
                                             <option value="1">Active</option>
-                                            <option value="0">Deactive</option>
+                                            <option value="0">Inactive</option>
                                         </select>
                                         <label>Status</label>
                                     </div>

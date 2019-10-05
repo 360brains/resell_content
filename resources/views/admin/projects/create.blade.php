@@ -61,7 +61,7 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="deadline" class="form-control date-picker" id="form_control_1" placeholder="Give a deadline">
+                                        <input type="text" name="deadline" class="form-control datetime" id="form_control_1" placeholder="Give a deadline">
                                         <label>Project Deadline</label>
                                     </div>
 
@@ -89,7 +89,7 @@
                                         <select class="form-control" name="active">
                                             <option value="">Status</option>
                                             <option value="1">Active</option>
-                                            <option value="0">Deactive</option>
+                                            <option value="0">Inactive</option>
                                         </select>
                                         <label>Status</label>
                                     </div>

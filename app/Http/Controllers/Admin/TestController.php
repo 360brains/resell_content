@@ -17,7 +17,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        $data['test'] = Test::with('types')->with('levels')->orderBy('name', 'asc')->paginate(10);
+        $data['tests'] = Test::with('types')->with('levels')->orderBy('name', 'asc')->paginate(10);
         return view('admin.test.index', $data);
     }
 
@@ -136,11 +136,11 @@ class TestController extends Controller
      */
     public function destroy(Test $test)
     {
-        $test->active  = $test->active == 0 ? 1 : 0;
+        $test->active   = $test->active == 0 ? 1 : 0;
         $response       = $test->save();
 
         if ($response){
-            return redirect()->route('admin.test.index')->with("success", "Completed Successfully.");
+            return redirect()->back()->with("success", "Completed Successfully.");
         }else{
             return redirect()->back()->with("error", "Something went wrong. Please try again.");
         }
