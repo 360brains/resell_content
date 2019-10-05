@@ -29,9 +29,9 @@ class TaskController extends Controller
      */
     public function create()
     {
-        $data['types'] = Type::get();
+        $data['types']      = Type::get();
         $data['categories'] = Category::get();
-        $data['levels'] = Level::get();
+        $data['levels']     = Level::get();
         return view("admin.tasks.create", $data);
     }
 
@@ -90,7 +90,11 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        $data['types']      = Type::get();
+        $data['categories'] = Category::get();
+        $data['levels']     = Level::get();
+        $data['task']       = $task;
+        return view("admin.tasks.edit", $data);
     }
 
     /**

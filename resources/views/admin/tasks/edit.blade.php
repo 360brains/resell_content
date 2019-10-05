@@ -9,7 +9,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Projects</span>
+                <span>Tasks</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -23,8 +23,8 @@
         </div>
 
     </div>
-    <h3 class="page-title">Projects
-        <small>Edit Project</small>
+    <h3 class="page-title">Tasks
+        <small>Edit Task</small>
     </h3>
 
     <div class="row">
@@ -34,7 +34,7 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route('admin.projects.update', $project->id) }}" method="post">
+                    <form action="{{ route('admin.tasks.update', $task->id) }}" method="post">
                         @csrf
                         {{ method_field('PATCH') }}
 
@@ -43,66 +43,56 @@
                                 <div class="col-md-8 col-md-offset-2">
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" value="{{ $project->name }}" class="form-control" id="form_control_1" placeholder="Enter Project Name">
-                                        <label for="form_control_1">Project Name</label>
+                                        <input type="text" name="name" value="{{ $task->name }}" class="form-control" id="form_control_1" placeholder="Enter Task Name">
+                                        <label>Task Name</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="number" name="quantity" value="{{ $project->quantity }}" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks">
-                                        <label for="form_control_1">Number of Tasks</label>
-                                    </div>
-
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="form_control_1" name="type">
-                                            <option value="">Select type of project</option>
+                                        <select class="form-control" name="type">
+                                            <option value="">Select Type of Task</option>
                                             @foreach($types as $type)
-                                                <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : ''}}>{{ $type->name }}</option>
+                                                <option value="{{ $type->id }}" {{ $task->type_id == $type->id ? 'selected' : ''}}>{{ $type->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label for="form_control_1">Project Type</label>
+                                        <label>Task Type</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="date" name="deadline" value="{{ $project->deadline }}" class="form-control date-picker " id="form_control_1" placeholder="Give a deadline">
-                                        <label for="form_control_1">Project Deadline</label>
+                                        <input type="text" name="deadline" value="{{ $task->deadline }}" class="form-control date-picker" id="form_control_1" placeholder="Give a deadline">
+                                        <label>Task Deadline</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="form_control_1" name="category">
-                                            <option value="">Select Category of project</option>
+                                        <select class="form-control" name="category">
+                                            <option value="">Select Category of Task</option>
                                             @foreach($categories as $category)
-                                                <option value="{{ $category->id }}" {{ $project->id == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                <option value="{{ $category->id }}" {{ $task->id == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label for="form_control_1">Project Category</label>
+                                        <label>Task Category</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="form_control_1" name="level">
-                                            <option value="">Select User Level for the project</option>
+                                        <select class="form-control" name="level">
+                                            <option value="">Select User Level for the Task</option>
                                             @foreach($levels as $level)
-                                                <option value="{{ $level->id }}" {{ $project->id == $level->id ? 'selected' : ''}}>{{ $level->name }}</option>
+                                                <option value="{{ $level->id }}" {{ $task->id == $level->id ? 'selected' : ''}}>{{ $level->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label for="form_control_1">Project Level</label>
+                                        <label>Task Level</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="form_control_1" name="active">
+                                        <select class="form-control" name="active">
                                             <option value="">Status</option>
-                                            <option value="1" {{ $project->active = 1 ? 'selected' : ''}}>Active</option>
-                                            <option value="0" {{ $project->active = 0 ? 'selected' : ''}}>Deactive</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Deactive</option>
                                         </select>
-                                        <label for="form_control_1">Project Status</label>
+                                        <label>Status</label>
                                     </div>
 
-                                    <div class="portlet-body form">
-                                        <div class="form-body">
-                                            <div class="form-group last">
-                                                <textarea name="description" class="summernote" cols="30" rows="10">{!! $project->description
-                                                 !!}</textarea>
-                                            </div>
-                                        </div>
+                                    <div class="form-group form-md-line-input">
+                                        <textarea name="description" class="summernote" placeholder="Description"></textarea>
                                     </div>
 
                                 </div>
