@@ -516,7 +516,7 @@
      "",
      "hello");
 
-  // Following tests directly from official Markdown documentation
+  // Following test directly from official Markdown documentation
   // http://daringfireball.net/projects/markdown/syntax#hr
 
   MT("hrSpace",

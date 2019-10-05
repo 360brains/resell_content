@@ -137,7 +137,7 @@ function mk_block_inspect() {
 }
 
 var mk_block = Markdown.mk_block = function(block, trail, line) {
-  // Be helpful for default case in tests.
+  // Be helpful for default case in test.
   if ( arguments.length == 1 ) trail = "\n\n";
 
   var s = new String(block);

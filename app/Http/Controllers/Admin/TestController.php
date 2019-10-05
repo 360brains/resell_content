@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Level;
 use App\Models\Test;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +17,8 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view('admin.tests.index');
+        $data['test'] = Test::with('types')->with('levels')->orderBy('name', 'asc')->paginate(10);
+        return view('admin.test.index', $data);
     }
 
     /**
@@ -25,7 +28,9 @@ class TestController extends Controller
      */
     public function create()
     {
-        return view('admin.tests.create');
+        $data['levels'] = Level::get();
+        $data['types'] = Type::get();
+        return view('admin.test.create', $data);
     }
 
     /**
@@ -41,21 +46,23 @@ class TestController extends Controller
             'type'          => 'required',
             'fee'           => 'required',
             'description'   => 'required',
-            'level_id'      => 'required',
+            'level'         => 'required',
+            'active'        => 'required',
         ]);
 
         $data = [
             'name'          => $request->name,
-            'type'          => $request->type,
+            'type_id'       => $request->type,
             'fee'           => $request->fee,
             'description'   => $request->description,
             'level_id'      => $request->level,
+            'active'        => $request->active
         ];
 
         $response = Test::create($data);
 
         if ($response){
-            return redirect()->route('admin.tests.index')->with("success", "Category created successfully.");
+            return redirect()->route('admin.test.index')->with("success", "Completed Successfully.");
         }else{
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
@@ -80,8 +87,10 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
+        $data['levels'] = Level::get();
+        $data['types'] = Type::get();
         $data['test']   = $test;
-        return view('admin.tests.edit', $data);
+        return view('admin.test.edit', $data);
     }
 
     /**
@@ -98,18 +107,25 @@ class TestController extends Controller
             'type'          => 'required',
             'fee'           => 'required',
             'description'   => 'required',
-            'level_id'      => 'required',
+            'level'         => 'required',
+            'active'        => 'required',
         ]);
 
-        $data = [
-            'name'          => $request->name,
-            'type'          => $request->type,
-            'fee'           => $request->fee,
-            'description'   => $request->description,
-            'level_id'      => $request->level,
-        ];
 
-        $response = Test::update($data);
+            $test->name          = $request->name;
+            $test->type_id       = $request->type;
+            $test->fee           = $request->fee;
+            $test->description   = $request->description;
+            $test->level_id      = $request->level;
+            $test->active        = $request->active;
+
+        $response = $test->save();
+
+        if ($response){
+            return redirect()->route('admin.test.index')->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 
     /**
@@ -120,6 +136,13 @@ class TestController extends Controller
      */
     public function destroy(Test $test)
     {
-        //
+        $test->active  = $test->active == 0 ? 1 : 0;
+        $response       = $test->save();
+
+        if ($response){
+            return redirect()->route('admin.test.index')->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
     }
 }

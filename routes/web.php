@@ -26,6 +26,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::resource('categories', 'CategoryController');
     Route::resource('projects', 'ProjectController');
     Route::resource('levels', 'LevelController');
-    Route::resource('tests', 'TestController');
+    Route::resource('test', 'TestController');
 
 });

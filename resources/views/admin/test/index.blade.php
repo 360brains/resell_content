@@ -14,7 +14,7 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ route('admin.categories.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b>
+                <a href="{{ route('admin.test.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b>
                 </a>
             </div>
         </div>
@@ -32,11 +32,10 @@
                         <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>
-                            <th> Category Name </th>
-                            <th> Created </th>
-                            <th> Last Updated </th>
-                            <th> Super Category </th>
-                            <th></th>
+                            <th> Test Name </th>
+                            <th> Type </th>
+                            <th> Level </th>
+                            <th> Status </th>
                             <th></th>
                         </tr>
                         </thead>
@@ -44,26 +43,20 @@
                         @php
                             $i = 0;
                         @endphp
-                        @forelse($categories as $category)
+                        @forelse($test as $t)
                             <tr>
                                 <td> {{ ++$i }} </td>
-                                <td><a href="{{ route('admin.categories.show', $category->id) }}"> {{ $category->name }} </a></td>
-                                <td> {{ $category->created_at }} </td>
-                                <td> {{ $category->updated_at }} </td>
-                                <td>{{ $category->parent_category->name ?? 'None' }}</td>
+                                <td> {{ $t->name }}</td>
+                                <td> {{ $t->types->name }} </td>
+                                <td> {{ $t->levels->name }} </td>
+                                <td>{{ $t->active == 0 ? 'Deactive':'Active' }}</td>
                                 <td>
-                                    <form action="{{ route('admin.categories.destroy',$category->id) }}" method="POST">
+                                    <form action="{{ route('admin.test.destroy',$t->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
 
-                                        <a class="btn btn-primary" href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>
-
-                                        @if($category->child_categories->count() > 0)
-                                            <a class="btn btn-danger btn-outline sbold uppercase " id="demo_5"> Delete </a>
-                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase hidden-button" id="delete_category">Delete</button>
-                                        @else
+                                        <a class="btn btn-primary" href="{{ route('admin.test.edit', $t->id) }}">Edit</a>
                                             <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
-                                        @endif
                                     </form>
                                 </td>
                             </tr>
@@ -77,7 +70,7 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        {{$categories->links()}}
+                        {{$test->links()}}
                     </div>
                 </div>
             </div>
