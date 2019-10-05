@@ -18,9 +18,7 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b>Back</b>
-                    <i class="fa fa-backward"></i>
-                </a>
+                <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b><i class="fa fa-backward"></i> Back</b></a>
             </div>
         </div>
 
@@ -45,7 +43,7 @@
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="name" value="{{ $category->name }}" class="form-control" id="form_control_1" placeholder="Enter Category Name">
-                                        <label for="form_control_1">Category Name</label>
+                                        <label>Category Name</label>
                                     </div>
                                     <div class="form-group form-md-line-input">
 
@@ -58,7 +56,7 @@
 
                                         </select>
 
-                                        <label for="form_control_1">Super Category</label>
+                                        <label>Super Category</label>
                                         <span class="help-block">Select a super category if it is a sub category...</span>
                                     </div>
                                 </div>

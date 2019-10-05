@@ -14,9 +14,7 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ route('admin.projects.create') }}" class="btn red btn-sm" > <b>Add</b>
-{{--                    <i class="fa fa-backward"></i>--}}
-                </a>
+                <a href="{{ route('admin.projects.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b></a>
             </div>
         </div>
 
@@ -33,16 +31,14 @@
                     <table class="table table-bordered table-striped flip-content">
                         <thead class="flip-content">
                         <tr>
-                            <th width="20%"> Sr No. </th>
+                            <th width="75px"> Sr No. </th>
                             <th> Projects Name </th>
-                            <th> Quantity </th>
-                            <th> Type </th>
-                            <th> Description </th>
+                            <th> No. of Tasks </th>
+                            <th> Type
                             <th> Deadline </th>
                             <th> Category </th>
                             <th> Level </th>
-                            <th> Created </th>
-                            <th> Last Updated </th>
+                            <th> Status </th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -56,17 +52,16 @@
                                     <td><a href="{{ route('admin.projects.show', $project->id) }}"> {{ $project->name }} </a></td>
                                     <td> {{ $project->quantity }} </td>
                                     <td> {{ $project->type->name }} </td>
-                                    <td> {{ $project->description }} </td>
+                                    <td> {{ $project->deadline }} </td>
                                     <td> {{ $project->category->name }} </td>
                                     <td> {{ $project->level->name }} </td>
-                                    <td> abc </td>
-                                    <td> {{ $project->created_at }} </td>
-                                    <td> {{ $project->updated_at }} </td>
+                                    <td> {{ $project->active = 1 ? 'Active' : 'Deactive'}} </td>
                                     <td>
                                         <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 
+                                            <a class="btn btn-success" href="{{ route('admin.projects.show', $project->id) }}">Show</a>
                                             <a class="btn btn-primary" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
                                             <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
 
@@ -74,7 +69,11 @@
                                     </td>
                                 </tr>
                                 @empty
-                                <h3> No Categories Found</h3>
+                                <tr>
+                                    <td colspan="9">
+                                        Data Not Found
+                                    </td>
+                                </tr>
                             @endforelse
                         </tbody>
                     </table>

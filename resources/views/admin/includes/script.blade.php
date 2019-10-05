@@ -3,7 +3,15 @@
 
     $(".summernote").summernote({
         height: 300
-    })
+    });
+
+    $(".date-picker").datepicker({
+        autoclose: 0,
+        format: "yyyy-m-d",
+        todayHighlight: true,
+        setDate: new Date(),
+        autoclose: true,
+    });
 
     $('.device').change(function(){
         var deviceID = $(this).val();

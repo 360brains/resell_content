@@ -18,9 +18,7 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b>Back</b>
-                    <i class="fa fa-backward"></i>
-                </a>
+                <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b><i class="fa fa-backward"></i> Back</b></a>
             </div>
         </div>
 
@@ -44,12 +42,12 @@
 
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Project Name">
-                                        <label for="form_control_1">Project Name</label>
+                                        <label>Project Name</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
                                         <input type="number" name="quantity" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks">
-                                        <label for="form_control_1">Number of Tasks</label>
+                                        <label>Number of Tasks</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
@@ -59,12 +57,12 @@
                                                 <option value="{{ $type->id }}">{{ $type->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label for="form_control_1">Project Type</label>
+                                        <label>Project Type</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="date" name="deadline" class="form-control" id="form_control_1" placeholder="Give a deadline">
-                                        <label for="form_control_1">Project Deadline</label>
+                                        <input type="text" name="deadline" class="form-control date-picker" id="form_control_1" placeholder="Give a deadline">
+                                        <label>Project Deadline</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
@@ -74,7 +72,7 @@
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label for="form_control_1">Project Category</label>
+                                        <label>Project Category</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
@@ -84,7 +82,7 @@
                                                 <option value="{{ $level->id }}">{{ $level->name }}</option>
                                             @endforeach
                                         </select>
-                                        <label for="form_control_1">Project Level</label>
+                                        <label>Project Level</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
@@ -93,17 +91,14 @@
                                             <option value="1">Active</option>
                                             <option value="0">Deactive</option>
                                         </select>
+                                        <label>Status</label>
                                     </div>
 
-                                    <div class="portlet-body form">
-                                            <div class="form-body">
-                                                <div class="form-group last">
-                                                    <textarea name="description" class="summernote" cols="30" rows="10"></textarea>
-                                                </div>
-                                            </div>
+                                    <div class="form-group form-md-line-input">
+                                        <textarea name="description" class="summernote" placeholder="Description"></textarea>
                                     </div>
 
-                            </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-actions">
