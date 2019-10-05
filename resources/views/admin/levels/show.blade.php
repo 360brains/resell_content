@@ -1,4 +1,3 @@
-
 @extends('admin.layouts.master')
 
 @section('content')
@@ -17,7 +16,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span> Task</span>
+                <span> Levels</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -34,7 +33,7 @@
 
     </div>
 
-    <h3 class="page-title">Details of <b> {{ $task->name }}</b>
+    <h3 class="page-title">Details of <b>{{ $levels->name }}</b>
     </h3>
 
     <div class="row">
@@ -44,63 +43,34 @@
                 <div class="portlet-body">
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
-                            <th>Task Name</th>
-                            <td>{{$task->name}}</td>
-                        </tr>
-
-                        @if($task->status != null)
-                        <tr>
-                            <th>User Name</th>
-                            <td>{{$task->user->name}}</td>
-                        </tr>
-                        @endif
-
-                        <tr>
-                            <th>Task Type</th>
-                            <td>{{$task->type->name}}</td>
-                        </tr>
-
-                        @if($task->project != null)
-                            <tr>
-                                <th>Project</th>
-                                <td>{{$task->project->name}}</td>
-                            </tr>
-                        @endif
-
-                        <tr>
-                            <th>Category</th>
-                            <td>{{$task->category->name}}</td>
+                            <th>Level Name</th>
+                            <td>{{$levels->name}}</td>
                         </tr>
 
                         <tr>
-                            <th>User Level for Task</th>
-                            <td>{{$task->level->name}}</td>
+                            <th>Level Type</th>
+                            <td>{{$levels->types->name}}</td>
                         </tr>
 
                         <tr>
                             <th>Status</th>
-                            <td>{{$task->status ?? 'Initiated'}}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Deadline</th>
-                            <td>{{$task->deadline ?? 'None'}}</td>
+                            <td>{{$levels->active==1?'Active':'Deactive'}}</td>
                         </tr>
 
                         <tr>
                             <th>Created</th>
-                            <td>{{$task->created_at}}</td>
+                            <td>{{$levels->created_at}}</td>
                         </tr>
 
                         <tr>
                             <th>Last Update</th>
-                            <td>{{$task->updated_at}}</td>
+                            <td>{{$levels->updated_at}}</td>
                         </tr>
 
                     </table>
 
                     <h3 >Description</h3>
-                    <div class="description">{!! $task->description !!}</div>
+                    <div class="description">{!! $levels->description !!}</div>
 
                 </div>
             </div>

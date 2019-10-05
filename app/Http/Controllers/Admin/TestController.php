@@ -76,7 +76,8 @@ class TestController extends Controller
      */
     public function show(Test $test)
     {
-        //
+        $data['test'] = $test;
+        return view('admin.test.show', $data);
     }
 
     /**

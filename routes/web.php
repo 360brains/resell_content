@@ -23,11 +23,13 @@ Route::get('admin/dashboard', 'Admin\DashboardController@index')->name('admin.da
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'admin', 'as' => 'admin.'], function (){
 
+    Route::resource('transactions', 'TransactionController');
     Route::resource('categories', 'CategoryController');
-    Route::resource('tasks', 'TaskController');
     Route::resource('projects', 'ProjectController');
     Route::resource('levels', 'LevelController');
+    Route::resource('tasks', 'TaskController');
     Route::resource('test', 'TestController');
+    Route::resource('trainings', 'TrainingController');
 
 });
 

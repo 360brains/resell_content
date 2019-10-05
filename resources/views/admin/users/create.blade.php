@@ -23,8 +23,8 @@
         </div>
 
     </div>
-    <h3 class="page-title">Users
-        <small>Create User</small>
+    <h3 class="page-title">Tasks
+        <small>Create Task</small>
     </h3>
 
     <div class="row">
@@ -34,60 +34,26 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route('admin.users.store') }}" method="post">
+                    <form action="{{ route('admin.tasks.store') }}" method="post">
                         @csrf
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter User Name">
-                                        <label>Users Name</label>
-                                    </div>
-
-                                    <div class="form-group form-md-radios">
-                                        <label class="col-md-3 control-label" for="form_control_1">Radios(warning)</label>
-                                        <div class="col-md-9">
-                                            <div class="md-radio-inline">
-                                                <div class="md-radio">
-                                                    <input type="radio" id="checkbox1_8" name="radio2" class="md-radiobtn">
-                                                    <label for="checkbox1_8">
-                                                        <span class="inc"></span>
-                                                        <span class="check"></span>
-                                                        <span class="box"></span> Option 1 </label>
-                                                </div>
-                                                <div class="md-radio">
-                                                    <input type="radio" id="checkbox1_9" name="radio2" class="md-radiobtn" checked="">
-                                                    <label for="checkbox1_9">
-                                                        <span class="inc"></span>
-                                                        <span class="check"></span>
-                                                        <span class="box"></span> Option 2 </label>
-                                                </div>
-                                                <div class="md-radio">
-                                                    <input type="radio" id="checkbox1_10" name="radio2" class="md-radiobtn">
-                                                    <label for="checkbox1_10">
-                                                        <span class="inc"></span>
-                                                        <span class="check"></span>
-                                                        <span class="box"></span> Option 3 </label>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Task Name">
+                                        <label>Task Name</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="email" name="email" class="form-control" id="form_control_1" placeholder="Enter Email-Address">
-                                        <label>Email-Address</label>
+                                        <select class="form-control" name="type">
+                                            <option value="">Select Type of Task</option>
+                                            @foreach($types as $type)
+                                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <label>Task Type</label>
                                     </div>
-
-{{--                                    <div class="form-group form-md-line-input">--}}
-{{--                                        <select class="form-control" name="type">--}}
-{{--                                            <option value="">Select Type of Task</option>--}}
-{{--                                            @foreach($types as $type)--}}
-{{--                                                <option value="{{ $type->id }}">{{ $type->name }}</option>--}}
-{{--                                            @endforeach--}}
-{{--                                        </select>--}}
-{{--                                        <label>Task Type</label>--}}
-{{--                                    </div>--}}
 
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="deadline" class="form-control date-picker" id="form_control_1" placeholder="Give a deadline">
@@ -118,7 +84,7 @@
                                         <select class="form-control" name="active">
                                             <option value="">Status</option>
                                             <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
+                                            <option value="0">Deactive</option>
                                         </select>
                                         <label>Status</label>
                                     </div>

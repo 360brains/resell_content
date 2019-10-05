@@ -9,18 +9,18 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Tests</span>
+                <span>Trainings</span>
             </li>
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ route('admin.test.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b>
+                <a href="{{ route('admin.trainings.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b>
                 </a>
             </div>
         </div>
 
     </div>
-    <h3 class="page-title">Tests</h3>
+    <h3 class="page-title">Trainings</h3>
 
     <div class="row">
         <div class="col-md-12">
@@ -32,7 +32,7 @@
                         <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>
-                            <th> Test Name </th>
+                            <th> Training Name </th>
                             <th> Type </th>
                             <th> Level </th>
                             <th> Fee </th>
@@ -44,20 +44,20 @@
                         @php
                             $i = 0;
                         @endphp
-                        @forelse($test as $t)
+                        @forelse($trainings as $training)
                             <tr>
                                 <td> {{ ++$i }} </td>
-                                <td> {{ $t->name }}</td>
-                                <td> {{ $t->types->name }} </td>
-                                <td> {{ $t->levels->name }} </td>
-                                <td> {{ $t->fee }} </td>
-                                <td>{{ $t->active == 0 ? 'Deactive':'Active' }}</td>
+                                <td> {{ $training->name }}</td>
+                                <td> {{ $training->types->name }} </td>
+                                <td> {{ $training->levels->name }} </td>
+                                <td> {{ $training->fee }} </td>
+                                <td>{{ $training->active == 0 ? 'Deactive':'Active' }}</td>
                                 <td>
-                                    <form action="{{ route('admin.test.destroy',$t->id) }}" method="POST">
+                                    <form action="{{ route('admin.trainings.destroy',$training->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a class="btn btn-success" href="{{ route('admin.test.show', $t->id) }}">Show</a>
-                                        <a class="btn btn-primary" href="{{ route('admin.test.edit', $t->id) }}">Edit</a>
+                                        <a class="btn btn-success" href="{{ route('admin.trainings.show', $training->id) }}">Show</a>
+                                        <a class="btn btn-primary" href="{{ route('admin.trainings.edit', $training->id) }}">Edit</a>
                                             <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
                                     </form>
                                 </td>
@@ -72,7 +72,7 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        {{$test->links()}}
+                        {{$trainings->links()}}
                     </div>
                 </div>
             </div>

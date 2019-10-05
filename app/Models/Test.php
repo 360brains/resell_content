@@ -15,4 +15,6 @@ class Test extends Model
     {
         return $this->belongsTo(Level::class, 'level_id');
     }
+
+
 }

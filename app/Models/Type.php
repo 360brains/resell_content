@@ -12,4 +12,7 @@ class Type extends Model
     public function test(){
         return $this->hasMany(Test::class);
     }
+    public function trainings(){
+        return $this->hasMany(Training::class);
+    }
 }

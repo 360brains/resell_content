@@ -9,18 +9,17 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Levels</span>
-                <i class="fa fa-circle"></i>
+                <span>Users</span>
             </li>
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ route('admin.levels.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b></a>
+                <a href="{{ route('users.users.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b></a>
             </div>
         </div>
 
     </div>
-    <h3 class="page-title">Levels
+    <h3 class="page-title">Users
     </h3>
 
     <div class="row">
@@ -33,50 +32,52 @@
                         <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>
-                            <th> Level Name </th>
+                            <th> Task Name </th>
                             <th> Type </th>
+                            <th> Deadline </th>
+                            <th> Category </th>
+                            <th> Level </th>
                             <th> Status </th>
-                            <th> Created </th>
-                            <th> Last Updated </th>
-                            <th> Action </th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @php
                         $i = 0;
                         @endphp
-                            @forelse($levels as $level)
+                            @forelse($tasks as $task)
                                 <tr>
                                     <td> {{ ++$i }} </td>
-                                    <td> {{ $level->name }} </td>
-                                    <td> {{ $level->types->name }} </td>
-                                    <td> {{ $level->active == 1 ? 'Active' : 'Deactive' }} </td>
-                                    <td> {{ $level->created_at }} </td>
-                                    <td> {{ $level->updated_at }} </td>
+                                    <td> {{ $task->name }} </td>
+                                    <td> {{ $task->type->name }} </td>
+                                    <td> {{ $task->deadline }} </td>
+                                    <td> {{ $task->category->name }} </td>
+                                    <td> {{ $task->level->name }} </td>
+                                    <td> {{ $task->active == 0 ? 'Deactive':'Active' }} </td>
                                     <td>
-                                        <form action="{{ route('admin.levels.destroy',$level->id) }}" method="POST">
+                                        <form action="{{ route('admin.tasks.destroy',$task->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a class="btn btn-success" href="{{ route('admin.levels.show', $level->id) }}">Show</a>
-                                            <a class="btn btn-primary" href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+
+                                            <a class="btn btn-success" href="{{ route('admin.tasks.show', $task->id) }}">Show</a>
+                                            <a class="btn btn-primary" href="{{ route('admin.tasks.edit', $task->id) }}">Edit</a>
+                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
+
                                         </form>
                                     </td>
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="6">
+                                    <td colspan="9">
                                         Data Not Found
                                     </td>
                                 </tr>
                             @endforelse
-
                         </tbody>
                     </table>
-
-                </div>
-
-
+                    <div class="text-center">
+                    {{$tasks->links()}}
+                    </div>
             </div>
         </div>
     </div>

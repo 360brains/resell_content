@@ -34,7 +34,7 @@
 
     </div>
 
-    <h3 class="page-title">Details of <b> {{ $task->name }}</b>
+    <h3 class="page-title">Details of <b>{{ $task->name }}</b>
     </h3>
 
     <div class="row">
