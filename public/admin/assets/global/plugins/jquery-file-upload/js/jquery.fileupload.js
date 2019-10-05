@@ -492,7 +492,7 @@
                         formData.append(paramName, options.blob, file.name);
                     } else {
                         $.each(options.files, function (index, file) {
-                            // This check allows the tests to run with
+                            // This check allows the test to run with
                             // dummy objects:
                             if (that._isInstanceOf('File', file) ||
                                     that._isInstanceOf('Blob', file)) {
@@ -715,7 +715,7 @@
 
         // Uploads a file in multiple, sequential requests
         // by splitting the file up in multiple blob chunks.
-        // If the second parameter is true, only tests if the file
+        // If the second parameter is true, only test if the file
         // should be uploaded in chunks, but does not invoke any
         // upload requests:
         _chunkedUpload: function (options, testOnly) {

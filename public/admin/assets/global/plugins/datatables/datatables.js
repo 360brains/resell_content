@@ -31579,7 +31579,7 @@ module.exports = ZStream;
 	// EXTENSION! allows for well behaved errors defined elsewhere.
 	assert.fail = fail;
 
-	// 4. Pure assertion tests whether a value is truthy, as determined
+	// 4. Pure assertion test whether a value is truthy, as determined
 	// by !!guard.
 	// assert.ok(guard, message_opt);
 	// This statement is equivalent to assert.equal(true, !!guard,
@@ -31591,7 +31591,7 @@ module.exports = ZStream;
 	}
 	assert.ok = ok;
 
-	// 5. The equality assertion tests shallow, coercive equality with
+	// 5. The equality assertion test shallow, coercive equality with
 	// ==.
 	// assert.equal(actual, expected, message_opt);
 
@@ -31599,7 +31599,7 @@ module.exports = ZStream;
 	  if (actual != expected) fail(actual, expected, message, '==', assert.equal);
 	};
 
-	// 6. The non-equality assertion tests for whether two objects are not equal
+	// 6. The non-equality assertion test for whether two objects are not equal
 	// with != assert.notEqual(actual, expected, message_opt);
 
 	assert.notEqual = function notEqual(actual, expected, message) {
@@ -31608,7 +31608,7 @@ module.exports = ZStream;
 	  }
 	};
 
-	// 7. The equivalence assertion tests a deep equality relation.
+	// 7. The equivalence assertion test a deep equality relation.
 	// assert.deepEqual(actual, expected, message_opt);
 
 	assert.deepEqual = function deepEqual(actual, expected, message) {
@@ -31708,7 +31708,7 @@ module.exports = ZStream;
 	  return true;
 	}
 
-	// 8. The non-equivalence assertion tests for any deep inequality.
+	// 8. The non-equivalence assertion test for any deep inequality.
 	// assert.notDeepEqual(actual, expected, message_opt);
 
 	assert.notDeepEqual = function notDeepEqual(actual, expected, message) {
@@ -31717,7 +31717,7 @@ module.exports = ZStream;
 	  }
 	};
 
-	// 9. The strict equality assertion tests strict equality, as determined by ===.
+	// 9. The strict equality assertion test strict equality, as determined by ===.
 	// assert.strictEqual(actual, expected, message_opt);
 
 	assert.strictEqual = function strictEqual(actual, expected, message) {
@@ -31726,7 +31726,7 @@ module.exports = ZStream;
 	  }
 	};
 
-	// 10. The strict non-equality assertion tests for strict inequality, as
+	// 10. The strict non-equality assertion test for strict inequality, as
 	// determined by !==.  assert.notStrictEqual(actual, expected, message_opt);
 
 	assert.notStrictEqual = function notStrictEqual(actual, expected, message) {

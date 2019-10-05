@@ -26,7 +26,7 @@
      "[atom barbazguh]]]]>]",
      "[tag&bracket </][tag top][tag&bracket >]");
 
-  // HTML tests
+  // HTML test
   mode = CodeMirror.getMode({indentUnit: 2}, "text/html");
 
   MT("selfclose",

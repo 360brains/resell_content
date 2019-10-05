@@ -12,6 +12,11 @@ class Level extends Model
     {
         return $this->belongsTo(Type::class, 'type_id');
     }
+    public function test()
+    {
+        return $this->hasMany(Test::class, 'type_id');
+    }
+
 
 
 }

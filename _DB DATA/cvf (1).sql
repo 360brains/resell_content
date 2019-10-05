@@ -212,7 +212,7 @@ CREATE TABLE `task_status_history` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tests`
+-- Table structure for table `test`
 --
 
 CREATE TABLE `tests` (
@@ -435,7 +435,7 @@ ALTER TABLE `task_status_history`
   ADD KEY `fk_task_status_history_users_has_projects1_idx` (`user_task_id`);
 
 --
--- Indexes for table `tests`
+-- Indexes for table `test`
 --
 ALTER TABLE `tests`
   ADD PRIMARY KEY (`id`),
@@ -568,7 +568,7 @@ ALTER TABLE `task_status_history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tests`
+-- AUTO_INCREMENT for table `test`
 --
 ALTER TABLE `tests`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
@@ -628,7 +628,7 @@ ALTER TABLE `task_status_history`
   ADD CONSTRAINT `fk_task_status_history_users_has_projects1` FOREIGN KEY (`user_task_id`) REFERENCES `user_tasks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `tests`
+-- Constraints for table `test`
 --
 ALTER TABLE `tests`
   ADD CONSTRAINT `fk_tests_levels1` FOREIGN KEY (`level_id`) REFERENCES `levels` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

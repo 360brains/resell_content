@@ -9,4 +9,7 @@ class Type extends Model
     public function level(){
         return $this->hasMany(Level::class);
     }
+    public function test(){
+        return $this->hasMany(Test::class);
+    }
 }

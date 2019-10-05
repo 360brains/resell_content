@@ -112,7 +112,7 @@
 
   MT("line_comment", "[comment // Hello world]");
 
-  // Alignment tests
+  // Alignment test
   MT("align_port_map_style1",
      /**
       * mod mod(.a(a),
@@ -139,7 +139,7 @@
      ""
   );
 
-  // Indentation tests
+  // Indentation test
   MT("indent_single_statement_if",
       "[keyword if] [bracket (][variable foo][bracket )]",
       "    [keyword break];",

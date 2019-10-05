@@ -60,10 +60,12 @@
                             <td>{{$task->type->name}}</td>
                         </tr>
 
-                        <tr>
-                            <th>Project</th>
-                            <td>{{$task->project->name}}</td>
-                        </tr>
+                        @if($task->project != null)
+                            <tr>
+                                <th>Project</th>
+                                <td>{{$task->project->name}}</td>
+                            </tr>
+                        @endif
 
                         <tr>
                             <th>Category</th>
