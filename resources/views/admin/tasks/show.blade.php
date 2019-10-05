@@ -78,6 +78,11 @@
                         </tr>
 
                         <tr>
+                            <th>Status</th>
+                            <td>{{$task->status ?? 'Initiated'}}</td>
+                        </tr>
+
+                        <tr>
                             <th>Deadline</th>
                             <td>{{$task->deadline ?? 'None'}}</td>
                         </tr>

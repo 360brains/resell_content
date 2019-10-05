@@ -94,7 +94,13 @@
             <li class="nav-item  ">
                 <a href="{{ route('admin.test.index') }}" class="nav-link">
                     <i class="icon-layers"></i>
-                    <span class="title">Test</span>
+                    <span class="title">Tests</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="{{ route('admin.transactions.index') }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Transactions</span>
                 </a>
             </li>
             <li class="nav-item  ">
