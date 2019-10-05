@@ -9,17 +9,17 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Projects</span>
+                <span>Tasks</span>
             </li>
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ route('admin.projects.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b></a>
+                <a href="{{ route('admin.tasks.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b></a>
             </div>
         </div>
 
     </div>
-    <h3 class="page-title">Projects
+    <h3 class="page-title">Tasks
     </h3>
 
     <div class="row">
@@ -32,8 +32,7 @@
                         <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>
-                            <th> Projects Name </th>
-                            <th> No. of Tasks </th>
+                            <th> Task Name </th>
                             <th> Type </th>
                             <th> Deadline </th>
                             <th> Category </th>
@@ -46,23 +45,22 @@
                         @php
                         $i = 0;
                         @endphp
-                            @forelse($projects as $project)
+                            @forelse($tasks as $task)
                                 <tr>
                                     <td> {{ ++$i }} </td>
-                                    <td><a href="{{ route('admin.projects.show', $project->id) }}"> {{ $project->name }} </a></td>
-                                    <td> {{ $project->quantity }} </td>
-                                    <td> {{ $project->type->name }} </td>
-                                    <td> {{ $project->deadline }} </td>
-                                    <td> {{ $project->category->name }} </td>
-                                    <td> {{ $project->level->name }} </td>
-                                    <td> {{ $project->active = 1 ? 'Active' : 'Deactive'}} </td>
+                                    <td> {{ $task->name }} </td>
+                                    <td> {{ $task->type->name }} </td>
+                                    <td> {{ $task->deadline }} </td>
+                                    <td> {{ $task->category->name }} </td>
+                                    <td> {{ $task->level->name }} </td>
+                                    <td> {{ $task->status}} </td>
                                     <td>
-                                        <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
+                                        <form action="{{ route('admin.tasks.destroy',$task->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 
-                                            <a class="btn btn-success" href="{{ route('admin.projects.show', $project->id) }}">Show</a>
-                                            <a class="btn btn-primary" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
+                                            <a class="btn btn-success" href="{{ route('admin.tasks.show', $task->id) }}">Show</a>
+                                            <a class="btn btn-primary" href="{{ route('admin.tasks.edit', $task->id) }}">Edit</a>
                                             <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
 
                                         </form>
@@ -78,7 +76,7 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                    {{$projects->links()}}
+                    {{$tasks->links()}}
                     </div>
             </div>
         </div>
