@@ -49,14 +49,6 @@
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="description" value="{{$level->description}}" class="form-control" id="form_control_1" placeholder="Enter Description">
-                                        <label>Description</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active" value="">
                                             <option value="">Status</option>
                                             <option value="1" {{ $level->active = 1 ? 'selected' : ''}}>Active</option>
@@ -74,6 +66,13 @@
                                                 <option value="{{ $type->id }}" {{ $type->id ==  $level->type_id ? 'selected' : '' }}>{{ $type->name }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group form-md-line-input">
+                                        <textarea name="description" class="summernote" placeholder="Description">{!! $level->description !!}</textarea>
                                     </div>
                                 </div>
                             </div>
