@@ -106,7 +106,6 @@ class LevelController extends Controller
             $level->description   = $request->description;
             $level->type_id       = $request->type_id;
             $level->active        = $request->active;
-
         $response = $level->save();
 
         if ($response){
