@@ -63,13 +63,13 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="date" name="deadline" value="{{ $project->deadline }}" class="form-control date-picker " id="form_control_1" placeholder="Give a deadline">
+                                        <input type="text" name="deadline" value="{{ $project->deadline }}" class="form-control datetime" id="form_control_1" placeholder="Give a deadline">
                                         <label for="form_control_1">Project Deadline</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" id="form_control_1" name="category">
-                                            <option value="">Select Category of project</option>
+                                            <option value="">Select Category</option>
                                             @foreach($categories as $category)
                                                 <option value="{{ $category->id }}" {{ $project->id == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
                                             @endforeach
@@ -79,7 +79,7 @@
 
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" id="form_control_1" name="level">
-                                            <option value="">Select User Level for the project</option>
+                                            <option value="">Select User Level</option>
                                             @foreach($levels as $level)
                                                 <option value="{{ $level->id }}" {{ $project->id == $level->id ? 'selected' : ''}}>{{ $level->name }}</option>
                                             @endforeach
@@ -91,7 +91,7 @@
                                         <select class="form-control" id="form_control_1" name="active">
                                             <option value="">Status</option>
                                             <option value="1" {{ $project->active = 1 ? 'selected' : ''}}>Active</option>
-                                            <option value="0" {{ $project->active = 0 ? 'selected' : ''}}>Deactive</option>
+                                            <option value="0" {{ $project->active = 0 ? 'selected' : ''}}>Inactive</option>
                                         </select>
                                         <label for="form_control_1">Project Status</label>
                                     </div>
@@ -99,8 +99,7 @@
                                     <div class="portlet-body form">
                                         <div class="form-body">
                                             <div class="form-group last">
-                                                <textarea name="description" class="summernote" cols="30" rows="10">{!! $project->description
-                                                 !!}</textarea>
+                                                <textarea name="description" class="summernote" cols="30" rows="10">{!! $project->description !!}</textarea>
                                             </div>
                                         </div>
                                     </div>

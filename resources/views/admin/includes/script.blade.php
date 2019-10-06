@@ -6,11 +6,17 @@
     });
 
     $(".date-picker").datepicker({
-        autoclose: 0,
         format: "yyyy-m-d",
         todayHighlight: true,
         setDate: new Date(),
         autoclose: true,
+    });
+
+    $(".datetime").datetimepicker({
+        autoclose: true,
+        format: "yyyy-m-d hh:ii:ss",
+        todayHighlight: true,
+        setDate: new Date(),
     });
 
     $('.device').change(function(){
