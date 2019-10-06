@@ -14,7 +14,7 @@
         </ul>
         <div class="page-toolbar">
             <div class="btn-group pull-right open">
-                <a href="{{ route('users.users.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b></a>
+                <a href="{{ route('admin.users.create') }}" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add</b></a>
             </div>
         </div>
 
@@ -32,12 +32,12 @@
                         <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>
-                            <th> Task Name </th>
-                            <th> Type </th>
-                            <th> Deadline </th>
-                            <th> Category </th>
-                            <th> Level </th>
-                            <th> Status </th>
+                            <th> User Name </th>
+                            <th> Gender </th>
+                            <th> Email Address </th>
+                            <th> Total Tasks </th>
+                            <th> Created </th>
+                            <th> Last Updated </th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -45,22 +45,22 @@
                         @php
                         $i = 0;
                         @endphp
-                            @forelse($tasks as $task)
+                            @forelse($users as $user)
                                 <tr>
                                     <td> {{ ++$i }} </td>
-                                    <td> {{ $task->name }} </td>
-                                    <td> {{ $task->type->name }} </td>
-                                    <td> {{ $task->deadline }} </td>
-                                    <td> {{ $task->category->name }} </td>
-                                    <td> {{ $task->level->name }} </td>
-                                    <td> {{ $task->active == 0 ? 'Deactive':'Active' }} </td>
+                                    <td> {{ $user->name }} </td>
+                                    <td> {{ $user->gender }} </td>
+                                    <td> {{ $user->email }} </td>
+                                    <td> {{ $user->name }} </td>
+                                    <td> {{ $user->created_at }} </td>
+                                    <td> {{ $user->updated_at }} </td>
                                     <td>
-                                        <form action="{{ route('admin.tasks.destroy',$task->id) }}" method="POST">
+                                        <form action="{{ route('admin.users.destroy',$user->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 
-                                            <a class="btn btn-success" href="{{ route('admin.tasks.show', $task->id) }}">Show</a>
-                                            <a class="btn btn-primary" href="{{ route('admin.tasks.edit', $task->id) }}">Edit</a>
+                                            <a class="btn btn-success" href="{{ route('admin.users.show', $user->id) }}">Show</a>
+                                            <a class="btn btn-primary" href="{{ route('admin.users.edit', $user->id) }}">Edit</a>
                                             <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
 
                                         </form>
@@ -76,7 +76,7 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                    {{$tasks->links()}}
+                    {{$users->links()}}
                     </div>
             </div>
         </div>

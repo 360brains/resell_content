@@ -71,24 +71,11 @@
                     <i class="icon-layers"></i>
                     <span class="title">Tasks</span>
                 </a>
-                <!--
-                <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="ui_colors.html" class="nav-link ">
-                            <span class="title">Create Project</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="ui_colors.html" class="nav-link ">
-                            <span class="title">Current Projects</span>
-                        </a>
-                    </li><li class="nav-item  ">
-                        <a href="ui_colors.html" class="nav-link ">
-                            <span class="title">Past Projects</span>
-                        </a>
-                    </li>
-                </ul>
-                -->
+            </li><li class="nav-item  ">
+                <a href="{{ route('admin.users.index') }}" class="nav-link nav-toggle">
+                    <i class="icon-layers"></i>
+                    <span class="title">Users</span>
+                </a>
             </li>
 
             <li class="nav-item  ">

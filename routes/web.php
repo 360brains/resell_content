@@ -25,10 +25,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
 
     Route::resource('transactions', 'TransactionController');
     Route::resource('categories', 'CategoryController');
+    Route::resource('trainings', 'TrainingController');
     Route::resource('projects', 'ProjectController');
     Route::resource('levels', 'LevelController');
+    Route::resource('users',  'UserController');
     Route::resource('tasks', 'TaskController');
     Route::resource('test', 'TestController');
-    Route::resource('trainings', 'TrainingController');
 
 });
