@@ -23,8 +23,8 @@
         </div>
 
     </div>
-    <h3 class="page-title">Tasks
-        <small>Create Task</small>
+    <h3 class="page-title">Users
+        <small>Create User</small>
     </h3>
 
     <div class="row">
@@ -34,50 +34,39 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route('admin.tasks.store') }}" method="post">
+                    <form action="{{ route('admin.users.store') }}" method="post">
                         @csrf
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Task Name">
-                                        <label>Task Name</label>
+                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter User Name">
+                                        <label>User Name</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="type">
-                                            <option value="">Select Type of Task</option>
-                                            @foreach($types as $type)
-                                                <option value="{{ $type->id }}">{{ $type->name }}</option>
-                                            @endforeach
+                                        <select class="form-control" name="gender">
+                                            <option value="">Select Gender of User</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
                                         </select>
-                                        <label>Task Type</label>
+                                        <label>Gender</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="deadline" class="form-control date-picker" id="form_control_1" placeholder="Give a deadline">
-                                        <label>Task Deadline</label>
+                                        <input type="email" name="email" class="form-control" id="form_control_1" placeholder="Enter Email-Adress">
+                                        <label>Email-Address</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="category">
-                                            <option value="">Select Category of Task</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Task Category</label>
+                                        <input type="password" name="password" class="form-control" id="form_control_1" placeholder="Enter Password">
+                                        <label>password</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="level">
-                                            <option value="">Select User Level for the Task</option>
-                                            @foreach($levels as $level)
-                                                <option value="{{ $level->id }}">{{ $level->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Task Level</label>
+                                        <input type="text" name="contact" class="form-control" id="form_control_1" placeholder="Enter Contact Number">
+                                        <label>Contact No.</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
@@ -87,10 +76,6 @@
                                             <option value="0">Deactive</option>
                                         </select>
                                         <label>Status</label>
-                                    </div>
-
-                                    <div class="form-group form-md-line-input">
-                                        <textarea name="description" class="summernote" placeholder="Description"></textarea>
                                     </div>
 
                                 </div>

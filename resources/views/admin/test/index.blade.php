@@ -44,7 +44,7 @@
                         @php
                             $i = 0;
                         @endphp
-                        @forelse($test as $t)
+                        @forelse($tests as $t)
                             <tr>
                                 <td> {{ ++$i }} </td>
                                 <td> {{ $t->name }}</td>
@@ -72,7 +72,7 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        {{$test->links()}}
+                        {{$tests->links()}}
                     </div>
                 </div>
             </div>

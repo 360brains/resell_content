@@ -15,7 +15,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $data['transactions'] =Transaction::orderBy('status', 'asc')->paginate(10);
+        $data['transactions'] =Transaction::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.transactions.index', $data);
     }
 
