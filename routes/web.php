@@ -40,6 +40,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('user/dashboard', 'User\DashboardController@index')->name('user.dashboard');
 
-Route::group(['prefix' => 'user', 'middleware' => 'auth:user', 'namespace' => 'user', 'as' => 'user.'], function (){
 
-});
