@@ -10,4 +10,7 @@
     <link rel="stylesheet" href="{{ asset('user/assets/css/vendor.bundle49f7.css?ver=104') }}">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}" id="layoutstyle">
+
+    <link href="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+
 </head>

@@ -39,5 +39,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('user/dashboard', 'User\DashboardController@index')->name('user.dashboard');
+Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
+Route::post('user/profile/edit-personal', 'User\ProfileController@editPersonal')->name('user.profile.edit.personal');
+Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')->name('user.profile.edit.password');
 
 
