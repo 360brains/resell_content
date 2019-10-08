@@ -37,3 +37,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('user/dashboard', 'User\DashboardController@index')->name('user.dashboard');
+
+

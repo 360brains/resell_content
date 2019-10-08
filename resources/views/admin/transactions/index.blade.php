@@ -63,7 +63,7 @@
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="9">
+                                    <td colspan="8">
                                         Data Not Found
                                     </td>
                                 </tr>

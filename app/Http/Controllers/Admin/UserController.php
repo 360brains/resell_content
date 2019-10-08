@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.users.create");
     }
 
     /**
@@ -37,7 +37,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'           => 'required',
+            'email'          => 'required',
+            'password'       => 'required',
+        ]);
+
+        $data = [
+            'name'         => $request->name,
+            'email'        => $request->email,
+            'password'     => $request->password,
+            'gender'       => $request->gender,
+            'contact'      => $request->contact,
+            'active'       => $request->active,
+        ];
+
+        $response = User::create($data);
+
+        if ($response){
+            return redirect()->route('admin.users.index')->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 
     /**
@@ -48,7 +69,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['user'] = User::find($id);
+        return view("admin.users.show", $data);
     }
 
     /**
@@ -82,6 +104,14 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user           = User::find($id);
+        $user->active     = $user->active == 0 ? 1 : 0;
+        $response       = $user->save();
+
+        if ($response){
+            return redirect()->route('admin.users.index')->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
     }
 }

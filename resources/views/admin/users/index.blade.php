@@ -36,8 +36,7 @@
                             <th> Gender </th>
                             <th> Email Address </th>
                             <th> Total Tasks </th>
-                            <th> Created </th>
-                            <th> Last Updated </th>
+                            <th> Status </th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -52,8 +51,7 @@
                                     <td> {{ $user->gender }} </td>
                                     <td> {{ $user->email }} </td>
                                     <td> {{ $user->name }} </td>
-                                    <td> {{ $user->created_at }} </td>
-                                    <td> {{ $user->updated_at }} </td>
+                                    <td> {{ $user->active == 0 ? 'Deactive':'Active' }} </td>
                                     <td>
                                         <form action="{{ route('admin.users.destroy',$user->id) }}" method="POST">
                                             @csrf
@@ -61,14 +59,18 @@
 
                                             <a class="btn btn-success" href="{{ route('admin.users.show', $user->id) }}">Show</a>
                                             <a class="btn btn-primary" href="{{ route('admin.users.edit', $user->id) }}">Edit</a>
-                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
+                                            @if($user->active == 0)
+                                                <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>
+                                            @else
+                                                <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Inactive</button>
+                                            @endif
 
                                         </form>
                                     </td>
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="9">
+                                    <td colspan="7">
                                         Data Not Found
                                     </td>
                                 </tr>
