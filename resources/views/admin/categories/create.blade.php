@@ -61,7 +61,7 @@
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     <input type="submit" class="btn green" value="Submit">
-                                    <a href="javascript:;" class="btn default">Cancel</a>
+                                    <input type="reset" class="btn default" value="Reset">
                                 </div>
                             </div>
                         </div>
