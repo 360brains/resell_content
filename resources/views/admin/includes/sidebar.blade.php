@@ -96,6 +96,13 @@
                     <span class="title">Trainings</span>
                 </a>
             </li>
+
+            <li class="nav-item  ">
+                <a href="{{ route('admin.roles') }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Roles</span>
+                </a>
+            </li>
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->

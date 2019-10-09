@@ -1,37 +1,67 @@
-@extends('multiauth::layouts.app')
+@extends('admin.layouts.master')
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header bg-info text-white">
-                    Roles
-                    <span class="float-right">
-                        <a href="{{ route('admin.role.create') }}" class="btn btn-sm btn-success">New Role</a>
-                    </span>
-                </div>
 
-                <div class="card-body">
-    @include('multiauth::message')
-                    <ol class="list-group">
-                        @foreach ($roles as $role)
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            {{ $role->name }}
-                            <span class="badge badge-primary badge-pill">{{ $role->admins->count() }} {{ ucfirst(config('multiauth.prefix')) }}</span>
-                            <div class="float-right">
-                                <a href="" class="btn btn-sm btn-secondary mr-3" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $role->id }}').submit();">Delete</a>
-                                <form id="delete-form-{{ $role->id }}" action="{{ route('admin.role.delete',$role->id) }}" method="POST" style="display: none;">
-                                    @csrf @method('delete')
-                                </form>
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="javascript:;">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span>Categories</span>
+            </li>
+        </ul>
+        <div class="page-toolbar">
+            <div class="btn-group pull-right open">
+                <a href="{{ route('admin.role.create') }}" class="btn blue btn-sm" > <b> <i class="fa fa-plus"></i> Add</b></a>
+            </div>
+        </div>
 
-                                <a href="{{ route('admin.role.edit',$role->id) }}" class="btn btn-sm btn-primary mr-3">Edit</a>
-                            </div>
-                        </li>
-                        @endforeach
-                    </ol>
+    </div>
+    <h3 class="page-title">Categories
+    </h3>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN VALIDATION STATES-->
+            <div class="portlet light portlet-fit bordered">
+
+                <div class="portlet-body flip-scroll">
+                    <table class="table table-bordered table-striped flip-content">
+                        <thead class="flip-content">
+                        <tr>
+                            <th width="75px"> Sr No. </th>
+                            <th> Name </th>
+                            <th> Created </th>
+                            <th> Last Updated </th>
+                            <th> Action </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @php
+                            $i = 0;
+                        @endphp
+                        @forelse($roles as $role)
+                            <tr>
+                                <td> {{ ++$i }} </td>
+                                <td> {{ $role->name }} </td>
+                                <td> {{ $role->created_at }} </td>
+                                <td> {{ $role->updated_at }} </td>
+                                <td>
+                                    <a href="{{ route('admin.role.edit',$role->id) }}" class="btn btn-primary">Edit</a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="6">
+                                    Data Not Found
+                                </td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 @endsection
