@@ -54,14 +54,13 @@
                 <div class="col-lg-8 col-md-8">
 
                     <div class="row-bottom">
-                        <h2 class="detail-title">Job Description</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h2 class="detail-title">Project Description</h2>
+                        {!! $project->description !!}
                     </div>
 
                     <div class="row-bottom">
-                        <h2 class="detail-title">Required Knowledge, Skills, and Abilities</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <h2 class="detail-title">Required Level, and Trainings</h2>
+                        <p>This task requires user Level.</p>
                         <ul class="detail-list">
                             <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</li>
                             <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
@@ -87,8 +86,6 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="full-sidebar-wrap">
 
-                        <a href="javascript:void(0)" data-toggle="modal" data-target="#apply-job" class="btn btn-info mrg-bot-15 full-width"><i class="ti-star mrg-r-5"></i>Apply This Job</a>
-
                         <!-- Candidate overview -->
                         <div class="sidebar-widgets">
 
@@ -101,14 +98,8 @@
 
                                         <li>
                                             <i class="ti-wallet"></i>
-                                            <h5>Offerd Salary</h5>
-                                            <span>£15,000 - £20,000</span>
-                                        </li>
-
-                                        <li>
-                                            <i class="ti-user"></i>
-                                            <h5>Gender</h5>
-                                            <span>Male</span>
+                                            <h5>Offerd Wages</h5>
+                                            <span>£20,000</span>
                                         </li>
 
                                         <li>
@@ -119,7 +110,7 @@
 
                                         <li>
                                             <i class="ti-home"></i>
-                                            <h5>Industry</h5>
+                                            <h5>Category</h5>
                                             <span>Management</span>
                                         </li>
 
