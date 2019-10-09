@@ -4,7 +4,7 @@
     <!-- Title Header Start -->
     <section class="inner-header-title" style="background-image:url({{ asset('assets/img/banner-10.jpg') }});">
         <div class="container">
-            <h1>Browse Jobs</h1>
+            <h1>Browse Projects</h1>
         </div>
     </section>
     <div class="clearfix"></div>
@@ -83,7 +83,7 @@
                             </div>
                             <div class="col-md-2 col-sm-2">
                                 <div class="brows-job-link">
-                                    <a href="job-apply-detail.html" class="btn btn-default">Take Now</a>
+                                    <a href="{{ route('pages.project.details', $project->id) }}" class="btn btn-default">Check Now</a>
                                 </div>
                             </div>
                         </div>

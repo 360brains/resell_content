@@ -43,6 +43,7 @@ Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')
 
 Route::get('/', 'Pages\PagesController@home')->name('pages.home');
 Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');
+Route::get('/project-details/{id}', 'Pages\PagesController@projectDetails')->name('pages.project.details');
 
 
 

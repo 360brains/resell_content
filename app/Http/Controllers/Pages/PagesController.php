@@ -17,7 +17,7 @@ class PagesController extends Controller
         //$data['categories'] = Category::orderBy('name', 'desc')->take(8)->get();
 
         $data['categories'] = Category::with('projects')->get();
-        $data['projects']   = Project::paginate(2);
+        $data['projects']   = Project::paginate(6);
         $data['types']      = Type::get();
         $data['levels']     = Level::get();
 
@@ -40,8 +40,12 @@ class PagesController extends Controller
             $data['projects']   = $data['projects']->where('type_id', $type);
         }
 
-        $data['projects']   = $data['projects']->paginate(1);
+        $data['projects']   = $data['projects']->paginate(5);
 
         return view('pages.projects', $data);
+    }
+    public function projectDetails($id){
+        $data['project'] = Project::find($id);
+        return view('pages.project-details', $data);
     }
 }
