@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
@@ -42,5 +39,10 @@ Route::get('user/dashboard', 'User\DashboardController@index')->name('user.dashb
 Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
 Route::post('user/profile/edit-personal', 'User\ProfileController@editPersonal')->name('user.profile.edit.personal');
 Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')->name('user.profile.edit.password');
+
+
+Route::get('/', 'Pages\PagesController@home')->name('pages.home');
+Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');
+
 
 

@@ -26,4 +26,8 @@ class Project extends Model
     {
         return date('d-M-Y', strtotime($date));
     }
+    public function getDeadlineAttribute($date)
+    {
+        return date('d-M-Y', strtotime($date));
+    }
 }

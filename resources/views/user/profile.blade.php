@@ -10,9 +10,9 @@
                             <div class="card-head">
                                 <h4 class="card-title">Profile Details</h4></div>
                             <ul class="nav nav-tabs nav-tabs-line" role="tablist">
-                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#personal-data">Personal Data</a></li>
+                                <li class="nav-item"><a class="nav-link {{previous_route() === 'user.profile.edit.password' ? '' : 'active'}} " data-toggle="tab" href="#personal-data">Personal Data</a></li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#settings">Settings</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#password">Password</a></li>
+                                <li class="nav-item"><a class="nav-link {{previous_route() === 'user.profile.edit.password' ? 'active' : ''}} " data-toggle="tab" href="#password">Password</a></li>
                             </ul>
                             <!-- .nav-tabs-line -->
                             <div class="tab-content" id="profile-details">

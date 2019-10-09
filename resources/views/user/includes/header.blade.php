@@ -49,7 +49,7 @@
         <div class="container">
             <div class="navbar-innr">
                 <ul class="navbar-menu">
-                    <li><a href="index-2.html"><em class="ikon ikon-dashboard"></em> Dashboard</a></li>
+                    <li><a href="{{ route('user.dashboard') }}"><em class="ikon ikon-dashboard"></em> Dashboard</a></li>
                     <li><a href="buy-token.html"><em class="ikon ikon-coins"></em> Buy Tokens</a></li>
                     <li><a href="ico-distribution.html"><em class="ikon ikon-distribution"></em> ICO Distribution</a></li>
                     <li><a href="transactions.html"><em class="ikon ikon-transactions"></em> Transactions</a></li>
