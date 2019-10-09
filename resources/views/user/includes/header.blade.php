@@ -13,19 +13,27 @@
                 <!-- .topbar-nav -->
                 <a class="topbar-logo" href="index.html"><img src="{{ asset('user/images/logo-light2x.png') }}" srcset="{{ asset('user/images/logo-light2x.png 2x') }}" alt="logo"></a>
                 <ul class="topbar-nav">
-                    <li class="topbar-nav-item relative"><span class="user-welcome d-none d-lg-inline-block">Welcome! Stefan Harary</span><a class="toggle-tigger user-thumb" href="#"><em class="ti ti-user"></em></a>
+                    <li class="topbar-nav-item relative"><span class="user-welcome d-none d-lg-inline-block">Welcome! {{ auth()->user()->name }}</span><a class="toggle-tigger user-thumb" href="#"><em class="ti ti-user"></em></a>
                         <div class="toggle-class dropdown-content dropdown-content-right dropdown-arrow-right user-dropdown">
                             <div class="user-status">
                                 <h6 class="user-status-title">Token balance</h6>
                                 <div class="user-status-balance">12,000,000 <small>TWZ</small></div>
                             </div>
                             <ul class="user-links">
-                                <li><a href="profile.html"><i class="ti ti-id-badge"></i>My Profile</a></li>
+                                <li><a href="{{ route('user.profile') }}"><i class="ti ti-id-badge"></i>My Profile</a></li>
                                 <li><a href="#"><i class="ti ti-infinite"></i>Referral</a></li>
                                 <li><a href="activity.html"><i class="ti ti-eye"></i>Activity</a></li>
                             </ul>
                             <ul class="user-links bg-light">
-                                <li><a href="sign-in.html"><i class="ti ti-power-off"></i>Logout</a></li>
+                                <li><a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i class="ti ti-power-off"></i>{{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -41,11 +49,11 @@
         <div class="container">
             <div class="navbar-innr">
                 <ul class="navbar-menu">
-                    <li><a href="index-2.html"><em class="ikon ikon-dashboard"></em> Dashboard</a></li>
+                    <li><a href="{{ route('user.dashboard') }}"><em class="ikon ikon-dashboard"></em> Dashboard</a></li>
                     <li><a href="buy-token.html"><em class="ikon ikon-coins"></em> Buy Tokens</a></li>
                     <li><a href="ico-distribution.html"><em class="ikon ikon-distribution"></em> ICO Distribution</a></li>
                     <li><a href="transactions.html"><em class="ikon ikon-transactions"></em> Transactions</a></li>
-                    <li><a href="profile.html"><em class="ikon ikon-user"></em> Profile</a></li>
+                    <li><a href="{{ route('user.profile') }}"><em class="ikon ikon-user"></em> Profile</a></li>
                     <li class="has-dropdown page-links-all"><a class="drop-toggle" href="#"><em class="ikon ikon-exchange"></em> Pages</a>
                         <ul class="navbar-dropdown">
                             <li class="has-dropdown"><a class="drop-toggle" href="#">Dashboards</a>

@@ -16,6 +16,11 @@ class Category extends Model
     function childCategories(){
         return $this->hasMany(Category::class,"parent_id");
     }
+
+    function projects(){
+    return $this->hasMany(Project::class);
+    }
+
     public function getCreatedAtAttribute($date)
     {
         return date('d-M-Y', strtotime($date));
