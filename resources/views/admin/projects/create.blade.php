@@ -86,6 +86,15 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="trainings" multiple>
+                                            @foreach($trainings as $training)
+                                                <option value="{{ $training->id }}">{{$training->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <label>Trainings Required  <small>(Can Select Multiple Trainings)</small></label>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active">
                                             <option value="">Status</option>
                                             <option value="1">Active</option>
