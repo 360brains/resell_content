@@ -9,7 +9,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Categories</span>
+                <span>Roles</span>
             </li>
         </ul>
         <div class="page-toolbar">
@@ -19,7 +19,7 @@
         </div>
 
     </div>
-    <h3 class="page-title">Categories
+    <h3 class="page-title">Roles
     </h3>
 
     <div class="row">
