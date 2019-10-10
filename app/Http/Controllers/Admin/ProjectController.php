@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Level;
 use App\Models\Category;
+use App\Models\Training;
 use App\Models\Type;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $data['projects'] = Project::orderBy('name', 'asc')->paginate(10);
+        $data['projects']   = Project::orderBy('name', 'asc')->paginate(10);
         return view('admin.projects.index', $data);
     }
 
@@ -33,6 +34,7 @@ class ProjectController extends Controller
         $data['types']      = Type::get();
         $data['categories'] = Category::get();
         $data['levels']     = Level::get();
+        $data['trainings']  = Training::get();
         return view("admin.projects.create", $data);
     }
 
