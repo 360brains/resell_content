@@ -2,9 +2,7 @@
 
     @section('content')
 
-    <div class="page-content-wrapper">
-        <!-- BEGIN CONTENT BODY -->
-        <div class="page-content">
+
             <!-- BEGIN PAGE HEADER-->
             <!-- BEGIN PAGE BAR -->
             <div class="page-bar">
@@ -1664,9 +1662,7 @@
                     <!-- END PORTLET-->
                 </div>
             </div>
-        </div>
-        <!-- END CONTENT BODY -->
-    </div>
+
     @endsection
 
 

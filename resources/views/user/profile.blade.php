@@ -19,7 +19,7 @@
                             <div class="tab-content" id="profile-details">
                                 <div class="tab-pane fade show active" id="personal-data">
                                     <form action="{{ route('user.profile.edit.personal' ) }}" method="post">
-                                        @csrf>
+                                        @csrf
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="input-item input-with-label">
