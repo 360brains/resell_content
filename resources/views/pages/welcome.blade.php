@@ -237,7 +237,7 @@
                                 </div>
                                 <div class="col-md-2 col-sm-2">
                                     <div class="brows-job-link">
-                                        <a href="job-apply-detail.html" class="btn btn-default">Take Now</a>
+                                        <a href="{{ route('pages.project.details', $project->id) }}" class="btn btn-default">Check Now</a>
                                     </div>
                                 </div>
                             </div>

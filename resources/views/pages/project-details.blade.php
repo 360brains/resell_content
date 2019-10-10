@@ -23,15 +23,9 @@
                     </div>
                     <div class="ur-caption">
                         <h4 class="ur-title">{{ $project->name }}</h4>
-                        <p class="ur-location"><i class="ti-location-pin mrg-r-5"></i>232, New Sleewar, Canada</p>
+                        <p class="ur-location"><i class="ti-location-pin mrg-r-5"></i>Available Before {{ $project->deadline }}</p>
                         <span class="ur-designation">{{ $project->category->name }}</span>
-                        <div class="rateing">
-                            <i class="fa fa-star filled"></i>
-                            <i class="fa fa-star filled"></i>
-                            <i class="fa fa-star filled"></i>
-                            <i class="fa fa-star filled"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
+
                     </div>
 
                 </div>
@@ -70,17 +64,6 @@
                         </ul>
                     </div>
 
-                    <div class="row-bottom">
-                        <h2 class="detail-title">Education + Experience</h2>
-                        <ul class="detail-list">
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</li>
-                        </ul>
-                    </div>
-
                 </div>
 
                 <div class="col-lg-4 col-md-4">
@@ -91,7 +74,7 @@
 
                             <div class="ur-detail-wrap">
                                 <div class="ur-detail-wrap-header">
-                                    <h4>Candidate Overview</h4>
+                                    <h4>Project Overview</h4>
                                 </div>
                                 <div class="ur-detail-wrap-body">
                                     <ul class="ove-detail-list">
@@ -105,7 +88,7 @@
                                         <li>
                                             <i class="ti-ink-pen"></i>
                                             <h5>Career Level</h5>
-                                            <span>Excutive</span>
+                                            <span>Level 10</span>
                                         </li>
 
                                         <li>
@@ -115,15 +98,9 @@
                                         </li>
 
                                         <li>
-                                            <i class="ti-shield"></i>
-                                            <h5>Experience</h5>
-                                            <span>5 Years</span>
-                                        </li>
-
-                                        <li>
                                             <i class="ti-book"></i>
-                                            <h5>Qualification</h5>
-                                            <span>Master Degree</span>
+                                            <h5>Project Type</h5>
+                                            <span>writing</span>
                                         </li>
 
                                     </ul>
