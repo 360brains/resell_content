@@ -53,6 +53,11 @@
                         </tr>
 
                         <tr>
+                            <th>task Wages for this Level</th>
+                            <td>{{$levels->price}}</td>
+                        </tr>
+
+                        <tr>
                             <th>Status</th>
                             <td>{{$levels->active==1?'Active':'Deactive'}}</td>
                         </tr>

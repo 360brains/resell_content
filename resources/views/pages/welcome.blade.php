@@ -25,7 +25,7 @@
                         <p>Get the projects and tasks that match your skills.</p>
                     </div>
                     <form class="form-horizontal" action="{{ route('pages.projects') }}" method="get">
-                        @csrf
+
                         <div class="col-md-3 no-padd">
                             <div class="input-group">
                                 <select id="choose-level" class="form-control" name="level">
@@ -209,35 +209,35 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>We found {{count($projects)}} matching projects. Interested?</h2></div>
+                    <h2>We found {{count($projects)}} matching tasks. Interested?</h2></div>
             </div>
             <div class="row">
                 <div class="col-md-12">
 
                     <!-- Single Job List -->
-                    @forelse($projects as $project)
+                    @forelse($tasks as $task)
                     <div class="item-click">
                         <article>
                             <div class="brows-job-list">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="item-fl-box">
                                         <div class="brows-job-position">
-                                            <h3><a href="job-apply-detail.html">{{ $project->name }}</a></h3>
+                                            <h3><a href="job-apply-detail.html">{{ $task->name }}</a></h3>
                                             <p>
-                                                <span>{{ $project->category->name }}</span><span class="brows-job-sallery"><i class="fa fa-money"></i>Level: {{ $project->level->name }}</span>
-                                                <span class="job-type cl-success bg-trans-success">{{ $project->deadline }}</span>
+                                                <span>{{ $task->category->name }}</span><span class="brows-job-sallery"><i class="fa fa-money"></i> {{ $task->level->price }}</span>
+                                                <span class="job-type cl-success bg-trans-success">{{ $task->deadline }}</span>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div class="brows-job-location">
-                                        <p></i>{{ $project->type->name }}:  <span class="num-projects"> {{ $project->quantity }}</span> </p>
+                                        <p>{{ $task->type->name }} - Level: {{ $task->level->name }} </p>
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-sm-2">
                                     <div class="brows-job-link">
-                                        <a href="{{ route('pages.project.details', $project->id) }}" class="btn btn-default">Check Now</a>
+                                        <a href="{{ route('pages.task.details', $task->id) }}" class="btn btn-default">Check Now</a>
                                     </div>
                                 </div>
                             </div>

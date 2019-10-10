@@ -18,7 +18,7 @@ class Project extends Model
         return $this->belongsTo(Level::class);
     }
     function trainings(){
-        return $this->hasMany(Training::class);
+        return $this->belongsToMany(Training::class);
     }
     public function getCreatedAtAttribute($date)
     {
