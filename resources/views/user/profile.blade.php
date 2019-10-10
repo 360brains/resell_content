@@ -13,7 +13,7 @@
                             <ul class="nav nav-tabs nav-tabs-line" role="tablist">
                                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#personal-data">Personal Data</a></li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#settings">Settings</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#password">Password</a></li>
+                                <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#password">Password</a></li>
                             </ul>
                             <!-- .nav-tabs-line -->
                             <div class="tab-content" id="profile-details">
@@ -105,7 +105,7 @@
                                             <div class="col-md-6">
                                                 <div class="input-item input-with-label">
                                                     <label for="old-pass" class="input-item-label">Old Password</label>
-                                                    <input class="input-bordered" type="password" id="old-pass" name="old-password">
+                                                    <input class="input-bordered" type="password" id="old-pass" name="old_password">
                                                 </div>
                                                 <!-- .input-item -->
                                             </div>
@@ -130,15 +130,26 @@
                                             </div>
                                             <!-- .col -->
                                         </div>
+                                        <!-- .row -->
+                                        <div class="note note-plane note-info pdb-1x"><em class="fas fa-info-circle"></em>
+                                            <p>Password should be minmum 8 letter and include lower and uppercase letter.</p>
+                                        </div>
+                                        <div class="gaps-1x"></div>
+                                        <!-- 10px gap -->
+                                        <div class="d-sm-flex justify-content-between align-items-center">
+                                            <button class="btn btn-primary">Update</button>
+                                            <div class="gaps-2x d-sm-none"></div><span class="text-success"><em class="ti ti-check-box"></em>  Changed Password</span>
+                                        </div>
                                     </form>
                                 </div>
+
                                 <!-- .tab-pane -->
                             </div>
                             <!-- .tab-content -->
                         </div>
                         <!-- .card-innr -->
+
                     </div>
-                    <!-- .card -->
                     <div class="content-area card">
                         <div class="card-innr">
                             <div class="card-head">
@@ -151,9 +162,7 @@
                         </div>
                         <!-- .card-innr -->
                     </div>
-                    <!-- .card -->
                 </div>
-                <!-- .col -->
                 <div class="aside sidebar-right col-lg-4">
                     <div class="account-info card">
                         <div class="card-innr">
@@ -186,11 +195,8 @@
                             <h6 class="kyc-alert text-danger">* KYC verification required for purchase token</h6></div>
                     </div>
                 </div>
-                <!-- .col -->
             </div>
-            <!-- .container -->
         </div>
-        <!-- .container -->
     </div>
 
 
