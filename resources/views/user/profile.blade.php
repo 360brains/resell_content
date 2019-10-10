@@ -102,45 +102,45 @@
                                     <form action="{{ route('user.profile.edit.password' ) }}" method="post">
                                         @csrf
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="input-item input-with-label">
-                                                <label for="old-pass" class="input-item-label">Old Password</label>
-                                                <input class="input-bordered" type="password" id="old-pass" name="old_password">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-item input-with-label">
+                                                    <label for="old-pass" class="input-item-label">Old Password</label>
+                                                    <input class="input-bordered" type="password" id="old-pass" name="old_password">
+                                                </div>
+                                                <!-- .input-item -->
                                             </div>
-                                            <!-- .input-item -->
+                                            <!-- .col -->
                                         </div>
-                                        <!-- .col -->
-                                    </div>
-                                    <!-- .row -->
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="input-item input-with-label">
-                                                <label for="new-pass" class="input-item-label">New Password</label>
-                                                <input class="input-bordered" type="password" id="new-pass" name="new_password">
+                                        <!-- .row -->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-item input-with-label">
+                                                    <label for="new-pass" class="input-item-label">New Password</label>
+                                                    <input class="input-bordered" type="password" id="new-pass" name="new_password">
+                                                </div>
+                                                <!-- .input-item -->
                                             </div>
-                                            <!-- .input-item -->
-                                        </div>
-                                        <!-- .col -->
-                                        <div class="col-md-6">
-                                            <div class="input-item input-with-label">
-                                                <label for="confirm-pass" class="input-item-label">Confirm New Password</label>
-                                                <input class="input-bordered" type="password" id="confirm-pass" name="confirm_password">
+                                            <!-- .col -->
+                                            <div class="col-md-6">
+                                                <div class="input-item input-with-label">
+                                                    <label for="confirm-pass" class="input-item-label">Confirm New Password</label>
+                                                    <input class="input-bordered" type="password" id="confirm-pass" name="confirm_password">
+                                                </div>
+                                                <!-- .input-item -->
                                             </div>
-                                            <!-- .input-item -->
+                                            <!-- .col -->
                                         </div>
-                                        <!-- .col -->
-                                    </div>
-                                    <!-- .row -->
-                                    <div class="note note-plane note-info pdb-1x"><em class="fas fa-info-circle"></em>
-                                        <p>Password should be minmum 8 letter and include lower and uppercase letter.</p>
-                                    </div>
-                                    <div class="gaps-1x"></div>
-                                    <!-- 10px gap -->
-                                    <div class="d-sm-flex justify-content-between align-items-center">
-                                        <button class="btn btn-primary">Update</button>
-                                        <div class="gaps-2x d-sm-none"></div><span class="text-success"><em class="ti ti-check-box"></em>  Changed Password</span>
-                                    </div>
+                                        <!-- .row -->
+                                        <div class="note note-plane note-info pdb-1x"><em class="fas fa-info-circle"></em>
+                                            <p>Password should be minmum 8 letter and include lower and uppercase letter.</p>
+                                        </div>
+                                        <div class="gaps-1x"></div>
+                                        <!-- 10px gap -->
+                                        <div class="d-sm-flex justify-content-between align-items-center">
+                                            <button class="btn btn-primary">Update</button>
+                                            <div class="gaps-2x d-sm-none"></div><span class="text-success"><em class="ti ti-check-box"></em>  Changed Password</span>
+                                        </div>
                                     </form>
                                 </div>
 
