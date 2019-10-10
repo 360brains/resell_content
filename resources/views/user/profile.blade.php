@@ -4,15 +4,15 @@
     <div class="page-content">
         <div class="container">
             <div class="row">
-                <form class="main-content col-lg-8">
+                <div class="main-content col-lg-8">
                     <div class="content-area card">
                         <div class="card-innr">
                             <div class="card-head">
                                 <h4 class="card-title">Profile Details</h4></div>
                             <ul class="nav nav-tabs nav-tabs-line" role="tablist">
-                                <li class="nav-item"><a class="nav-link {{previous_route() === 'user.profile.edit.password' ? '' : 'active'}} " data-toggle="tab" href="#personal-data">Personal Data</a></li>
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#personal-data">Personal Data</a></li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#settings">Settings</a></li>
-                                <li class="nav-item"><a class="nav-link {{previous_route() === 'user.profile.edit.password' ? 'active' : ''}} " data-toggle="tab" href="#password">Password</a></li>
+                                <li class="nav-item"><a class="nav-link " data-toggle="tab" href="#password">Password</a></li>
                             </ul>
                             <!-- .nav-tabs-line -->
                             <div class="tab-content" id="profile-details">
@@ -139,16 +139,18 @@
                                     <!-- 10px gap -->
                                     <div class="d-sm-flex justify-content-between align-items-center">
                                         <button class="btn btn-primary">Update</button>
-                                        <div class="gaps-2x d-sm-none"></div><span class="text-success"><em class="ti ti-check-box"></em>  Changed Password</span></div>
+                                        <div class="gaps-2x d-sm-none"></div><span class="text-success"><em class="ti ti-check-box"></em>  Changed Password</span>
+                                    </div>
+                                    </form>
                                 </div>
+
                                 <!-- .tab-pane -->
                             </div>
                             <!-- .tab-content -->
                         </div>
                         <!-- .card-innr -->
+
                     </div>
-                </form>
-                    <!-- .card -->
                     <div class="content-area card">
                         <div class="card-innr">
                             <div class="card-head">
@@ -161,9 +163,7 @@
                         </div>
                         <!-- .card-innr -->
                     </div>
-                    <!-- .card -->
                 </div>
-                <!-- .col -->
                 <div class="aside sidebar-right col-lg-4">
                     <div class="account-info card">
                         <div class="card-innr">
@@ -196,10 +196,7 @@
                             <h6 class="kyc-alert text-danger">* KYC verification required for purchase token</h6></div>
                     </div>
                 </div>
-                <!-- .col -->
             </div>
-            <!-- .container -->
         </div>
-        <!-- .container -->
     </div>
 @endsection

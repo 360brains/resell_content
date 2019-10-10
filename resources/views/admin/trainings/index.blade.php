@@ -58,7 +58,11 @@
                                         @method('DELETE')
                                         <a class="btn btn-success" href="{{ route('admin.trainings.show', $training->id) }}">Show</a>
                                         <a class="btn btn-primary" href="{{ route('admin.trainings.edit', $training->id) }}">Edit</a>
-                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
+                                        @if($training->active == 0)
+                                            <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>
+                                        @else
+                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Inactive</button>
+                                        @endif
                                     </form>
                                 </td>
                             </tr>
