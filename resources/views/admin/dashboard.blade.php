@@ -1,8 +1,6 @@
 @extends('admin.layouts.master')
 
     @section('content')
-
-
             <!-- BEGIN PAGE HEADER-->
             <!-- BEGIN PAGE BAR -->
             <div class="page-bar">

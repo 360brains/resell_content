@@ -48,56 +48,56 @@
             <li class="heading">
                 <h3 class="uppercase">Features</h3>
             </li>
-            <li class="nav-item  ">
-                <a href="{{ route('admin.categories.index') }}" class="nav-link">
+            <li class="{{strpos((request()->path()),"admin/categories") == 'true' ? 'active' : ''}} nav-item">
+                <a class="nav-link" href="{{route('admin.categories.index')}}">
                     <i class="icon-layers"></i>
                     <span class="title">Categories</span>
                 </a>
             </li>
-            <li class="nav-item  ">
+            <li class="nav-item {{strpos((request()->path()),"admin/levels") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.levels.index') }}" class="nav-link">
                     <i class="icon-layers"></i>
                     <span class="title">Levels</span>
                 </a>
             </li>
 
-            <li class="nav-item  ">
+            <li class="nav-item  {{strpos((request()->path()),"admin/projects") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.projects.index') }}" class="nav-link nav-toggle">
                     <i class="icon-layers"></i>
                     <span class="title">Projects</span>
                 </a>
-            <li class="nav-item  ">
+            <li class="nav-item  {{strpos((request()->path()),"admin/tasks") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.tasks.index') }}" class="nav-link nav-toggle">
                     <i class="icon-layers"></i>
                     <span class="title">Tasks</span>
                 </a>
-            </li><li class="nav-item  ">
+            </li><li class="nav-item  {{strpos((request()->path()),"admin/users") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.users.index') }}" class="nav-link nav-toggle">
                     <i class="icon-layers"></i>
                     <span class="title">Users</span>
                 </a>
             </li>
 
-            <li class="nav-item  ">
+            <li class="nav-item  {{strpos((request()->path()),"admin/test") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.test.index') }}" class="nav-link">
                     <i class="icon-layers"></i>
                     <span class="title">Tests</span>
                 </a>
             </li>
-            <li class="nav-item  ">
+            <li class="nav-item  {{strpos((request()->path()),"admin/transactions") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.transactions.index') }}" class="nav-link">
                     <i class="icon-layers"></i>
                     <span class="title">Transactions</span>
                 </a>
             </li>
-            <li class="nav-item  ">
+            <li class="nav-item  {{strpos((request()->path()),"admin/trainings") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.trainings.index') }}" class="nav-link">
                     <i class="icon-layers"></i>
                     <span class="title">Trainings</span>
                 </a>
             </li>
 
-            <li class="nav-item  ">
+            <li class="nav-item  {{strpos((request()->path()),"backend/role") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.roles') }}" class="nav-link">
                     <i class="icon-layers"></i>
                     <span class="title">Roles</span>
