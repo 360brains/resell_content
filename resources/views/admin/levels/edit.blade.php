@@ -44,6 +44,10 @@
                                         <input type="text" name="name" value="{{$level->name}}" class="form-control" id="form_control_1" placeholder="Enter Level Name">
                                         <label>Level Name</label>
                                     </div>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="number" name="price" value="{{$level->price}}" class="form-control" id="mask_number form_control_1" placeholder="Enter wages for a Tasks">
+                                        <label>Task Wages</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">

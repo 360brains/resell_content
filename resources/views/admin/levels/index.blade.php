@@ -35,6 +35,7 @@
                             <th width="75px"> Sr No. </th>
                             <th> Level Name </th>
                             <th> Type </th>
+                            <th> Wages </th>
                             <th> Status </th>
                             <th> Created </th>
                             <th> Last Updated </th>
@@ -50,6 +51,7 @@
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $level->name }} </td>
                                     <td> {{ $level->types->name }} </td>
+                                    <td> {{ $level->price }} </td>
                                     <td> {{ $level->active == 1 ? 'Active' : 'Deactive' }} </td>
                                     <td> {{ $level->created_at }} </td>
                                     <td> {{ $level->updated_at }} </td>

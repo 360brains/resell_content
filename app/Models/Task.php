@@ -24,12 +24,19 @@ class Task extends Model
     function level(){
         return $this->belongsTo(Level::class);
     }
+    function trainings(){
+        return $this->belongsToMany(Training::class);
+    }
     public function getCreatedAtAttribute($date)
     {
         return date('d-M-Y', strtotime($date));
     }
 
     public function getUpdatedAtAttribute($date)
+    {
+        return date('d-M-Y', strtotime($date));
+    }
+    public function getDeadlineAttribute($date)
     {
         return date('d-M-Y', strtotime($date));
     }

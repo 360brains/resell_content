@@ -4,7 +4,7 @@
     <!-- Title Header Start -->
     <section class="inner-header-title" style="background-image:url({{ asset('assets/img/banner-10.jpg') }});">
         <div class="container">
-            <h1>Project Detail</h1>
+            <h1>Task Detail</h1>
         </div>
     </section>
     <div class="clearfix"></div>
@@ -22,16 +22,16 @@
                         <img src="{{ asset('assets/img/project.png') }}" class="img-responsive" alt="" />
                     </div>
                     <div class="ur-caption">
-                        <h4 class="ur-title">{{ $project->name }}</h4>
-                        <p class="ur-location"><i class="ti-location-pin mrg-r-5"></i>Available Before {{ $project->deadline }}</p>
-                        <span class="ur-designation">{{ $project->category->name }}</span>
+                        <h4 class="ur-title">{{ $task->name }}</h4>
+                        <p class="ur-location"><i class="ti-location-pin mrg-r-5"></i>Available Before {{ $task->deadline }}</p>
+                        <span class="ur-designation">{{ $task->category->name }}</span>
 
                     </div>
 
                 </div>
 
                 <div class="ur-detail-btn">
-                    <a href="#" class="btn btn-info full-width"><i class="ti-thumb-up mrg-r-5"></i>Take a task</a><br>
+                    <a href="#" class="btn btn-info full-width"><i class="ti-thumb-up mrg-r-5"></i>Take task</a><br>
                 </div>
 
             </div>
@@ -48,18 +48,18 @@
                 <div class="col-lg-8 col-md-8">
 
                     <div class="row-bottom">
-                        <h2 class="detail-title">Project Description</h2>
-                        {!! $project->description !!}
+                        <h2 class="detail-title">Task Description</h2>
+                        {!! $task->description !!}
                     </div>
 
                     <div class="row-bottom">
                         <h2 class="detail-title">Required Level, and Trainings</h2>
-                        <p>This task requires user Level {{$project->level->name}}, and the following trainings:</p>
+                        <p>This task requires user Level {{$task->level->name}}, and the following trainings:</p>
                         <ul class="detail-list">
-                            @forelse($project->trainings as $training)
-                            <li> {{ $training->name }} - Requires level: {{ $training->levels->name }} of Type {{ $training->types->name }}</li>
+                            @forelse($task->trainings as $training)
+                                <li> {{ $training->name }} - Requires level: {{ $training->levels->name }} of Type {{ $training->types->name }}</li>
                             @empty
-                            <h2>No training required.</h2>
+                                <h2>No training required.</h2>
                             @endforelse
                         </ul>
                     </div>
@@ -82,25 +82,25 @@
                                         <li>
                                             <i class="ti-wallet"></i>
                                             <h5>Offerd Wages</h5>
-                                            <span>Rs{{ $project->level->price }}</span>
+                                            <span>Rs{{ $task->level->price }}</span>
                                         </li>
 
                                         <li>
                                             <i class="ti-ink-pen"></i>
                                             <h5>Career Level</h5>
-                                            <span>{{$project->level->name}}</span>
+                                            <span>{{$task->level->name}}</span>
                                         </li>
 
                                         <li>
                                             <i class="ti-home"></i>
                                             <h5>Category</h5>
-                                            <span>{{$project->category->name}}</span>
+                                            <span>{{$task->category->name}}</span>
                                         </li>
 
                                         <li>
                                             <i class="ti-book"></i>
-                                            <h5>Project Type</h5>
-                                            <span>{{$project->type->name}}</span>
+                                            <h5>Task Type</h5>
+                                            <span>{{$task->type->name}}</span>
                                         </li>
 
                                     </ul>
@@ -153,42 +153,39 @@
 
             <div class="row mrg-0">
                 <div class="col-md-12 col-sm-12">
-                    <h3>Related Projects</h3>
+                    <h3>Related Tasks</h3>
                 </div>
             </div>
             <!--Browse Job In Grid-->
             <div class="row mrg-0">
 
-                @forelse($relatedProjects as $project)
-                <div class="col-md-4 col-sm-6">
-                    <div class="grid-view brows-job-list">
-                        <div class="brows-job-company-img">
-                            <img src="{{ asset('assets/img/project.png') }}" class="img-responsive" alt="" />
+                @forelse($relatedTasks as $task)
+                    <div class="col-md-4 col-sm-6">
+                        <div class="grid-view brows-job-list">
+                            <div class="brows-job-company-img">
+                                <img src="{{ asset('assets/img/project.png') }}" class="img-responsive" alt="" />
+                            </div>
+                            <div class="brows-job-position">
+                                <h3><a href="job-detail.html">{{ $task->name }}</a></h3>
+                                <p><span>{{ $task->category->name }}</span></p>
+                            </div>
+                            <div class="brows-job-type">
+                                <span class="full-time">{{ $task->type->name }} Level:{{ $task->level->name }}</span>
+                            </div>
+                            <ul class="grid-view-caption">
+                                <li>
+                                    <div class="brows-job-location">
+                                        <p><i class="fa fa-clock-o"></i>{{ $task->deadline }}</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $task->level->price }}</span></p>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="brows-job-position">
-                            <h3><a href="job-detail.html">{{ $project->name }}</a></h3>
-                            <p><span>{{ $project->category->name }}</span></p>
-                        </div>
-                        <div class="job-position">
-                            <span class="job-num">{{ $project->quantity }} tasks</span>
-                        </div>
-                        <div class="brows-job-type">
-                            <span class="full-time">{{ $project->type->name }} Level:{{ $project->level->name }}</span>
-                        </div>
-                        <ul class="grid-view-caption">
-                            <li>
-                                <div class="brows-job-location">
-                                    <p><i class="fa fa-clock-o"></i>{{ $project->deadline }}</p>
-                                </div>
-                            </li>
-                            <li>
-                                <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $project->level->price }}</span></p>
-                            </li>
-                        </ul>
                     </div>
-                </div>
                 @empty
-                    <h2>No related projects found.</h2>
+                    <h2>No related tasks found.</h2>
                 @endforelse
 
             </div>

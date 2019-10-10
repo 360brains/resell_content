@@ -41,13 +41,14 @@ class LevelController extends Controller
     {
         $request->validate([
             'name'          => 'required',
-            'description'   => 'required',
+            'price'         => 'required',
             'type_id'       => 'required',
             'active'        => 'required',
         ]);
 
         $data = [
             'name'          => $request->name,
+            'price'         => $request->price,
             'description'   => $request->description,
             'type_id'       => $request->type_id,
             'active'        => $request->active,
@@ -98,13 +99,13 @@ class LevelController extends Controller
     {
         $request->validate([
             'name'          => 'required',
-            'description'   => 'required',
+            'price'         => 'required',
             'type_id'       => 'required',
             'active'        => 'required',
         ]);
 
             $level->name          = $request->name;
-            $level->description   = $request->description;
+            $level->price         = $request->price;
             $level->type_id       = $request->type_id;
             $level->active        = $request->active;
         $response = $level->save();

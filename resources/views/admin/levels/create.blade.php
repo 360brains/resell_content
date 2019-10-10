@@ -44,6 +44,10 @@
                                         <label>Level Name</label>
                                     </div>
                                     <div class="form-group form-md-line-input">
+                                        <input type="number" name="price" class="form-control" id="mask_number form_control_1" placeholder="Enter wages for a Tasks">
+                                        <label>Task Wages</label>
+                                    </div>
+                                    <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active">
                                             <option value="">Status</option>
                                             <option value="1">Active</option>
