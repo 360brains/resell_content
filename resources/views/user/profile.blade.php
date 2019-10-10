@@ -1,25 +1,25 @@
 @extends('user.layouts.master')
 
 @section('content')
+
     <div class="page-content">
         <div class="container">
             <div class="row">
-                <form class="main-content col-lg-8">
+                <div class="main-content col-lg-8">
                     <div class="content-area card">
                         <div class="card-innr">
                             <div class="card-head">
                                 <h4 class="card-title">Profile Details</h4></div>
                             <ul class="nav nav-tabs nav-tabs-line" role="tablist">
-                                <li class="nav-item"><a class="nav-link {{previous_route() === 'user.profile.edit.password' ? '' : 'active'}} " data-toggle="tab" href="#personal-data">Personal Data</a></li>
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#personal-data">Personal Data</a></li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#settings">Settings</a></li>
-                                <li class="nav-item"><a class="nav-link {{previous_route() === 'user.profile.edit.password' ? 'active' : ''}} " data-toggle="tab" href="#password">Password</a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#password">Password</a></li>
                             </ul>
                             <!-- .nav-tabs-line -->
                             <div class="tab-content" id="profile-details">
                                 <div class="tab-pane fade show active" id="personal-data">
                                     <form action="{{ route('user.profile.edit.personal' ) }}" method="post">
-                                        @csrf
-
+                                        @csrf>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="input-item input-with-label">
@@ -101,45 +101,36 @@
                                 <div class="tab-pane fade" id="password">
                                     <form action="{{ route('user.profile.edit.password' ) }}" method="post">
                                         @csrf
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="input-item input-with-label">
-                                                <label for="old-pass" class="input-item-label">Old Password</label>
-                                                <input class="input-bordered" type="password" id="old-pass" name="old_password">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-item input-with-label">
+                                                    <label for="old-pass" class="input-item-label">Old Password</label>
+                                                    <input class="input-bordered" type="password" id="old-pass" name="old-password">
+                                                </div>
+                                                <!-- .input-item -->
                                             </div>
-                                            <!-- .input-item -->
+                                            <!-- .col -->
                                         </div>
-                                        <!-- .col -->
-                                    </div>
-                                    <!-- .row -->
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="input-item input-with-label">
-                                                <label for="new-pass" class="input-item-label">New Password</label>
-                                                <input class="input-bordered" type="password" id="new-pass" name="new_password">
+                                        <!-- .row -->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-item input-with-label">
+                                                    <label for="new-pass" class="input-item-label">New Password</label>
+                                                    <input class="input-bordered" type="password" id="new-pass" name="new_password">
+                                                </div>
+                                                <!-- .input-item -->
                                             </div>
-                                            <!-- .input-item -->
-                                        </div>
-                                        <!-- .col -->
-                                        <div class="col-md-6">
-                                            <div class="input-item input-with-label">
-                                                <label for="confirm-pass" class="input-item-label">Confirm New Password</label>
-                                                <input class="input-bordered" type="password" id="confirm-pass" name="confirm_password">
+                                            <!-- .col -->
+                                            <div class="col-md-6">
+                                                <div class="input-item input-with-label">
+                                                    <label for="confirm-pass" class="input-item-label">Confirm New Password</label>
+                                                    <input class="input-bordered" type="password" id="confirm-pass" name="confirm_password">
+                                                </div>
+                                                <!-- .input-item -->
                                             </div>
-                                            <!-- .input-item -->
+                                            <!-- .col -->
                                         </div>
-                                        <!-- .col -->
-                                    </div>
-                                    <!-- .row -->
-                                    <div class="note note-plane note-info pdb-1x"><em class="fas fa-info-circle"></em>
-                                        <p>Password should be minmum 8 letter and include lower and uppercase letter.</p>
-                                    </div>
-                                    <div class="gaps-1x"></div>
-                                    <!-- 10px gap -->
-                                    <div class="d-sm-flex justify-content-between align-items-center">
-                                        <button class="btn btn-primary">Update</button>
-                                        <div class="gaps-2x d-sm-none"></div><span class="text-success"><em class="ti ti-check-box"></em>  Changed Password</span></div>
+                                    </form>
                                 </div>
                                 <!-- .tab-pane -->
                             </div>
@@ -147,7 +138,6 @@
                         </div>
                         <!-- .card-innr -->
                     </div>
-                </form>
                     <!-- .card -->
                     <div class="content-area card">
                         <div class="card-innr">
@@ -201,5 +191,89 @@
             <!-- .container -->
         </div>
         <!-- .container -->
+    </div>
+
+
+
+
+
+
+                            <!-- .nav-tabs-line -->
+                            <div class="tab-content" id="profile-details">
+
+                                <!-- .tab-pane -->
+                                <div class="tab-pane fade" id="settings">
+                                    <div class="pdb-1-5x">
+                                        <h5 class="card-title card-title-sm text-dark">Security Settings</h5> </div>
+                                    <div class="input-item">
+                                        <input type="checkbox" class="input-switch input-switch-sm" id="save-log" checked>
+                                        <label for="save-log">Save my Activities Log</label>
+                                    </div>
+                                    <div class="input-item">
+                                        <input type="checkbox" class="input-switch input-switch-sm" id="pass-change-confirm">
+                                        <label for="pass-change-confirm">Confirm me through email before password change</label>
+                                    </div>
+                                    <div class="pdb-1-5x">
+                                        <h5 class="card-title card-title-sm text-dark">Manage Notification</h5> </div>
+                                    <div class="input-item">
+                                        <input type="checkbox" class="input-switch input-switch-sm" id="latest-news" checked>
+                                        <label for="latest-news">Notify me by email about sales and latest news</label>
+                                    </div>
+                                    <div class="input-item">
+                                        <input type="checkbox" class="input-switch input-switch-sm" id="activity-alert" checked>
+                                        <label for="activity-alert">Alert me by email for unusual activity.</label>
+                                    </div>
+                                    <div class="gaps-1x"></div>
+                                    <div class="d-flex justify-content-between align-items-center"><span></span><span class="text-success"><em class="ti ti-check-box"></em> Setting has been updated</span></div>
+                                </div>
+                                <!-- .tab-pane -->
+                                <div class="tab-pane fade" id="password">
+
+                                    <form action="{{ route('user.profile.edit.password' ) }}" method="post">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-item input-with-label">
+                                                    <label for="new-pass" class="input-item-label">New Password</label>
+                                                    <input class="input-bordered" type="password" id="new-pass" name="new_password">
+                                                </div>
+                                                <!-- .input-item -->
+                                            </div>
+                                            <!-- .col -->
+                                            <div class="col-md-6">
+                                                <div class="input-item input-with-label">
+                                                    <label for="confirm-pass" class="input-item-label">Confirm New Password</label>
+                                                    <input class="input-bordered" type="password" id="confirm-pass" name="confirm_password">
+                                                </div>
+                                                <!-- .input-item -->
+                                            </div>
+                                            <!-- .col -->
+                                        </div>
+                                        <!-- .row -->
+                                        <div class="note note-plane note-info pdb-1x"><em class="fas fa-info-circle"></em>
+                                            <p>Password should be minmum 8 letter and include lower and uppercase letter.</p>
+                                        </div>
+                                        <div class="gaps-1x"></div>
+                                        <!-- 10px gap -->
+                                        <div class="d-sm-flex justify-content-between align-items-center">
+                                            <button class="btn btn-primary">Update</button>
+                                            <div class="gaps-2x d-sm-none"></div><span class="text-success"><em class="ti ti-check-box"></em>  Changed Password</span></div>
+                                    </form>
+                                </div>
+                                <!-- .tab-pane -->
+                            </div>
+                            <!-- .tab-content -->
+                        </div>
+                        <!-- .card-innr -->
+                    </div>
+                </form>
+
+            </div>
+            <!-- .col -->
+            <!-- .col -->
+        </div>
+        <!-- .container -->
+    </div>
+    <!-- .container -->
     </div>
 @endsection
