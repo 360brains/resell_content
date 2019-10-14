@@ -18,8 +18,8 @@ class PagesController extends Controller
         //$data['categories'] = Category::orderBy('name', 'desc')->take(8)->get();
 
         $data['categories'] = Category::with('projects')->get();
-        $data['projects']   = Project::paginate(6);
-        $data['tasks'] = Task::where('project_id', null)->paginate(5);
+        $data['projects']   = Project::paginate(3);
+        $data['tasks']      = Task::paginate(5);
         $data['types']      = Type::get();
         $data['levels']     = Level::get();
 
@@ -71,5 +71,10 @@ class PagesController extends Controller
             where('id','!=',$data['task']->id)->take(3)->get();
 
         return view('pages.task-details', $data);
+    }
+
+    public function projectsByCategories($id){
+        $data['projects']   = Project::where('category_id', $id)->paginate(10);
+        return view('pages.projects', $data);
     }
 }

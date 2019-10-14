@@ -62,37 +62,48 @@
 
             <!-- Single Job List -->
             @forelse($projects as $project)
-                <div class="item-click">
-                    <article>
-                        <div class="brows-job-list">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="item-fl-box">
-                                    <div class="brows-job-position">
-                                        <h3><a href="job-apply-detail.html">{{ $project->name }}</a></h3>
-                                        <p>
-                                            <span>{{ $project->category->name }}</span><span class="brows-job-sallery"><i class="fa fa-money"></i>Level: {{ $project->level->name }}</span>
-                                            <span class="job-type cl-success bg-trans-success">{{ $project->deadline }}</span>
-                                        </p>
+                <a href="{{ route('pages.project.details', $project->id) }}">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="popular-jobs-container">
+                            <div class="popular-jobs-box">
+                                <div class="popular-jobs-box">
+                                    <div class="brows-job-company-img">
+                                        <img src="{{ asset('assets/img/project.png') }}" class="img-responsive" alt="" />
                                     </div>
+                                    <div class="popular-jobs-box-detail">
+                                        <h4>{{ $project->name }}</h4><span class="desination">{{ $project->category->name }}</span></div>
+                                </div>
+                                <div class="popular-jobs-box-extra">
+                                    <ul>
+                                        <li>Total: {{ $project->quantity }}</li>
+                                        <li>Level: {{ $project->level->name }}</li>
+                                        <li class="more-skill bg-primary">{{ $project->level->price }}</li>
+                                    </ul>
+                                    {{--                                <p class="giveMeEllipsis">{!! $project->description !!} </p>--}}
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="brows-job-location">
-                                    <p></i>{{ $project->type->name }}:  <span class="num-projects"> {{ $project->quantity }}</span> </p>
-                                </div>
+                            <div class="brows-job-type">
+                                <span class="full-time">{{ $project->type->name }}</span>
                             </div>
-                            <div class="col-md-2 col-sm-2">
-                                <div class="brows-job-link">
-                                    <a href="{{ route('pages.project.details', $project->id) }}" class="btn btn-default">Check Now</a>
-                                </div>
-                            </div>
+                            <ul class="grid-view-caption">
+                                <li>
+                                    <div class="brows-job-location">
+                                        <p><i class="fa fa-clock-o"></i>{{ $project->deadline }}</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $project->level->price }}</span></p>
+                                </li>
+                            </ul>
                         </div>
-                    </article>
-                </div>
+                    </div>
+                </a>
             @empty
-                <h1>No Projects found</h1>
+                No Featured Projects found
         @endforelse
         <!-- Single Job List -->
+            <div class="clearfix"></div>
+
 
             <!--row-->
             <div class="row">

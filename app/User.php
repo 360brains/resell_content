@@ -3,7 +3,9 @@
 namespace App;
 
 use App\Models\Level;
+use App\Models\Task;
 use App\Models\Training;
+use App\Models\Transaction;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,11 +43,19 @@ class User extends Authenticatable
     ];
 
     function levels(){
-        return $this->hasMany(Level::class);
+        return $this->belongsToMany(Level::class);
     }
 
     function trainings(){
         return $this->hasMany(Training::class);
+    }
+
+    function tasks(){
+        return $this->hasMany(Task::class);
+    }
+
+    function transactions(){
+        return $this->hasMany(Transaction::class);
     }
 
     public function getCreatedAtAttribute($date)

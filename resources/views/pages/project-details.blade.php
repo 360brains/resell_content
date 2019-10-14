@@ -160,33 +160,42 @@
             <div class="row mrg-0">
 
                 @forelse($relatedProjects as $project)
-                <div class="col-md-4 col-sm-6">
-                    <div class="grid-view brows-job-list">
-                        <div class="brows-job-company-img">
-                            <img src="{{ asset('assets/img/project.png') }}" class="img-responsive" alt="" />
-                        </div>
-                        <div class="brows-job-position">
-                            <h3><a href="job-detail.html">{{ $project->name }}</a></h3>
-                            <p><span>{{ $project->category->name }}</span></p>
-                        </div>
-                        <div class="job-position">
-                            <span class="job-num">{{ $project->quantity }} tasks</span>
-                        </div>
-                        <div class="brows-job-type">
-                            <span class="full-time">{{ $project->type->name }} Level:{{ $project->level->name }}</span>
-                        </div>
-                        <ul class="grid-view-caption">
-                            <li>
-                                <div class="brows-job-location">
-                                    <p><i class="fa fa-clock-o"></i>{{ $project->deadline }}</p>
+                    <a href="{{ route('pages.project.details', $project->id) }}">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="popular-jobs-container">
+                                <div class="popular-jobs-box">
+                                    <div class="popular-jobs-box">
+                                        <div class="brows-job-company-img">
+                                            <img src="{{ asset('assets/img/project.png') }}" class="img-responsive" alt="" />
+                                        </div>
+                                        <div class="popular-jobs-box-detail">
+                                            <h4>{{ $project->name }}</h4><span class="desination">{{ $project->category->name }}</span></div>
+                                    </div>
+                                    <div class="popular-jobs-box-extra">
+                                        <ul>
+                                            <li>Total: {{ $project->quantity }}</li>
+                                            <li>Level: {{ $project->level->name }}</li>
+                                            <li class="more-skill bg-primary">{{ $project->level->price }}</li>
+                                        </ul>
+                                        {{--                                <p class="giveMeEllipsis">{!! $project->description !!} </p>--}}
+                                    </div>
                                 </div>
-                            </li>
-                            <li>
-                                <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $project->level->price }}</span></p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                                <div class="brows-job-type">
+                                    <span class="full-time">{{ $project->type->name }}</span>
+                                </div>
+                                <ul class="grid-view-caption">
+                                    <li>
+                                        <div class="brows-job-location">
+                                            <p><i class="fa fa-clock-o"></i>{{ $project->deadline }}</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $project->level->price }}</span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
                 @empty
                     <h2>No related projects found.</h2>
                 @endforelse

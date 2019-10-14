@@ -96,6 +96,30 @@
                                         <label for="form_control_1">Project Status</label>
                                     </div>
 
+                                    <div class="form-group form-md-line-input">
+                                        <select class="form-control" name="trainings[]" multiple="multiple">
+                                            @foreach($trainings as $training)
+                                                    <option
+                                                        @if (in_array($training->name, $projectTrainings))
+                                                        selected
+                                                        @endif
+                                                        value="{{ $training->id }}">{{$training->name }}
+                                                    </option>
+                                            @endforeach
+                                        </select>
+                                        <label>Trainings Required  <small>(Can Select Multiple Trainings)</small></label>
+                                    </div>
+
+
+{{--                                        @foreach($project->trainings as $projectTraining)--}}
+{{--                                            @if($projectTraining->name == $training->name)--}}
+{{--                                                <option value="{{ $training->id }}" selected="selected">{{$training->name }}</option>--}}
+{{--                                                @break--}}
+{{--                                            @endif--}}
+{{--                                        @endforeach--}}
+
+
+
                                     <div class="portlet-body form">
                                         <div class="form-body">
                                             <div class="form-group last">

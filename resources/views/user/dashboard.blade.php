@@ -11,7 +11,7 @@
                         <div class="token-balance token-balance-with-icon">
                             <div class="token-balance-icon"><img src="{{ asset('user/images/logo-light-sm.png') }}" alt="logo"></div>
                             <div class="token-balance-text">
-                                <h6 class="card-sub-title">Tokens Balance</h6><span class="lead">120,000,000 <span>TWZ</span></span>
+                                <h6 class="card-sub-title">Total Earned</h6><span class="lead"> {{ $totalEarned }} <span>Rs</span></span>
                             </div>
                         </div>
                         <div class="token-balance token-balance-s2">
@@ -54,12 +54,12 @@
                     <div class="card-innr">
                         <div class="card-head has-aside">
                             <h4 class="card-title">Transaction</h4>
-                            <div class="card-opt"><a href="transactions.html" class="link ucap">View ALL <em class="fas fa-angle-right ml-2"></em></a></div>
+                            <div class="card-opt"><a href="user.transactions" class="link ucap">View ALL <em class="fas fa-angle-right ml-2"></em></a></div>
                         </div>
                         <table class="table tnx-table">
                             <thead>
                             <tr>
-                                <th>TWZ Tokens</th>
+                                <th>Serial No.</th>
                                 <th>Amount</th>
                                 <th class="d-none d-sm-table-cell tnx-date">Date</th>
                                 <th class="tnx-type">
@@ -70,38 +70,21 @@
                             </thead>
                             <!-- thead -->
                             <tbody>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="data-state data-state-pending"></div><span class="lead">18,750</span></div>
-                                </td>
-                                <td><span><span class="lead">3.543</span><span class="sub">ETH <em class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" data-original-title="1 ETH = 590.54 USD"></em></span></span>
-                                </td>
-                                <td class="d-none d-sm-table-cell tnx-date"><span class="sub sub-s2">2018-08-24 10:20 PM</span></td>
-                                <td class="tnx-type"><span class="tnx-type-md badge badge-outline badge-success badge-md">Purchase</span><span class="tnx-type-sm badge badge-sq badge-outline badge-success badge-md">P</span></td>
-                            </tr>
-                            <!-- tr -->
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="data-state data-state-progress"></div><span class="lead">8,052</span></div>
-                                </td>
-                                <td><span><span class="lead">0.165</span><span class="sub">BTC <em class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" data-original-title="1 BTC = 5450.54 USD"></em></span></span>
-                                </td>
-                                <td class="d-none d-sm-table-cell tnx-date"><span class="sub sub-s2">2018-08-24 10:20 PM</span></td>
-                                <td class="tnx-type"><span class="tnx-type-md badge badge-outline badge-warning badge-md">Bonus</span><span class="tnx-type-sm badge badge-sq badge-outline badge-warning badge-md">B</span></td>
-                            </tr>
-                            <!-- tr -->
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="data-state data-state-approved"></div><span class="lead">19,000</span></div>
-                                </td>
-                                <td><span><span class="lead">3.141</span><span class="sub">LTC <em class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" data-original-title="1 LTC = 180.54 USD"></em></span></span>
-                                </td>
-                                <td class="d-none d-sm-table-cell tnx-date"><span class="sub sub-s2">2018-08-24 10:20 PM</span></td>
-                                <td class="tnx-type"><span class="tnx-type-md badge badge-outline badge-warning badge-md">Bonus</span><span class="tnx-type-sm badge badge-sq badge-outline badge-warning badge-md">B</span></td>
-                            </tr>
+                            @php($i = 1)
+                            @forelse($transactions as $transaction)
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="data-state data-state-approved"></div><span class="lead">{{ $i++ }}</span></div>
+                                    </td>
+                                    <td><span><span class="lead">{{ $transaction->amount }}</span><span class="sub">PKR <em class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" data-original-title="1 PKR = 0.012 USD"></em></span></span>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell tnx-date"><span class="sub sub-s2">{{ $transaction->created_at }}</span></td>
+                                    <td class="tnx-type"><span class="tnx-type-md badge badge-outline badge-success badge-md">{{ $transaction->status }}</span><span class="tnx-type-sm badge badge-sq badge-outline badge-success badge-md">P</span></td>
+                                </tr>
+                            @empty
+                                <tr><td rowspan="4">No Transactions Found</td></tr>
+                            @endforelse
                             <!-- tr -->
                             </tbody>
                             <!-- tbody -->
@@ -172,25 +155,27 @@
                 <div class="token-sales card card-full-height">
                     <div class="card-innr">
                         <div class="card-head">
-                            <h4 class="card-title">Token Sales Progress</h4></div>
+                            <h4 class="card-title">Current Level Progress</h4></div>
                         <ul class="progress-info">
-                            <li><span>Raised</span> 2,758 TWZ</li>
-                            <li class="text-right"><span>TOTAL</span> 1,500,000 TWZ</li>
+                            <li><span>POINTS</span> {{ auth()->user()->points }} </li>
+                            <li class="text-right"><span>TOTAL POINTS</span> 100 </li>
                         </ul>
                         <div class="progress-bar">
-                            <div class="progress-hcap" data-percent="83" style="width: 83%;">
-                                <div>Hard cap <span>1,400,000</span></div>
+                            <div class="progress-hcap" data-percent="75" style="width: 75%;">
+                                <div>Points <span>75</span></div>
                             </div>
-                            <div class="progress-scap" data-percent="24" style="width: 24%;">
-                                <div>Soft cap <span>40,000</span></div>
+                            <div class="progress-scap" data-percent="25" style="width: 25%;">
+                                <div>Points <span>25</span></div>
                             </div>
-                            <div class="progress-percent" data-percent="28" style="width: 28%;"></div>
-                        </div><span class="card-sub-title mgb-0-5x">Sales END IN</span>
+                            <div class="progress-percent" data-percent=" {{ auth()->user()->points }} " style="width: {{ auth()->user()->points }}%;"></div>
+                        </div><span class="card-sub-title mgb-0-5x">LEVEL STARTED AT</span>
                         <div class="countdown-clock" data-date="2019/04/05">
-                            <div><span class="countdown-time countdown-time-first">78</span><span class="countdown-text">Day</span></div>
-                            <div><span class="countdown-time">08</span><span class="countdown-text">Hour</span></div>
-                            <div><span class="countdown-time">30</span><span class="countdown-text">Min</span></div>
-                            <div><span class="countdown-time countdown-time-last">38</span><span class="countdown-text">Sec</span></div>
+                            @foreach($currentLevel as $level)
+                                <?php $time = strtotime($level->created_at); ?>
+                            <div><span class="countdown-time countdown-time-first">{{ date('d',$time) }}</span><span class="countdown-text">Day</span></div>
+                            <div><span class="countdown-time">{{ date('m',$time) }}</span><span class="countdown-text">Month</span></div>
+                            <div><span class="countdown-time">{{ date('Y',$time) }}</span><span class="countdown-text">year</span></div>
+                        @endforeach
                         </div>
                     </div>
                 </div>

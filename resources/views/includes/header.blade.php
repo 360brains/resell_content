@@ -17,16 +17,9 @@
                                     <h6 class="title">Main Pages</h6>
                                     <div class="content">
                                         <ul class="menu-col">
-                                            <li><a href="index.html">Home Page 1</a></li>
-                                            <li><a href="index-2.html">Home Page 2</a></li>
-                                            <li><a href="index-3.html">Home Page 3</a></li>
-                                            <li><a href="index-4.html">Home Page 4</a></li>
-                                            <li><a href="index-5.html">Home Page 5</a></li>
-                                            <li><a href="freelancing.html">Freelancing</a></li>
-                                            <li><a href="signin-signup.html">Sign In / Sign Up</a></li>
+                                            <li><a href="{{ route('pages.home') }}">Home</a></li>
+                                            <li><a href="freelancing.html">How it Works</a></li>
                                             <li><a href="search-job.html">Search Job</a></li>
-                                            <li><a href="accordion.html">Accordion</a></li>
-                                            <li><a href="tab.html">Tab Style</a></li>
                                         </ul>
                                     </div>
                                 </div><!-- end col-3 -->
@@ -34,17 +27,9 @@
                                     <h6 class="title">For Candidate</h6>
                                     <div class="content">
                                         <ul class="menu-col">
-                                            <li><a href="browse-jobs.html">Browse Jobs</a></li>
-                                            <li><a href="browse-company.html">Browse Companies</a></li>
-                                            <li><a href="browse-jobs-grid.html">Job In Grid</a></li>
-                                            <li><a href="create-resume.html">Create Resume</a></li>
-                                            <li><a href="company-detail.html">Company Detail</a></li>
-                                            <li><a href="search-new.html">New Search Job</a></li>
-                                            <li><a href="advance-search.html">Advance Search Job</a></li>
-                                            <li><a href="advance-search-2.html">Advance Search Job 2</a></li>
-                                            <li><a href="job-detail.html">Job Detail</a></li>
+                                            <li><a href="{{ route('pages.projects') }}">Browse Projects</a></li>
+                                            <li><a href="{{ route('pages.tasks') }}">Browse single tasks</a></li>
                                             <li><a href="new-job-detail.html">New Job Detail</a></li>
-
                                         </ul>
                                     </div>
                                 </div><!-- end col-3 -->
@@ -53,15 +38,8 @@
                                     <div class="content">
                                         <ul class="menu-col">
                                             <li><a href="create-job.html">Create Job</a></li>
-                                            <li><a href="create-company.html">Create Company</a></li>
-                                            <li><a href="manage-company.html">Manage Company</a></li>
                                             <li><a href="manage-candidate.html">Browse Candidate</a></li>
-                                            <li><a href="manage-employee.html">Manage Employee</a></li>
-                                            <li><a href="browse-resume.html">Browse Resume</a></li>
                                             <li><a href="candidate-profile.html">Candidate Profile</a></li>
-                                            <li><a href="candidate-detail.html">New Candidate Detail</a></li>
-                                            <li><a href="employer-profile.html">Employer Profile</a></li>
-                                            <li><a href="manage-resume.html">Manage Resume</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -69,16 +47,9 @@
                                     <h6 class="title">Extra Pages <span class="new-offer">New</span></h6>
                                     <div class="content">
                                         <ul class="menu-col">
-                                            <li><a href="top-candidate-detail.html">Top Candidate detail</a></li>
-                                            <li><a href="job-apply-detail.html">New Apply Job</a></li>
                                             <li><a href="payment-methode.html">Payment Methode</a></li>
                                             <li><a href="new-login-signup.html">New LogIn / SignUp</a></li>
                                             <li><a href="popular-jobs.html">Popular Jobs</a></li>
-                                            <li><a href="top-candidate.html">Top candidate</a></li>
-                                            <li><a href="top-candidate-2.html">Top candidate 2</a></li>
-                                            <li><a href="premium-candidate.html">Premium Candidate</a></li>
-                                            <li><a href="premium-candidate-detail.html">Premium Candidate Detail</a></li>
-                                            <li><a href="blog-detail.html">Blog detail</a></li>
                                         </ul>
                                     </div>
                                 </div><!-- end col-3 -->

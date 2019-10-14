@@ -53,18 +53,34 @@ class ProjectController extends Controller
             'level'         => 'required',
         ]);
 
-        $data = [
-        'name'         => $request->name,
-        'quantity'     => $request->quantity,
-        'type_id'      => $request->type,
-        'deadline'     => $request->deadline,
-        'category_id'  => $request->category,
-        'level_id'     => $request->level,
-        'description'  => $request->description,
-        'active'       => $request->active,
-        ];
+//        $data = [
+//        'name'         => $request->name,
+//        'quantity'     => $request->quantity,
+//        'type_id'      => $request->type,
+//        'deadline'     => $request->deadline,
+//        'category_id'  => $request->category,
+//        'level_id'     => $request->level,
+//        'description'  => $request->description,
+//        'active'       => $request->active,
+//
+//        ];
+//        $response = Project::create($data);
 
-        $response = Project::create($data);
+
+        $project = new Project();
+        $project->name          = $request->name;
+        $project->quantity      = $request->quantity;
+        $project->type_id       = $request->type;
+        $project->deadline      = $request->deadline;
+        $project->category_id   = $request->category;
+        $project->level_id      = $request->level;
+        $project->description   = $request->description;
+        $project->active        = $request->active;
+        $response               = $project->save();
+
+        if ($response){
+            $project->trainings()->sync($request->trainings);
+        }
 
         if ($response){
             return redirect()->route('admin.projects.index')->with("success", "Completed Successfully.");
@@ -96,7 +112,14 @@ class ProjectController extends Controller
         $data['types']      = Type::get();
         $data['categories'] = Category::get();
         $data['levels']     = Level::get();
+        $data['trainings']     = Training::get();
         $data['project']    = $project;
+
+        foreach ($project->trainings as $training){
+            $projectTrainings[] = $training->name;
+        }
+        $data['projectTrainings']    = $projectTrainings;
+
         return view('admin.projects.edit', $data);
     }
 
@@ -116,18 +139,33 @@ class ProjectController extends Controller
             'level'         => 'required',
         ]);
 
-        $data = [
-            'name'         => $request->name,
-            'quantity'     => $request->quantity,
-            'type_id'      => $request->type,
-            'deadline'     => $request->deadline,
-            'category_id'  => $request->category,
-            'level_id'     => $request->level,
-            'description'  => $request->description,
-            'active'       => $request->active,
-        ];
+//        $data = [
+//            'name'         => $request->name,
+//            'quantity'     => $request->quantity,
+//            'type_id'      => $request->type,
+//            'deadline'     => $request->deadline,
+//            'category_id'  => $request->category,
+//            'level_id'     => $request->level,
+//            'description'  => $request->description,
+//            'active'       => $request->active,
+//        ];
+//
+//        $response = $project->update($data);
 
-        $response = $project->update($data);
+        $project = new Project();
+        $project->name          = $request->name;
+        $project->quantity      = $request->quantity;
+        $project->type_id       = $request->type;
+        $project->deadline      = $request->deadline;
+        $project->category_id   = $request->category;
+        $project->level_id      = $request->level;
+        $project->description   = $request->description;
+        $project->active        = $request->active;
+        $response               = $project->save();
+
+        if ($response){
+            $project->trainings()->sync($request->trainings);
+        }
 
         if ($response){
             return redirect()->route('admin.projects.index')->with("success", "Completed Successfully.");

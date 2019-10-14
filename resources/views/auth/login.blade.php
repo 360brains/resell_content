@@ -30,7 +30,8 @@
                     @csrf
 
                 <div class="input-item">
-                    <input id="email" type="email" class="form-control input-bordered @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <label for="email">Email Address:</label>
+                    <input id="email" type="email" class="form-control input-bordered @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter Email Address">
                     @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -39,7 +40,8 @@
                 </div>
 
                 <div class="input-item">
-                    <input id="password" type="password" class="form-control input-bordered @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <label for="password">password:</label>
+                    <input id="password" type="password" class="form-control input-bordered @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Enter Password">
                     @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

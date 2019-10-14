@@ -13,7 +13,9 @@
                 <!-- .topbar-nav -->
                 <a class="topbar-logo" href="index.html"><img src="{{ asset('user/images/logo-light2x.png') }}" srcset="{{ asset('user/images/logo-light2x.png 2x') }}" alt="logo"></a>
                 <ul class="topbar-nav">
-                    <li class="topbar-nav-item relative"><span class="user-welcome d-none d-lg-inline-block">Welcome! {{ auth()->user()->name }}</span><a class="toggle-tigger user-thumb" href="#"><em class="ti ti-user"></em></a>
+                    <li class="topbar-nav-item relative"><span class="user-welcome d-none d-lg-inline-block">Welcome! {{ auth()->user()->name }}</span><a class="toggle-tigger user-thumb" href="#">
+                            <img src="{{ url(auth()->user()->avatar) }}" alt="">
+                        </a>
                         <div class="toggle-class dropdown-content dropdown-content-right dropdown-arrow-right user-dropdown">
                             <div class="user-status">
                                 <h6 class="user-status-title">Token balance</h6>
@@ -51,8 +53,8 @@
                 <ul class="navbar-menu">
                     <li><a href="{{ route('user.dashboard') }}"><em class="ikon ikon-dashboard"></em> Dashboard</a></li>
                     <li><a href="buy-token.html"><em class="ikon ikon-coins"></em> Buy Tokens</a></li>
-                    <li><a href="ico-distribution.html"><em class="ikon ikon-distribution"></em> ICO Distribution</a></li>
-                    <li><a href="transactions.html"><em class="ikon ikon-transactions"></em> Transactions</a></li>
+                    <li><a href="{{ route('user.tasks') }}"><em class="ikon ikon-distribution"></em> ICO Distribution</a></li>
+                    <li><a href="{{ route('user.transactions') }}"><em class="ikon ikon-transactions"></em> Transactions</a></li>
                     <li><a href="{{ route('user.profile') }}"><em class="ikon ikon-user"></em> Profile</a></li>
                     <li class="has-dropdown page-links-all"><a class="drop-toggle" href="#"><em class="ikon ikon-exchange"></em> Pages</a>
                         <ul class="navbar-dropdown">

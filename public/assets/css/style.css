@@ -5475,6 +5475,15 @@ Brows job in Grid Style
     font-size: 12px;
     border-radius: 2px 0 0 2px;
 }
+.popular-jobs-container .brows-job-type span {
+    position: absolute;
+    padding: 4px 15px;
+    top: 10px;
+    right: 0;
+    line-height: 1.4;
+    font-size: 12px;
+    border-radius: 2px 0 0 2px;
+}
 .grid-view.brows-job-list:hover, .grid-view.brows-job-list:focus{
     border-color: transparent;
 }
@@ -6550,7 +6559,7 @@ div.datedropper.my-style.picker-lkd .pick-submit {
 
 .popular-jobs-box{
     text-align: center;
-    padding:50px 20px 15px;
+    padding:30px 20px 15px;
 }
 .popular-jobs-status {
     position: absolute;
@@ -8357,5 +8366,49 @@ a.cl-box.pink {
     vertical-align: middle;
 }
 
+.section {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover !important;
+}
 
+table.how-iwriter-works-bubbles {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 43px;
+}
+
+table.how-iwriter-works-bubbles td.even-td {
+    width: 3%;
+    padding-top: 30px
+}
+
+table.how-iwriter-works-bubbles td.odd-td {
+    width: 16%;
+    vertical-align: top;
+    text-align: center;
+    color: #908e8e;
+    font-size: 1.1em;
+    padding-top: 50px;
+}
+table.how-iwriter-works-bubbles td.odd-td h4 {
+    color: #696969;
+    font-size: 1.4em;
+}
+.font-weight-300{
+    font-weight: 300;
+    padding-bottom: 40px;
+}
+.how-it-works{
+color: #07b107;
+}
+{
+    color: #35434e;
+    position: relative;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
 

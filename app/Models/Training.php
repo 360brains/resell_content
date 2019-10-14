@@ -15,4 +15,7 @@ class Training extends Model
     {
         return $this->belongsTo(Level::class, 'level_id');
     }
+    public function projects(){
+        return $this->belongsToMany(Project::class);
+    }
 }

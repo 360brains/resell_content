@@ -20,13 +20,21 @@ class ProfileController extends Controller
             'gender'        => 'required',
         ]);
 
-        $data = [
-            'name'         => $request->name,
-            'contact'      => $request->contact,
-            'gender'       => $request->gender,
-        ];
+        $user = auth()->user();
+        $user->name     = $request->name;
+        $user->contact  = $request->contact;
+        $user->gender   = $request->gender;
 
-        $response = auth()->user()->update($data);
+        if ($request->hasFile("image") && $request->file('image')->isValid()) {
+            $filename           = $request->file('image')->getClientOriginalName();
+            $filename           = time()."-".$filename;
+            $destinationPath    = public_path('/images');
+            $user->avatar       = "images/".$filename;
+            $request->file('image')->move($destinationPath, $filename);
+        }
+
+
+        $response = $user->save();
 
         if ($response){
             return redirect()->route('user.profile')->with("success", "Completed successfully.");

@@ -86,7 +86,7 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="trainings" multiple>
+                                        <select class="form-control" name="trainings[]" multiple="multiple">
                                             @foreach($trainings as $training)
                                                 <option value="{{ $training->id }}">{{$training->name }}</option>
                                             @endforeach

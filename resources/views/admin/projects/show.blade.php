@@ -82,6 +82,18 @@
                             <td>{{$project->updated_at}}</td>
                         </tr>
 
+                        <tr>
+                            <th>Trainings required</th>
+                            <td>
+                                @forelse($project->trainings as $training)
+                                    {{ $training->name }}
+                                    <br>
+                                    @empty
+                                    No Trainings Required
+                                    @endforelse
+                            </td>
+                        </tr>
+
                     </table>
 
                     <h3 >Description</h3>
