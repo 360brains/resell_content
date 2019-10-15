@@ -24,6 +24,9 @@ class Task extends Model
     function level(){
         return $this->belongsTo(Level::class);
     }
+    function statuses(){
+        return $this->hasMany(Task_status::class);
+    }
     function trainings(){
         return $this->belongsToMany(Training::class);
     }

@@ -34,12 +34,12 @@
                                     </div>
                                 </div><!-- end col-3 -->
                                 <div class="col-menu col-md-3">
-                                    <h6 class="title">For Employer</h6>
+                                    <h6 class="title">For Learning</h6>
                                     <div class="content">
                                         <ul class="menu-col">
-                                            <li><a href="create-job.html">Create Job</a></li>
-                                            <li><a href="manage-candidate.html">Browse Candidate</a></li>
-                                            <li><a href="candidate-profile.html">Candidate Profile</a></li>
+                                            <li><a href="create-job.html">Take Test</a></li>
+                                            <li><a href="manage-candidate.html">Get Training</a></li>
+                                            <li><a href="candidate-profile.html">Free Tutorials</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@
                                     <h6 class="title">Extra Pages <span class="new-offer">New</span></h6>
                                     <div class="content">
                                         <ul class="menu-col">
-                                            <li><a href="payment-methode.html">Payment Methode</a></li>
+                                            <li><a href="payment-methode.html">Payment Method</a></li>
                                             <li><a href="new-login-signup.html">New LogIn / SignUp</a></li>
                                             <li><a href="popular-jobs.html">Popular Jobs</a></li>
                                         </ul>
@@ -59,11 +59,37 @@
                 </li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                <li><a href="login.html"><i class="fa fa-pencil" aria-hidden="true"></i>SignUp</a></li>
-                <li><a href="pricing.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Pricing</a></li>
-                <li class="left-br"><a href="javascript:void(0)" data-toggle="modal" data-target="#signup" class="signin">Sign In Now</a></li>
-            </ul>
+            @guest
+                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                    <li><a href="{{ route('register') }}"><i class="fa fa-pencil" aria-hidden="true"></i>Register</a></li>
+                    <li><a href="pricing.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Pricing</a></li>
+                    <li class="left-br"><a href="{{ route('login') }}"class="signin">Sign In Now</a></li>
+                </ul>
+            @else
+                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                    <li><a href="pricing.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Pricing</a></li>
+                    <li class="left-br dropdown my-megamenu"><a href="{{ route('user.profile') }}"class="signin dropdown-toggle" data-toggle="dropdown"> {{ auth()->user()->name }} </a>
+                        <ul class="dropdown-menu megamenu-user" role="menu">
+                            <li>
+                                    <div class="content">
+                                        <ul class="menu-col">
+                                            <li><a href="{{ route('user.dashboard') }}"><i class="ti ti-id-badge"></i> Dashboard</a></li>
+                                            <li><a href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                    <i class="ti ti-power-off"></i>{{ __('Logout') }}
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            @endguest
         </div>
     </div>
 </nav>

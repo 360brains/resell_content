@@ -6365,7 +6365,7 @@ select.select-sm {
 .user-welcome {
     display: inline-block;
     margin-right: 10px;
-    color: #fff
+    color: #2c80ff;
 }
 
 .user-thumb {
@@ -12445,7 +12445,7 @@ p+.timeline-content-info {
 }
 
 .topbar {
-    background: #07b107;
+    background: #ffffff;
     position: relative;
     z-index: 3
 }
@@ -12491,6 +12491,16 @@ p+.timeline-content-info {
     .topbar .container {
         min-width: 100% !important
     }
+}
+
+.topbar-divider{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #07b107;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-top: 2px solid #07b107;
+}
 }
 
 .navbar {
@@ -12925,7 +12935,7 @@ p+.timeline-content-info {
 }
 
 .page-ath-form {
-    padding-top: 40px;
+    padding-top: 80px;
     padding-bottom: 50px
 }
 

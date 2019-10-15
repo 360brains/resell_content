@@ -39,7 +39,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('user/dashboard', 'User\DashboardController@index')->name('user.dashboard');
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
     Route::get('user/transactions', 'User\transactionController@index')->name('user.transactions');
-    Route::get('user/tasks', 'User\transactionController@index')->name('user.tasks');
+    Route::get('user/tasks', 'User\tasksController@index')->name('user.tasks');
     Route::post('user/profile/edit-personal', 'User\ProfileController@editPersonal')->name('user.profile.edit.personal');
     Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')->name('user.profile.edit.password');
 });

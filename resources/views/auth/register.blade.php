@@ -21,11 +21,8 @@
 <body class="page-ath">
 <div class="page-ath-wrap">
     <div class="page-ath-content">
-        <div class="page-ath-header">
-            <a href="index.html" class="page-ath-logo"><img src="{{ asset('user/images/logo.png') }}" srcset="{{ asset('user/images/logo2x.png 2x') }}" alt="logo"></a>
-        </div>
         <div class="page-ath-form">
-            <h2 class="page-ath-heading">Sign up <small>with your TokenWiz Account</small></h2>
+            <h2 class="page-ath-heading">Register <small>with TokenWiz</small></h2>
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
@@ -78,7 +75,7 @@
                     </div>
 
                 </div>
-                <button type="submit" class="btn btn-primary btn-block"> Sign Up </button>
+                <button type="submit" class="btn btn-primary btn-block"> Register </button>
 
             </form>
 
