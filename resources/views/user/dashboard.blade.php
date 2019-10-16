@@ -15,11 +15,19 @@
                             </div>
                         </div>
                         <div class="token-balance token-balance-s2">
-                            <h6 class="card-sub-title">Your Contribution</h6>
+                            <h6 class="card-sub-title">Your Stats</h6>
                             <ul class="token-balance-list">
-                                <li class="token-balance-sub"><span class="lead">2.646</span><span class="sub">ETH</span></li>
-                                <li class="token-balance-sub"><span class="lead">1.265</span><span class="sub">BTC</span></li>
-                                <li class="token-balance-sub"><span class="lead">6.506</span><span class="sub">LTC</span></li>
+                                <li class="token-balance-sub"><span class="lead">{{ count(auth()->user()->tasks) }}</span><span class="sub">Tasks</span></li>
+                                <li class="token-balance-sub"><span class="lead">
+                                    <?php $trainingsCount = 0 ?>
+                                    @foreach(auth()->user()->trainings as $training)
+                                            @if($training->status == 'Completed')
+                                                <?php $trainingsCount = $trainingsCount + 1 ?>
+                                            @endif
+                                        @endforeach
+                                        {{ $trainingsCount ?? '0' }}
+                                    </span><span class="sub">Trainings</span></li>
+                                <li class="token-balance-sub"><span class="lead">{{ count($transactions) }}</span><span class="sub">Transactions</span></li>
                             </ul>
                         </div>
                     </div>

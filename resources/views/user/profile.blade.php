@@ -177,15 +177,6 @@
 
                     <div class="account-info card">
                         <div class="card-innr">
-
-
-
-                        </div>
-                    </div>
-
-
-                    <div class="account-info card">
-                        <div class="card-innr">
                             <h6 class="card-title card-title-sm">Your Account Status</h6>
                             <ul class="btn-grp">
                                 <li><a href="#" class="btn btn-auto btn-xs btn-success">Email Verified</a></li>
@@ -199,10 +190,10 @@
                     <div class="referral-info card">
                         <div class="card-innr">
                             <h6 class="card-title card-title-sm">Earn with Referral</h6>
-                            <p class=" pdb-0-5x">Invite your friends &amp; family and receive a <strong><span class="text-primary">bonus - 15%</span> of the value of contribution.</strong></p>
+                            <p class=" pdb-0-5x">Invite your friends &amp; family and Get <strong><span class="text-primary">10 points</span> for the current level.</strong></p>
                             <div class="copy-wrap mgb-0-5x"><span class="copy-feedback"></span><em class="fas fa-link"></em>
-                                <input type="text" class="copy-address" value="https://demo.themenio.com/ico?ref=7d264f90653733592" disabled>
-                                <button class="copy-trigger copy-clipboard" data-clipboard-text="https://demo.themenio.com/ico?ref=7d264f90653733592"><em class="ti ti-files"></em></button>
+                                <input type="text" class="copy-address" value="{{ route('pages.home') }}/{{auth()->user()->id}}" disabled>
+                                <button class="copy-trigger copy-clipboard" data-clipboard-text="{{ route('pages.home') }}"><em class="ti ti-files"></em></button>
                             </div>
                             <!-- .copy-wrap -->
                         </div>

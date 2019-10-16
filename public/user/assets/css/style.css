@@ -13155,3 +13155,7 @@ p+.timeline-content-info {
         min-width: 110px
     }
 }
+
+.navbar-dropdown a{
+    color: #07b107;
+}

@@ -19,12 +19,12 @@
                                         <ul class="menu-col">
                                             <li><a href="{{ route('pages.home') }}">Home</a></li>
                                             <li><a href="freelancing.html">How it Works</a></li>
-                                            <li><a href="search-job.html">Search Job</a></li>
+                                            <li><a href="search-job.html">About Us</a></li>
                                         </ul>
                                     </div>
                                 </div><!-- end col-3 -->
                                 <div class="col-menu col-md-3">
-                                    <h6 class="title">For Candidate</h6>
+                                    <h6 class="title">For Working</h6>
                                     <div class="content">
                                         <ul class="menu-col">
                                             <li><a href="{{ route('pages.projects') }}">Browse Projects</a></li>
@@ -49,7 +49,7 @@
                                         <ul class="menu-col">
                                             <li><a href="payment-methode.html">Payment Method</a></li>
                                             <li><a href="new-login-signup.html">New LogIn / SignUp</a></li>
-                                            <li><a href="popular-jobs.html">Popular Jobs</a></li>
+                                            <li><a href="new-login-signup.html">FAQs</a></li>
                                         </ul>
                                     </div>
                                 </div><!-- end col-3 -->
@@ -57,7 +57,7 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="blog.html">Blog</a></li>
+{{--                <li><a href="blog.html">Blog</a></li>--}}
             </ul>
             @guest
                 <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
@@ -67,7 +67,7 @@
                 </ul>
             @else
                 <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li><a href="pricing.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Pricing</a></li>
+                    <li><a href="{{ route('pages.pricing') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>Pricing</a></li>
                     <li class="left-br dropdown my-megamenu"><a href="{{ route('user.profile') }}"class="signin dropdown-toggle" data-toggle="dropdown"> {{ auth()->user()->name }} </a>
                         <ul class="dropdown-menu megamenu-user" role="menu">
                             <li>
@@ -77,7 +77,7 @@
                                             <li><a href="{{ route('logout') }}"
                                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                                    <i class="ti ti-power-off"></i>{{ __('Logout') }}
+                                                    <i class="ti ti-power-off"></i> {{ __('Logout') }}
                                                 </a>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                     @csrf

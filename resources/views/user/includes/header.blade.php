@@ -18,13 +18,19 @@
                         </a>
                         <div class="toggle-class dropdown-content dropdown-content-right dropdown-arrow-right user-dropdown">
                             <div class="user-status">
-                                <h6 class="user-status-title">Token balance</h6>
-                                <div class="user-status-balance">12,000,000 <small>TWZ</small></div>
+                                <h6 class="user-status-title">Total Earned</h6>
+                                <div class="user-status-balance">
+                                <?php $totalEarned = 0 ?>
+                                @foreach(auth()->user()->transactions as $transaction)
+                                        @if($transaction->for == 'Task')
+                                            <?php $totalEarned = $totalEarned + $transaction->amount; ?>
+                                        @endif
+                                    @endforeach
+                                    {{ $totalEarned }}
+                                    <small>PKR</small></div>
                             </div>
                             <ul class="user-links">
                                 <li><a href="{{ route('user.profile') }}"><i class="ti ti-id-badge"></i>My Profile</a></li>
-                                <li><a href="#"><i class="ti ti-infinite"></i>Referral</a></li>
-                                <li><a href="activity.html"><i class="ti ti-eye"></i>Activity</a></li>
                             </ul>
                             <ul class="user-links bg-light">
                                 <li><a href="{{ route('logout') }}"
@@ -57,10 +63,20 @@
                     <li><a href="{{ route('user.tasks') }}"><em class="ikon ikon-distribution"></em> My Tasks</a></li>
                     <li><a href="{{ route('user.transactions') }}"><em class="ikon ikon-transactions"></em> Transactions</a></li>
                     <li><a href="{{ route('user.profile') }}"><em class="ikon ikon-user"></em> Profile</a></li>
-                </ul>
-                <ul class="navbar-btns">
-                    <li><a href="kyc-application.html" class="btn btn-sm btn-outline btn-light"><em class="text-primary ti ti-files"></em><span>KYC Application</span></a></li>
-                    <li class="d-none"><span class="badge badge-outline badge-success badge-lg"><em class="text-success ti ti-files mgr-1x"></em><span class="text-success">KYC Approved</span></span>
+                    <li class="has-dropdown page-links-all"><a class="drop-toggle" href="#"><em class="ikon ikon-exchange"></em> Brows</a>
+                        <ul class="navbar-dropdown">
+
+                            <li><a href="{{ route('pages.home') }}"> Home </a></li>
+                            <li><a href="{{ route('pages.projects') }}"> Get Tasks </a></li>
+                            <li><a href="{{ route('pages.home') }}"> How it Works </a></li>
+                            <li class="has-dropdown"><a class="drop-toggle" href="#"> For Learning </a>
+                                <ul class="navbar-dropdown">
+                                    <li><a href="{{ route('pages.home') }}">Trainings</a></li>
+                                    <li><a href="{{ route('pages.home') }}">Tests</a></li>
+                                    <li><a href="{{ route('pages.home') }}">Free Courses</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

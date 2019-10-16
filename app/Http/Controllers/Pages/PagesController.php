@@ -77,4 +77,10 @@ class PagesController extends Controller
         $data['projects']   = Project::where('category_id', $id)->paginate(10);
         return view('pages.projects', $data);
     }
+
+    public function pricing(){
+
+        $data['levels']   = Level::get();
+        return view('pages.pricing', $data);
+    }
 }

@@ -14,7 +14,7 @@
 
 Auth::routes();
 
-
+Auth::routes(['verify' => true]);
 
 Route::get('admin/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
 
@@ -51,6 +51,8 @@ Route::get('/project-details/{id}', 'Pages\PagesController@projectDetails')->nam
 Route::get('/tasks', 'Pages\PagesController@tasks')->name('pages.tasks');
 Route::get('/task-details/{id}', 'Pages\PagesController@taskDetails')->name('pages.task.details');
 Route::get('/projects-category/{id}', 'Pages\PagesController@projectsByCategories')->name('pages.projects.category');
+Route::get('/pricing', 'Pages\PagesController@pricing')->name('pages.pricing');
+
 
 
 

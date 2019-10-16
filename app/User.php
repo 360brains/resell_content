@@ -4,13 +4,14 @@ namespace App;
 
 use App\Models\Level;
 use App\Models\Task;
+use App\Models\Test;
 use App\Models\Training;
 use App\Models\Transaction;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -47,7 +48,11 @@ class User extends Authenticatable
     }
 
     function trainings(){
-        return $this->hasMany(Training::class);
+        return $this->belongsToMany(Training::class);
+    }
+
+    function tests(){
+        return $this->belongsToMany(Test::class, 'user_tests');
     }
 
     function tasks(){

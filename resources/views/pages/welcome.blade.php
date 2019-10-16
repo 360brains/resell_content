@@ -293,7 +293,11 @@
                 </div>
             </div>
         </div>
+
     </section>
+
+
+    <!-- tasks links on main page -->
     <section class="brows-job-category">
         <div class="container">
             <div class="row">
@@ -333,7 +337,7 @@
                         </article>
                     </div>
                     @empty
-                        <h1>No Projects found</h1>
+                        <h1>No Tasks found</h1>
                 @endforelse
                     <!-- Single Job List -->
 
@@ -346,6 +350,9 @@
             </div>
         </div>
     </section>
+    <!-- tasks links on main page -->
+
+
     <div class="clearfix"></div>
     <!-- Download app Section Start -->
     <section class="download-app gray-bg">
