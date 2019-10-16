@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = ['name', 'quantity', 'type_id', 'deadline', 'category_id', 'level_id', 'description', 'active'];
+    protected $fillable = ['name', 'quantity', 'available', 'type_id', 'deadline', 'category_id', 'level_id', 'description', 'active'];
 
     function type(){
         return $this->belongsTo(Type::class);

@@ -70,6 +70,7 @@ class ProjectController extends Controller
         $project = new Project();
         $project->name          = $request->name;
         $project->quantity      = $request->quantity;
+        $project->available     = $request->quantity;
         $project->type_id       = $request->type;
         $project->deadline      = $request->deadline;
         $project->category_id   = $request->category;

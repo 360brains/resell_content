@@ -35,11 +35,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth'], ['verify' => true]], function() {
     Route::get('user/dashboard', 'User\DashboardController@index')->name('user.dashboard');
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
     Route::get('user/transactions', 'User\transactionController@index')->name('user.transactions');
     Route::get('user/tasks', 'User\tasksController@index')->name('user.tasks');
+    Route::get('user/tasks/take/{id}', 'User\tasksController@taskTake')->name('user.tasks.take');
     Route::post('user/profile/edit-personal', 'User\ProfileController@editPersonal')->name('user.profile.edit.personal');
     Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')->name('user.profile.edit.password');
 });
