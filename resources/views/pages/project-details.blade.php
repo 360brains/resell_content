@@ -22,16 +22,18 @@
                         <img src="{{ asset('assets/img/project.png') }}" class="img-responsive" alt="" />
                     </div>
                     <div class="ur-caption">
-                        <h4 class="ur-title">{{ $project->name }}</h4>
+                        <h3 class="ur-title">{{ $project->name }}</h3>
                         <p class="ur-location"><i class="ti-location-pin mrg-r-5"></i>Available Before {{ $project->deadline }}</p>
                         <span class="ur-designation">{{ $project->category->name }}</span>
+                        <h4 class="ur-designation">Available: {{ $project->available }}/{{ $project->quantity }}</h4>
+
 
                     </div>
 
                 </div>
 
                 <div class="ur-detail-btn">
-                    <a href="#" class="btn btn-info full-width"><i class="ti-thumb-up mrg-r-5"></i>Take a task</a><br>
+                    <a href="{{ route('user.tasks.take', $project->id) }}" class="btn btn-info full-width"><i class="ti-thumb-up mrg-r-5"></i>Take a task</a><br>
                 </div>
 
             </div>
