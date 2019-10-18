@@ -17,9 +17,8 @@
                                     <th class="data-col dt-amount">Name</th>
                                     <th class="data-col dt-usd-amount">Level</th>
                                     <th class="data-col dt-account">Start Date</th>
-                                    <th class="data-col dt-type">
-                                        <div class="dt-type-text">Current Status</div>
-                                    </th>
+                                    <th class="data-col dt-account">Action</th>
+                                    <th class="data-col dt-type"><div class="dt-type-text">Current Status</div></th>
                                     <th class="data-col"></th>
                                 </tr>
                                 </thead>
@@ -32,9 +31,20 @@
                                                 <div class="fake-class"><span class="lead tnx-id">{{ $i++ }}</span></div>
                                             </div>
                                         </td>
-                                        <td class="data-col dt-amount"><span class="lead amount-pay">{{ $task->name }}</span></td>
-                                        <td class="data-col dt-usd-amount"><span class="lead amount-pay">{{ $task->level->name }}</span></td>
+                                        <td class="data-col dt-amount"><span class="lead amount-pay">{{ $task->project->name }}</span></td>
+                                        <td class="data-col dt-usd-amount"><span class="lead amount-pay">{{ $task->project->level->name }}</span></td>
                                         <td class="data-col dt-account"><span class="lead user-info">{{ $task->created_at }}</span></td>
+                                        <td class="data-col dt-account">
+                                            @if( $task->status == 'started' or $task->status == 'extended' or $task->status == 'reworking')
+                                            <span class="lead user-info">
+                                                @if($task->project->type == 'Content Writing')
+                                                <a href="#" class="btn btn-auto btn-xs btn-warning">Write</a>
+                                                @elseIf($task->project->type == 'Video Making')
+                                                    <a href="#" class="btn btn-auto btn-xs btn-warning">Film</a>
+                                                @endif
+                                            </span>
+                                            @endif
+                                        </td>
                                         <td class="data-col dt-type"><span class="dt-type-md badge badge-outline badge-success badge-md">{{ $task->status }}</span><span class="dt-type-sm badge badge-sq badge-outline badge-success badge-md">P</span></td>
                                         <td class="data-col text-right"><a href="#" data-toggle="modal" data-target="#transaction-details{{$task->id}}" class="btn btn-light-alt btn-xs btn-icon"><em class="ti ti-eye"></em></a></td>
 
@@ -81,35 +91,35 @@
                                                                         @case('extended')
                                                                         <li>
                                                                             <div class="data-details-head">Extended at</div>
-                                                                            <div class="data-details-des"><span>{{ $status->created_at }}</span> <span></span></div>
+                                                                            <div class="data-details-des"><span>{{ $status->extended_at }}</span> <span></span></div>
                                                                         </li>
                                                                         @break
 
                                                                         @case('delivered')
                                                                         <li>
                                                                             <div class="data-details-head">Delivered at</div>
-                                                                            <div class="data-details-des"><span>{{ $status->created_at }}</span> <span></span></div>
+                                                                            <div class="data-details-des"><span>{{ $status->delivered_at }}</span> <span></span></div>
                                                                         </li>
                                                                         @break
 
                                                                         @case('approved')
                                                                         <li>
                                                                             <div class="data-details-head">Approved at</div>
-                                                                            <div class="data-details-des"><span>{{ $status->created_at }}</span> <span></span></div>
+                                                                            <div class="data-details-des"><span>{{ $status->approved_at }}</span> <span></span></div>
                                                                         </li>
                                                                         @break
 
                                                                         @case('rejected')
                                                                         <li>
                                                                             <div class="data-details-head">Rejected at</div>
-                                                                            <div class="data-details-des">{{ $status->created_at }}</div>
+                                                                            <div class="data-details-des">{{ $status->rejected_at }}</div>
                                                                         </li>
                                                                         @break
 
                                                                         @case('reworking')
                                                                         <li>
                                                                             <div class="data-details-head">Reworking at</div>
-                                                                            <div class="data-details-des">{{ $status->created_at }}</div>
+                                                                            <div class="data-details-des">{{ $status->reworking_at }}</div>
                                                                         </li>
                                                                         @break
 
@@ -126,17 +136,17 @@
                                                             <ul class="data-details-list">
                                                                 <li>
                                                                     <div class="data-details-head">Task Type</div>
-                                                                    <div class="data-details-des"><strong>{{ $task->type->name }}</strong></div>
+                                                                    <div class="data-details-des"><strong>{{ $task->project->type->name }}</strong></div>
                                                                 </li>
                                                                 <!-- li -->
                                                                 <li>
                                                                     <div class="data-details-head">Task Category</div>
-                                                                    <div class="data-details-des"><strong>{{ $task->category->name }}</strong></div>
+                                                                    <div class="data-details-des"><strong>{{ $task->project->category->name }}</strong></div>
                                                                 </li>
                                                                 <!-- li -->
                                                                 <li>
                                                                     <div class="data-details-head">Task Level</div>
-                                                                    <div class="data-details-des"><strong>{{ $task->level->name }}</strong></div>
+                                                                    <div class="data-details-des"><strong>{{ $task->project->level->name }}</strong></div>
                                                                 </li>
                                                                 <!-- li -->
                                                                 <li>
@@ -144,7 +154,7 @@
                                                                     <div class="data-details-des"><span>{{ $task->points_awarded }}</span> <span></span></div>
                                                                 </li>
                                                                 <!-- li -->
-                                                                @forelse($task->trainings as $training)
+                                                                @forelse($task->project->trainings as $training)
                                                                     <li>
                                                                     <div class="data-details-head">Trainings Required</div>
                                                                     <div class="data-details-des"><span>{{ $training->name }} - Requires level: {{ $training->levels->name }} of Type {{ $training->types->name }}</span> <span></span></div>
@@ -160,7 +170,7 @@
                                                             <h6 class="card-sub-title">Task Description</h6>
                                                             <ul class="data-details-list">
                                                                 <li>
-                                                                    <div class="data-details-des"><strong>{!! $task->description !!}</strong></div>
+                                                                    <div class="data-details-des"><strong>{!! $task->project->description !!}</strong></div>
                                                                 </li>
                                                             <!-- li -->
                                                             </ul>
@@ -168,7 +178,7 @@
 
 
                                                             <div class="gaps-3x"></div>
-                                                            <h6 class="card-sub-title">{{ $task->for }}Transaction Details</h6>
+                                                            <h6 class="card-sub-title">Task Transaction Details</h6>
                                                             <ul class="data-details-list">
                                                                 @foreach(auth()->user()->transactions as $transaction)
                                                                     @if($transaction->task_id == $task->id)

@@ -240,6 +240,32 @@
             </div>
         </div>
     </section>
+
+    <!-- ========= start Call To Action section =========== -->
+    <div class="clearfix"></div>
+    <section class="call-to-act">
+        <div class="container-fluid">
+
+            <div class="col-md-6 col-sm-6 no-padd ht-min bl-dark">
+                <div class="call-to-act-caption">
+                    <h2>Want to be an expert?</h2>
+                    <h3>We have experts that can train you in your desired skill.</h3>
+                    <a href="{{ route('pages.trainings') }}" class="btn bat-call-to-act">Hire Us</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 no-padd ht-min gr-dark">
+                <div class="call-to-act-caption">
+                    <h2>Do not know how to do it?</h2>
+                    <h3>We have some free tutorials for you. learn it and start to earn immediately</h3>
+                    <a href="{{ route('pages.tutorials') }}" class="btn bat-call-to-act">Learn</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- =========== Call To Action section End ============= -->
+
     <div class="clearfix"></div>
     <section class="testimonial" id="testimonial">
         <div class="container">
@@ -295,62 +321,6 @@
         </div>
 
     </section>
-
-
-    <!-- tasks links on main page -->
-    <section class="brows-job-category">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>We found {{count($tasks)}} matching tasks. Interested?</h2></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-
-                    <!-- Single Job List -->
-                    @forelse($tasks as $task)
-                    <div class="item-click">
-                        <article>
-                            <div class="brows-job-list">
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="item-fl-box">
-                                        <div class="brows-job-position">
-                                            <h3><a href="job-apply-detail.html">{{ $task->name }}</a></h3>
-                                            <p>
-                                                <span>{{ $task->category->name }}</span><span class="brows-job-sallery"><i class="fa fa-money"></i> {{ $task->level->price }}</span>
-                                                <span class="job-type cl-success bg-trans-success">{{ $task->deadline }}</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="brows-job-location">
-                                        <p>{{ $task->type->name }} - Level: {{ $task->level->name }} </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-2">
-                                    <div class="brows-job-link">
-                                        <a href="{{ route('pages.task.details', $task->id) }}" class="btn btn-default">Check Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    @empty
-                        <h1>No Tasks found</h1>
-                @endforelse
-                    <!-- Single Job List -->
-
-                </div>
-            </div>
-            <div class="row">
-                <ul class="pagination">
-                    {{ $projects->links() }}
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- tasks links on main page -->
 
 
     <div class="clearfix"></div>

@@ -61,7 +61,7 @@
                             @forelse($project->trainings as $training)
                             <li> {{ $training->name }} - Requires level: {{ $training->levels->name }} of Type {{ $training->types->name }}</li>
                             @empty
-                            <h2>No training required.</h2>
+                            <h3>No training required.</h3>
                             @endforelse
                         </ul>
                     </div>

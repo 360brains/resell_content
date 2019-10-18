@@ -26,7 +26,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::resource('projects', 'ProjectController');
     Route::resource('levels', 'LevelController');
     Route::resource('users',  'UserController');
-    Route::resource('tasks', 'TaskController');
     Route::resource('test', 'TestController');
 
 });
@@ -49,10 +48,10 @@ Route::group(['middleware' => ['auth'], ['verify' => true]], function() {
 Route::get('/', 'Pages\PagesController@home')->name('pages.home');
 Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');
 Route::get('/project-details/{id}', 'Pages\PagesController@projectDetails')->name('pages.project.details');
-Route::get('/tasks', 'Pages\PagesController@tasks')->name('pages.tasks');
-Route::get('/task-details/{id}', 'Pages\PagesController@taskDetails')->name('pages.task.details');
 Route::get('/projects-category/{id}', 'Pages\PagesController@projectsByCategories')->name('pages.projects.category');
 Route::get('/pricing', 'Pages\PagesController@pricing')->name('pages.pricing');
+Route::get('/tutorials', 'Pages\PagesController@tutorials')->name('pages.tutorials');
+Route::get('/trainings', 'Pages\PagesController@trainings')->name('pages.trainings');
 
 
 

@@ -2575,6 +2575,9 @@ section.call-to-act {
 .gr-dark {
     background: #11b719;
 }
+.ht-min{
+    min-height: 355px;
+}
 
 .call-to-act-caption {
     padding: 5em 4em;

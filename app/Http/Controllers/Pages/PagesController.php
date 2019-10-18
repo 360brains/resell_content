@@ -48,39 +48,25 @@ class PagesController extends Controller
     }
     public function projectDetails($id){
         $data['project'] = Project::find($id);
-        //$project = $data['project'];
-        //foreach ($project->trainings as $training) {
-        //    echo $training->name;
-        //}
+
         $data['relatedProjects'] = Project::where('type_id', $data['project']->type->id)->where('level_id', $data['project']->level->id)->take(3)->get();
         return view('pages.project-details', $data);
     }
 
-    public function tasks(){
-
-        $data['tasks']   = Task::paginate(10);
-
-        return view('pages.tasks', $data);
-    }
-
-    public function taskDetails($id){
-        $data['task'] = Task::find($id);
-        $data['relatedTasks'] = task::
-            where('type_id', $data['task']->type->id)->
-            where('level_id', $data['task']->level->id)->
-            where('id','!=',$data['task']->id)->take(3)->get();
-
-        return view('pages.task-details', $data);
-    }
-
-    public function projectsByCategories($id){
-        $data['projects']   = Project::where('category_id', $id)->paginate(10);
-        return view('pages.projects', $data);
-    }
 
     public function pricing(){
 
         $data['levels']   = Level::get();
         return view('pages.pricing', $data);
+    }
+
+    public function tutorials(){
+
+        return view('pages.tutorials');
+    }
+
+    public function trainings(){
+
+        return view('pages.trainings');
     }
 }
