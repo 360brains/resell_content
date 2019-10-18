@@ -44,7 +44,11 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     function levels(){
-        return $this->belongsToMany(Level::class);
+        return $this->belongsToMany(Level::class, 'user_levels')->latest();
+    }
+
+    function currentLevels(){
+    return $this->hasOne(Level::class, 'user_levels');
     }
 
     function trainings(){

@@ -140,20 +140,6 @@ class ProjectController extends Controller
             'level'         => 'required',
         ]);
 
-//        $data = [
-//            'name'         => $request->name,
-//            'quantity'     => $request->quantity,
-//            'type_id'      => $request->type,
-//            'deadline'     => $request->deadline,
-//            'category_id'  => $request->category,
-//            'level_id'     => $request->level,
-//            'description'  => $request->description,
-//            'active'       => $request->active,
-//        ];
-//
-//        $response = $project->update($data);
-
-        $project = new Project();
         $project->name          = $request->name;
         $project->quantity      = $request->quantity;
         $project->type_id       = $request->type;

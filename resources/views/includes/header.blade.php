@@ -28,7 +28,6 @@
                                     <div class="content">
                                         <ul class="menu-col">
                                             <li><a href="{{ route('pages.projects') }}">Browse Projects</a></li>
-                                            <li><a href="{{ route('pages.tasks') }}">Browse single tasks</a></li>
                                             <li><a href="new-job-detail.html">New Job Detail</a></li>
                                         </ul>
                                     </div>
@@ -37,9 +36,8 @@
                                     <h6 class="title">For Learning</h6>
                                     <div class="content">
                                         <ul class="menu-col">
-                                            <li><a href="create-job.html">Take Test</a></li>
-                                            <li><a href="manage-candidate.html">Get Training</a></li>
-                                            <li><a href="candidate-profile.html">Free Tutorials</a></li>
+                                            <li><a href="{{ route('pages.trainings') }}">Get Training</a></li>
+                                            <li><a href="{{ route('pages.tutorials') }}">Free Tutorials</a></li>
                                         </ul>
                                     </div>
                                 </div>

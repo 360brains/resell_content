@@ -178,6 +178,8 @@
 <script type="text/javascript" src="{{ asset('assets/plugins/js/slick.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/plugins/js/gmap3.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/plugins/js/jquery.easy-autocomplete.min.js') }}"></script>
+<script src="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.js') }}" type="text/javascript"></script>
+
 <script src="{{ asset('assets/js/custom.js') }}"></script>
 <script src="{{ asset('assets/js/jQuery.style.switcher.js') }}"></script>
 <script type="text/javascript">

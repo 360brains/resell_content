@@ -66,12 +66,8 @@
                     <i class="icon-layers"></i>
                     <span class="title">Projects</span>
                 </a>
-            <li class="nav-item  {{strpos((request()->path()),"admin/tasks") == 'true' ? 'active' : ''}}">
-                <a href="{{ route('admin.tasks.index') }}" class="nav-link nav-toggle">
-                    <i class="icon-layers"></i>
-                    <span class="title">Tasks</span>
-                </a>
-            </li><li class="nav-item  {{strpos((request()->path()),"admin/users") == 'true' ? 'active' : ''}}">
+            </li>
+            <li class="nav-item  {{strpos((request()->path()),"admin/users") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.users.index') }}" class="nav-link nav-toggle">
                     <i class="icon-layers"></i>
                     <span class="title">Users</span>
