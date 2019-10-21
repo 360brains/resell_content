@@ -35,11 +35,12 @@
                                         <td class="data-col dt-usd-amount"><span class="lead amount-pay">{{ $task->project->level->name }}</span></td>
                                         <td class="data-col dt-account"><span class="lead user-info">{{ $task->created_at }}</span></td>
                                         <td class="data-col dt-account">
-                                            @if( $task->status == 'started' or $task->status == 'extended' or $task->status == 'reworking')
+
+                                            @if( $task->status == 'started' OR $task->status == 'extended' OR $task->status == 'reworking')
                                             <span class="lead user-info">
-                                                @if($task->project->type == 'Content Writing')
-                                                <a href="#" class="btn btn-auto btn-xs btn-warning">Write</a>
-                                                @elseIf($task->project->type == 'Video Making')
+                                                @if($task->project->type->name == 'Content Writing')
+                                                    <a href={{ route('user.tasks.work') }} class="btn btn-auto btn-xs btn-warning">Write</a>
+                                                @else
                                                     <a href="#" class="btn btn-auto btn-xs btn-warning">Film</a>
                                                 @endif
                                             </span>

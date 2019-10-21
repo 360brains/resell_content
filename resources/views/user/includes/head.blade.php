@@ -7,10 +7,11 @@
     <!-- Site Title  -->
     <title>TokenWiz - ICO User Dashboard Admin Template</title>
     <!-- Vendor Bundle CSS -->
-    <link rel="stylesheet" href="{{ asset('user/assets/css/vendor.bundle49f7.css?ver=104') }}">
+    <link href="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('user/assets/css/vendor.bundle49f7.css') }}">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}" id="layoutstyle">
 
-    <link href="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+
 
 </head>

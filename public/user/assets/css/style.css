@@ -13159,3 +13159,9 @@ p+.timeline-content-info {
 .navbar-dropdown a{
     color: #07b107;
 }
+.work-submit li{
+    display: inline;
+}
+.my-work-btn{
+    float: right;
+}

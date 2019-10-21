@@ -31,7 +31,18 @@
     <!-- .container -->
 </div>
 
-<script src="{{ asset('user/assets/js/jquery.bundle49f7.js?ver=104') }}"></script>
-<script src="{{ asset('user/assets/js/script49f7.js?ver=104') }}"></script>
+<script src="{{ asset('user/assets/js/jquery.bundle49f7.js') }}"></script>
+<script src="{{ asset('user/assets/js/script49f7.js') }}"></script>
 <script src="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('user/assets/js/plugins/ckeditor/ckeditor.js') }}"></script>
+
+<script type="text/javascript">
+    CKEDITOR.replace( 'messageArea',
+        {
+            customConfig : 'config.js',
+            toolbar : 'simple'
+        })
+</script>
+
+
 

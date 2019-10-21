@@ -19,10 +19,16 @@ class TasksController extends Controller
     public function taskTake($id){
         // find project the user wants
         $project = Project::find($id);
-        $userLevel['name'] = '0';
         $training = 1;
+        $isWorking = 0;
 
         $level = auth()->user()->levels()->first();
+
+        foreach (auth()->user()->tasks as $task){
+            if ($task->status == 'started' OR $task->status == 'extended' OR $task->status == 'reworking'){
+                return redirect()->route('user.tasks')->with("error", "You already have a task. Complete it to get more.");
+            }
+        }
 
         if ($project->active == 1){
             // check if the user level type matches project level type
@@ -48,22 +54,43 @@ class TasksController extends Controller
 
         if ($training == 1){
             $data = [
-                'project_id'   => $project->id,
+                'project_id'   => $id,
                 'user_id'      => auth()->user()->id,
                 'status'       => 'Started',
             ];
-            $response = Task::create($data);
+            $status = [
+                'name'       => 'Started',
+            ];
+
+            $task       = Task::create($data);
+            $response   = $task->statuses()->create($status);
 
         }else{
-            return redirect()->back()->with("error", "Your skills do not the project requirements.");
+            return redirect()->back()->with("error", "You do not have the required trainings.");
         }
 
 
         if ($response){
-            return redirect()->route('admin.tasks.index')->with("success", "Completed Successfully.");
+            return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
         }else{
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
         return view('user.tasks');
+    }
+
+    public function work(){
+        return view('user.work');
+    }
+
+    public function saveProgress(Request $request, $id){
+        $task               = Task::find($id);
+        $task->body         = $request->body;
+        $response           = $task->save();
+
+        if ($response){
+            return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 }

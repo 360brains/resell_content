@@ -40,6 +40,10 @@ Route::group(['middleware' => ['auth'], ['verify' => true]], function() {
     Route::get('user/transactions', 'User\transactionController@index')->name('user.transactions');
     Route::get('user/tasks', 'User\tasksController@index')->name('user.tasks');
     Route::get('user/tasks/take/{id}', 'User\tasksController@taskTake')->name('user.tasks.take');
+    Route::get('user/tasks/work', 'User\tasksController@work')->name('user.tasks.work');
+    Route::post('user/tasks/save-progress/{id}', 'User\tasksController@saveProgress')->name('user.tasks.save.progress');
+    Route::get('user/tasks/create-doc', 'User\OfficeController@createDoc')->name('user.tasks.create.doc');
+    Route::post('user/tasks/upload-doc/{id}', 'User\OfficeController@uploadDoc')->name('user.tasks.upload.doc');
     Route::post('user/profile/edit-personal', 'User\ProfileController@editPersonal')->name('user.profile.edit.personal');
     Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')->name('user.profile.edit.password');
 });
