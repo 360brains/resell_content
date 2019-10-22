@@ -69,4 +69,9 @@ class PagesController extends Controller
 
         return view('pages.trainings');
     }
+
+    public function howItWorks(){
+
+    return view('pages.how-it-works');
+}
 }

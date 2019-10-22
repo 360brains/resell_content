@@ -108,6 +108,10 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
 
+        if ($request->action == 'approved'){
+            $task->status = 'approved';
+            $task->user->balance = $task->user->balance + $task->project->price;
+        }
         $task->status   = $request->action;
         $response       = $task->save();
 

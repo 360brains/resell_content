@@ -20,13 +20,7 @@
                             <div class="user-status">
                                 <h6 class="user-status-title">Total Earned</h6>
                                 <div class="user-status-balance">
-                                <?php $totalEarned = 0 ?>
-                                @foreach(auth()->user()->transactions as $transaction)
-                                        @if($transaction->for == 'Task')
-                                            <?php $totalEarned = $totalEarned + $transaction->amount; ?>
-                                        @endif
-                                    @endforeach
-                                    {{ $totalEarned }}
+                                    {{ auth()->user()->balanace }}
                                     <small>PKR</small></div>
                             </div>
                             <ul class="user-links">

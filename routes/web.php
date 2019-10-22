@@ -16,10 +16,9 @@ Auth::routes();
 
 Auth::routes(['verify' => true]);
 
-Route::get('admin/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
-
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'admin', 'as' => 'admin.'], function (){
 
+    Route::get('admin/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
     Route::resource('transactions', 'TransactionController');
     Route::resource('categories', 'CategoryController');
     Route::resource('trainings', 'TrainingController');
@@ -52,6 +51,7 @@ Route::group(['middleware' => ['auth'], ['verify' => true]], function() {
 
 Route::get('/', 'Pages\PagesController@home')->name('pages.home');
 Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');
+Route::get('/howItWorks', 'Pages\PagesController@howItWorks')->name('pages.howItWorks');
 Route::get('/project-details/{id}', 'Pages\PagesController@projectDetails')->name('pages.project.details');
 Route::get('/projects-category/{id}', 'Pages\PagesController@projectsByCategories')->name('pages.projects.category');
 Route::get('/pricing', 'Pages\PagesController@pricing')->name('pages.pricing');
