@@ -18,9 +18,9 @@
                         </a>
                         <div class="toggle-class dropdown-content dropdown-content-right dropdown-arrow-right user-dropdown">
                             <div class="user-status">
-                                <h6 class="user-status-title">Total Earned</h6>
+                                <h6 class="user-status-title">Balance</h6>
                                 <div class="user-status-balance">
-                                    {{ auth()->user()->balanace }}
+                                    {{ auth()->user()->balance }}
                                     <small>PKR</small></div>
                             </div>
                             <ul class="user-links">
@@ -63,13 +63,8 @@
                             <li><a href="{{ route('pages.home') }}"> Home </a></li>
                             <li><a href="{{ route('pages.projects') }}"> Get Tasks </a></li>
                             <li><a href="{{ route('pages.home') }}"> How it Works </a></li>
-                            <li class="has-dropdown"><a class="drop-toggle" href="#"> For Learning </a>
-                                <ul class="navbar-dropdown">
-                                    <li><a href="{{ route('pages.home') }}">Trainings</a></li>
-                                    <li><a href="{{ route('pages.home') }}">Tests</a></li>
-                                    <li><a href="{{ route('pages.home') }}">Free Courses</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{ route('user.learn') }}"> Learn </a></li>
+                            <li><a href="#"> Test </a></li>
                         </ul>
                     </li>
                 </ul>

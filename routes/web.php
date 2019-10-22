@@ -18,7 +18,7 @@ Auth::routes(['verify' => true]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'admin', 'as' => 'admin.'], function (){
 
-    Route::get('admin/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('transactions', 'TransactionController');
     Route::resource('categories', 'CategoryController');
     Route::resource('trainings', 'TrainingController');
@@ -37,6 +37,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth'], ['verify' => true]], function() {
     Route::get('user/dashboard', 'User\DashboardController@index')->name('user.dashboard');
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
+    Route::get('user/learn', 'User\LearnController@index')->name('user.learn');
+    Route::get('user/learn-details', 'User\LearnController@learnDetails')->name('user.learn.details');
     Route::get('user/transactions', 'User\transactionController@index')->name('user.transactions');
     Route::get('user/tasks', 'User\tasksController@index')->name('user.tasks');
     Route::get('user/tasks/take/{id}', 'User\tasksController@taskTake')->name('user.tasks.take');
