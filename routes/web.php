@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::resource('projects', 'ProjectController');
     Route::resource('levels', 'LevelController');
     Route::resource('users',  'UserController');
+    Route::resource('tasks', 'TaskController');
     Route::resource('test', 'TestController');
 
 });
@@ -56,6 +57,14 @@ Route::get('/projects-category/{id}', 'Pages\PagesController@projectsByCategorie
 Route::get('/pricing', 'Pages\PagesController@pricing')->name('pages.pricing');
 Route::get('/tutorials', 'Pages\PagesController@tutorials')->name('pages.tutorials');
 Route::get('/trainings', 'Pages\PagesController@trainings')->name('pages.trainings');
+
+
+
+Route::get('paypal', 'PayPalController@index')->name('paypal');
+
+Route::get('payment', 'PayPalController@payment')->name('payment');
+Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
+Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
 
 

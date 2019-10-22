@@ -39,9 +39,9 @@
                                             @if( $task->status == 'started' OR $task->status == 'extended' OR $task->status == 'reworking')
                                             <span class="lead user-info">
                                                 @if($task->project->type->name == 'Content Writing')
-                                                    <a href={{ route('user.tasks.work') }} class="btn btn-auto btn-xs btn-warning">Write</a>
+                                                    <a href="{{ route('user.tasks.work') }}" class="btn btn-auto btn-xs btn-warning">Write</a>
                                                 @else
-                                                    <a href="#" class="btn btn-auto btn-xs btn-warning">Film</a>
+                                                    <a href="{{ route('user.tasks.work') }}" class="btn btn-auto btn-xs btn-warning">Film</a>
                                                 @endif
                                             </span>
                                             @endif

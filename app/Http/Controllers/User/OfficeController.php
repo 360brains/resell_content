@@ -41,7 +41,8 @@ class OfficeController extends Controller
 
 
         $task               = Task::find($id);
-        $task->body         =  $body;
+        $task->body         = $body;
+        $task->status       = 'delivered';
         $response           = $task->save();
 
         if ($response){

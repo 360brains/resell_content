@@ -83,14 +83,67 @@ class TasksController extends Controller
     }
 
     public function saveProgress(Request $request, $id){
-        $task               = Task::find($id);
-        $task->body         = $request->body;
-        $response           = $task->save();
+        $task = Task::find($id);
 
-        if ($response){
-            return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
+        if ($request->action == 'submit'){
+            $task->body     = $request->body;
+            $task->status   = 'delivered';
+            $response       = $task->save();
+
+            $data = [
+                'name' => 'delivered',
+            ];
+            $task->statuses()->create($data);
+
+
+
+            if ($response){
+                return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
+            }else{
+                return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+            }
+        }elseif ($request->action == 'admin-save'){
+            $task->body     = $request->body;
+            $response       = $task->save();
+
+            if ($response){
+                return redirect()->back()->with("success", "Completed Successfully.");
+            }else{
+                return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+            }
+        }elseif ($request->action == 'video'){
+
+            if ($request->hasFile("video") && $request->file('video')->isValid()) {
+                $filename           = $request->file('video')->getClientOriginalName();
+                $filename           = time()."-".$filename;
+                $destinationPath    = public_path('/videos');
+                $task->video       = "videos/".$filename;
+                $request->file('video')->move($destinationPath, $filename);
+                $task->status   = 'delivered';
+                $response       = $task->save();
+
+                $data = [
+                    'name' => 'delivered',
+                ];
+                $task->statuses()->create($data);
+
+                if ($response){
+                    return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
+                }
+            }
+                return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+
+
         }else{
-            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+            $task->body         = $request->body;
+            $response           = $task->save();
+
+            if ($response){
+                return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
+            }else{
+                return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+            }
         }
+
     }
 }

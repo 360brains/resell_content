@@ -34,7 +34,7 @@
 
     </div>
 
-    <h3 class="page-title">Details of <b> {{ $task->name }}</b>
+    <h3 class="page-title">Details of <b> {{ $task->project->name }}</b>
     </h3>
 
     <div class="row">
@@ -43,67 +43,92 @@
 
                 <div class="portlet-body">
                     <table class="table table-striped table-bordered table-hover">
-                        <tr>
-                            <th>Task Name</th>
-                            <td>{{$task->name}}</td>
-                        </tr>
 
-                        @if($task->status != null)
                         <tr>
                             <th>User Name</th>
                             <td>{{$task->user->name}}</td>
                         </tr>
-                        @endif
 
                         <tr>
                             <th>Task Type</th>
-                            <td>{{$task->type->name}}</td>
-                        </tr>
-
-                        @if($task->project != null)
-                            <tr>
-                                <th>Project</th>
-                                <td>{{$task->project->name}}</td>
-                            </tr>
-                        @endif
-
-                        <tr>
-                            <th>Category</th>
-                            <td>{{$task->category->name}}</td>
-                        </tr>
-
-                        <tr>
-                            <th>User Level for Task</th>
-                            <td>{{$task->level->name}}</td>
+                            <td>{{$task->project->type->name}}</td>
                         </tr>
 
                         <tr>
                             <th>Status</th>
-                            <td>{{$task->status ?? 'Initiated'}}</td>
+                            <td>{{$task->status}}</td>
                         </tr>
 
                         <tr>
                             <th>Deadline</th>
-                            <td>{{$task->deadline ?? 'None'}}</td>
+                            <td>{{$task->deadline}}</td>
                         </tr>
 
-                        <tr>
-                            <th>Created</th>
-                            <td>{{$task->created_at}}</td>
-                        </tr>
+                        @foreach($task->statuses as $status)
+                            <tr>
+                                <th>{{ $status->name }}</th>
+                                <td>{{$task->created_at}}</td>
+                            </tr>
+                        @endforeach
 
-                        <tr>
-                            <th>Last Update</th>
-                            <td>{{$task->updated_at}}</td>
-                        </tr>
+                        @if($task->status == 'approved')
+                            <tr>
+                                <th>Paid</th>
+                                <td>
+                                    to be added after payment prcess completion.
+                                </td>
+                            </tr>
+                        @endif
+
+                        @if($task->status == 'delivered')
+                            <tr>
+                                <th>Actions</th>
+                                <td>
+                                    <form action="{{ route('admin.tasks.update', $task->id) }}" method="post">
+                                        @csrf
+                                        {{ method_field('PATCH') }}
+                                        <button type="submit" name="action" value="approved" class="btn btn-success">Approve</button>
+                                        <button type="submit" name="action" value="reworking" class="btn btn-primary">Rework</button>
+                                        <button type="submit" name="action" value="rejected" class="btn btn-danger">Reject</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endif
 
                     </table>
-
-                    <h3 >Description</h3>
-                    <div class="description">{!! $task->description !!}</div>
 
                 </div>
             </div>
         </div>
+
+
+        @if($task->status == 'delivered' OR $task->status == 'reworking' OR $task->status == 'approved' OR $task->status == 'rejected')
+            <div class="col-md-12">
+                <h3>Content Delivered</h3>
+                <div class="portlet light portlet-fit bordered">
+
+                    @if($task->project->type->name == 'Video Making')
+                        <div class="portlet-body">
+                            <video width="100%" controls>
+                                <source src="{{ asset( $task->video ) }}" type="video/mp4">
+                                Your browser does not support HTML5 video.
+                            </video>
+                        </div>
+                    @elseif($task->project->type->name == 'Content Writing')
+                        <div class="portlet-body">
+                            <form action="{{ route('user.tasks.save.progress', $task->id) }}" method="post">
+                                @csrf
+                                <textarea id="messageArea" name="body" rows="7" class="form-control summernote" placeholder="Write your message..">{!! $task->body !!}</textarea>
+                                <div class="gaps-2-5x"></div>
+
+                                <button class="btn btn-auto btn-lg btn-success" type="submit" name="action" value="admin-save"> Save </button>
+
+                            </form>
+                        </div>
+                    @endif
+
+                </div>
+            </div>
+        @endif
     </div>
 @endsection

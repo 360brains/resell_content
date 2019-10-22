@@ -107,28 +107,17 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        $request->validate([
-            'name'          => 'required',
-            'type'          => 'required',
-            'description'   => 'required',
-            'level'         => 'required',
-        ]);
+
+        $task->status   = $request->action;
+        $response       = $task->save();
 
         $data = [
-            'name'         => $request->name,
-            'quantity'     => $request->quantity,
-            'type_id'      => $request->type,
-            'deadline'     => $request->deadline,
-            'category_id'  => $request->category,
-            'level_id'     => $request->level,
-            'description'  => $request->description,
-            'active'       => $request->active,
+            'name' => $request->action,
         ];
-
-        $response = $task->update($data);
+        $task->statuses()->create($data);
 
         if ($response){
-            return redirect()->route('admin.tasks.index')->with("success", "Completed successfully.");
+            return redirect()->back()->with("success", "Completed successfully.");
         }else{
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Level;
 use App\Models\Category;
+use App\Models\Task;
 use App\Models\Training;
 use App\Models\Type;
 use App\Models\Project;
@@ -99,6 +100,7 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $data['project'] = $project;
+        $data['tasks'] = Task::where('project_id', $project->id)->orderBy('Created_at', 'desc')->paginate(10);
         return view('admin.projects.show', $data);
     }
 
