@@ -108,19 +108,26 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
 
-        $task->status   = $request->action;
-        $response       = $task->save();
+        if ($request->action == 'approved'){
+            $task->status = 'approved';
+            $response       = $task->save();
 
-        $data = [
-            'name' => $request->action,
-        ];
-        $task->statuses()->create($data);
+            $NewBalance = $task->user->balance + $task->project->price;
 
-        if ($response){
-            return redirect()->back()->with("success", "Completed successfully.");
-        }else{
-            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+            $userData = ['balance' => $NewBalance,];
+            $task->user()->update($userData);
+
+            $taskData = ['name' => 'approved',];
+            $task->statuses()->create($taskData);
+
+            if ($response){
+                return redirect()->route('admin.tasks.index')->with("success", "Completed Successfully.");
+            }else{
+                return redirect()->back()->with("error", "Something went wrong. Please try again.");
+            }
+
         }
+
     }
 
     /**

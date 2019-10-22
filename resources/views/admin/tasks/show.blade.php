@@ -71,14 +71,10 @@
                             </tr>
                         @endforeach
 
-                        @if($task->status == 'approved')
                             <tr>
-                                <th>Paid</th>
-                                <td>
-                                    to be added after payment prcess completion.
-                                </td>
+                                <th>price</th>
+                                <td>{{$task->project->price}}</td>
                             </tr>
-                        @endif
 
                         @if($task->status == 'delivered')
                             <tr>

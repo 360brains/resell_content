@@ -2,7 +2,7 @@
     <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"><i class="fa fa-bars"></i></button>
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" class="logo logo-scrolled" alt=""></a>
+            <a class="navbar-brand" href="{{ route('pages.home') }}"><img src="assets/img/logo.png" class="logo logo-scrolled" alt=""></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
@@ -18,7 +18,7 @@
                                     <div class="content">
                                         <ul class="menu-col">
                                             <li><a href="{{ route('pages.home') }}">Home</a></li>
-                                            <li><a href="freelancing.html">How it Works</a></li>
+                                            <li><a href="{{ route('pages.howItWorks') }}">How it Works</a></li>
                                             <li><a href="search-job.html">About Us</a></li>
                                         </ul>
                                     </div>
