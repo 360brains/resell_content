@@ -71,7 +71,7 @@
                                         <select class="form-control" id="form_control_1" name="category">
                                             <option value="">Select Category</option>
                                             @foreach($categories as $category)
-                                                <option value="{{ $category->id }}" {{ $project->id == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                <option value="{{ $category->id }}" {{ $project->category_id == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                         <label for="form_control_1">Project Category</label>
@@ -81,7 +81,7 @@
                                         <select class="form-control" id="form_control_1" name="level">
                                             <option value="">Select User Level</option>
                                             @foreach($levels as $level)
-                                                <option value="{{ $level->id }}" {{ $project->id == $level->id ? 'selected' : ''}}>{{ $level->name }}</option>
+                                                <option value="{{ $level->id }}" {{ $project->level_id == $level->id ? 'selected' : ''}}>{{ $level->name }}</option>
                                             @endforeach
                                         </select>
                                         <label for="form_control_1">Project Level</label>

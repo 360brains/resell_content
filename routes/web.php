@@ -48,8 +48,6 @@ Route::group(['middleware' => ['auth'], ['verify' => true]], function() {
     Route::post('user/profile/edit-personal', 'User\ProfileController@editPersonal')->name('user.profile.edit.personal');
     Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')->name('user.profile.edit.password');
 });
-
-
 Route::get('/', 'Pages\PagesController@home')->name('pages.home');
 Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');
 Route::get('/project-details/{id}', 'Pages\PagesController@projectDetails')->name('pages.project.details');
@@ -57,8 +55,6 @@ Route::get('/projects-category/{id}', 'Pages\PagesController@projectsByCategorie
 Route::get('/pricing', 'Pages\PagesController@pricing')->name('pages.pricing');
 Route::get('/tutorials', 'Pages\PagesController@tutorials')->name('pages.tutorials');
 Route::get('/trainings', 'Pages\PagesController@trainings')->name('pages.trainings');
-
-
 
 Route::get('paypal', 'PayPalController@index')->name('paypal');
 

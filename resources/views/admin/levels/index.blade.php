@@ -38,7 +38,7 @@
                             <th> Wages </th>
                             <th> Status </th>
                             <th> Created </th>
-                            <th> Last Updated </th>
+{{--                            <th> Last Updated </th>--}}
                             <th> Action </th>
                         </tr>
                         </thead>
@@ -53,8 +53,8 @@
                                     <td> {{ $level->types->name }} </td>
                                     <td> {{ $level->price }} </td>
                                     <td> {{ $level->active == 1 ? 'Active' : 'Deactive' }} </td>
-                                    <td> {{ $level->created_at }} </td>
-                                    <td> {{ $level->updated_at }} </td>
+                                    <td> {{ date('d-M-Y', strtotime($level->created_at)) }} </td>
+{{--                                    <td> {{ $level->updated_at }} </td>--}}
                                     <td>
                                         <form action="{{ route('admin.levels.destroy',$level->id) }}" method="POST">
                                             @csrf

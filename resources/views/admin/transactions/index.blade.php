@@ -32,8 +32,8 @@
                             <th> Amount </th>
                             <th> Type </th>
                             <th> Product </th>
-                            <th> Status </th>
                             <th> Date </th>
+                            <th> Status </th>
                             <th> Action </th>
                         </tr>
                         </thead>
@@ -55,10 +55,8 @@
                                     @elseif($transaction->training_id != NULL)
                                         <td>Training: {{ $transaction->training->name }} </td>
                                     @endif
-
-                                    <td> {{ $transaction->status }} </td>
                                     <td> {{ $transaction->created_at }} </td>
-
+                                    <td> {{ $transaction->status }} </td>
                                     <td><a class="btn btn-success" href="{{ route('admin.transactions.show', $transaction->id) }}">Show</a></td>
                                 </tr>
                                 @empty

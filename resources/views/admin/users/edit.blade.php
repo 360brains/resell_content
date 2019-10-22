@@ -9,7 +9,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Tasks</span>
+                <span>Users</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -23,8 +23,8 @@
         </div>
 
     </div>
-    <h3 class="page-title">Tasks
-        <small>Edit Task</small>
+    <h3 class="page-title">Users
+        <small>Edit User</small>
     </h3>
 
     <div class="row">
@@ -34,72 +34,49 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route('admin.tasks.update', $task->id) }}" method="post">
+                    <form action="{{ route('admin.users.update', $users->id) }}" method="post">
                         @csrf
                         {{ method_field('PATCH') }}
-
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" value="{{ $task->name }}" class="form-control" id="form_control_1" placeholder="Enter Task Name">
-                                        <label>Task Name</label>
+                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter User Name" value="{{$users->name}}">
+                                        <label>User Name</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="type">
-                                            <option value="">Select Type of Task</option>
-                                            @foreach($types as $type)
-                                                <option value="{{ $type->id }}" {{ $task->type_id == $type->id ? 'selected' : ''}}>{{ $type->name }}</option>
-                                            @endforeach
+                                        <select class="form-control" name="gender">
+                                            <option value="">Select Gender of User</option>
+                                            <option value="Male" {{$users->gender == 'Male' ? 'selected':''}}>Male</option>
+                                            <option value="Female" {{$users->gender == 'Female' ? 'selected':''}}>Female</option>
                                         </select>
-                                        <label>Task Type</label>
+                                        <label>Gender</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="deadline" value="{{ $task->deadline }}" class="form-control date-picker" id="form_control_1" placeholder="Give a deadline">
-                                        <label>Task Deadline</label>
+                                        <input type="email" name="email" class="form-control" id="form_control_1" placeholder="Enter Email-Adress" value="{{$users->email}}">
+                                        <label>Email-Address</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="category">
-                                            <option value="">Select Category of Task</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{ $category->id }}" {{ $task->id == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Task Category</label>
+                                        <input type="text" name="password" class="form-control" id="form_control_1" placeholder="Enter Password">
+                                        <label>password</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="level">
-                                            <option value="">Select User Level for the Task</option>
-                                            @foreach($levels as $level)
-                                                <option value="{{ $level->id }}" {{ $task->id == $level->id ? 'selected' : ''}}>{{ $level->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Task Level</label>
+                                        <input type="text" name="contact" class="form-control" id="form_control_1" placeholder="Enter Contact Number" value="{{$users->contact}}">
+                                        <label>Contact No.</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-
-                                        <select class="form-control" id="form_control_1" name="active">
+                                        <select class="form-control" name="active">
                                             <option value="">Status</option>
-                                            <option value="1" {{ $task->active = 1 ? 'selected' : ''}}>Active</option>
-                                            <option value="0" {{ $task->active = 0 ? 'selected' : ''}}>Deactive</option>
+                                            <option value="1" {{$users->active == '1' ? 'selected':''}}>Active</option>
+                                            <option value="0" {{$users->active == '0' ? 'selected':''}}>Deactive</option>
                                         </select>
                                         <label>Status</label>
-                                    </div>
-
-
-                                    <div class="portlet-body form">
-                                        <div class="form-body">
-                                            <div class="form-group last">
-                                                <textarea name="description" class="summernote" cols="30" rows="10">{!! $task->description
-                                                 !!}</textarea>
-                                            </div>
-                                        </div>
                                     </div>
 
                                 </div>

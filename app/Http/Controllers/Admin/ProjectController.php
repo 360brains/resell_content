@@ -117,12 +117,14 @@ class ProjectController extends Controller
         $data['levels']     = Level::get();
         $data['trainings']     = Training::get();
         $data['project']    = $project;
-
-        foreach ($project->trainings as $training){
-            $projectTrainings[] = $training->name;
+        $projectTrainings = [];
+        $data['projectTrainings']  = $projectTrainings = [];
+        if(!is_null($project->trainings)){
+            foreach ($project->trainings as $training){
+                $projectTrainings[] = $training->name;
+            }
+            $data['projectTrainings']    = $projectTrainings;
         }
-        $data['projectTrainings']    = $projectTrainings;
-
         return view('admin.projects.edit', $data);
     }
 

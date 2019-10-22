@@ -46,7 +46,7 @@ class UserController extends Controller
         $data = [
             'name'         => $request->name,
             'email'        => $request->email,
-            'password'     => $request->password,
+            'password'     => bcrypt($request->password),
             'gender'       => $request->gender,
             'contact'      => $request->contact,
             'active'       => $request->active,
@@ -81,7 +81,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['users'] = User::find($id);
+        return view('admin.users.edit', $data);
     }
 
     /**
@@ -93,7 +94,29 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'           => 'required',
+            'email'          => 'required',
+        ]);
+
+        $data = [
+            'name'         => $request->name,
+            'email'        => $request->email,
+            'gender'       => $request->gender,
+            'contact'      => $request->contact,
+            'active'       => $request->active,
+        ];
+        if ($request->password){
+            $data['password']  = bcrypt($request->password);
+            }
+
+        $response = User::find($id)->update($data);
+
+        if ($response){
+            return redirect()->route('admin.users.index')->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 
     /**
