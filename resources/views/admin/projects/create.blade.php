@@ -49,6 +49,10 @@
                                         <input type="number" name="quantity" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks">
                                         <label>Number of Tasks</label>
                                     </div>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="number" name="price" class="form-control" id="form_control_1" placeholder="Enter Price for a Task">
+                                        <label>Price</label>
+                                    </div>
 
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="type">

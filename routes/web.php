@@ -27,6 +27,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::resource('users',  'UserController');
     Route::resource('tasks', 'TaskController');
     Route::resource('test', 'TestController');
+    Route::resource('templates', 'TemplateController');
 
 });
 
