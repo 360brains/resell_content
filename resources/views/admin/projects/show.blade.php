@@ -52,6 +52,15 @@
                             <td>{{$project->type->name}}</td>
                         </tr>
 
+                        @if($project->type->name == 'Content Writing')
+                            @if( !(is_null($project->template_id)) )
+                                <tr>
+                                    <th>Project Template</th>
+                                    <td>{{$project->template->name}}</td>
+                                </tr>
+                            @endif
+                        @endif
+
                         <tr>
                             <th>Number of Tasks</th>
                             <td>{{$project->quantity}}</td>

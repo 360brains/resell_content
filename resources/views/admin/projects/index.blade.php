@@ -62,12 +62,12 @@
                                         <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a class="btn btn-success" href="{{ route('admin.projects.show', $project->id) }}">Show</a>
-                                            <a class="btn btn-primary" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
+                                            <a class="btn btn-success btn-sm" href="{{ route('admin.projects.show', $project->id) }}">Show</a>
+                                            <a class="btn btn-primary btn-sm" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
                                             @if($project->active == 0)
-                                                <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>
+                                                <button type="submit" class="btn btn-success btn-outline btn-sm sbold uppercase">Active</button>
                                             @else
-                                                <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Inactive</button>
+                                                <button type="submit" class="btn btn-danger btn-outline btn-sm sbold uppercase">Inactive</button>
                                             @endif
                                         </form>
                                     </td>

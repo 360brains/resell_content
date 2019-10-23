@@ -55,13 +55,23 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="type">
+                                        <select id="typeselector" class="form-control" name="type">
                                             <option value="">Select type of project</option>
                                             @foreach($types as $type)
-                                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                                <option value="{{$type->id}}">{{$type->name}}</option>
                                             @endforeach
                                         </select>
                                         <label>Project Type</label>
+                                    </div>
+
+                                    <div id="divid" class="form-group form-md-line-input">
+                                        <select class="form-control" name="template">
+                                            <option value="">Select Template for project</option>
+                                            @foreach($templates as $template)
+                                                <option value="{{ $template->id }}">{{ $template->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <label>Project Template</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">

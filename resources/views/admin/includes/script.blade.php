@@ -5,6 +5,20 @@
         height: 300
     });
 
+    $(function() {
+        $("#divid").hide();
+        $('#typeselector').on('change', function() {
+            if ( this.value == 1)
+            {
+                $("#divid").show();
+            }
+            else{
+                $("#divid").hide();
+            }
+        });
+    });
+
+
     $(".date-picker").datepicker({
         format: "yyyy-m-d",
         todayHighlight: true,

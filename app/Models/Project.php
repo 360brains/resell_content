@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = ['name', 'quantity', 'available', 'type_id', 'deadline', 'category_id', 'level_id', 'description', 'active','price'];
+    protected $fillable = ['name', 'quantity', 'available', 'type_id', 'deadline', 'category_id', 'level_id', 'description', 'active','price', 'template_id'];
 //    protected $dates = ['deadline'];
     function type(){
         return $this->belongsTo(Type::class);
+    }
+    function template(){
+        return $this->belongsTo(Template::class);
     }
     function category(){
         return $this->belongsTo(Category::class);
