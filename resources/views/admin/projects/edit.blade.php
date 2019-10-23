@@ -51,6 +51,10 @@
                                         <input type="number" name="quantity" value="{{ $project->quantity }}" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks">
                                         <label for="form_control_1">Number of Tasks</label>
                                     </div>
+                                    <div class="form-group form-md-line-input">
+                                        <input type="number" name="price" value="{{ $project->price }}" class="form-control" id="form_control_1" placeholder="Enter Price for a Task">
+                                        <label>Price</label>
+                                    </div>
 
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" id="form_control_1" name="type">

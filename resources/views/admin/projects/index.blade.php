@@ -38,6 +38,7 @@
                             <th> Deadline </th>
                             <th> Category </th>
                             <th> Level </th>
+                            <th> Price </th>
                             <th> Status </th>
                             <th>Action</th>
                         </tr>
@@ -55,6 +56,7 @@
                                     <td> {{ date('d-M-Y', strtotime($project->deadline))}} </td>
                                     <td> {{ $project->category->name }} </td>
                                     <td> {{ $project->level->name }} </td>
+                                    <td> {{ $project->price }} </td>
                                     <td> {{ $project->active == 1 ? 'Active' : 'Inactive'}} </td>
                                     <td>
                                         <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">

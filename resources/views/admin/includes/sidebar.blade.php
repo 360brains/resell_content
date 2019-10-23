@@ -93,6 +93,13 @@
                 </a>
             </li>
 
+            <li class="nav-item  {{strpos((request()->path()),"admin/templates") == 'true' ? 'active' : ''}}">
+                <a href="{{ route('admin.templates.index') }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Templates</span>
+                </a>
+            </li>
+
             <li class="nav-item  {{strpos((request()->path()),"backend/role") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.roles') }}" class="nav-link">
                     <i class="icon-layers"></i>

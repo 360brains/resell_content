@@ -52,6 +52,7 @@ class ProjectController extends Controller
             'type'          => 'required',
             'description'   => 'required',
             'level'         => 'required',
+            'price'         => 'required'
         ]);
 
 //        $data = [
@@ -78,6 +79,7 @@ class ProjectController extends Controller
         $project->level_id      = $request->level;
         $project->description   = $request->description;
         $project->active        = $request->active;
+        $project->price         = $request->price;
         $response               = $project->save();
 
         if ($response){
@@ -142,6 +144,7 @@ class ProjectController extends Controller
             'type'          => 'required',
             'description'   => 'required',
             'level'         => 'required',
+            'price'         => 'required',
         ]);
 
         $project->name          = $request->name;
@@ -151,6 +154,7 @@ class ProjectController extends Controller
         $project->category_id   = $request->category;
         $project->level_id      = $request->level;
         $project->description   = $request->description;
+        $project->price         = $request->price;
         $project->active        = $request->active;
         $response               = $project->save();
 

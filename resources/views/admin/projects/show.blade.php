@@ -73,6 +73,11 @@
                         </tr>
 
                         <tr>
+                            <th>Price for a Task</th>
+                            <td>{{$project->price}}</td>
+                        </tr>
+
+                        <tr>
                             <th>Created</th>
                             <td>{{$project->created_at}}</td>
                         </tr>
