@@ -38,13 +38,14 @@
                                         </p>
 
                                         <div class="bottom_fix_cource">
-                                            <div class="left_con_cource">
-
+                                            <div class="left_con_cource float-left">
+                                            <span><sup>$</sup><strong>45</strong></span>
                                             </div>
 
-                                            <div class="right_con_cource">
+                                            <div class="right_con_cource float-right">
 
-                                                <span><sup>$</sup><strong>45</strong></span>
+                                            <i class="fas fa-video" title="Video Lecture"></i>
+                                                
 
                                             </div>
                                         </div>
@@ -85,14 +86,12 @@
                                         </p>
 
                                         <div class="bottom_fix_cource">
-                                            <div class="left_con_cource">
-
+                                            <div class="left_con_cource float-left">
+                                            <span><sup>$</sup><strong>40</strong></span>
                                             </div>
 
-                                            <div class="right_con_cource">
-
-                                                <span><sup>$</sup><strong>40</strong></span>
-
+                                            <div class="right_con_cource float-right">
+                                            <i class="fas fa-chalkboard-teacher" title="Online Session"></i>
                                             </div>
                                         </div>
                                     </div>
