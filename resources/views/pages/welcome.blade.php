@@ -73,74 +73,74 @@
         </div>
     </section>
     <div class="clearfix"></div>
-    <
-        <section>
-            <div class="section how-does-iwriter-work service">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="main-heading">
-                                <h2 class="home-page text-center" style="margin-bottom: 15px"> How Does it <span class="how-it-works">Work?</span> </h2>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <h3 class="home-page text-center font-weight-300 five-easy-steps"> it Works In Just 5 Easy
-                                Steps. </h3>
-                        </div>
-                        <div class="col-lg-12 hidden-xs">
-                            <table class="how-iwriter-works-bubbles">
-                                <tbody>
-                                <tr>
-                                    <td class="odd-td"><img src="{{ asset('assets/img/bubble-step-1.png') }}"></td>
-                                    <td class="even-td"><img src="{{ asset('assets/img/stripped-line.png') }}"></td>
-                                    <td class="odd-td"><img src="{{ asset('assets/img/bubble-step-2.png') }}"></td>
-                                    <td class="even-td"><img src="{{ asset('assets/img/stripped-line.png') }}"></td>
-                                    <td class="odd-td"><img src="{{ asset('assets/img/bubble-step-3.png') }}"></td>
-                                    <td class="even-td"><img src="{{ asset('assets/img/stripped-line.png') }}"></td>
-                                    <td class="odd-td"><img src="{{ asset('assets/img/bubble-step-4.png') }}"></td>
-                                    <td class="even-td"><img src="{{ asset('assets/img/stripped-line.png') }}"></td>
-                                    <td class="odd-td"><img src="{{ asset('assets/img/bubble-step-5.png') }}"></td>
-                                </tr>
-                                <tr>
-                                    <td class="odd-td">
-                                        <h4>Step #1</h4>
-                                        <p>
-                                            <!----><a href="/register-client" class="how-it-works">Register</a>
-                                            <!---->For A Free Account. </p>
-                                    </td>
-                                    <td class="even-td"></td>
-                                    <td class="odd-td">
-                                        <h4>Step #2</h4>
-                                        <p>Pass an easy Test Of Type You Would Like to take for free and gain level 1.</p>
-                                    </td>
-                                    <td class="even-td"></td>
-                                    <td class="odd-td">
-                                        <h4>Step #3</h4>
-                                        <p>Complete 10 level 1 tasks and get a level 2 and be paid afterwards.</p>
-                                    </td>
-                                    <td class="even-td"></td>
-                                    <td class="odd-td">
-                                        <h4>Step #4</h4>
-                                        <p>Your Content Will be reviewed And After Approval you will be paid.</p>
-                                    </td>
-                                    <td class="even-td"></td>
-                                    <td class="odd-td">
-                                        <h4>Step #5</h4>
-                                        <p>Download Your Content And Rinse And Repeat.</p>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="text-center"><a href="{{route('pages.projects')}}" class="btn btn-primary">How It Works</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
+{{--        <section>--}}
+{{--            <div class="section how-does-iwriter-work service">--}}
+{{--                <div class="container">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <div class="main-heading">--}}
+{{--                                <h2 class="home-page text-center" style="margin-bottom: 15px"> How Does it <span class="how-it-works">Work?</span> </h2>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <h3 class="home-page text-center font-weight-300 five-easy-steps"> it Works In Just 5 Easy--}}
+{{--                                Steps. </h3>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-lg-12 hidden-xs">--}}
+{{--                            <table class="how-iwriter-works-bubbles">--}}
+{{--                                <tbody>--}}
+{{--                                <tr>--}}
+{{--                                    <td class="odd-td"><img src="{{ asset('assets/img/bubble-step-1.png') }}"></td>--}}
+{{--                                    <td class="even-td"><img src="{{ asset('assets/img/stripped-line.png') }}"></td>--}}
+{{--                                    <td class="odd-td"><img src="{{ asset('assets/img/bubble-step-2.png') }}"></td>--}}
+{{--                                    <td class="even-td"><img src="{{ asset('assets/img/stripped-line.png') }}"></td>--}}
+{{--                                    <td class="odd-td"><img src="{{ asset('assets/img/bubble-step-3.png') }}"></td>--}}
+{{--                                    <td class="even-td"><img src="{{ asset('assets/img/stripped-line.png') }}"></td>--}}
+{{--                                    <td class="odd-td"><img src="{{ asset('assets/img/bubble-step-4.png') }}"></td>--}}
+{{--                                    <td class="even-td"><img src="{{ asset('assets/img/stripped-line.png') }}"></td>--}}
+{{--                                    <td class="odd-td"><img src="{{ asset('assets/img/bubble-step-5.png') }}"></td>--}}
+{{--                                </tr>--}}
+{{--                                <tr>--}}
+{{--                                    <td class="odd-td">--}}
+{{--                                        <h4>Step #1</h4>--}}
+{{--                                        <p>--}}
+{{--                                            <!----><a href="/register-client" class="how-it-works">Register</a>--}}
+{{--                                            <!---->For A Free Account. </p>--}}
+{{--                                    </td>--}}
+{{--                                    <td class="even-td"></td>--}}
+{{--                                    <td class="odd-td">--}}
+{{--                                        <h4>Step #2</h4>--}}
+{{--                                        <p>Pass an easy Test Of Type You Would Like to take for free and gain level 1.</p>--}}
+{{--                                    </td>--}}
+{{--                                    <td class="even-td"></td>--}}
+{{--                                    <td class="odd-td">--}}
+{{--                                        <h4>Step #3</h4>--}}
+{{--                                        <p>Complete 10 level 1 tasks and get a level 2 and be paid afterwards.</p>--}}
+{{--                                    </td>--}}
+{{--                                    <td class="even-td"></td>--}}
+{{--                                    <td class="odd-td">--}}
+{{--                                        <h4>Step #4</h4>--}}
+{{--                                        <p>Your Content Will be reviewed And After Approval you will be paid.</p>--}}
+{{--                                    </td>--}}
+{{--                                    <td class="even-td"></td>--}}
+{{--                                    <td class="odd-td">--}}
+{{--                                        <h4>Step #5</h4>--}}
+{{--                                        <p>Download Your Content And Rinse And Repeat.</p>--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
+{{--                                </tbody>--}}
+{{--                            </table>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12 col-sm-12">--}}
+{{--                            <div class="text-center"><a href="{{route('pages.projects')}}" class="btn btn-primary">How It Works</a></div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
 
     <section>
         <div class="container">
@@ -242,85 +242,85 @@
     </section>
 
     <!-- ========= start Call To Action section =========== -->
-    <div class="clearfix"></div>
-    <section class="call-to-act">
-        <div class="container-fluid">
+{{--    <div class="clearfix"></div>--}}
+{{--    <section class="call-to-act">--}}
+{{--        <div class="container-fluid">--}}
 
-            <div class="col-md-6 col-sm-6 no-padd ht-min bl-dark">
-                <div class="call-to-act-caption">
-                    <h2>Want to be an expert?</h2>
-                    <h3>We have experts that can train you in your desired skill.</h3>
-                    <a href="{{ route('pages.trainings') }}" class="btn bat-call-to-act">Hire Us</a>
-                </div>
-            </div>
+{{--            <div class="col-md-6 col-sm-6 no-padd ht-min bl-dark">--}}
+{{--                <div class="call-to-act-caption">--}}
+{{--                    <h2>Want to be an expert?</h2>--}}
+{{--                    <h3>We have experts that can train you in your desired skill.</h3>--}}
+{{--                    <a href="{{ route('pages.trainings') }}" class="btn bat-call-to-act">Hire Us</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <div class="col-md-6 col-sm-6 no-padd ht-min gr-dark">
-                <div class="call-to-act-caption">
-                    <h2>Do not know how to do it?</h2>
-                    <h3>We have some free tutorials for you. learn it and start to earn immediately</h3>
-                    <a href="{{ route('pages.tutorials') }}" class="btn bat-call-to-act">Learn</a>
-                </div>
-            </div>
+{{--            <div class="col-md-6 col-sm-6 no-padd ht-min gr-dark">--}}
+{{--                <div class="call-to-act-caption">--}}
+{{--                    <h2>Do not know how to do it?</h2>--}}
+{{--                    <h3>We have some free tutorials for you. learn it and start to earn immediately</h3>--}}
+{{--                    <a href="{{ route('pages.tutorials') }}" class="btn bat-call-to-act">Learn</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-        </div>
-    </section>
+{{--        </div>--}}
+{{--    </section>--}}
     <!-- =========== Call To Action section End ============= -->
 
-    <div class="clearfix"></div>
-    <section class="testimonial" id="testimonial">
-        <div class="container">
-            <div class="row">
-                <div class="main-heading">
-                    <p>What Say Our Client</p>
-                    <h2>Our Success <span>Stories</span></h2></div>
-            </div>
-            <div class="row">
-                <div id="client-testimonial-slider" class="owl-carousel">
-                    <div class="client-testimonial">
-                        <div class="pic"><img src="{{ asset('assets/img/client-1.jpg') }}" alt=""></div>
-                        <p class="client-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.</p>
-                        <h3 class="client-testimonial-title">Lacky Mole</h3>
-                        <ul class="client-testimonial-rating">
-                            <li class="fa fa-star-o"></li>
-                            <li class="fa fa-star-o"></li>
-                            <li class="fa fa-star"></li>
-                        </ul>
-                    </div>
-                    <div class="client-testimonial">
-                        <div class="pic"><img src="{{ asset('assets/img/client-4.jpg') }}" alt=""></div>
-                        <p class="client-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.</p>
-                        <h3 class="client-testimonial-title">Karan Wessi</h3>
-                        <ul class="client-testimonial-rating">
-                            <li class="fa fa-star-o"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                        </ul>
-                    </div>
-                    <div class="client-testimonial">
-                        <div class="pic"><img src="{{ asset('assets/img/client-2.jpg') }}" alt=""></div>
-                        <p class="client-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.</p>
-                        <h3 class="client-testimonial-title">Roul Pinchai</h3>
-                        <ul class="client-testimonial-rating">
-                            <li class="fa fa-star-o"></li>
-                            <li class="fa fa-star-o"></li>
-                            <li class="fa fa-star"></li>
-                        </ul>
-                    </div>
-                    <div class="client-testimonial">
-                        <div class="pic"><img src="{{ asset('assets/img/client-3.jpg') }}" alt=""></div>
-                        <p class="client-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.</p>
-                        <h3 class="client-testimonial-title">Adam Jinna</h3>
-                        <ul class="client-testimonial-rating">
-                            <li class="fa fa-star-o"></li>
-                            <li class="fa fa-star-o"></li>
-                            <li class="fa fa-star"></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--    <div class="clearfix"></div>--}}
+{{--    <section class="testimonial" id="testimonial">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="main-heading">--}}
+{{--                    <p>What Say Our Client</p>--}}
+{{--                    <h2>Our Success <span>Stories</span></h2></div>--}}
+{{--            </div>--}}
+{{--            <div class="row">--}}
+{{--                <div id="client-testimonial-slider" class="owl-carousel">--}}
+{{--                    <div class="client-testimonial">--}}
+{{--                        <div class="pic"><img src="{{ asset('assets/img/client-1.jpg') }}" alt=""></div>--}}
+{{--                        <p class="client-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.</p>--}}
+{{--                        <h3 class="client-testimonial-title">Lacky Mole</h3>--}}
+{{--                        <ul class="client-testimonial-rating">--}}
+{{--                            <li class="fa fa-star-o"></li>--}}
+{{--                            <li class="fa fa-star-o"></li>--}}
+{{--                            <li class="fa fa-star"></li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                    <div class="client-testimonial">--}}
+{{--                        <div class="pic"><img src="{{ asset('assets/img/client-4.jpg') }}" alt=""></div>--}}
+{{--                        <p class="client-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.</p>--}}
+{{--                        <h3 class="client-testimonial-title">Karan Wessi</h3>--}}
+{{--                        <ul class="client-testimonial-rating">--}}
+{{--                            <li class="fa fa-star-o"></li>--}}
+{{--                            <li class="fa fa-star"></li>--}}
+{{--                            <li class="fa fa-star"></li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                    <div class="client-testimonial">--}}
+{{--                        <div class="pic"><img src="{{ asset('assets/img/client-2.jpg') }}" alt=""></div>--}}
+{{--                        <p class="client-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.</p>--}}
+{{--                        <h3 class="client-testimonial-title">Roul Pinchai</h3>--}}
+{{--                        <ul class="client-testimonial-rating">--}}
+{{--                            <li class="fa fa-star-o"></li>--}}
+{{--                            <li class="fa fa-star-o"></li>--}}
+{{--                            <li class="fa fa-star"></li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                    <div class="client-testimonial">--}}
+{{--                        <div class="pic"><img src="{{ asset('assets/img/client-3.jpg') }}" alt=""></div>--}}
+{{--                        <p class="client-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.</p>--}}
+{{--                        <h3 class="client-testimonial-title">Adam Jinna</h3>--}}
+{{--                        <ul class="client-testimonial-rating">--}}
+{{--                            <li class="fa fa-star-o"></li>--}}
+{{--                            <li class="fa fa-star-o"></li>--}}
+{{--                            <li class="fa fa-star"></li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-    </section>
+{{--    </section>--}}
 
 
     <div class="clearfix"></div>
