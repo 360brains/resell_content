@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Level;
 use App\Models\Category;
 use App\Models\Task;
+use App\Models\Template;
 use App\Models\Training;
 use App\Models\Type;
 use App\Models\Project;
@@ -36,6 +37,7 @@ class ProjectController extends Controller
         $data['categories'] = Category::get();
         $data['levels']     = Level::get();
         $data['trainings']  = Training::get();
+        $data['templates']  = Template::get();
         return view("admin.projects.create", $data);
     }
 
@@ -74,6 +76,7 @@ class ProjectController extends Controller
         $project->quantity      = $request->quantity;
         $project->available     = $request->quantity;
         $project->type_id       = $request->type;
+        $project->template_id   = $request->template;
         $project->deadline      = $request->deadline;
         $project->category_id   = $request->category;
         $project->level_id      = $request->level;
@@ -117,9 +120,10 @@ class ProjectController extends Controller
         $data['types']      = Type::get();
         $data['categories'] = Category::get();
         $data['levels']     = Level::get();
-        $data['trainings']     = Training::get();
+        $data['trainings']  = Training::get();
+        $data['templates']  = Template::get();
         $data['project']    = $project;
-        $projectTrainings = [];
+        $projectTrainings   = [];
         $data['projectTrainings']  = $projectTrainings = [];
         if(!is_null($project->trainings)){
             foreach ($project->trainings as $training){
@@ -150,6 +154,7 @@ class ProjectController extends Controller
         $project->name          = $request->name;
         $project->quantity      = $request->quantity;
         $project->type_id       = $request->type;
+        $project->template_id   = $request->template;
         $project->deadline      = $request->deadline;
         $project->category_id   = $request->category;
         $project->level_id      = $request->level;

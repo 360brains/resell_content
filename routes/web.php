@@ -39,7 +39,7 @@ Route::group(['middleware' => ['auth'], ['verify' => true]], function() {
     Route::get('user/dashboard', 'User\DashboardController@index')->name('user.dashboard');
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
     Route::get('user/learn', 'User\LearnController@index')->name('user.learn');
-    Route::get('user/learn-details', 'User\LearnController@learnDetails')->name('user.learn.details');
+    Route::get('user/learn-details/{id}', 'User\LearnController@learnDetails')->name('user.learn.details');
     Route::get('user/transactions', 'User\transactionController@index')->name('user.transactions');
     Route::get('user/tasks', 'User\tasksController@index')->name('user.tasks');
     Route::get('user/tasks/take/{id}', 'User\tasksController@taskTake')->name('user.tasks.take');

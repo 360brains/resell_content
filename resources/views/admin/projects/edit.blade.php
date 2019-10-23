@@ -57,13 +57,23 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="form_control_1" name="type">
+                                        <select id="typeselector" class="form-control" id="form_control_1" name="type">
                                             <option value="">Select type of project</option>
                                             @foreach($types as $type)
                                                 <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : ''}}>{{ $type->name }}</option>
                                             @endforeach
                                         </select>
                                         <label for="form_control_1">Project Type</label>
+                                    </div>
+
+                                    <div id="divid" class="form-group form-md-line-input">
+                                        <select class="form-control" name="template">
+                                            <option value="">Select Template for project</option>
+                                            @foreach($templates as $template)
+                                                <option value="{{ $template->id }}" {{ $project->template_id == $template->id ? 'selected' : ''}}>{{ $template->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <label>Project Template</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
