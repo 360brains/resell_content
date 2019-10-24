@@ -39,7 +39,7 @@
                                     <div class="card-innr">
                                         <h6 class="card-title card-title-sm">Download Template .DOC</h6>
                                         <ul class="btn-grp">
-                                            <li><a href="{{ route('user.tasks.create.doc') }}" class="btn btn-auto btn-sm btn-success"><em class="fas fa-download"></em> Download</a></li>
+                                            <li><a href="{{ route('user.tasks.create.doc', $task->id) }}" class="btn btn-auto btn-sm btn-success"><em class="fas fa-download"></em> Download</a></li>
                                         </ul>
                                         <div class="gaps-2-5x"></div>
                                         <p class=" pdb-0-5x">Use the template to comply with our writing format <strong>or use our online editor.</strong></p>

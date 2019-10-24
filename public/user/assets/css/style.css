@@ -5411,7 +5411,7 @@ select.select-sm {
 
 @media (min-width: 576px) {
     .card {
-        margin-bottom: 30px
+        margin-bottom: 15px
     }
     .card-title {
         font-size: 1.4em
@@ -13508,8 +13508,8 @@ p+.timeline-content-info {
     color: #FFFFFF;
 }
 .bg-white{
-background: #FFFFFF; 
-padding:30px; 
+background: #FFFFFF;
+padding:30px;
 border-radius: 10px;"
 }
 
@@ -13589,7 +13589,7 @@ border-radius: 10px;"
     overflow: hidden;
     white-space: nowrap;
 
-   
+
 }
 
 .blog_overlay_new p {
@@ -13693,4 +13693,10 @@ span.green_dot {
     opacity: 1;
     border-radius: 8px 8px 0 0;
     cursor: pointer;
+}
+.dashboard-user-img {
+    width: 120px;
+    border-radius: 50%;
+    height: auto;
+    margin-top: 2px;
 }

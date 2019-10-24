@@ -9,10 +9,11 @@ use App\Http\Controllers\Controller;
 
 class OfficeController extends Controller
 {
-    public function createDoc(){
+    public function createDoc($id){
+        $task = Task::find($id);
         $word = new \PhpOffice\PhpWord\PhpWord();
         $section = $word->addSection();
-        $html = " ";
+        $html = $task->body;
 
         \PhpOffice\PhpWord\Shared\Html::addHtml($section, $html, false, false);
 

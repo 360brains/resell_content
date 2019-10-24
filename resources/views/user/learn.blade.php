@@ -41,7 +41,7 @@
 
                                             <div class="right_con_cource float-right">
 
-                                            <i class="{{ $training->method == 'Video' ? 'fas fa-video' : 'fas fa-chalkboard-teacher'}}" title="Video Lecture"></i>
+                                            <i class="fas {{ $training->medium == 'Live' ? 'fa-chalkboard-teacher' : 'fa-video'}}" title="Video Lecture"></i>
 
                                             <div class="right_con_cource">
 
@@ -60,6 +60,9 @@
                     @endforelse
 
 
+                </div>
+                <div class="text-center">
+                    {{$trainings->links()}}
                 </div>
             </div>
         </div><!-- .container -->

@@ -30,7 +30,7 @@ class TasksController extends Controller
             }
         }
 
-        if ($project->active == 1){
+        if ($project->active == 1 && $project->available > 0){
             // check if the user level type matches project level type
             if ($level->types->name == $project->level->types->name && $level->name >= $project->level->name ){
                 // check if the user trainings matches project required trainings
@@ -48,20 +48,28 @@ class TasksController extends Controller
                 return redirect()->back()->with("error", "Your skills do not match project requirements");
             }
         }else{
-            return redirect()->back()->with("error", "Project is not active");
+            return redirect()->back()->with("error", "Project is not available");
         }
 
-
         if ($training == 1){
+
             $data = [
                 'project_id'   => $id,
                 'user_id'      => auth()->user()->id,
                 'status'       => 'Started',
+
             ];
+            if ($project->template_id != null){
+                $data['body']       = $project->template->body;
+            }
             $status = [
                 'name'       => 'Started',
             ];
+            $available = [
+                'available'       => $project->available - 1,
+            ];
 
+            $project->update($available);
             $task       = Task::create($data);
             $response   = $task->statuses()->create($status);
 
@@ -73,7 +81,7 @@ class TasksController extends Controller
         if ($response){
             return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
         }else{
-            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
         }
         return view('user.tasks');
     }
