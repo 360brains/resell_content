@@ -5,6 +5,14 @@
     <div class="page-content">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12"><div class="content-area card card-success card-text-light">
+                        <div class="card-innr">
+                            <div class="card-head"><h6 class="card-title">Raise yor Level</h6></div>
+                            <p>Your current Level is <strong>'0'</strong>. Take a free test and raise your level to get tasks.</p>
+                            <a class="btn btn-outline btn-secondary" href="">Free Test</a>
+                        </div><!-- .card-innr -->
+                    </div><!-- .card -->
+                </div>
                 <div class="col-lg-4">
                     <div class="token-statistics card card-token height-auto">
                         <div class="card-innr">
@@ -62,7 +70,7 @@
                                                         {{ $diff->format("%a day/s, %h hour/s Left") }}
                                                 </h5>
                                             @else
-                                                <h5 class="token-info-sub">No Task Currently</h5>
+                                                <h2 class="token-info-sub">No Task Currently</h2>
                                             @endif
 
                                         </ul>
