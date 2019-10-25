@@ -35,7 +35,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['auth'], ['verify' => true]], function() {
+Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('user/dashboard', 'User\DashboardController@index')->name('user.dashboard');
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
     Route::get('user/learn', 'User\LearnController@index')->name('user.learn');

@@ -41,13 +41,13 @@
                                 <div class="col-md-8 col-md-offset-2">
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Test Name">
+                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Test Name" value="{{old('name')}}">
                                         <label>Template Name</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
                                         <label>Body</label>
-                                        <textarea name="body" class="summernote" placeholder="Body"></textarea>
+                                        <textarea name="body" class="summernote" placeholder="Body">{{old('body')}}</textarea>
                                     </div>
                                 </div>
                             </div>

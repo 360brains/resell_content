@@ -50,7 +50,7 @@
                                 <td> {{ $training->name }}</td>
                                 <td> {{ $training->types->name }} </td>
                                 <td> {{ $training->levels->name }} </td>
-                                <td> {{ $training->fee }} </td>
+                                <td> {{ $training->fee==0? 'Free': $training->fee}} </td>
                                 <td>{{ $training->active == 0 ? 'Deactive':'Active' }}</td>
                                 <td>
                                     <form action="{{ route('admin.trainings.destroy',$training->id) }}" method="POST">

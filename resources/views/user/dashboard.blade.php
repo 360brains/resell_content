@@ -5,6 +5,17 @@
     <div class="page-content">
         <div class="container">
             <div class="row">
+                @if(auth()->user()->video_level == 0 && auth()->user()->video_level == 0)
+                <div class="col-lg-12"><div class="content-area card">
+                        <div class="card-innr">
+                            <div class="card-head"><h6 class="card-title">Raise yor Level</h6></div>
+                            <p>Your current Level is <strong>'0'</strong>. Take a free test and raise your level to get tasks.</p>
+                            <a class="btn btn-primary" href="">Free Test</a>
+                        </div><!-- .card-innr -->
+                    </div><!-- .card -->
+                </div>
+                @endif
+
                 <div class="col-lg-4">
                     <div class="token-statistics card card-token height-auto">
                         <div class="card-innr">
@@ -47,15 +58,10 @@
                                 <div class="token-info bdr-tl">
                                     <div>
                                         <ul class="token-info-list">
-                                        <!--Timer divs start-->
+                                            <!--Timer divs start
                                             <div id="one">
-                                                @php
-                                                    $myDate = strtotime($currentTask->project->deadline);
-                                                    $now  = strtotime(date("y-m-d h:i:s"));
-                                                    $diff = $myDate - $now - 5320000;
-                                                @endphp
                                             </div>
-                                        <!--Timer divs end-->
+                                            Timer divs end-->
                                             @if(!is_null($currentTask))
 
                                                 <h4 class="token-info-sub text-light">
@@ -64,15 +70,10 @@
                                                     {{ $currentTask->project->name }}
                                                 </h4>
                                                 <h5 class="token-info-head text-light">
-                                                    @php
-                                                        $now = new DateTime();
-                                                        $future_date = new DateTime($currentTask->project->deadline);
-                                                        $interval = $future_date->diff($now);
-                                                        echo $interval->format("%a day/s, %h hour/s Left");
-                                                    @endphp
+                                                        {{ $diff->format("%a day/s, %h hour/s Left") }}
                                                 </h5>
                                             @else
-                                                <h5 class="token-info-sub">No Task Currently</h5>
+                                                <h2 class="token-info-sub">No Task Currently</h2>
                                             @endif
 
                                         </ul>

@@ -41,39 +41,39 @@
                                 <div class="col-md-8 col-md-offset-2">
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter User Name">
+                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter User Name" value="{{old('name')}}">
                                         <label>User Name</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="gender">
                                             <option value="">Select Gender of User</option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
+                                            <option value="Male" {{old('gender')=='Male'?'selected':''}}>Male</option>
+                                            <option value="Female" {{old('gender')=='Female'?'selected':''}}>Female</option>
                                         </select>
                                         <label>Gender</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="email" name="email" class="form-control" id="form_control_1" placeholder="Enter Email-Adress">
+                                        <input type="email" name="email" class="form-control" id="form_control_1" placeholder="Enter Email-Adress" value="{{old('email')}}">
                                         <label>Email-Address</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="password" name="password" class="form-control" id="form_control_1" placeholder="Enter Password">
+                                        <input type="password" name="password" class="form-control" id="form_control_1" placeholder="Enter Password" value="{{old('password')}}">
                                         <label>password</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="contact" class="form-control" id="form_control_1" placeholder="Enter Contact Number">
+                                        <input type="text" name="contact" class="form-control" id="form_control_1" placeholder="Enter Contact Number" value="{{old('contact')}}">
                                         <label>Contact No.</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active">
                                             <option value="">Status</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Deactive</option>
+                                            <option value="1" {{old('active')== 1?'selected':''}}>Active</option>
+                                            <option value="0" {{old('active')== 0 ?'selected':''}}>Deactive</option>
                                         </select>
                                         <label>Status</label>
                                     </div>
