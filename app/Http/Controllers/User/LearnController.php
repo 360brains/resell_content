@@ -12,7 +12,8 @@ class LearnController extends Controller
         $data['trainings']      = Training::paginate(10);
         return view('user.learn', $data);
     }
-    public function learnDetails(){
-        return view('user.learn-details');
+    public function learnDetails($id){
+        $data['trainings']      = Training::find($id);
+        return view('user.learn-details', $data);
     }
 }

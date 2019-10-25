@@ -6,7 +6,6 @@
         <div class="container">
             <div class="creative-box clearfix">
                 <div class="row">
-
                     @forelse($trainings as $training)
                     <div class="col-md-4">
                         <div class="spacing">
@@ -32,7 +31,7 @@
 
                                         <div class="bottom_fix_cource">
                                             <div class="left_con_cource float-left">
-                                                @if($training->is_paid )
+                                                @if(!is_null($training->fee))
                                                     <span><sup>$</sup><strong>{{ $training->fee }}</strong></span>
                                                 @else
                                                     <span><strong>FREE</strong></span>
