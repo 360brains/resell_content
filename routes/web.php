@@ -40,11 +40,11 @@ Route::group(['middleware' => ['auth'], ['verify' => true]], function() {
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
     Route::get('user/learn', 'User\LearnController@index')->name('user.learn');
     Route::get('user/learn-details/{id}', 'User\LearnController@learnDetails')->name('user.learn.details');
-    Route::get('user/transactions', 'User\transactionController@index')->name('user.transactions');
-    Route::get('user/tasks', 'User\tasksController@index')->name('user.tasks');
-    Route::get('user/tasks/take/{id}', 'User\tasksController@taskTake')->name('user.tasks.take');
-    Route::get('user/tasks/work', 'User\tasksController@work')->name('user.tasks.work');
-    Route::post('user/tasks/save-progress/{id}', 'User\tasksController@saveProgress')->name('user.tasks.save.progress');
+    Route::get('user/transactions', 'User\TransactionController@index')->name('user.transactions');
+    Route::get('user/tasks', 'User\TasksController@index')->name('user.tasks');
+    Route::get('user/tasks/take/{id}', 'User\TasksController@taskTake')->name('user.tasks.take');
+    Route::get('user/tasks/work', 'User\TasksController@work')->name('user.tasks.work');
+    Route::post('user/tasks/save-progress/{id}', 'User\TasksController@saveProgress')->name('user.tasks.save.progress');
     Route::get('user/tasks/create-doc/{id}', 'User\OfficeController@createDoc')->name('user.tasks.create.doc');
     Route::post('user/tasks/upload-doc/{id}', 'User\OfficeController@uploadDoc')->name('user.tasks.upload.doc');
     Route::post('user/profile/edit-personal', 'User\ProfileController@editPersonal')->name('user.profile.edit.personal');
