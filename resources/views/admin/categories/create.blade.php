@@ -40,7 +40,7 @@
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" placeholder="Enter Category Name">
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Category Name" value="{{old('name')}}">
                                         <label>Category Name</label>
                                     </div>
 
@@ -48,7 +48,7 @@
                                         <select class="form-control" name="parent_id">
                                             <option value="">Select a Parent Category</option>
                                             @foreach($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option value="{{ $category->id }}" {{old('parent_id')==$category->id?'selected':''}}>{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                         <label>Parent Category</label>
