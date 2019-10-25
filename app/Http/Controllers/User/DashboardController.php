@@ -20,7 +20,17 @@ class DashboardController extends Controller
         }
         $data['transactions']   = Transaction::where('user_id', $user_id)->get();
         $data['currentLevel']   = User_level::where('user_id', $user_id)->orderBy('created_at', 'desc')->take(1)->get();
-        $data['currentTask']   = Task::where('user_id', $user_id)->whereIn('status', array('started', 'extended', 'reworking'))->first();
+        $myTask                 = Task::where('user_id', $user_id)->whereIn('status', array('started', 'extended', 'reworking'))->first();
+        if (!is_null($myTask)){
+        $myDate                 = strtotime($myTask->project->deadline);
+        $now                    = strtotime(date("y-m-d h:i:s"));
+        $diff                   = $myDate - $now;
+        $data['currentTask']    = $myTask;
+        $data['diff']           = $diff;
+        }else{
+            $data['currentTask'] = null;
+            $data['diff']           = 0;
+        }
         return view('user.dashboard', $data);
     }
 }

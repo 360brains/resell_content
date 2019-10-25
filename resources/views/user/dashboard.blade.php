@@ -47,15 +47,10 @@
                                 <div class="token-info bdr-tl">
                                     <div>
                                         <ul class="token-info-list">
-                                        <!--Timer divs start-->
+                                            <!--Timer divs start
                                             <div id="one">
-                                                @php
-                                                    $myDate = strtotime($currentTask->project->deadline);
-                                                    $now  = strtotime(date("y-m-d h:i:s"));
-                                                    $diff = $myDate - $now - 5320000;
-                                                @endphp
                                             </div>
-                                        <!--Timer divs end-->
+                                            Timer divs end-->
                                             @if(!is_null($currentTask))
 
                                                 <h4 class="token-info-sub text-light">
@@ -64,12 +59,7 @@
                                                     {{ $currentTask->project->name }}
                                                 </h4>
                                                 <h5 class="token-info-head text-light">
-                                                    @php
-                                                        $now = new DateTime();
-                                                        $future_date = new DateTime($currentTask->project->deadline);
-                                                        $interval = $future_date->diff($now);
-                                                        echo $interval->format("%a day/s, %h hour/s Left");
-                                                    @endphp
+                                                        {{ $diff->format("%a day/s, %h hour/s Left") }}
                                                 </h5>
                                             @else
                                                 <h5 class="token-info-sub">No Task Currently</h5>

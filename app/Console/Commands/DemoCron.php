@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Task;
 use Illuminate\Console\Command;
 
 class DemoCron extends Command
@@ -37,11 +38,18 @@ class DemoCron extends Command
      */
     public function handle()
     {
-        \Log::info("Cron is working fine!");
+    $tasks = Task::whereIn('status', array('started', 'extended', 'reworking'))->get();
+    foreach ($tasks as $task){
+        $myDate = strtotime($task->project->deadline);
+        $now  = strtotime(date("y-m-d h:i:s"));
+        $diff = $myDate - $now;
+        if ($diff <= 0){
+            $data = [
+                'status' => 'undelivered',
+            ];
+            $task->update($data);
+        }
+    }
 
-        /*
-           Write your database logic we bellow:
-           Item::create(['name'=>'hello new']);
-        */
     }
 }
