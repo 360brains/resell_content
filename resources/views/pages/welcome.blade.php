@@ -321,7 +321,53 @@
 {{--        </div>--}}
 
 {{--    </section>--}}
+    <!-- Counter Section Start -->
 
+    <section class="counter">
+    <div class="parallax today-on-iwriter" id="parallax-one">
+    <div class="parallax-text-container-1">
+      <div class="parallax-text-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Today On iWriter</h2>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <div class="parallax-content-wrapper">
+                <div class="today-icon"><img src="{{ asset('assets/img/1.png') }}"></div>
+                <div class="counter-item">
+                  <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
+                  <div class="stat-number" style="display: inline-block">15</div>
+                  <h5>jobs posted (last 30 days)</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <div class="parallax-content-wrapper">
+                <div class="today-icon"><img src="{{ asset('assets/img/2.png') }}"></div>
+                <div class="counter-item">
+                  <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
+                  <div class="stat-number" style="display: inline-block">15</div>
+                  <h5>jobs posted (last 30 days)</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              <div class="parallax-content-wrapper">
+                <div class="today-icon"><img src="{{ asset('assets/img/3.png') }}"></div>
+                <div class="counter-item">
+                  <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
+                  <div class="stat-number" style="display: inline-block">15</div>
+                  <h5>jobs posted (last 30 days)</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </section>
 
     <div class="clearfix"></div>
     <!-- Download app Section Start -->
