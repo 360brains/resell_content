@@ -15,9 +15,16 @@
                         </div>
                         <div class="blog-right">
                             <div class="price-blog">
-                                <strong>
-                                    <sup>$</sup>40
-                                </strong>
+                                @if(!is_null($trainings->fee))
+                                    <strong>
+                                        <sup>$</sup>{{ $trainings->fee }}
+                                    </strong>
+                                @else
+                                    <strong>
+                                        FREE
+                                    </strong>
+                                @endif
+
                                 <a href="/enroll/455029" class="btn btn-auto btn-lg btn-success">Buy Course</a>
                                 <!--<a href="/enroll/455029" class="un-view">Unlimited Views</a>-->
                             </div>

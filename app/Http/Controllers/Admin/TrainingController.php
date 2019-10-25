@@ -58,6 +58,13 @@ class TrainingController extends Controller
             'level_id'      => $request->level,
             'active'        => $request->active
         ];
+        if ($request->hasFile("file") && $request->file('file')->isValid()) {
+            $filename           = $request->file('file')->getClientOriginalName();
+            $filename           = time()."-".$filename;
+            $destinationPath    = public_path('/trainings');
+            $user->avatar       = "images/".$filename;
+            $request->file('image')->move($destinationPath, $filename);
+        }
 
         $response = Training::create($data);
 

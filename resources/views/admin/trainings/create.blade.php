@@ -34,7 +34,7 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route('admin.trainings.store') }}" method="post">
+                    <form action="{{ route('admin.trainings.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-body">
                             <div class="row">
@@ -78,7 +78,10 @@
                                         </select>
                                         <label>Level</label>
                                     </div>
-
+                                    <div class="form-group form-md-line-input">
+                                        <input type="file" name="file" class="form-control" id="form_control_1">
+                                        <label>Upload Zip File</label>
+                                    </div>
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active">
                                             <option value="">Select status of Training</option>
