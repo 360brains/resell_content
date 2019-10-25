@@ -13,10 +13,14 @@ class DashboardController extends Controller
 {
     public function index(){
         $user_id = auth()->user()->id;
-        $data['totalEarned']    = Transaction::where('user_id', $user_id)->where('status', 'paid')->sum('amount');
+        $data['totalEarned'] = 0;
+        $tasks    = Task::where('user_id', $user_id)->where('status', 'approved')->get();
+        foreach ($tasks as $task){
+        $data['totalEarned'] = $data['totalEarned'] + $task->project->price;
+        }
         $data['transactions']   = Transaction::where('user_id', $user_id)->get();
-        $data['currentLevel']   = User_level::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->take(1)->get();
-        $data['currentTask']   = Task::where('user_id', auth()->user()->id)->whereIn('status', array('started', 'extended', 'reworking'))->first();
+        $data['currentLevel']   = User_level::where('user_id', $user_id)->orderBy('created_at', 'desc')->take(1)->get();
+        $data['currentTask']   = Task::where('user_id', $user_id)->whereIn('status', array('started', 'extended', 'reworking'))->first();
         return view('user.dashboard', $data);
     }
 }

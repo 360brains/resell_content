@@ -49,10 +49,10 @@
                                 <tr>
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $task->name }} </td>
-                                    <td> {{ $task->type->name }} </td>
-                                    <td> {{ $task->deadline }} </td>
-                                    <td> {{ $task->category->name }} </td>
-                                    <td> {{ $task->level->name }} </td>
+                                    <td> {{ $task->project->type->name }} </td>
+                                    <td> {{ $task->project->deadline }} </td>
+                                    <td> {{ $task->project->category->name }} </td>
+                                    <td> {{ $task->project->level->name }} </td>
                                     <td> {{ $task->active == 0 ? 'Deactive':'Active' }} </td>
                                     <td>
                                         <form action="{{ route('admin.tasks.destroy',$task->id) }}" method="POST">

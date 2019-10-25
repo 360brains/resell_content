@@ -26,9 +26,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-
         $schedule->command('demo:cron')->everyMinute();
     }
+
 
     /**
      * Register the commands for the application.
