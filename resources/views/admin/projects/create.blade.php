@@ -41,16 +41,16 @@
                                 <div class="col-md-8 col-md-offset-2">
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Project Name">
+                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Project Name" value="{{old('name')}}">
                                         <label>Project Name</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="number" name="quantity" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks">
+                                        <input type="number" name="quantity" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks" value="{{old('quantity')}}">
                                         <label>Number of Tasks</label>
                                     </div>
                                     <div class="form-group form-md-line-input">
-                                        <input type="number" name="price" class="form-control" id="form_control_1" placeholder="Enter Price for a Task">
+                                        <input type="number" name="price" class="form-control" id="form_control_1" placeholder="Enter Price for a Task" value="{{old('price')}}">
                                         <label>Price</label>
                                     </div>
 
@@ -58,7 +58,7 @@
                                         <select id="typeselector" class="form-control" name="type">
                                             <option value="">Select type of project</option>
                                             @foreach($types as $type)
-                                                <option value="{{$type->id}}">{{$type->name}}</option>
+                                                <option value="{{$type->id}}" {{old('type')==$type->id?'selected':''}}>{{$type->name}}</option>
                                             @endforeach
                                         </select>
                                         <label>Project Type</label>
@@ -68,14 +68,14 @@
                                         <select class="form-control" name="template">
                                             <option value="">Select Template for project</option>
                                             @foreach($templates as $template)
-                                                <option value="{{ $template->id }}">{{ $template->name }}</option>
+                                                <option value="{{ $template->id }}" {{old('template')==$template->id?'selected':''}}>{{ $template->name }}</option>
                                             @endforeach
                                         </select>
                                         <label>Project Template</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="deadline" class="form-control datetime" id="form_control_1" placeholder="Give a deadline">
+                                        <input type="text" name="deadline" class="form-control datetime" id="form_control_1" placeholder="Give a deadline" value="{{old('deadline')}}">
                                         <label>Project Deadline</label>
                                     </div>
 
@@ -83,7 +83,7 @@
                                         <select class="form-control" name="category">
                                             <option value="">Select Category of project</option>
                                             @foreach($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option value="{{ $category->id }}" {{old('category')==$category->id?'selected':''}}>{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                         <label>Project Category</label>
@@ -93,7 +93,7 @@
                                         <select class="form-control" name="level">
                                             <option value="">Select User Level for the project</option>
                                             @foreach($levels as $level)
-                                                <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                                <option value="{{ $level->id }}" {{old('level')==$level->id?'selected':''}}>{{ $level->name }}</option>
                                             @endforeach
                                         </select>
                                         <label>Project Level</label>
@@ -102,7 +102,7 @@
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="trainings[]" multiple="multiple">
                                             @foreach($trainings as $training)
-                                                <option value="{{ $training->id }}">{{$training->name }}</option>
+                                                <option value="{{ $training->id }}" {{old('trainings[]')==$training->id?'selected':''}}>{{$training->name }}</option>
                                             @endforeach
                                         </select>
                                         <label>Trainings Required  <small>(Can Select Multiple Trainings)</small></label>
@@ -111,8 +111,8 @@
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active">
                                             <option value="">Status</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
+                                            <option value="1" {{old('active')==1 ?'selected':''}}>Active</option>
+                                            <option value="0" {{old('active')==0 ?'selected':''}}>Inactive</option>
                                         </select>
                                         <label>Status</label>
                                     </div>

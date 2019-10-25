@@ -41,12 +41,12 @@
                                 <div class="col-md-8 col-md-offset-2">
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Test Name">
+                                        <input type="text" name="name" class="form-control" id="form_control_1" placeholder="Enter Test Name" value="{{old('name')}}">
                                         <label>Test Name</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="number" name="fee" class="form-control" id="mask_number form_control_1" placeholder="Enter Fee">
+                                        <input type="number" name="fee" class="form-control" id="mask_number form_control_1" placeholder="Enter Fee" value="{{old('fee')}}">
                                         <label>Fee</label>
                                     </div>
 
@@ -54,7 +54,7 @@
                                         <select class="form-control" name="type">
                                             <option value="">Select type of test</option>
                                             @foreach($types as $type)
-                                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                                <option value="{{ $type->id }}"  {{old('type')==$type->id?'selected':''}}>{{ $type->name }}</option>
                                             @endforeach
                                         </select>
                                         <label>Type</label>
@@ -63,7 +63,7 @@
                                         <select class="form-control" name="level">
                                             <option value="">Select level of test</option>
                                             @foreach($levels as $level)
-                                                <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                                <option value="{{ $level->id }}" {{old('level')==$level->id?'selected':''}}>{{ $level->name }}</option>
                                             @endforeach
                                         </select>
                                         <label>Level</label>
@@ -72,8 +72,8 @@
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active">
                                             <option value="">Select status of test</option>
-                                                <option value="1">Active</option>
-                                                <option value="0">Inactive</option>
+                                                <option value="1" {{old('active')==1?'selected':''}}>Active</option>
+                                                <option value="0" {{old('active')==0?'selected':''}}>Inactive</option>
                                         </select>
                                         <label>Status</label>
                                     </div>

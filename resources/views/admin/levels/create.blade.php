@@ -40,18 +40,18 @@
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="name" class="form-control" placeholder="Enter Level Name">
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Level Name" value="{{old('name')}}">
                                         <label>Level Name</label>
                                     </div>
                                     <div class="form-group form-md-line-input">
-                                        <input type="number" name="price" class="form-control" id="mask_number form_control_1" placeholder="Enter wages for a Tasks">
+                                        <input type="number" name="price" class="form-control" id="mask_number form_control_1" value="{{old('price')}}" placeholder="Enter wages for a Tasks">
                                         <label>Task Wages</label>
                                     </div>
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="active">
+                                        <select class="form-control" name="active" value="">
                                             <option value="">Status</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
+                                            <option value="1" {{old('active') == 1?'selected':''}}>Active</option>
+                                            <option value="0" {{old('active') == 0?'selected':''}}>Inactive</option>
                                         </select>
                                         <label>Status</label>
                                     </div>
@@ -60,13 +60,13 @@
                                         <select class="form-control" name="type_id">
                                             <option value="">Select a Type</option>
                                             @foreach($types as $type)
-                                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                                <option value="{{ $type->id }}" {{old('type_id') == $type->id?'selected':''}}>{{ $type->name }}</option>
                                             @endforeach
                                         </select>
                                         <label>Type</label>
                                     </div>
                                     <div class="form-group form-md-line-input">
-                                        <textarea name="description" class="summernote" placeholder="Description"></textarea>
+                                        <textarea name="description" class="summernote" placeholder="Description">{{old('description')}}</textarea>
                                     </div>
                                 </div>
                             </div>
