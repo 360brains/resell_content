@@ -47,8 +47,14 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="number" name="fee" value="{{$trainings->fee}}" class="form-control" id="mask_number form_control_1" placeholder="Enter Fee">
-                                        <label>Fee</label>
+                                        <div class="md-checkbox has-info">
+                                            <input type="checkbox" id="checkbox35" class="md-check">
+                                            <label for="checkbox35" style="color: #333;">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>Fee</label>
+                                            <input type="number" name="fee" value="{{$trainings->fee}}" class="form-control" disabled id="fee" placeholder="Enter Fee" value="{{old('fee')}}">
+                                        </div>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
@@ -99,3 +105,10 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        document.getElementById('checkbox35').onchange = function() {
+            document.getElementById('fee').disabled = !this.checked;
+        };
+    </script>
+@endpush

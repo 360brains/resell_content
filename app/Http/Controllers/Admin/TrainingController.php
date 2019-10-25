@@ -45,7 +45,6 @@ class TrainingController extends Controller
         $request->validate([
             'name'          => 'required',
             'type'          => 'required',
-            'fee'           => 'required',
             'description'   => 'required',
             'level'         => 'required',
             'active'        => 'required',
