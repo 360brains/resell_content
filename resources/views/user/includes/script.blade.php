@@ -1,11 +1,12 @@
 <script>
 
-    $('#one').vTimer('start', {duration: 5})
+    var myDate = $('#count-down').val();console.log(myDate)
+    $('#one').vTimer('start', {duration: Number(myDate)})
         .on('update', function (e, remaining) {
-            $('#one').text('One: ' + remaining);
+            $('#one').text(remaining);
         })
         .on('complete', function () {
-            $('#one').text('One: Time Out');
+            $('#one').text('Time Out');
         });
 
     // start the timer

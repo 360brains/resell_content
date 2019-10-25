@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class TasksController extends Controller
 {
     public function index(){
-        $data['tasks']    = Task::where('user_id', Auth()->user()->id)->paginate(10);
+        $data['tasks']    = Task::where('user_id', Auth()->user()->id)->orderBy('created_at', 'desc')->paginate(10);
         return view('user.tasks', $data);
     }
 
