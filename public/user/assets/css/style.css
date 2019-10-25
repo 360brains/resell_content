@@ -13560,6 +13560,13 @@ border-radius: 10px;"
 
 .blog-img {
     position: relative;
+    width: 100%;
+    height: 348px;
+}
+.blog-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .creative-box img {
