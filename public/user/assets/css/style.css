@@ -13707,3 +13707,6 @@ span.green_dot {
     height: auto;
     margin-top: 2px;
 }
+.page-content .modal-body button{
+    padding: 13px;
+}
