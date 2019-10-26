@@ -65,12 +65,11 @@
                                             @if(!is_null($currentTask))
 
                                                 <h4 class="token-info-sub text-light">
-                                                    <input type="hidden" id="count-down" value="{{$diff}}">
+                                                    <input type="hidden" id="count-down" value="{{ $diff}}">
                                                     <span class="count-down"></span>
                                                     {{ $currentTask->project->name }}
                                                 </h4>
                                                 <h5 class="token-info-head text-light">
-                                                        {{ $diff->format("%a day/s, %h hour/s Left") }}
                                                 </h5>
                                             @else
                                                 <h2 class="token-info-sub">No Task Currently</h2>

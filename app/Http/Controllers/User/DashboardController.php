@@ -27,6 +27,7 @@ class DashboardController extends Controller
         $diff                   = $myDate - $now;
         $data['currentTask']    = $myTask;
         $data['diff']           = $diff;
+        $data['taskTime']       = $data['diff'];
         }else{
             $data['currentTask'] = null;
             $data['diff']           = 0;
