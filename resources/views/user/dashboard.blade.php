@@ -80,48 +80,55 @@
                             <img class="dashboard-user-img" src="{{ asset(auth()->user()->avatar) }}" alt="">
                         </div>
                         <div class="profile-name float-left pt-3 pl-3">
-                            <strong class="name" >{{ auth()->user()->name }}</strong>
-                            <strong  class="text-light">{{ auth()->user()->email }}</strong>
+                            <strong class="name">{{ auth()->user()->name }}</strong>
+                            <strong class="text-light">{{ auth()->user()->email }}</strong>
                         </div>
                         <div class="user-data float-left pt-3">
                             <strong class="text-light">From Pakistan</strong><br>
                             <strong class="text-light">Member since {{ auth()->user()->created_at }} </strong>
-                            <button type="button" class="btn btn-xs btn-block btn-info pt-2 mt-2" >
-                           My Profile
-                        </button>
+                            <button type="button" class="btn btn-xs btn-block btn-info pt-2 mt-2">
+                                My Profile
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- .col -->
-             <!-- .col -->
-             <div class="col-xl-4 col-lg-5">
+            <!-- .col -->
+            <div class="col-xl-4 col-lg-5">
                 <div class="token-sales card card-full-height">
                     <div class="card-innr">
                         <div class="card-head">
                             <h4 class="card-title">Current Level Progress</h4>
                         </div>
-                        <h6 class="text-light d-inline text-uppercase pb-3"><i class="far fa-edit"></i> Content Writing</h6>
+                        <h5 class="text-light text-uppercase">Content Writing</h5>
                         <ul class="progress-info">
                             <li><span>POINTS</span> 0{{ auth()->user()->points }} </li>
                             <li class="text-right"><span>TOTAL POINTS</span> 100 </li>
                         </ul>
                         <div class="progress-bar">
                             <div class="progress-hcap" data-percent="75" style="width: 75%;">
-                                <div>Points <span>75</span></div>
+                                <small>basic</small>
                             </div>
                             <div class="progress-scap" data-percent="25" style="width: 25%;">
-                                <div>Points <span>25</span></div>
+
+                            </div>
+
+                            <div class="progress-percent" data-percent=" {{ auth()->user()->points }} " style="width: {{ auth()->user()->points }}%;"></div>
+                        </div>
+                        <h5 class="text-light text-uppercase">Video Making</h5>
+                        <ul class="progress-info">
+                            <li><span>POINTS</span> {{ auth()->user()->points }} </li>
+                            <li class="text-right"><span>TOTAL POINTS</span> 100 </li>
+                        </ul>
+                        <div class="progress-bar">
+                            <div class="progress-hcap" data-percent="75" style="width: 75%;">
+
+                            </div>
+                            <div class="progress-scap" data-percent="25" style="width: 25%;">
+
                             </div>
                             <div class="progress-percent" data-percent=" {{ auth()->user()->points }} " style="width: {{ auth()->user()->points }}%;"></div>
-                        </div><span class="card-sub-title mgb-0-5x">LEVEL STARTED AT</span>
-                        <div class="countdown-clock" data-date="2019/04/05">
-                            @foreach($currentLevel as $level)
-                            <?php $time = strtotime($level->created_at); ?>
-                            <div><span class="countdown-time countdown-time-first">{{ date('d',$time) }}</span><span class="countdown-text">Day</span></div>
-                            <div><span class="countdown-time">{{ date('m',$time) }}</span><span class="countdown-text">Month</span></div>
-                            <div><span class="countdown-time">{{ date('Y',$time) }}</span><span class="countdown-text">year</span></div>
-                            @endforeach
                         </div>
                     </div>
                 </div>
