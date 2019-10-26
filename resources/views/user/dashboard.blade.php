@@ -9,12 +9,12 @@
             <div class="col-lg-12">
                 <div class="content-area card">
                     <div class="card-innr">
-                        <div class="card-head">
-                            <h6 class="card-title">Raise yor Level</h6>
+                        <div class="card-head d-inline">
+                            <h6 class="d-inline card-title">Raise yor Level</h6><br>
+                            <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
                         </div>
-                        <p>Your current Level is <strong>'0'</strong>. Take a free test and raise your level to get tasks.</p>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                        <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">
                             Free Test
                         </button>
 
@@ -28,9 +28,10 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <h4>Chose a test you would like to take. <br> <small>Remember! you can chose from projects of type you have given test of.</small></h4>
-                                        <button type="button" class="btn btn-secondary btn-block mt-3">Content Writing Test</button>
-                                        <button type="button" class="btn btn-primary btn-block mt-5 mb-5">Video Making Test</button>
+                                        <h3>Chose a test you would like to take.</h3>
+                                        <small class="text-light">Remember! you can chose from projects of type you have given test of.</small><br><br>
+                                        <a href="{{ route('user.tasks.writing.test') }}" class="btn btn-info btn-block mt-3">Content Writing Test</a>
+                                        <a href="{{ route('user.tasks.video.test') }}" class="btn btn-info btn-block mt-5 mb-5">Video Making Test</a>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +47,7 @@
                         <div class="token-balance token-balance-with-icon">
                             <div class="token-balance-icon"><img src="{{ asset('user/images/logo-light-sm.png') }}" alt="logo"></div>
                             <div class="token-balance-text">
-                                <h6 class="card-sub-title">Total Earned</h6><span class="lead"> {{ $totalEarned }} <span>Rs</span></span>
+                                <h6 class="card-sub-title">Total Earned</h6><span class="lead"> 150{{ $totalEarned }} <span>Rs</span></span>
                             </div>
                         </div>
                         <div class="token-balance token-balance-s2">
@@ -100,8 +101,9 @@
                         <div class="card-head">
                             <h4 class="card-title">Current Level Progress</h4>
                         </div>
+                        <h6 class="text-light d-inline text-uppercase pb-3"><i class="far fa-edit"></i> Content Writing</h6>
                         <ul class="progress-info">
-                            <li><span>POINTS</span> {{ auth()->user()->points }} </li>
+                            <li><span>POINTS</span> 0{{ auth()->user()->points }} </li>
                             <li class="text-right"><span>TOTAL POINTS</span> 100 </li>
                         </ul>
                         <div class="progress-bar">
@@ -209,76 +211,74 @@
                 </div>
                 <!-- .card -->
             </div>
-            <div class="col-lg-8">
-                <div class="token-information card card-full-height">
-                    <div class="row no-gutters height-100">
-                        <div class="col-md-6 text-center">
-                            <div class="token-info"><img class="dashboard-user-img" alt="logo-md" src="{{ asset(auth()->user()->avatar) }}">
-                                <div class="gaps-1x"></div>
-                                <h5 class="token-info-sub">{{ auth()->user()->name }}</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="token-info bdr-tl">
-                                <div>
-                                    <ul class="token-info-list">
-                                        <!--Timer divs start
-                                            <div id="one">
-                                            </div>
-                                            Timer divs end-->
-                                            @if(!is_null($currentTask))
+{{--            <div class="col-lg-8">--}}
+{{--                <div class="token-information card card-full-height">--}}
+{{--                    <div class="row no-gutters height-100">--}}
+{{--                        <div class="col-md-6 text-center">--}}
+{{--                            <div class="token-info"><img class="dashboard-user-img" alt="logo-md" src="{{ asset(auth()->user()->avatar) }}">--}}
+{{--                                <div class="gaps-1x"></div>--}}
+{{--                                <h5 class="token-info-sub">{{ auth()->user()->name }}</h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-6">--}}
+{{--                            <div class="token-info bdr-tl">--}}
+{{--                                <div>--}}
+{{--                                    <ul class="token-info-list">--}}
+{{--                                        <!--Timer divs start--}}
+{{--                                            <div id="one">--}}
+{{--                                            </div>--}}
+{{--                                            Timer divs end-->--}}
+{{--                                            @if(!is_null($currentTask))--}}
 
-                                                <h4 class="token-info-sub text-light">
-                                                    <input type="hidden" id="count-down" value="{{ $diff}}">
-                                                    <span class="count-down"></span>
-                                                    {{ $currentTask->project->name }}
-                                                </h4>
-                                                <h5 class="token-info-head text-light">
-                                                        {{ date("y-m-d h:i:s", strtotime($currentTask->project->deadline)) }}
-                                                </h5>
-                                            @else
-                                                <h2 class="token-info-sub">No Task Currently</h2>
-                                            @endif
+{{--                                                <h4 class="token-info-sub text-light">--}}
+{{--                                                    <input type="hidden" id="count-down" value="{{ $diff}}">--}}
+{{--                                                    <span class="count-down"></span>--}}
+{{--                                                    {{ $currentTask->project->name }}--}}
+{{--                                                </h4>--}}
+{{--                                                <h5 class="token-info-head text-light">--}}
+{{--                                                        {{ date("y-m-d h:i:s", strtotime($currentTask->project->deadline)) }}--}}
+{{--                                                </h5>--}}
+{{--                                            @else--}}
+{{--                                                <h2 class="token-info-sub">No Task Currently</h2>--}}
+{{--                                            @endif--}}
 
-                                        </ul>
-                                        @if(!is_null($currentTask))
+{{--                                        </ul>--}}
+{{--                                        @if(!is_null($currentTask))--}}
 
-                                        <h4 class="token-info-sub text-light">
-                                            <input type="hidden" id="count-down" value="{{ $diff}}">
-                                            <span class="count-down"></span>
-                                            {{ $currentTask->project->name }}
-                                        </h4>
-                                        <h5 class="token-info-head text-light">
-                                        </h5>
-                                        @else
-                                        <h2 class="token-info-sub">No Task Currently</h2>
-                                        @endif
+{{--                                        <h4 class="token-info-sub text-light">--}}
+{{--                                            <input type="hidden" id="count-down" value="{{ $diff}}">--}}
+{{--                                            <span class="count-down"></span>--}}
+{{--                                            {{ $currentTask->project->name }}--}}
+{{--                                        </h4>--}}
+{{--                                        <h5 class="token-info-head text-light">--}}
+{{--                                        </h5>--}}
+{{--                                        @else--}}
+{{--                                        <h2 class="token-info-sub">No Task Currently</h2>--}}
+{{--                                        @endif--}}
+{{--                                    @if(!is_null($currentTask))--}}
+{{--                                    @if( $currentTask->project->type->name == 'Content Writing')--}}
+{{--                                    <form action="{{ route('user.tasks.upload.doc', $currentTask->id) }}" method="post">--}}
+{{--                                        <button type="submit" class="btn btn-primary btn-sm"><em class="fas fa-upload mr-3"></em>Upload Task Doc</button>--}}
+{{--                                    </form>--}}
+{{--                                    @else--}}
+{{--                                    <form action="{{ route('user.tasks.save.progress', $currentTask->id) }}" method="post" enctype="multipart/form-data">--}}
+{{--                                        @csrf--}}
+{{--                                        <input type="file" id="video" name="video">--}}
+{{--                                        <div class="gaps-1x"></div>--}}
+{{--                                        <button type="submit" name="action" value="video" class="btn btn-danger btn-sm"><em class="fas fa-upload mr-3"></em>Upload Task Video</button>--}}
+{{--                                    </form>--}}
+{{--                                    @endif--}}
+{{--                                    @endif--}}
+{{--                                </div>--}}
 
-                                    </ul>
-                                    @if(!is_null($currentTask))
-                                    @if( $currentTask->project->type->name == 'Content Writing')
-                                    <form action="{{ route('user.tasks.upload.doc', $currentTask->id) }}" method="post">
-                                        <button type="submit" class="btn btn-primary btn-sm"><em class="fas fa-upload mr-3"></em>Upload Task Doc</button>
-                                    </form>
-                                    @else
-                                    <form action="{{ route('user.tasks.save.progress', $currentTask->id) }}" method="post" enctype="multipart/form-data">
-                                        @csrf
-                                        <input type="file" id="video" name="video">
-                                        <div class="gaps-1x"></div>
-                                        <button type="submit" name="action" value="video" class="btn btn-danger btn-sm"><em class="fas fa-upload mr-3"></em>Upload Task Video</button>
-                                    </form>
-                                    @endif
-                                    @endif
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- .card -->
-            </div>
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <!-- .card -->--}}
+{{--            </div>--}}
             <!-- .col -->
-            
+
         </div>
         <!-- .row -->
     </div>
