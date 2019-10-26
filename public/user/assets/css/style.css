@@ -5414,7 +5414,7 @@ select.select-sm {
         margin-bottom: 15px
     }
     .card-title {
-        font-size: 1.4em
+        font-size: 1em
     }
     .card-title-sm {
         font-size: 1.1em;
@@ -7119,7 +7119,7 @@ select.select-sm {
         margin-top: 1px
     }
     .token-balance:not(:last-child) {
-        margin-bottom: 25px
+        margin-bottom: 113px
     }
     .token-rate:not(:last-child),
     .token-bonus:not(:last-child) {
@@ -13710,3 +13710,13 @@ span.green_dot {
 .page-content .modal-body button{
     padding: 13px;
 }
+.token-sales .profile-img .dashboard-user-img {
+    width: 72px;
+}
+.token-sales .user-data{
+    display: block;
+    width: 100%;
+}
+.token-sales .profile-name .name{
+    font-size: 20px;
+} 
