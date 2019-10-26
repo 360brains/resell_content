@@ -70,6 +70,7 @@
                                                     {{ $currentTask->project->name }}
                                                 </h4>
                                                 <h5 class="token-info-head text-light">
+                                                        {{ date("y-m-d h:i:s", strtotime($currentTask->project->deadline)) }}
                                                 </h5>
                                             @else
                                                 <h2 class="token-info-sub">No Task Currently</h2>
