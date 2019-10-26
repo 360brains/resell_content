@@ -28,6 +28,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
+                                        <h4>Chose a test you would like to take. <br> <small>Remember! you can chose from projects of type you have given test of.</small></h4>
                                         <button type="button" class="btn btn-secondary btn-block mt-3">Content Writing Test</button>
                                         <button type="button" class="btn btn-primary btn-block mt-5 mb-5">Video Making Test</button>
                                     </div>
