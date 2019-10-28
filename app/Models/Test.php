@@ -11,7 +11,7 @@ class Test extends Model
     {
         return $this->belongsTo(Type::class, 'type_id');
     }
-    public function levels()
+    public function level()
     {
         return $this->belongsTo(Level::class, 'level_id');
     }
