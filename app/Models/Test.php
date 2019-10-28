@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
@@ -11,9 +12,12 @@ class Test extends Model
     {
         return $this->belongsTo(Type::class, 'type_id');
     }
-    public function level()
+    public function levels()
     {
         return $this->belongsTo(Level::class, 'level_id');
+    }
+    function users(){
+        return $this->belongsToMany(User::class, 'user_tests')->withPivot('status', 'body');
     }
 
 
