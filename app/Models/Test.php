@@ -17,7 +17,7 @@ class Test extends Model
         return $this->belongsTo(Level::class, 'level_id');
     }
     function users(){
-        return $this->belongsToMany(User::class, 'user_tests')->withPivot('status', 'body');
+        return $this->belongsToMany(User::class, 'user_tests')->withPivot('status', 'body', 'video');
     }
 
 

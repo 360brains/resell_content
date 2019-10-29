@@ -56,7 +56,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     function tests(){
-        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('status', 'body');
+        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('status', 'body', 'video');
     }
 
     function tasks(){

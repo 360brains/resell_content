@@ -135,9 +135,7 @@ class TasksController extends Controller
                 ];
                 $task->statuses()->create($data);
 
-                if ($response){
-                    return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
-                }
+                return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
             }
                 return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
 

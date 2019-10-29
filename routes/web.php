@@ -18,6 +18,9 @@ Auth::routes(['verify' => true]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'Admin', 'as' => 'admin.'], function (){
 
+    Route::get('user-test/show/{userId}/{testId}', 'UserTestController@showTest')->name('user.test.show');
+    Route::get('user-tests', 'UserTestController@userTests')->name('user.tests');
+    Route::post('user-test/evaluate/{userId}/{testId}', 'UserTestController@evaluate')->name('user.test.evaluate');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('transactions', 'TransactionController');
     Route::resource('categories', 'CategoryController');
@@ -28,6 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::resource('tasks', 'TaskController');
     Route::resource('test', 'TestController');
     Route::resource('templates', 'TemplateController');
+
 
 });
 
@@ -44,9 +48,9 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('user/tasks', 'User\TasksController@index')->name('user.tasks');
     Route::get('user/tasks/take/{id}', 'User\TasksController@taskTake')->name('user.tasks.take');
     Route::get('user/tasks/work', 'User\TasksController@work')->name('user.tasks.work');
-    Route::get('user/tasks/writing-test', 'User\TestController@writingTest')->name('user.tasks.writing.test');
+    Route::get('user/tests/writing-test', 'User\TestController@writingTest')->name('user.tests.writing.test');
     Route::post('user/tests/save-progress/{id}', 'User\TestController@saveProgress')->name('user.tests.save.progress');
-    Route::get('user/tasks/video-test', 'User\TestController@videoTest')->name('user.tasks.video.test');
+    Route::get('user/tests/video-test', 'User\TestController@videoTest')->name('user.tests.video.test');
     Route::post('user/tasks/save-progress/{id}', 'User\TasksController@saveProgress')->name('user.tasks.save.progress');
     Route::get('user/tasks/create-doc/{id}', 'User\OfficeController@createDoc')->name('user.tasks.create.doc');
     Route::post('user/tasks/upload-doc/{id}', 'User\OfficeController@uploadDoc')->name('user.tasks.upload.doc');

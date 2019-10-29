@@ -47,19 +47,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-12">
-                <div class="referral-info card">
-                    <div class="card-innr">
-                        <h6 class="card-title card-title-sm">Upload your video</h6>
-                        <form action="" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <input class="" type="file" id="video" name="video">
-                            <button class="btn btn-auto btn-lg btn-danger" name="action" value="video"><em class="fas fa-upload"></em> Upload </button>
-                        </form>
-                    </div>
-                    <!-- .copy-wrap -->
-                </div>
-            </div>
+
         </div>
     </div>
 
