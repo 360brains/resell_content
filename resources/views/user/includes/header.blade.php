@@ -13,7 +13,9 @@
                 <!-- .topbar-nav -->
                 <a class="topbar-logo" href="{{ route('pages.home') }}"><img src="{{ asset('user/images/logo.png') }}" srcset="{{ asset('user/images/logo2x.png 2x') }}" alt="logo"></a>
                 <ul class="topbar-nav">
-                    <li class="topbar-nav-item relative"><span class="user-welcome d-none d-lg-inline-block">Welcome! {{ auth()->user()->name }}</span><a class="toggle-tigger user-thumb" href="#">
+                    <li class="topbar-nav-item relative"><span class="user-welcome d-none d-lg-inline-block">Welcome! {{ auth()->user()->name }}</span>
+                        <i class="far fa-bell pr-2"></i>
+                        <a class="toggle-tigger user-thumb" href="#">
                             <img src="{{ url(auth()->user()->avatar) }}" alt="">
                         </a>
                         <div class="toggle-class dropdown-content dropdown-content-right dropdown-arrow-right user-dropdown">
