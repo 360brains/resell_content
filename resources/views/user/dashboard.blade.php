@@ -9,14 +9,22 @@
             <div class="col-lg-12">
                 <div class="content-area card">
                     <div class="card-innr">
-                        <div class="card-head d-inline">
-                            <h6 class="d-inline card-title">Raise yor Level</h6><br>
-                            <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
-                        </div>
-                        <!-- Button trigger modal -->
-                        <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">
-                            Free Test
-                        </button>
+                        @foreach(auth()->user()->tests as $test)
+                            @if($test->pivot->status == 'completed' && $test->levels->name == 'Zero')
+                                <h4>Your test is waiting approval. You will be promoted to level 1 if you pass.
+                                    <small>(You can take test again in case you fail).</small>
+                                </h4>
+                            @else
+                            <div class="card-head d-inline">
+                                <h6 class="d-inline card-title">Raise yor Level</h6><br>
+                                <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                            </div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">
+                                Free Test
+                            </button>
+                        @endif
+                        @endforeach
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
