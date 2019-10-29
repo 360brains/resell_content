@@ -18,10 +18,16 @@
                     <div class="card content-area">
                         <div class="card-innr">
                             <div class="card-head">
-                                <form action="" method="post">
+                                <form action="{{ route('user.tests.save.progress', $test->id) }}" method="post">
                                     @csrf
-                                    <textarea id="messageArea" name="body" rows="7" class="form-control ckeditor" placeholder="Write your message..">{{ $test->body }}</textarea>
+                                    <textarea id="messageArea" name="body" rows="7" class="form-control ckeditor" placeholder="Write your message..">
+                                        @if($test->pivot != null)
+                                        {{ $test->pivot->body }}
+                                        @endif
+                                    </textarea>
                                     <div class="gaps-2-5x"></div>
+                                    <small><strong>Remember!</strong> You will have to complete it in the time awarded. If you do not submit in time, you lose progress and might have to write on any other topic.</small><br>
+                                    <small><strong>Beware!</strong> Do not copy your content from any resource. It will be rejected streight away if found plagiarized.</small>
                                     <ul class="work-submit">
                                         <li>
                                             <button class="btn btn-auto btn-lg btn-success" type="submit" name="action" value="save"><em class="fas fa-download"></em>

@@ -16,7 +16,7 @@ Auth::routes();
 
 Auth::routes(['verify' => true]);
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'admin', 'as' => 'admin.'], function (){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'Admin', 'as' => 'admin.'], function (){
 
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('transactions', 'TransactionController');
@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('user/tasks/take/{id}', 'User\TasksController@taskTake')->name('user.tasks.take');
     Route::get('user/tasks/work', 'User\TasksController@work')->name('user.tasks.work');
     Route::get('user/tasks/writing-test', 'User\TestController@writingTest')->name('user.tasks.writing.test');
+    Route::post('user/tests/save-progress/{id}', 'User\TestController@saveProgress')->name('user.tests.save.progress');
     Route::get('user/tasks/video-test', 'User\TestController@videoTest')->name('user.tasks.video.test');
     Route::post('user/tasks/save-progress/{id}', 'User\TasksController@saveProgress')->name('user.tasks.save.progress');
     Route::get('user/tasks/create-doc/{id}', 'User\OfficeController@createDoc')->name('user.tasks.create.doc');
