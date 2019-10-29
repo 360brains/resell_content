@@ -22,7 +22,6 @@ class TasksController extends Controller
         $training = 1;
         $isWorking = 0;
 
-        $level = auth()->user()->levels()->first();
 
         foreach (auth()->user()->tasks as $task){
             if ($task->status == 'started' OR $task->status == 'extended' OR $task->status == 'reworking'){
@@ -32,7 +31,23 @@ class TasksController extends Controller
 
         if ($project->active == 1 && $project->available > 0){
             // check if the user level type matches project level type
-            if ($level->types->name == $project->level->types->name && $level->name >= $project->level->name ){
+            if ( ($project->level->types->name == 'Content Writing' &&
+                 $project->level->name == auth()->user()->writing_level) OR
+                 ($project->level->types->name == 'Video Making' &&
+                 $project->level->name == auth()->user()->video_level) ){
+
+                // check if the user trainings matches project required trainings
+                foreach ($project->trainings as $projectTraining){
+                    foreach (auth()->user()->trainings as $userTraining){
+                        if ($projectTraining->name == $userTraining->name){
+                            $training = 1;
+                            break;
+                        }else{
+                            $training = 0;
+                        }
+                    }
+                }
+            }elseif ($level->types->name == $project->level->types->name && $level->name >= $project->level->name ){
                 // check if the user trainings matches project required trainings
                 foreach ($project->trainings as $projectTraining){
                     foreach (auth()->user()->trainings as $userTraining){

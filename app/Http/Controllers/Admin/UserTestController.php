@@ -29,11 +29,11 @@ class UserTestController extends Controller
             ];
 
             if ($test->test->types->name == 'Content Writing'){
-                $user->writing_level = 1;
+                $user->writing_level = '1';
                 $user->save();
             }
             elseif ($test->test->types->name == 'Video Making'){
-                $user->video_level = 1;
+                $user->video_level = '1';
                 $user->save();
             }
             $response = $user->tests()->updateExistingPivot($testId, $testData);
