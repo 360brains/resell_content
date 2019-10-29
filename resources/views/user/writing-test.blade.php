@@ -21,7 +21,7 @@
                                 <form action="{{ route('user.tests.save.progress', $test->id) }}" method="post">
                                     @csrf
                                     <textarea id="messageArea" name="body" rows="7" class="form-control ckeditor" placeholder="Write your message..">
-                                        @if($test->pivot->body != null)
+                                        @if($test->pivot != null)
                                         {{ $test->pivot->body }}
                                         @endif
                                     </textarea>

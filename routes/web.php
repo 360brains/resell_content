@@ -16,7 +16,7 @@ Auth::routes();
 
 Auth::routes(['verify' => true]);
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'admin', 'as' => 'admin.'], function (){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'Admin', 'as' => 'admin.'], function (){
 
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('transactions', 'TransactionController');
