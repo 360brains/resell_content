@@ -13719,4 +13719,23 @@ span.green_dot {
 }
 .token-sales .profile-name .name{
     font-size: 20px;
-} 
+}
+.token-sales .pro .btn{
+    min-width: 91px;
+    border-radius: 20px;
+}
+.token-sales .user-data .progress-bar{
+    display: flex;
+    margin: 0px;
+
+}
+.token-sales .user-data ul li:nth-child(even){
+    font-size: 12px;
+}
+.token-sales .user-data ul li:nth-child(odd){
+    font-size: 14px;
+}
+.topbar-nav i{
+    font-size: 20px;
+    color: #0bbf0b;
+}
