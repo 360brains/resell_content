@@ -87,6 +87,11 @@
                         </tr>
 
                         <tr>
+                            <th>Points for a Task</th>
+                            <td>{{$project->points}}</td>
+                        </tr>
+
+                        <tr>
                             <th>Created</th>
                             <td>{{$project->created_at}}</td>
                         </tr>
@@ -104,7 +109,7 @@
                                     <br>
                                     @empty
                                     No Trainings Required
-                                    @endforelse
+                                @endforelse
                             </td>
                         </tr>
 

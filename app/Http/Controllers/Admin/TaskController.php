@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
 use App\Models\Level;
+use App\Models\Project;
 use App\Models\Type;
 use App\Models\Task;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -98,24 +100,44 @@ class TaskController extends Controller
         return view("admin.tasks.edit", $data);
     }
 
-    /**
-     * Update the specified resource in storage.
+    /*
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\UserTask  $userTask
-     * @return \Illuminate\Http\Response
+     *
      */
-    public function update(Request $request, Task $task)
-    {
 
+    public function update(Request $request, Task $task){
+        //Checking if the admin has approved the task and changing the task status.
         if ($request->action == 'approved'){
-            $task->status = 'approved';
+            $task->status   = 'approved';
             $response       = $task->save();
+            $points = 0;
+            $levels = Level::get();
 
+            //Updating user balance by adding amount of task.
             $NewBalance = $task->user->balance + $task->project->price;
+            $userData['balance'] = $NewBalance;
 
-            $userData = ['balance' => $NewBalance,];
-            $task->user()->update($userData);
+            //updating user writing level and points if the project type is writing.
+                if ($task->project->type->name == 'Content Writing'){
+                    $userData['writing_points'] = $task->user->writing_points + $task->project->points;
+
+                    foreach ($levels as $level){
+                        if ($userData['writing_points'] >= $level->min_points && $userData['writing_points'] <= $level->max_points){
+                            $userData['writing_level'] = $level->name;
+                        }
+                    }
+                }
+                //updating user writing level and points if the project type is video.
+                elseif ($task->project->type->name == 'Video Making'){
+                    $userData['video_points'] = $task->user->video_points + $task->project->points;
+
+                    foreach ($levels as $level){
+                        if ($userData['video_points'] >= $level->min_points && $userData['video_points'] <= $level->max_points){
+                            $userData['video_level'] = $level->name;
+                        }
+                    }
+            }
+            $response = User::where('id', $task->user_id)->update($userData);
 
             $taskData = ['name' => 'approved',];
             $task->statuses()->create($taskData);
@@ -125,17 +147,26 @@ class TaskController extends Controller
             }else{
                 return redirect()->back()->with("error", "Something went wrong. Please try again.");
             }
+        }
+        //Checking if the admin has rejected the task and changing the task status.
+        elseif($request->action == 'rejected'){
+            $task->status   = 'rejected';
+            $response       = $task->save();
 
+            $taskData = ['name' => 'rejected',];
+            $task->statuses()->create($taskData);
+
+            $projectData['available'] = $task->project->available;
+            Project::where('id', $task->project_id)->update($projectData);
         }
 
     }
 
-    /**
-     * Remove the specified resource from storage.
+    /*
      *
-     * @param  \App\Models\UserTask  $userTask
-     * @return \Illuminate\Http\Response
+     *
      */
+
     public function destroy(Task $task)
     {
         $task->active   = $task->active == 0 ? 1 : 0;

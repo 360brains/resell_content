@@ -34,8 +34,28 @@
 
     </div>
 
-    <h3 class="page-title">Details of <b>{{ $user->name }}</b>
-    </h3>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3 class="d-inline-block page-title">Details of <b>{{ $user->name }}</b></h3>
+        </div>
+
+        <div class="col-sm-6">
+        <div class="pull-right padding-tb-20">
+            @if($user->special == 0)
+                <form action="{{ route('admin.users.special', $user->id) }}" method="post">
+                    @csrf
+                    <button class="btn btn-success" type="submit" name="action" value="special">Add to Special</button>
+                </form>
+            @else
+                <form action="{{ route('admin.users.special', $user->id) }}" method="post">
+                    @csrf
+                    <button class="btn btn-danger" type="submit" name="action" value="non-special">Remove from Special</button>
+                </form>
+            @endif
+        </div>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-md-12">

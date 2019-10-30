@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::get('user-tests', 'UserTestController@userTests')->name('user.tests');
     Route::post('user-test/evaluate/{userId}/{testId}', 'UserTestController@evaluate')->name('user.test.evaluate');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::post('users/special/{id}',  'UserController@addToSpecial')->name('users.special');
     Route::resource('transactions', 'TransactionController');
     Route::resource('categories', 'CategoryController');
     Route::resource('trainings', 'TrainingController');

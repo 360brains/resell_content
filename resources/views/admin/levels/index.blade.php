@@ -34,8 +34,8 @@
                         <tr>
                             <th width="75px"> Sr No. </th>
                             <th> Level Name </th>
-                            <th> Type </th>
-                            <th> Wages </th>
+                            <th> Min Points </th>
+                            <th> Max Points </th>
                             <th> Status </th>
                             <th> Created </th>
 {{--                            <th> Last Updated </th>--}}
@@ -50,8 +50,8 @@
                                 <tr>
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $level->name }} </td>
-                                    <td> {{ $level->types->name }} </td>
-                                    <td> {{ $level->price }} </td>
+                                    <td> {{ $level->min_points ?? 'None' }} </td>
+                                    <td> {{ $level->max_points ?? 'None' }} </td>
                                     <td> {{ $level->active == 1 ? 'Active' : 'Deactive' }} </td>
                                     <td> {{ date('d-M-Y', strtotime($level->created_at)) }} </td>
 {{--                                    <td> {{ $level->updated_at }} </td>--}}

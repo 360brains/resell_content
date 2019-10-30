@@ -40,18 +40,27 @@
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
+
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="name" value="{{$level->name}}" class="form-control" id="form_control_1" placeholder="Enter Level Name">
                                         <label>Level Name</label>
                                     </div>
-                                    <div class="form-group form-md-line-input">
-                                        <input type="number" name="price" value="{{$level->price}}" class="form-control" id="mask_number form_control_1" placeholder="Enter wages for a Tasks">
-                                        <label>Task Wages</label>
+
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="min_points" value="{{$level->min_points}}" class="form-control" id="form_control" placeholder="Enter min number of points" value="{{old('min_points')}}">
+                                                <label>Minimum Points</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="max_points" value="{{$level->max_points}}" class="form-control" id="form_control" placeholder="Enter max number of points" value="{{old('max_points')}}">
+                                                <label>Maximun Points</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
+
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active" value="">
                                             <option value="">Status</option>
@@ -59,35 +68,20 @@
                                             <option value="0" {{ $level->active = 0 ? 'selected' : ''}}>Inactive</option>
                                         </select>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="type_id">
-                                            <option value="">Select a Type</option>
-                                            @foreach($types as $type)
-                                                <option value="{{ $type->id }}" {{ $type->id ==  $level->type_id ? 'selected' : '' }}>{{ $type->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
                                     <div class="form-group form-md-line-input">
                                         <textarea name="description" class="summernote" placeholder="Description">{!! $level->description !!}</textarea>
                                     </div>
+
+                                </div>
+
+                                <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <input type="submit" class="btn green">
+                                        <button type="reset" class="btn default">Clear</button>
+                                    </div>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="form-actions">
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <input type="submit" class="btn green">
-                                    <button type="reset" class="btn default">Clear</button>
-                                </div>
                             </div>
                         </div>
                     </form>

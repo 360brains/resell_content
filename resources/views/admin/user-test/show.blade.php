@@ -76,9 +76,7 @@
                                 </td>
                             </tr>
                         @endif
-
                     </table>
-
                 </div>
             </div>
         </div>

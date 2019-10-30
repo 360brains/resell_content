@@ -33,7 +33,7 @@
 
     </div>
 
-    <h3 class="page-title">Details of <b>{{ $levels->name }}</b>
+    <h3 class="page-title">Details of <b>{{ $level->name }}</b>
     </h3>
 
     <div class="row">
@@ -44,38 +44,38 @@
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
                             <th>Level Name</th>
-                            <td>{{$levels->name}}</td>
+                            <td>{{$level->name}}</td>
                         </tr>
 
                         <tr>
-                            <th>Level Type</th>
-                            <td>{{$levels->types->name}}</td>
+                            <th>Minimum Points</th>
+                            <td>{{$level->min_points}}</td>
                         </tr>
 
                         <tr>
-                            <th>task Wages for this Level</th>
-                            <td>{{$levels->price}}</td>
+                            <th>Maximum Points</th>
+                            <td>{{$level->max_points}}</td>
                         </tr>
 
                         <tr>
                             <th>Status</th>
-                            <td>{{$levels->active==1?'Active':'Deactive'}}</td>
+                            <td>{{$level->active==1?'Active':'Deactive'}}</td>
                         </tr>
 
                         <tr>
                             <th>Created</th>
-                            <td>{{$levels->created_at}}</td>
+                            <td>{{$level->created_at}}</td>
                         </tr>
 
                         <tr>
                             <th>Last Update</th>
-                            <td>{{$levels->updated_at}}</td>
+                            <td>{{$level->updated_at}}</td>
                         </tr>
 
                     </table>
 
                     <h3 >Description</h3>
-                    <div class="description">{!! $levels->description !!}</div>
+                    <div class="description">{!! $level->description !!}</div>
 
                 </div>
             </div>

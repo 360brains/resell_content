@@ -137,4 +137,25 @@ class UserController extends Controller
             return redirect()->back()->with("error", "Something went wrong. Please try again.");
         }
     }
+
+    public function addToSpecial(Request $request, $id)
+    {
+        $user           = User::find($id);
+
+        if ($request->action == 'special'){
+            $user->special  = 1;
+            $response       = $user->save();
+        }
+        elseif ($request->action == 'non-special'){
+            $user->special  = 0;
+            $response       = $user->save();
+        }
+
+
+        if ($response){
+            return redirect()->back()->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
+    }
 }
