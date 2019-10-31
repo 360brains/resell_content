@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Task;
+use App\Models\Transaction;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -69,7 +71,17 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $data['transactions'] = Transaction::where('user_id', $id)->paginate(10);
+        $data['tasks']        = Task::where('user_id', $id)->paginate(10);
+        $tasks  = Task::where('user_id', $id)->where('status', 'approved')->get();
         $data['user'] = User::find($id);
+        $totalEarned = 0;
+
+        foreach ($tasks as $task){
+            $totalEarned = $totalEarned + $task->project->price;
+        }
+        $data['totalEarned'] = $totalEarned;
+
         return view("admin.users.show", $data);
     }
 

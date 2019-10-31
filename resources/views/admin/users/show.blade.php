@@ -37,7 +37,7 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <h3 class="d-inline-block page-title">Details of <b>{{ $user->name }}</b></h3>
+            <h3 class="d-inline-block page-title"><b>{{ $user->name }}</b></h3>
         </div>
 
         <div class="col-sm-6">
@@ -89,6 +89,36 @@
                         </tr>
 
                         <tr>
+                            <th>Total Tasks</th>
+                            <td>{{count($tasks)}}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Total Earned</th>
+                            <td>{{ $totalEarned }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Balance</th>
+                            <td>{{ $user->balance }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Writing Points</th>
+                            <td>{{ $user->writing_points }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Video Points</th>
+                            <td>{{ $user->video_points }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Total Transactions</th>
+                            <td>{{count($transactions)}}</td>
+                        </tr>
+
+                        <tr>
                             <th>Created</th>
                             <td>{{$user->created_at}}</td>
                         </tr>
@@ -100,6 +130,118 @@
 
                     </table>
 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="page-title">{{ $user->name }}'s Transactions</h3>
+
+            <div class="portlet light portlet-fit bordered">
+
+                <div class="portlet-body flip-scroll">
+                    <table class="table table-bordered table-striped flip-content">
+                        <thead class="flip-content">
+                        <tr>
+                            <th width="75px"> Sr No. </th>
+                            <th> User Name </th>
+                            <th> Amount </th>
+                            <th> Product </th>
+                            <th> Date </th>
+                            <th> Status </th>
+                            <th> Action </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @php
+                            $i = 0;
+                        @endphp
+                        @forelse($transactions as $transaction)
+                            <tr>
+                                <td> {{ ++$i }} </td>
+                                <td> {{ $transaction->user->name }} </td>
+                                <td> {{ $transaction->amount }} </td>
+
+                                @if($transaction->task_id != NULL)
+                                    <td>Task: {{ $transaction->task->name }} </td>
+                                @elseif($transaction->test_id != Null)
+                                    <td>Test: {{ $transaction->test->name }} </td>
+                                @elseif($transaction->training_id != NULL)
+                                    <td>Training: {{ $transaction->training->name }} </td>
+                                @endif
+                                <td> {{ $transaction->created_at }} </td>
+                                <td> {{ $transaction->status }} </td>
+                                <td><a class="btn btn-success" href="{{ route('admin.transactions.show', $transaction->id) }}">Show</a></td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="8">
+                                    Data Not Found
+                                </td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        {{$transactions->links()}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="page-title">{{ $user->name }}'s Tasks</h3>
+
+            <div class="portlet light portlet-fit bordered">
+
+                <div class="portlet-body flip-scroll">
+                    <table class="table table-bordered table-striped flip-content">
+                        <thead class="flip-content">
+                        <tr>
+                            <th width="75px"> Sr No. </th>
+                            <th> Task Name </th>
+                            <th> Type </th>
+                            <th> Deadline </th>
+                            <th> Level </th>
+                            <th> status </th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @php
+                            $i = 0;
+                        @endphp
+                        @forelse($tasks as $task)
+                            <tr>
+                                <td> {{ ++$i }} </td>
+                                <td> {{ $task->project->name }} </td>
+                                <td> {{ $task->project->type->name }} </td>
+                                <td> {{ $task->project->deadline ?? 'None' }} </td>
+                                <td> {{ $task->project->level->name }} </td>
+                                <td> {{ $task->status }} </td>
+                                <td>
+                                    <form action="{{ route('admin.tasks.destroy',$task->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <a class="btn btn-success" href="{{ route('admin.tasks.show', $task->id) }}">Show</a>
+{{--                                        <a class="btn btn-primary" href="{{ route('admin.tasks.edit', $task->id) }}">Edit</a>--}}
+
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="9">
+                                    Data Not Found
+                                </td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        {{$tasks->links()}}
+                    </div>
                 </div>
             </div>
         </div>
