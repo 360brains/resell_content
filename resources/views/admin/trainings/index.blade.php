@@ -34,7 +34,6 @@
                             <th width="75px"> Sr No. </th>
                             <th> Training Name </th>
                             <th> Type </th>
-                            <th> Level </th>
                             <th> Fee </th>
                             <th> Status </th>
                             <th> Action </th>
@@ -49,7 +48,6 @@
                                 <td> {{ ++$i }} </td>
                                 <td> {{ $training->name }}</td>
                                 <td> {{ $training->types->name }} </td>
-                                <td> {{ $training->levels->name }} </td>
                                 <td> {{ $training->fee==0? 'Free': $training->fee}} </td>
                                 <td>{{ $training->active == 0 ? 'Deactive':'Active' }}</td>
                                 <td>

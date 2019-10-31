@@ -35,6 +35,7 @@ class TasksController extends Controller
                  ($project->type->name == 'Video Making' &&
                  $project->level->name == auth()->user()->video_level) ){
 
+
                 // check if the user trainings matches project required trainings
                 foreach ($project->trainings as $projectTraining){
                     foreach (auth()->user()->trainings as $userTraining){
@@ -103,7 +104,6 @@ class TasksController extends Controller
                 'name' => 'delivered',
             ];
             $task->statuses()->create($data);
-
         }
 
 //        elseif ($request->action == 'admin-save'){

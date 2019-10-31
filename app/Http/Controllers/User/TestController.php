@@ -44,7 +44,7 @@ class TestController extends Controller
     }
 
     public function writingTest(){
-        $levels     = Level::where('name', 'Zero')->where('type_id', 1)->first();
+        $levels     = Level::where('name', 'Zero')->first();
 
         foreach (auth()->user()->tests as $UserTest){
             if ($UserTest->pivot->status == 'started' && $UserTest->levels->name == 'Zero' && $UserTest->types->name == 'Content Writing'){

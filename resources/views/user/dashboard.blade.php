@@ -67,7 +67,7 @@
                             <div class="token-balance token-balance-with-icon">
                                 <div class="token-balance-icon"><img src="{{ asset('user/images/logo-light-sm.png') }}" alt="logo"></div>
                                 <div class="token-balance-text">
-                                    <h6 class="card-sub-title">Total Earned</h6><span class="lead"> 150{{ $totalEarned }} <span>Rs</span></span>
+                                    <h6 class="card-sub-title">Total Earned</h6><span class="lead"> {{ $totalEarned }} <span>Rs</span></span>
                                 </div>
                             </div>
                             <div class="token-balance token-balance-s2">
