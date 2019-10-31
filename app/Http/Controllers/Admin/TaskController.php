@@ -31,9 +31,9 @@ class TaskController extends Controller
      */
     public function create()
     {
-        $data['types']      = Type::get();
-        $data['categories'] = Category::get();
-        $data['levels']     = Level::get();
+        $data['types']      = Type::where('active', 1)->get();
+        $data['categories'] = Category::where('active', 1)->get();
+        $data['levels']     = Level::where('active', 1)->get();
 
         return view("admin.tasks.create", $data);
     }
@@ -93,9 +93,9 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        $data['types']      = Type::get();
-        $data['categories'] = Category::get();
-        $data['levels']     = Level::get();
+        $data['types']      = Type::where('active', 1)->get();
+        $data['categories'] = Category::where('active', 1)->get();
+        $data['levels']     = Level::where('active', 1)->get();
         $data['task']       = $task;
         return view("admin.tasks.edit", $data);
     }
@@ -108,8 +108,9 @@ class TaskController extends Controller
     public function update(Request $request, Task $task){
         //Checking if the admin has approved the task and changing the task status.
         if ($request->action == 'approved'){
-            $task->status   = 'approved';
-            $response       = $task->save();
+            $task->status           = 'approved';
+            $task->awarded_points   = $task->project->points;
+            $response               = $task->save();
             $points = 0;
             $levels = Level::get();
 

@@ -24,11 +24,11 @@ class ProjectController extends Controller
 
     public function create()
     {
-        $data['types']      = Type::get();
-        $data['categories'] = Category::get();
-        $data['levels']     = Level::get();
-        $data['trainings']  = Training::get();
-        $data['templates']  = Template::get();
+        $data['types']      = Type::where('active', 1)->get();
+        $data['categories'] = Category::where('active', 1)->get();
+        $data['levels']     = Level::where('active', 1)->get();
+        $data['trainings']  = Training::where('active', 1)->get();
+        $data['templates']  = Template::where('active', 1)->get();
         return view("admin.projects.create", $data);
     }
 
@@ -80,11 +80,11 @@ class ProjectController extends Controller
 
     public function edit(Project $project)
     {
-        $data['types']      = Type::get();
-        $data['categories'] = Category::get();
-        $data['levels']     = Level::get();
-        $data['trainings']  = Training::get();
-        $data['templates']  = Template::get();
+        $data['types']      = Type::where('active', 1)->get();
+        $data['categories'] = Category::where('active', 1)->get();
+        $data['levels']     = Level::where('active', 1)->get();
+        $data['trainings']  = Training::where('active', 1)->get();
+        $data['templates']  = Template::where('active', 1)->get();
         $data['project']    = $project;
         $projectTrainings   = [];
         $data['projectTrainings']  = $projectTrainings = [];

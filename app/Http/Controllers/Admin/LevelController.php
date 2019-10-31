@@ -16,7 +16,7 @@ class LevelController extends Controller
      */
     public function index()
     {
-        $data['levels'] = Level::with('types')->orderBy('min_points', 'asc')->paginate(10);
+        $data['levels'] = Level::where('active', 1)->orderBy('min_points', 'asc')->paginate(10);
         return view('admin.levels.index', $data);
     }
 
