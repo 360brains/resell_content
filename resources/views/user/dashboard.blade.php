@@ -116,14 +116,14 @@
                 <!-- .col -->
                 <!-- .col -->
                 <div class="col-xl-4 col-lg-5">
-                    <div class="token-sales card card-full-height">
+                    <div class="token-sales card card-full-height pb-3">
                         <div class="card-innr">
                             <div class="card-head">
                                 <h4 class="card-title">Current Level Progress</h4>
                             </div>
-                            <h5 class="text-light text-uppercase">Content Writing</h5>
+                            <h5 class="text-light text-uppercase">Content Writing <span class="float-right">{{ auth()->user()->writing_level }}</span></h5>
                             <ul class="progress-info">
-                                <li><span>POINTS</span> 0{{ auth()->user()->points }} </li>
+                                <li><span>POINTS</span> {{ auth()->user()->writing_points }} </li>
                                 <li class="text-right"><span>TOTAL POINTS</span> 100 </li>
                             </ul>
                             <div class="progress-bar">
@@ -134,11 +134,11 @@
 
                                 </div>
 
-                                <div class="progress-percent" data-percent=" {{ auth()->user()->points }} " style="width: {{ auth()->user()->points }}%;"></div>
+                                <div class="progress-percent" data-percent=" {{ auth()->user()->writing_points }} " style="width: {{ auth()->user()->writing_points }}%;"></div>
                             </div>
-                            <h5 class="text-light text-uppercase">Video Making</h5>
+                            <h5 class="text-light text-uppercase">Video Making <span class="float-right">{{ auth()->user()->video_level }}</span></h5>
                             <ul class="progress-info">
-                                <li><span>POINTS</span> {{ auth()->user()->points }} </li>
+                                <li><span>POINTS</span> {{ auth()->user()->video_points }} </li>
                                 <li class="text-right"><span>TOTAL POINTS</span> 100 </li>
                             </ul>
                             <div class="progress-bar">
@@ -148,7 +148,7 @@
                                 <div class="progress-scap" data-percent="25" style="width: 25%;">
 
                                 </div>
-                                <div class="progress-percent" data-percent=" {{ auth()->user()->points }} " style="width: {{ auth()->user()->points }}%;"></div>
+                                <div class="progress-percent" data-percent=" {{ auth()->user()->video_points }} " style="width: {{ auth()->user()->video_points }}%;"></div>
                             </div>
                         </div>
                     </div>
