@@ -8486,3 +8486,6 @@ color: #07b107;
     font-weight: bold;
     color: white;
   }
+  .table-row-clickable{
+      cursor: pointer;
+  }

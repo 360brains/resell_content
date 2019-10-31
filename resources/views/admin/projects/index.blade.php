@@ -48,7 +48,7 @@
                         $i = 0;
                         @endphp
                             @forelse($projects as $project)
-                                <tr>
+                                <tr class="table-row-clickable" onclick="window.location = '{{ route('admin.projects.show', $project->id) }}'">
                                     <td> {{ ++$i }} </td>
                                     <td><a href="{{ route('admin.projects.show', $project->id) }}"> {{ $project->name }} </a></td>
                                     <td> {{ $project->quantity }} </td>
@@ -62,7 +62,6 @@
                                         <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a class="btn btn-success btn-sm" href="{{ route('admin.projects.show', $project->id) }}">Show</a>
                                             <a class="btn btn-primary btn-sm" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
                                             @if($project->active == 0)
                                                 <button type="submit" class="btn btn-success btn-outline btn-sm sbold uppercase">Active</button>
