@@ -47,7 +47,7 @@
                         $i = 0;
                         @endphp
                             @forelse($levels as $level)
-                                <tr>
+                                <tr class="table-row-clickable" onclick="window.location = '{{ route('admin.levels.show', $level->id) }}'">
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $level->name }} </td>
                                     <td> {{ $level->min_points ?? 'None' }} </td>
@@ -59,8 +59,7 @@
                                         <form action="{{ route('admin.levels.destroy',$level->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a class="btn btn-success" href="{{ route('admin.levels.show', $level->id) }}">Show</a>
-                                            <a class="btn btn-primary" href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
+                                                <a class="btn btn-primary" href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
                                             @if($level->active == 0)
                                                 <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>
                                             @else

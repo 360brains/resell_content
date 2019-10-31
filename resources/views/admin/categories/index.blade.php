@@ -44,9 +44,9 @@
                         $i = 0;
                         @endphp
                             @forelse($categories as $category)
-                                <tr>
+                                <tr class="table-row-clickable" onclick="window.location = '{{route('admin.categories.show', $category->id)}}'">
                                     <td> {{ ++$i }} </td>
-                                    <td><a href="{{ route('admin.categories.show', $category->id) }}"> {{ $category->name }} </a></td>
+                                    <td> {{ $category->name }}</td>
                                     <td>{{ $category->parentCategory->name ?? 'None' }}</td>
                                     <td> {{ $category->created_at }} </td>
                                     <td> {{ $category->updated_at }} </td>

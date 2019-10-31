@@ -45,7 +45,7 @@
                         $i = 0;
                         @endphp
                             @forelse($users as $user)
-                                <tr onclick="window.location = '{{route('admin.users.show', $user->id)}}'">
+                                <tr class="table-row-clickable" onclick="window.location = '{{route('admin.users.show', $user->id)}}'">
 
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $user->name }} </td>
