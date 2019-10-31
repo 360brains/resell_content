@@ -60,7 +60,7 @@
                                             @if($category->childCategories->count() > 0)
                                                 @if($category->active == 1)
                                                     <a class="btn btn-danger btn-outline sbold uppercase " id="demo_5"> Inactive </a>
-                                                    <button type="submit" name="action" value="inactive" class="btn btn-danger btn-outline sbold uppercase hidden-button" id="delete_category">Inactive</button>
+                                                    <button type="submit" name="action" value="inactive" class="btn btn-danger btn-outline sbold uppercase hidden-button" id="delete_category">Proceed</button>
                                                 @elseif($category->active == 0)
                                                     <button type="submit" name="action" value="active" class="btn btn-primary btn-outline sbold uppercase">Active</button>
                                                 @endif

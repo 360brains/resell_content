@@ -112,16 +112,25 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy(Category $category){
+    public function destroy(Request $request, Category $category){
         // Getting all children ids
         $array_of_ids = $this->getChildren($category);
         // Appending the parent category id
         array_push($array_of_ids, $category->id);
         // Deactive all of them
-        $data['active'] = 0;
-        for ($i=0; $i < count($array_of_ids); $i++){
-            $response = Category::where('id', $array_of_ids[$i])->update($data);
+        if ($request->action == 'active'){
+            $data['active'] = 1;
+            for ($i=0; $i < count($array_of_ids); $i++){
+                $response = Category::where('id', $array_of_ids[$i])->update($data);
+            }
         }
+        if ($request->action == 'inactive'){
+            $data['active'] = 0;
+            for ($i=0; $i < count($array_of_ids); $i++){
+                $response = Category::where('id', $array_of_ids[$i])->update($data);
+            }
+        }
+
         if ($response){
             return redirect()->route('admin.categories.index')->with("success", "Category deleted successfully.");
         }else{
