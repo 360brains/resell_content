@@ -108,6 +108,9 @@ class TaskController extends Controller
 
     public function update(Request $request, Task $task){
         //Checking if the admin has approved the task and changing the task status.
+        $details = null;
+        $response = true;
+
         if ($request->action == 'approved'){
             $task->status           = 'approved';
             $task->points_awarded   = $task->project->points;
@@ -149,7 +152,7 @@ class TaskController extends Controller
             $details = [
                 'taskName'      => $task->project->name,
                 'date'          => now(),
-                'message'        => 'Congratulations! Your task "'. $task->project->name .'" is approved'
+                'message'        => 'Congratulations! Your task is approved'
             ];
 
         }
@@ -166,10 +169,10 @@ class TaskController extends Controller
             $details = [
                 'taskName'      => $task->project->name,
                 'date'          => now(),
-                'message'        => 'Your task "'. $task->project->name .'" is rejected'
+                'message'        => 'Your task is rejected'
             ];
         }
-        elseif($request->action == 'rework'){
+        elseif($request->action == 'reworking'){
             $task->status   = 'reworking';
             $response       = $task->save();
 
@@ -179,9 +182,11 @@ class TaskController extends Controller
             $details = [
                 'taskName'      => $task->project->name,
                 'date'          => now(),
-                'message'        => 'Your task "'. $task->project->name .'" is opened for rework'
+                'message'        => 'Your task is opened for rework'
             ];
         }
+
+        $task->user->notify(new TaskResult($details));
 
         if ($response){
             return redirect()->route('admin.projects.show', $task->project->id)->with("success", "Completed Successfully.");
