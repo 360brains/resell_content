@@ -4778,11 +4778,12 @@ select.select-sm {
     font-size: 11px;
     line-height: 15px;
     text-align: center;
-    border-radius: 3px;
+    border-radius: 10px;
     font-weight: 500;
     color: #fff;
     border: 1px solid;
-    min-width: 60px
+    min-width: 60px;
+    margin-top: 3px;
 }
 
 .badge-sq {
