@@ -7,6 +7,7 @@ use App\Models\Level;
 use App\Models\Project;
 use App\Models\Type;
 use App\Models\Task;
+use App\Notifications\TaskResult;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -109,7 +110,7 @@ class TaskController extends Controller
         //Checking if the admin has approved the task and changing the task status.
         if ($request->action == 'approved'){
             $task->status           = 'approved';
-            $task->awarded_points   = $task->project->points;
+            $task->points_awarded   = $task->project->points;
             $response               = $task->save();
             $points = 0;
             $levels = Level::get();
@@ -144,6 +145,13 @@ class TaskController extends Controller
 
             $taskData = ['name' => 'approved',];
             $task->statuses()->create($taskData);
+
+            $details = [
+                'taskName'      => $task->project->name,
+                'date'          => now(),
+                'message'        => 'Congratulations! Your task is approved'
+            ];
+            $task->user->notify(new TaskResult($details));
 
         }
         //Checking if the admin has rejected the task and changing the task status.
