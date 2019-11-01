@@ -68,7 +68,7 @@
                     <li><a href="{{ route('user.dashboard') }}"><em class="ikon ikon-dashboard"></em> Dashboard</a></li>
                     <li><a href="{{ route('user.tasks') }}"><em class="ikon ikon-distribution"></em> My Tasks</a></li>
                     <li><a href="{{ route('user.transactions') }}"><em class="ikon ikon-transactions"></em> Transactions</a></li>
-                    <li><a href="{{ route('user.transactions') }}"><i class="far fa-bell "></i>&nbsp; Notifications</a></li>
+                    <li><a href="{{ route('user.notifications') }}"><i class="far fa-bell "></i>&nbsp; Notifications</a></li>
                     <li><a href="{{ route('user.profile') }}"><em class="ikon ikon-user"></em> Profile</a></li>
                     <li class="has-dropdown page-links-all"><a class="drop-toggle" href="#"><em class="ikon ikon-exchange"></em> Brows</a>
                         <ul class="navbar-dropdown">
