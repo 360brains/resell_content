@@ -6,12 +6,6 @@
         <div class="container">
             <div class="row">
 
-                <h1>
-                    @foreach(auth()->user()->unreadNotifications as $notification)
-                        {{ dd($notification) }}
-                    @endforeach
-                </h1>
-
                 @if(auth()->user()->video_level == 0 && auth()->user()->video_level == 0)
                     <div class="col-lg-12">
                         <div class="content-area card">

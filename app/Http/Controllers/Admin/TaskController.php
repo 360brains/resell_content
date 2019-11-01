@@ -149,9 +149,8 @@ class TaskController extends Controller
             $details = [
                 'taskName'      => $task->project->name,
                 'date'          => now(),
-                'message'        => 'Congratulations! Your task is approved'
+                'message'        => 'Congratulations! Your task "'. $task->project->name .'" is approved'
             ];
-            $task->user->notify(new TaskResult($details));
 
         }
         //Checking if the admin has rejected the task and changing the task status.
@@ -164,6 +163,11 @@ class TaskController extends Controller
 
             $projectData['available'] = $task->project->available + 1;
             Project::where('id', $task->project_id)->update($projectData);
+            $details = [
+                'taskName'      => $task->project->name,
+                'date'          => now(),
+                'message'        => 'Your task "'. $task->project->name .'" is rejected'
+            ];
         }
         elseif($request->action == 'rework'){
             $task->status   = 'reworking';
@@ -171,6 +175,12 @@ class TaskController extends Controller
 
             $taskData = ['name' => 'reworking',];
             $task->statuses()->create($taskData);
+
+            $details = [
+                'taskName'      => $task->project->name,
+                'date'          => now(),
+                'message'        => 'Your task "'. $task->project->name .'" is opened for rework'
+            ];
         }
 
         if ($response){
