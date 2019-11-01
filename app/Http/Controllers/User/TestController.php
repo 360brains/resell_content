@@ -44,7 +44,7 @@ class TestController extends Controller
         $details = [
             'taskName'      => $test->name,
             'date'          => now(),
-            'message'       => 'You Might have to wait for 2 days for approval.'
+            'message'       => 'You have been assigned a video making test.'
         ];
         auth()->user()->notify(new TaskResult($details));
 
@@ -84,7 +84,7 @@ class TestController extends Controller
         $details = [
             'taskName'      => $test->name,
             'date'          => now(),
-            'message'       => 'You Might have to wait for 2 days for approval.'
+            'message'       => 'You have been assigned a writing test.'
         ];
         auth()->user()->notify(new TaskResult($details));
 
@@ -118,7 +118,7 @@ class TestController extends Controller
             $details = [
                 'taskName'      => Test::where('id', $id)->first(),
                 'date'          => now(),
-                'message'       => 'You Might have to wait for 2 days for approval.'
+                'message'       => 'You might have to wait for 2 days for approval.'
             ];
             auth()->user()->notify(new TaskResult($details));
 
@@ -146,7 +146,7 @@ class TestController extends Controller
                 $details = [
                     'taskName'      => Test::where('id', $id)->first(),
                     'date'          => now(),
-                    'message'       => 'You Might have to wait for 2 days for approval.'
+                    'message'       => 'You might have to wait for 2 days for approval.'
                 ];
                 auth()->user()->notify(new TaskResult($details));
 

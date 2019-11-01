@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User_test;
+use App\Notifications\TaskResult;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -40,6 +41,13 @@ class UserTestController extends Controller
                 $user->save();
             }
             $response = $user->tests()->updateExistingPivot($testId, $testData);
+
+            $details = [
+                'taskName'      => $test->name,
+                'date'          => now(),
+                'message'       => 'Congratulations! Your test is approved.'
+            ];
+            auth()->user()->notify(new TaskResult($details));
         }
 
         elseif ($request->action == 'rejected'){
@@ -47,6 +55,13 @@ class UserTestController extends Controller
                 'status' => 'failed',
             ];
             $response = $user->tests()->updateExistingPivot($testId, $testData);
+
+            $details = [
+                'taskName'      => $test->name,
+                'date'          => now(),
+                'message'       => 'Your test is rejected. Try again.'
+            ];
+            auth()->user()->notify(new TaskResult($details));
 
         }
 
