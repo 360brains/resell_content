@@ -73,9 +73,9 @@ class UserController extends Controller
     {
         $data['transactions'] = Transaction::where('user_id', $id)->paginate(10);
         $data['tasks']        = Task::where('user_id', $id)->paginate(10);
-        $tasks  = Task::where('user_id', $id)->where('status', 'approved')->get();
-        $data['user'] = User::find($id);
-        $totalEarned = 0;
+        $tasks                = Task::where('user_id', $id)->where('status', 'approved')->get();
+        $data['user']         = User::find($id);
+        $totalEarned          = 0;
 
         foreach ($tasks as $task){
             $totalEarned = $totalEarned + $task->project->price;

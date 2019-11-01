@@ -29,7 +29,7 @@ class TrainingController extends Controller
      */
     public function create()
     {
-        $data['types'] = Type::get();
+        $data['types'] = Type::where('active', 1)->get();
         return view('admin.trainings.create', $data);
     }
 
@@ -92,7 +92,7 @@ class TrainingController extends Controller
      */
     public function edit(Training $training)
     {
-        $data['types'] = Type::get();
+        $data['types'] = Type::where('active', 1)->get();
         $data['trainings']   = $training;
         return view('admin.trainings.edit', $data);
     }

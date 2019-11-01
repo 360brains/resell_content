@@ -92,6 +92,7 @@
                                                     @foreach($levels as $level)
                                                         <option value="{{ $level->id }}" {{old('level')==$level->id?'selected':''}}>{{ $level->name }}</option>
                                                     @endforeach
+
                                                 </select>
                                                 <label>Project Level</label>
                                             </div>
@@ -140,6 +141,16 @@
                                             @endforeach
                                         </select>
                                         <label>Trainings Required  <small>(Can Select Multiple Trainings)</small></label>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <div class="md-checkbox">
+                                            <input type="checkbox" name="special" id="checkbox8" class="md-check">
+                                            <label for="checkbox8">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> For Special Users </label>
+                                        </div>
                                     </div>
 
 

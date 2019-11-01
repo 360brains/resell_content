@@ -35,6 +35,7 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'name'          => 'required',
             'type'          => 'required',
@@ -44,6 +45,7 @@ class ProjectController extends Controller
             'points'        => 'required',
 
         ]);
+
         $project = new Project();
         $project->name          = $request->name;
         $project->quantity      = $request->quantity;
@@ -57,6 +59,11 @@ class ProjectController extends Controller
         $project->active        = $request->active;
         $project->price         = $request->price;
         $project->points        = $request->points;
+
+        if ($request->special == 'on') {
+            $project->special = 1;
+        }
+
         $response               = $project->save();
 
         if ($response){
