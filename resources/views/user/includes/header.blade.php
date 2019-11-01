@@ -21,7 +21,7 @@
                             </div>
                             <ul class="user-links">
                                 @foreach(auth()->user()->unreadNotifications as $notification)
-                                    <li><a href="#">{{ $notification->data['message'] }}</a></li><hr>
+                                    <li data-toggle="tooltip"  title="Hooray!" data-placement="bottom"><a class="pt-0 pb-0" href="#" >{{ $notification->data['message'] }}</a></li><hr>
                                 @endforeach
                             </ul>
                         </div>

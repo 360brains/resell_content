@@ -6098,7 +6098,7 @@ select.select-sm {
 [data-toggle="tooltip"] {
     cursor: help;
     color: #758698;
-    font-size: 11px
+    font-size: 16px
 }
 
 .tooltip-inner {
