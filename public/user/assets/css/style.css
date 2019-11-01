@@ -6272,6 +6272,11 @@ select.select-sm {
     transform: translateX(0);
     right: 0
 }
+.dropdown-content-right-img {
+    left: auto;
+    transform: translateX(0);
+    right: 173px
+}
 
 .dropdown-arrow-left:after {
     left: 16px
