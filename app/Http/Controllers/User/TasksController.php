@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Project;
 use App\Models\Task;
+use App\Notifications\TaskResult;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -74,6 +75,13 @@ class TasksController extends Controller
             $project->update($available);
             $task       = Task::create($data);
             $response   = $task->statuses()->create($status);
+
+            $details = [
+                'taskName'      => $task->project->name,
+                'date'          => now(),
+                'message'        => 'Congratulations! You have been assigned a task'
+            ];
+            $task->user->notify(new TaskResult($details));
 
         }else{
             return redirect()->back()->with("error", "You do not have the required trainings.");

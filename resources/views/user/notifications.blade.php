@@ -23,7 +23,7 @@
                         </thead>
                         <tbody>
                         @php($i = 1)
-                        @forelse(auth()->user()->notifications as $notification)
+                        @forelse(auth()->user()->notifications()->paginate(10) as $notification)
                             <tr class="data-item">
                                 <td class="data-col dt-tnxno">
                                     <div class="d-flex align-items-center">
@@ -45,6 +45,9 @@
                         <!-- .data-item -->
                         </tbody>
                     </table>
+                    <div>
+                        {{auth()->user()->notifications()->paginate(10)->links()}}
+                    </div>
                 </div>
                 <!-- .card-innr -->
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Level;
 use App\Models\Test;
 use App\Models\User_test;
+use App\Notifications\TaskResult;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -40,6 +41,13 @@ class TestController extends Controller
         $user_test->status  = 'started';
         $response           = $user_test->save();
 
+        $details = [
+            'taskName'      => $test->name,
+            'date'          => now(),
+            'message'       => 'You Might have to wait for 2 days for approval.'
+        ];
+        auth()->user()->notify(new TaskResult($details));
+
         return view('user.video-test', $data);
     }
 
@@ -66,12 +74,20 @@ class TestController extends Controller
         }
         $data['test'] = $test;
 
-        $user_test = new User_test();
+        $user_test          = new User_test();
         $user_test->user_id = auth()->user()->id;
         $user_test->test_id = $test->id;
         $user_test->status  = 'started';
         $response           = $user_test->save();
 //      orderByRaw("RAND()");
+
+        $details = [
+            'taskName'      => $test->name,
+            'date'          => now(),
+            'message'       => 'You Might have to wait for 2 days for approval.'
+        ];
+        auth()->user()->notify(new TaskResult($details));
+
         return view('user.writing-test', $data);
     }
 
@@ -99,6 +115,13 @@ class TestController extends Controller
 
             $response = auth()->user()->tests()->updateExistingPivot($id, $data);
 
+            $details = [
+                'taskName'      => Test::where('id', $id)->first(),
+                'date'          => now(),
+                'message'       => 'You Might have to wait for 2 days for approval.'
+            ];
+            auth()->user()->notify(new TaskResult($details));
+
             if ($response){
                 return redirect()->route('user.dashboard')->with("success", "Completed successfully.");
             }else{
@@ -119,6 +142,13 @@ class TestController extends Controller
                     'status'    => 'completed',
                 ];
                 $response = auth()->user()->tests()->updateExistingPivot($id, $data);
+
+                $details = [
+                    'taskName'      => Test::where('id', $id)->first(),
+                    'date'          => now(),
+                    'message'       => 'You Might have to wait for 2 days for approval.'
+                ];
+                auth()->user()->notify(new TaskResult($details));
 
                 if ($response){
                     return redirect()->route('user.dashboard')->with("success", "Completed successfully.");
