@@ -33,7 +33,7 @@
                                 </td>
                                 <td class="data-col dt-amount"><span class="lead amount-pay">{{ $notification->data['taskName'] }}</span></td>
                                 <td class="data-col dt-usd-amount"><span class="lead amount-pay">{{ $notification->data['message']}}</span></td>
-                                <td class="data-col dt-account"><span class="lead user-info">{{ $notification->data['date'] }}</span></td>
+                                <td class="data-col dt-account"><span class="lead user-info">{{ date('d-M-Y h:i', strtotime($notification->data['date'])) }}</span></td>
 {{--                                <td class="data-col dt-type"><span class="dt-type-md badge badge-outline badge-success badge-md">{{ $transaction->status }}</span><span class="dt-type-sm badge badge-sq badge-outline badge-success badge-md">P</span></td>--}}
 {{--                                <td class="data-col text-right"><a href="#" data-toggle="modal" data-target="#transaction-details{{$transaction->id}}" class="btn btn-light-alt btn-xs btn-icon"><em class="ti ti-eye"></em></a></td>--}}
 
