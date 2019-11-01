@@ -59,7 +59,8 @@
                         <p>This task requires user Level {{$project->level->name}}, and the following trainings:</p>
                         <ul class="detail-list">
                             @forelse($project->trainings as $training)
-                            <li> {{ $training->name }} - Requires level: {{ $training->levels->name }} of Type {{ $training->types->name }}</li>
+
+                                <li> {{ $training->name }}</li>
                             @empty
                             <h3>No training required.</h3>
                             @endforelse
@@ -84,7 +85,7 @@
                                         <li>
                                             <i class="ti-wallet"></i>
                                             <h5>Offerd Wages</h5>
-                                            <span>Rs{{ $project->level->price }}</span>
+                                            <span>Rs{{ $project->price }}</span>
                                         </li>
 
                                         <li>
@@ -177,7 +178,7 @@
                                         <ul>
                                             <li>Total: {{ $project->quantity }}</li>
                                             <li>Level: {{ $project->level->name }}</li>
-                                            <li class="more-skill bg-primary">{{ $project->level->price }}</li>
+                                            <li class="more-skill bg-primary">{{ $project->price }}</li>
                                         </ul>
                                         {{--                                <p class="giveMeEllipsis">{!! $project->description !!} </p>--}}
                                     </div>
@@ -192,7 +193,7 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $project->level->price }}</span></p>
+                                        <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $project->price }}</span></p>
                                     </li>
                                 </ul>
                             </div>
