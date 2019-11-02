@@ -207,7 +207,7 @@
                                         <ul>
                                             <li>Total: {{ $project->quantity }}</li>
                                             <li>Level: {{ $project->level->name }}</li>
-                                            <li class="more-skill bg-primary">{{ $project->level->price }}</li>
+                                            <li class="more-skill bg-primary">{{ $project->price }}</li>
                                         </ul>
                                         {{--                                <p class="giveMeEllipsis">{!! $project->description !!} </p>--}}
                                     </div>
@@ -218,11 +218,11 @@
                                 <ul class="grid-view-caption">
                                     <li>
                                         <div class="brows-job-location">
-                                            <p><i class="fa fa-clock-o"></i>{{ $project->deadline }}</p>
+                                            <p><i class="fa fa-clock-o"></i>{{ $project->deadline ?? 'None' }}</p>
                                         </div>
                                     </li>
                                     <li>
-                                        <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $project->level->price }}</span></p>
+                                        <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $project->price }}</span></p>
                                     </li>
                                 </ul>
                             </div>

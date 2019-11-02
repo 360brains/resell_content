@@ -68,7 +68,7 @@
                             <tr>
                                 <th>Actions</th>
                                 <td>
-                                    <form action="{{ route('admin.user.test.evaluate', ['userId' => $test->user->id, 'testId' => $test->test->id]) }}" method="post">
+                                    <form action="{{ route('admin.user.test.evaluate', $test->id) }}" method="post">
                                         @csrf
                                         <button type="submit" name="action" value="approved" class="btn btn-success">Approve</button>
                                         <button type="submit" name="action" value="rejected" class="btn btn-danger">Reject</button>

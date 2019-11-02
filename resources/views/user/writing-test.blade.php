@@ -8,6 +8,7 @@
                 <div class="col-lg-12">
                     <div class="referral-info card">
                         <div class="card-innr">
+                            {{ dd($test) }}
                             <h3 class="">{!! $test->description !!}</h3>
 
                         </div>
@@ -18,12 +19,10 @@
                     <div class="card content-area">
                         <div class="card-innr">
                             <div class="card-head">
-                                <form action="{{ route('user.tests.save.progress', $test->id) }}" method="post">
+                                <form action="{{ route('user.tests.save.progress', $test->pivot->id) }}" method="post">
                                     @csrf
                                     <textarea id="messageArea" name="body" rows="7" class="form-control ckeditor" placeholder="Write your message..">
-                                        @if($test->pivot != null)
                                         {{ $test->pivot->body }}
-                                        @endif
                                     </textarea>
                                     <div class="gaps-2-5x"></div>
                                     <small><strong>Remember!</strong> You will have to complete it in the time awarded. If you do not submit in time, you lose progress and might have to write on any other topic.</small><br>

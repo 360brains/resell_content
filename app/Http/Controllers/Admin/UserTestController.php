@@ -20,9 +20,9 @@ class UserTestController extends Controller
     }
 
 
-    public function evaluate(Request $request, $userId, $testId){
-        $test = User_test::where('user_id', $userId)->where('test_id', $testId)->first();
-        $user = User::where('id', $userId)->first();
+    public function evaluate(Request $request, $id){
+        $test = User_test::where('id', $id)->first();
+        $user = User::where('id', $test->user->id)->first();
         if ($request->action == 'approved'){
 
             $testData = [
@@ -40,30 +40,36 @@ class UserTestController extends Controller
                 $user->video_points = $user->video_points + 10;
                 $user->save();
             }
-            $response = $user->tests()->updateExistingPivot($testId, $testData);
+
+            $response = $test->update($testData);
+//            $response = $user->tests()->updateExistingPivot($test->id, $testData);
 
             $details = [
                 'taskName'      => $test->name,
                 'date'          => now(),
                 'message'       => 'Congratulations! Your test is approved.'
             ];
-            auth()->user()->notify(new TaskResult($details));
+            $user->notify(new TaskResult($details));
         }
 
         elseif ($request->action == 'rejected'){
             $testData = [
                 'status' => 'failed',
             ];
-            $response = $user->tests()->updateExistingPivot($testId, $testData);
+
+            $response = $test->update($testData);
+//            $response = $user->tests()->updateExistingPivot($test->id, $testData);
 
             $details = [
                 'taskName'      => $test->name,
                 'date'          => now(),
                 'message'       => 'Your test is rejected. Try again.'
             ];
-            auth()->user()->notify(new TaskResult($details));
+            $user->notify(new TaskResult($details));
 
         }
+
+        $response = $test->update($testData);
 
         if ($response){
             return redirect()->back()->withInput($request->all())->with("success", "Completed successfully.");

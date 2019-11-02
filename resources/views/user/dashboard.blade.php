@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
 
-                @if(auth()->user()->video_level == 0 && auth()->user()->video_level == 0)
+                @if(auth()->user()->writing_level == 0 && auth()->user()->video_level == 0)
                     <div class="col-lg-12">
                         <div class="content-area card">
                             <div class="card-innr">
@@ -17,6 +17,16 @@
                                                 <small>(You can take test again in case you fail).</small>
                                             </h4>
                                         @elseif($test->pivot->status == 'started' && $test->levels->name == 'Zero')
+                                            <div class="card-head d-inline">
+                                                <h6 class="d-inline card-title">Raise yor Level</h6><br>
+                                                <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                                            </div>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">
+                                                Free Test
+                                            </button>
+                                            @break
+                                        @elseif($test->pivot->status == 'failed' && $test->levels->name == 'Zero')
                                             <div class="card-head d-inline">
                                                 <h6 class="d-inline card-title">Raise yor Level</h6><br>
                                                 <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
@@ -50,8 +60,9 @@
                                             <div class="modal-body">
                                                 <h3>Chose a test you would like to take.</h3>
                                                 <small class="text-light">Remember! you can chose from projects of type you have given test of.</small><br><br>
-                                                <a href="{{ route('user.tests.writing.test') }}" class="btn btn-info btn-block mt-3">Content Writing Test</a>
-                                                <a href="{{ route('user.tests.video.test') }}" class="btn btn-info btn-block mt-5 mb-5">Video Making Test</a>
+
+                                                        <a href="{{ route('user.tests.writing.test') }}" class="btn btn-info btn-block mt-3">Content Writing Test</a>
+                                                        <a href="{{ route('user.tests.video.test') }}" class="btn btn-info btn-block mt-5 mb-5">Video Making Test</a>
                                             </div>
                                         </div>
                                     </div>

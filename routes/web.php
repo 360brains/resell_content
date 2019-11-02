@@ -20,7 +20,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
 
     Route::get('user-test/show/{userId}/{testId}', 'UserTestController@showTest')->name('user.test.show');
     Route::get('user-tests', 'UserTestController@userTests')->name('user.tests');
-    Route::post('user-test/evaluate/{userId}/{testId}', 'UserTestController@evaluate')->name('user.test.evaluate');
+    Route::post('user-test/evaluate/{id}', 'UserTestController@evaluate')->name('user.test.evaluate');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::post('users/special/{id}',  'UserController@addToSpecial')->name('users.special');
     Route::resource('transactions', 'TransactionController');
@@ -75,7 +75,9 @@ Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
 Route::get('send', 'HomeController@sendNotification');
-
+Route::get('/markAsRead',function(){
+    auth()->user()->unreadNotifications->markAsRead();
+});
 
 
 
