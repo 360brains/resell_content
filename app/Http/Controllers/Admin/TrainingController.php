@@ -49,6 +49,13 @@ class TrainingController extends Controller
             'level'         => 'required',
             'active'        => 'required',
         ]);
+        if ($request->hasFile("file") && $request->file('file')->isValid()) {
+            $filename           = $request->file('file')->getClientOriginalName();
+            $filename           = time()."-".$filename;
+            $destinationPath    = public_path('/trainings');
+            $name       = "trainings/".$filename;
+            $request->file('file')->move($destinationPath, $filename);
+        }
 
         $data = [
             'name'          => $request->name,
@@ -56,18 +63,10 @@ class TrainingController extends Controller
             'fee'           => $request->fee,
             'description'   => $request->description,
             'level_id'      => $request->level,
-            'active'        => $request->active
+            'active'        => $request->active,
+            'file'          => $name
         ];
-        if ($request->hasFile("file") && $request->file('file')->isValid()) {
-            $filename           = $request->file('file')->getClientOriginalName();
-            $filename           = time()."-".$filename;
-            $destinationPath    = public_path('/trainings');
-            $user->avatar       = "images/".$filename;
-            $request->file('image')->move($destinationPath, $filename);
-        }
-
         $response = Training::create($data);
-
         if ($response){
             return redirect()->route('admin.trainings.index')->with("success", "Completed Successfully.");
         }else{
