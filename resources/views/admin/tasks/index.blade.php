@@ -46,7 +46,7 @@
                         $i = 0;
                         @endphp
                             @forelse($tasks as $task)
-                                <tr>
+                                <tr class="table-row-clickable" onclick="window.location = '{{ route('admin.tasks.show', $task->id) }}'">
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $task->name }} </td>
                                     <td> {{ $task->project->type->name }} </td>
@@ -59,7 +59,6 @@
                                             @csrf
                                             @method('DELETE')
 
-                                            <a class="btn btn-success" href="{{ route('admin.tasks.show', $task->id) }}">Show</a>
                                             <a class="btn btn-primary" href="{{ route('admin.tasks.edit', $task->id) }}">Edit</a>
                                             @if($task->active == 0)
                                                 <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>

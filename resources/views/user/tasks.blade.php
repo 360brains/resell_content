@@ -142,6 +142,7 @@
                                                                 <!-- li -->
                                                                 <li>
                                                                     <div class="data-details-head">Task Category</div>
+
                                                                     <div class="data-details-des"><strong>{{ $task->project->category->name }}</strong></div>
                                                                 </li>
                                                                 <!-- li -->
@@ -153,12 +154,14 @@
                                                                 <li>
                                                                     <div class="data-details-head">Points Awarded</div>
                                                                     <div class="data-details-des"><span>{{ $task->points_awarded }}</span> <span></span></div>
+
                                                                 </li>
                                                                 <!-- li -->
                                                                 @forelse($task->project->trainings as $training)
+
                                                                     <li>
                                                                     <div class="data-details-head">Trainings Required</div>
-                                                                    <div class="data-details-des"><span>{{ $training->name }} - Requires level: {{ $training->levels->name }} of Type {{ $training->types->name }}</span> <span></span></div>
+                                                                    <div class="data-details-des"><span>{{ $training->name }}</span> <span></span></div>
                                                                     </li>
                                                                 @empty
                                                                     <li><div class="data-details-head">No training required.</div></li>

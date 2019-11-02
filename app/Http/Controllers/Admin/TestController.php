@@ -28,8 +28,8 @@ class TestController extends Controller
      */
     public function create()
     {
-        $data['levels'] = Level::get();
-        $data['types'] = Type::get();
+        $data['levels'] = Level::where('active', 1)->get();
+        $data['types'] = Type::where('active', 1)->get();
         return view('admin.test.create', $data);
     }
 
@@ -44,7 +44,6 @@ class TestController extends Controller
         $request->validate([
             'name'          => 'required',
             'type'          => 'required',
-            'fee'           => 'required',
             'description'   => 'required',
             'level'         => 'required',
             'active'        => 'required',
@@ -88,8 +87,8 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
-        $data['levels'] = Level::get();
-        $data['types'] = Type::get();
+        $data['levels'] = Level::where('active', 1)->get();
+        $data['types'] = Type::where('active', 1)->get();
         $data['test']   = $test;
         return view('admin.test.edit', $data);
     }

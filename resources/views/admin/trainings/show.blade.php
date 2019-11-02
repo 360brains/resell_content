@@ -53,11 +53,6 @@
                         </tr>
 
                         <tr>
-                            <th>Test Level</th>
-                            <td>{{$trainings->levels->name}}</td>
-                        </tr>
-
-                        <tr>
                             <th>Fee</th>
                             <td>{{$trainings->fee}}</td>
                         </tr>

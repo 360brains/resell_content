@@ -45,7 +45,7 @@
                             $i = 0;
                         @endphp
                         @forelse($tests as $test)
-                            <tr>
+                            <tr class="table-row-clickable" onclick="window.location = '{{ route('admin.test.show', $test->id) }}'">
                                 <td> {{ ++$i }} </td>
                                 <td> {{ $test->name }}</td>
                                 <td> {{ $test->types->name }} </td>
@@ -56,7 +56,6 @@
                                     <form action="{{ route('admin.test.destroy',$test->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a class="btn btn-success" href="{{ route('admin.test.show', $test->id) }}">Show</a>
                                         <a class="btn btn-primary" href="{{ route('admin.test.edit', $test->id) }}">Edit</a>
                                         @if($test->active == 0)
                                             <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>

@@ -5,14 +5,73 @@
     <div class="page-content">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12"><div class="content-area card card-success card-text-light">
-                        <div class="card-innr">
-                            <div class="card-head"><h6 class="card-title">Raise yor Level</h6></div>
-                            <p>Your current Level is <strong>'0'</strong>. Take a free test and raise your level to get tasks.</p>
-                            <a class="btn btn-outline btn-secondary" href="">Free Test</a>
-                        </div><!-- .card-innr -->
-                    </div><!-- .card -->
-                </div>
+
+                @if(auth()->user()->writing_level == 0 && auth()->user()->video_level == 0)
+                    <div class="col-lg-12">
+                        <div class="content-area card">
+                            <div class="card-innr">
+                                @if(count(auth()->user()->tests) >= 1)
+                                    @foreach(auth()->user()->tests as $test)
+                                        @if($test->pivot->status == 'completed' && $test->levels->name == 'Zero')
+                                            <h4>Your test is waiting approval. You will be promoted to level 1 if you pass.
+                                                <small>(You can take test again in case you fail).</small>
+                                            </h4>
+                                        @elseif($test->pivot->status == 'started' && $test->levels->name == 'Zero')
+                                            <div class="card-head d-inline">
+                                                <h6 class="d-inline card-title">Raise yor Level</h6><br>
+                                                <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                                            </div>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">
+                                                Free Test
+                                            </button>
+                                            @break
+                                        @elseif($test->pivot->status == 'failed' && $test->levels->name == 'Zero')
+                                            <div class="card-head d-inline">
+                                                <h6 class="d-inline card-title">Raise yor Level</h6><br>
+                                                <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                                            </div>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">
+                                                Free Test
+                                            </button>
+                                            @break
+                                        @endif
+                                    @endforeach
+                                @else
+                                <div class="card-head d-inline">
+                                    <h6 class="d-inline card-title">Raise yor Level</h6><br>
+                                    <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                                </div>
+                                <!-- Button trigger modal -->
+                                <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">
+                                    Free Test
+                                </button>
+                                <!-- Modal -->
+                                @endif
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h3>Chose a test you would like to take.</h3>
+                                                <small class="text-light">Remember! you can chose from projects of type you have given test of.</small><br><br>
+
+                                                        <a href="{{ route('user.tests.writing.test') }}" class="btn btn-info btn-block mt-3">Content Writing Test</a>
+                                                        <a href="{{ route('user.tests.video.test') }}" class="btn btn-info btn-block mt-5 mb-5">Video Making Test</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- .card-innr -->
+                        </div><!-- .card -->
+                    </div>
+                @endif
+
                 <div class="col-lg-4">
                     <div class="token-statistics card card-token height-auto">
                         <div class="card-innr">
@@ -27,7 +86,7 @@
                                 <ul class="token-balance-list">
                                     <li class="token-balance-sub"><span class="lead">{{ count(auth()->user()->tasks) }}</span><span class="sub">Tasks</span></li>
                                     <li class="token-balance-sub"><span class="lead">
-                                    <?php $trainingsCount = 0 ?>
+                                        <?php $trainingsCount = 0 ?>
                                             @foreach(auth()->user()->trainings as $training)
                                                 @if($training->status == 'Completed')
                                                     <?php $trainingsCount = $trainingsCount + 1 ?>
@@ -42,59 +101,68 @@
                     </div>
                 </div>
                 <!-- .col -->
-                <div class="col-lg-8">
-                    <div class="token-information card card-full-height">
-                        <div class="row no-gutters height-100">
-                            <div class="col-md-6 text-center">
-                                <div class="token-info"><img class="dashboard-user-img" alt="logo-md" src="{{ asset(auth()->user()->avatar) }}">
-                                    <div class="gaps-1x"></div>
-                                    <h5 class="token-info-sub">{{ auth()->user()->name }}</h5>
-                                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="token-sales card card-full-height">
+                        <div class="card-innr">
+                            <div class="card-head">
+                                <h5 class="card-title">Your Profile</h5>
                             </div>
-                            <div class="col-md-6">
-                                <div class="token-info bdr-tl">
-                                    <div>
-                                        <ul class="token-info-list">
-                                            <!--Timer divs start
-                                            <div id="one">
-                                            </div>
-                                            Timer divs end-->
-                                            @if(!is_null($currentTask))
-
-                                                <h4 class="token-info-sub text-light">
-                                                    <input type="hidden" id="count-down" value="{{$diff}}">
-                                                    <span class="count-down"></span>
-                                                    {{ $currentTask->project->name }}
-                                                </h4>
-                                                <h5 class="token-info-head text-light">
-                                                        {{ $diff->format("%a day/s, %h hour/s Left") }}
-                                                </h5>
-                                            @else
-                                                <h2 class="token-info-sub">No Task Currently</h2>
-                                            @endif
-
-                                        </ul>
-                                        @if(!is_null($currentTask))
-                                            @if( $currentTask->project->type->name == 'Content Writing')
-                                                <form action="{{ route('user.tasks.upload.doc', $currentTask->id) }}" method="post">
-                                                    <button type="submit" class="btn btn-primary btn-sm"><em class="fas fa-upload mr-3"></em>Upload Task Doc</button>
-                                                </form>
-                                            @else
-                                                <form action="{{ route('user.tasks.save.progress', $currentTask->id) }}" method="post" enctype="multipart/form-data">
-                                                    @csrf
-                                                    <input type="file" id="video" name="video">
-                                                    <div class="gaps-1x"></div>
-                                                    <button type="submit" name="action" value="video" class="btn btn-danger btn-sm"><em class="fas fa-upload mr-3"></em>Upload Task Video</button>
-                                                </form>
-                                            @endif
-                                        @endif
-                                    </div>
-
-                                </div>
+                            <div class="profile-img float-left">
+                                <img class="dashboard-user-img" src="{{ asset(auth()->user()->avatar) }}" alt="">
+                            </div>
+                            <div class="profile-name float-left pt-3 pl-3">
+                                <strong class="name">{{ auth()->user()->name }}</strong>
+                                <strong class="text-light">{{ auth()->user()->email }}</strong>
+                            </div>
+                            <div class="user-data float-left pt-3">
+                                <strong class="text-light">From Pakistan</strong><br>
+                                <strong class="text-light">Member since {{ auth()->user()->created_at }} </strong>
+                                <button type="button" class="btn btn-xs btn-block btn-info pt-2 mt-2">
+                                    My Profile
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <!-- .card -->
+                </div>
+                <!-- .col -->
+                <!-- .col -->
+                <div class="col-xl-4 col-lg-5">
+                    <div class="token-sales card card-full-height pb-3">
+                        <div class="card-innr">
+                            <div class="card-head">
+                                <h4 class="card-title">Current Level Progress</h4>
+                            </div>
+                            <h5 class="text-light text-uppercase">Content Writing <span class="float-right">{{ auth()->user()->writing_level }}</span></h5>
+                            <ul class="progress-info">
+                                <li><span>POINTS</span> {{ auth()->user()->writing_points }} </li>
+                                <li class="text-right"><span>TOTAL POINTS</span> 100 </li>
+                            </ul>
+                            <div class="progress-bar">
+                                <div class="progress-hcap" data-percent="75" style="width: 75%;">
+                                    <small>basic</small>
+                                </div>
+                                <div class="progress-scap" data-percent="25" style="width: 25%;">
+
+                                </div>
+
+                                <div class="progress-percent" data-percent=" {{ auth()->user()->writing_points }} " style="width: {{ auth()->user()->writing_points }}%;"></div>
+                            </div>
+                            <h5 class="text-light text-uppercase">Video Making <span class="float-right">{{ auth()->user()->video_level }}</span></h5>
+                            <ul class="progress-info">
+                                <li><span>POINTS</span> {{ auth()->user()->video_points }} </li>
+                                <li class="text-right"><span>TOTAL POINTS</span> 100 </li>
+                            </ul>
+                            <div class="progress-bar">
+                                <div class="progress-hcap" data-percent="75" style="width: 75%;">
+
+                                </div>
+                                <div class="progress-scap" data-percent="25" style="width: 25%;">
+
+                                </div>
+                                <div class="progress-percent" data-percent=" {{ auth()->user()->video_points }} " style="width: {{ auth()->user()->video_points }}%;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- .col -->
                 <div class="col-xl-8 col-lg-7">
@@ -123,7 +191,8 @@
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <div class="data-state data-state-approved"></div><span class="lead">{{ $i++ }}</span></div>
+                                                <div class="data-state data-state-approved"></div><span class="lead">{{ $i++ }}</span>
+                                            </div>
                                         </td>
                                         <td><span><span class="lead">{{ $transaction->amount }}</span><span class="sub">PKR <em class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" data-original-title="1 PKR = 0.012 USD"></em></span></span>
                                         </td>
@@ -131,7 +200,9 @@
                                         <td class="tnx-type"><span class="tnx-type-md badge badge-outline badge-success badge-md">{{ $transaction->status }}</span><span class="tnx-type-sm badge badge-sq badge-outline badge-success badge-md">P</span></td>
                                     </tr>
                                 @empty
-                                    <tr><td rowspan="4">No Transactions Found</td></tr>
+                                    <tr>
+                                        <td rowspan="4">No Transactions Found</td>
+                                    </tr>
                                 @endforelse
                                 <!-- tr -->
                                 </tbody>
@@ -178,36 +249,74 @@
                     </div>
                     <!-- .card -->
                 </div>
-                <!-- .col -->
-                <div class="col-xl-4 col-lg-5">
-                    <div class="token-sales card card-full-height">
-                        <div class="card-innr">
-                            <div class="card-head">
-                                <h4 class="card-title">Current Level Progress</h4></div>
-                            <ul class="progress-info">
-                                <li><span>POINTS</span> {{ auth()->user()->points }} </li>
-                                <li class="text-right"><span>TOTAL POINTS</span> 100 </li>
-                            </ul>
-                            <div class="progress-bar">
-                                <div class="progress-hcap" data-percent="75" style="width: 75%;">
-                                    <div>Points <span>75</span></div>
-                                </div>
-                                <div class="progress-scap" data-percent="25" style="width: 25%;">
-                                    <div>Points <span>25</span></div>
-                                </div>
-                                <div class="progress-percent" data-percent=" {{ auth()->user()->points }} " style="width: {{ auth()->user()->points }}%;"></div>
-                            </div><span class="card-sub-title mgb-0-5x">LEVEL STARTED AT</span>
-                            <div class="countdown-clock" data-date="2019/04/05">
-                                @foreach($currentLevel as $level)
-                                    <?php $time = strtotime($level->created_at); ?>
-                                    <div><span class="countdown-time countdown-time-first">{{ date('d',$time) }}</span><span class="countdown-text">Day</span></div>
-                                    <div><span class="countdown-time">{{ date('m',$time) }}</span><span class="countdown-text">Month</span></div>
-                                    <div><span class="countdown-time">{{ date('Y',$time) }}</span><span class="countdown-text">year</span></div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            {{--            <div class="col-lg-8">--}}
+            {{--                <div class="token-information card card-full-height">--}}
+            {{--                    <div class="row no-gutters height-100">--}}
+            {{--                        <div class="col-md-6 text-center">--}}
+            {{--                            <div class="token-info"><img class="dashboard-user-img" alt="logo-md" src="{{ asset(auth()->user()->avatar) }}">--}}
+            {{--                                <div class="gaps-1x"></div>--}}
+            {{--                                <h5 class="token-info-sub">{{ auth()->user()->name }}</h5>--}}
+            {{--                            </div>--}}
+            {{--                        </div>--}}
+            {{--                        <div class="col-md-6">--}}
+            {{--                            <div class="token-info bdr-tl">--}}
+            {{--                                <div>--}}
+            {{--                                    <ul class="token-info-list">--}}
+            {{--                                        <!--Timer divs start--}}
+            {{--                                            <div id="one">--}}
+            {{--                                            </div>--}}
+            {{--                                            Timer divs end-->--}}
+            {{--                                            @if(!is_null($currentTask))--}}
+
+            {{--                                                <h4 class="token-info-sub text-light">--}}
+            {{--                                                    <input type="hidden" id="count-down" value="{{ $diff}}">--}}
+            {{--                                                    <span class="count-down"></span>--}}
+            {{--                                                    {{ $currentTask->project->name }}--}}
+            {{--                                                </h4>--}}
+            {{--                                                <h5 class="token-info-head text-light">--}}
+            {{--                                                        {{ date("y-m-d h:i:s", strtotime($currentTask->project->deadline)) }}--}}
+            {{--                                                </h5>--}}
+            {{--                                            @else--}}
+            {{--                                                <h2 class="token-info-sub">No Task Currently</h2>--}}
+            {{--                                            @endif--}}
+
+            {{--                                        </ul>--}}
+            {{--                                        @if(!is_null($currentTask))--}}
+
+            {{--                                        <h4 class="token-info-sub text-light">--}}
+            {{--                                            <input type="hidden" id="count-down" value="{{ $diff}}">--}}
+            {{--                                            <span class="count-down"></span>--}}
+            {{--                                            {{ $currentTask->project->name }}--}}
+            {{--                                        </h4>--}}
+            {{--                                        <h5 class="token-info-head text-light">--}}
+            {{--                                        </h5>--}}
+            {{--                                        @else--}}
+            {{--                                        <h2 class="token-info-sub">No Task Currently</h2>--}}
+            {{--                                        @endif--}}
+            {{--                                    @if(!is_null($currentTask))--}}
+            {{--                                    @if( $currentTask->project->type->name == 'Content Writing')--}}
+            {{--                                    <form action="{{ route('user.tasks.upload.doc', $currentTask->id) }}" method="post">--}}
+            {{--                                        <button type="submit" class="btn btn-primary btn-sm"><em class="fas fa-upload mr-3"></em>Upload Task Doc</button>--}}
+            {{--                                    </form>--}}
+            {{--                                    @else--}}
+            {{--                                    <form action="{{ route('user.tasks.save.progress', $currentTask->id) }}" method="post" enctype="multipart/form-data">--}}
+            {{--                                        @csrf--}}
+            {{--                                        <input type="file" id="video" name="video">--}}
+            {{--                                        <div class="gaps-1x"></div>--}}
+            {{--                                        <button type="submit" name="action" value="video" class="btn btn-danger btn-sm"><em class="fas fa-upload mr-3"></em>Upload Task Video</button>--}}
+            {{--                                    </form>--}}
+            {{--                                    @endif--}}
+            {{--                                    @endif--}}
+            {{--                                </div>--}}
+
+            {{--                            </div>--}}
+            {{--                        </div>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--                <!-- .card -->--}}
+            {{--            </div>--}}
+            <!-- .col -->
+
             </div>
             <!-- .row -->
         </div>

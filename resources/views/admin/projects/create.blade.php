@@ -45,23 +45,82 @@
                                         <label>Project Name</label>
                                     </div>
 
-                                    <div class="form-group form-md-line-input">
-                                        <input type="number" name="quantity" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks" value="{{old('quantity')}}">
-                                        <label>Number of Tasks</label>
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="quantity" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks" value="{{old('quantity')}}">
+                                                <label>Number of Tasks</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="deadline" class="form-control" id="form_control_1" placeholder="Time Awarded for task in hours" value="{{old('deadline')}}">
+                                                <label>Task Deadline <small>(in hours)</small></label>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group form-md-line-input">
-                                        <input type="number" name="price" class="form-control" id="form_control_1" placeholder="Enter Price for a Task" value="{{old('price')}}">
-                                        <label>Price</label>
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="price" class="form-control" id="form_control_1" placeholder="Enter Price for a Task" value="{{old('price')}}">
+                                                <label>Price</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="points" class="form-control" id="form_control_1" placeholder="Enter Points for a Task" value="{{old('points')}}">
+                                                <label>Points</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <select id="typeselector" class="form-control" name="type">
+                                                    <option value="">Select type of project</option>
+                                                    @foreach($types as $type)
+                                                        <option value="{{$type->id}}" {{old('type')==$type->id?'selected':''}}>{{$type->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                                <label>Project Type</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <select class="form-control" name="level">
+                                                    <option value="">Select User Level for the project</option>
+                                                    @foreach($levels as $level)
+                                                        <option value="{{ $level->id }}" {{old('level')==$level->id?'selected':''}}>{{ $level->name }}</option>
+                                                    @endforeach
+
+                                                </select>
+                                                <label>Project Level</label>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div class="form-group form-md-line-input">
-                                        <select id="typeselector" class="form-control" name="type">
-                                            <option value="">Select type of project</option>
-                                            @foreach($types as $type)
-                                                <option value="{{$type->id}}" {{old('type')==$type->id?'selected':''}}>{{$type->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Project Type</label>
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <select class="form-control" name="category">
+                                                    <option value="">Select Category of project</option>
+                                                    @foreach($categories as $category)
+                                                        <option value="{{ $category->id }}" {{old('category')==$category->id?'selected':''}}>{{ $category->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <label>Project Category</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <select class="form-control" name="active">
+                                                    <option value="">Status</option>
+                                                    <option value="1" {{old('active')==1 ?'selected':''}}>Active</option>
+                                                    <option value="0" {{old('active')==0 ?'selected':''}}>Inactive</option>
+                                                </select>
+                                                <label>Status</label>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div id="divid" class="form-group form-md-line-input">
@@ -74,30 +133,6 @@
                                         <label>Project Template</label>
                                     </div>
 
-                                    <div class="form-group form-md-line-input">
-                                        <input type="text" name="deadline" class="form-control datetime" id="form_control_1" placeholder="Give a deadline" value="{{old('deadline')}}">
-                                        <label>Project Deadline</label>
-                                    </div>
-
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="category">
-                                            <option value="">Select Category of project</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{ $category->id }}" {{old('category')==$category->id?'selected':''}}>{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Project Category</label>
-                                    </div>
-
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="level">
-                                            <option value="">Select User Level for the project</option>
-                                            @foreach($levels as $level)
-                                                <option value="{{ $level->id }}" {{old('level')==$level->id?'selected':''}}>{{ $level->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Project Level</label>
-                                    </div>
 
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="trainings[]" multiple="multiple">
@@ -109,13 +144,15 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="active">
-                                            <option value="">Status</option>
-                                            <option value="1" {{old('active')==1 ?'selected':''}}>Active</option>
-                                            <option value="0" {{old('active')==0 ?'selected':''}}>Inactive</option>
-                                        </select>
-                                        <label>Status</label>
+                                        <div class="md-checkbox">
+                                            <input type="checkbox" name="special" id="checkbox8" class="md-check">
+                                            <label for="checkbox8">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> For Special Users </label>
+                                        </div>
                                     </div>
+
 
                                     <div class="form-group form-md-line-input">
                                         <textarea name="description" class="summernote" placeholder="Description"></textarea>

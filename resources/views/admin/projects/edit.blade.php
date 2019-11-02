@@ -47,23 +47,83 @@
                                         <label for="form_control_1">Project Name</label>
                                     </div>
 
-                                    <div class="form-group form-md-line-input">
-                                        <input type="number" name="quantity" value="{{ $project->quantity }}" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks">
-                                        <label for="form_control_1">Number of Tasks</label>
-                                    </div>
-                                    <div class="form-group form-md-line-input">
-                                        <input type="number" name="price" value="{{ $project->price }}" class="form-control" id="form_control_1" placeholder="Enter Price for a Task">
-                                        <label>Price</label>
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="quantity" value="{{ $project->quantity }}" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks">
+                                                <label for="form_control_1">Number of Tasks</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="deadline" value="{{ $project->deadline }}" class="form-control datetime" id="form_control_1" placeholder="Time Awarded for task in hours">
+                                                <label for="form_control_1">Task Deadline <small>(in hours)</small></label>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div class="form-group form-md-line-input">
-                                        <select id="typeselector" class="form-control" id="form_control_1" name="type">
-                                            <option value="">Select type of project</option>
-                                            @foreach($types as $type)
-                                                <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : ''}}>{{ $type->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label for="form_control_1">Project Type</label>
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="price" value="{{ $project->price }}" class="form-control" id="form_control_1" placeholder="Enter Price for a Task">
+                                                <label>Price</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="points" value="{{ $project->points }}" class="form-control" id="form_control_1" placeholder="Enter Points for a Task" value="{{old('points')}}">
+                                                <label>Points</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <select id="typeselector" class="form-control" id="form_control_1" name="type">
+                                                    <option value="">Select type of project</option>
+                                                    @foreach($types as $type)
+                                                        <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : ''}}>{{ $type->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <label for="form_control_1">Project Type</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <select class="form-control" id="form_control_1" name="level">
+                                                    <option value="">Select User Level</option>
+                                                    @foreach($levels as $level)
+                                                        <option value="{{ $level->id }}" {{ $project->level_id == $level->id ? 'selected' : ''}}>{{ $level->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <label for="form_control_1">Project Level</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <select class="form-control" id="form_control_1" name="category">
+                                                    <option value="">Select Category</option>
+                                                    @foreach($categories as $category)
+                                                        <option value="{{ $category->id }}" {{ $project->category_id == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <label for="form_control_1">Project Category</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <select class="form-control" id="form_control_1" name="active">
+                                                    <option value="">Status</option>
+                                                    <option value="1" {{ $project->active = 1 ? 'selected' : ''}}>Active</option>
+                                                    <option value="0" {{ $project->active = 0 ? 'selected' : ''}}>Inactive</option>
+                                                </select>
+                                                <label for="form_control_1">Project Status</label>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div id="divid" class="form-group form-md-line-input">
@@ -77,62 +137,18 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="text" name="deadline" value="{{ $project->deadline }}" class="form-control datetime" id="form_control_1" placeholder="Give a deadline">
-                                        <label for="form_control_1">Project Deadline</label>
-                                    </div>
-
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="form_control_1" name="category">
-                                            <option value="">Select Category</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{ $category->id }}" {{ $project->category_id == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label for="form_control_1">Project Category</label>
-                                    </div>
-
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="form_control_1" name="level">
-                                            <option value="">Select User Level</option>
-                                            @foreach($levels as $level)
-                                                <option value="{{ $level->id }}" {{ $project->level_id == $level->id ? 'selected' : ''}}>{{ $level->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label for="form_control_1">Project Level</label>
-                                    </div>
-
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" id="form_control_1" name="active">
-                                            <option value="">Status</option>
-                                            <option value="1" {{ $project->active = 1 ? 'selected' : ''}}>Active</option>
-                                            <option value="0" {{ $project->active = 0 ? 'selected' : ''}}>Inactive</option>
-                                        </select>
-                                        <label for="form_control_1">Project Status</label>
-                                    </div>
-
-                                    <div class="form-group form-md-line-input">
                                         <select class="form-control" name="trainings[]" multiple="multiple">
                                             @foreach($trainings as $training)
-                                                    <option
-                                                        @if (in_array($training->name, $projectTrainings))
-                                                        selected
-                                                        @endif
-                                                        value="{{ $training->id }}">{{$training->name }}
-                                                    </option>
+                                                <option
+                                                    @if (in_array($training->name, $projectTrainings))
+                                                    selected
+                                                    @endif
+                                                    value="{{ $training->id }}">{{$training->name }}
+                                                </option>
                                             @endforeach
                                         </select>
                                         <label>Trainings Required  <small>(Can Select Multiple Trainings)</small></label>
                                     </div>
-
-
-{{--                                        @foreach($project->trainings as $projectTraining)--}}
-{{--                                            @if($projectTraining->name == $training->name)--}}
-{{--                                                <option value="{{ $training->id }}" selected="selected">{{$training->name }}</option>--}}
-{{--                                                @break--}}
-{{--                                            @endif--}}
-{{--                                        @endforeach--}}
-
-
 
                                     <div class="portlet-body form">
                                         <div class="form-body">

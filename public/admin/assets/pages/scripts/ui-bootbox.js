@@ -34,7 +34,7 @@ var UIBootbox = function () {
 
             $('#demo_5').click(function(){
                 bootbox.dialog({
-                    message: "This category contains sub-categories. Are you sure you want to delete this category and the sub-caegories?",
+                    message: "This category contains sub-categories. Are you sure you want to affect this category and the sub-caegories?",
                     title: "Contains sub-categories!",
                     buttons: {
                       success: {
@@ -44,7 +44,7 @@ var UIBootbox = function () {
                         }
                       },
                       danger: {
-                        label: "Delete",
+                        label: "Proceed",
                         className: "red",
                         callback: function() {
                           $('#delete_category').click();

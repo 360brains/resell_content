@@ -34,8 +34,8 @@
                         <tr>
                             <th width="75px"> Sr No. </th>
                             <th> Level Name </th>
-                            <th> Type </th>
-                            <th> Wages </th>
+                            <th> Min Points </th>
+                            <th> Max Points </th>
                             <th> Status </th>
                             <th> Created </th>
 {{--                            <th> Last Updated </th>--}}
@@ -47,11 +47,11 @@
                         $i = 0;
                         @endphp
                             @forelse($levels as $level)
-                                <tr>
+                                <tr class="table-row-clickable" onclick="window.location = '{{ route('admin.levels.show', $level->id) }}'">
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $level->name }} </td>
-                                    <td> {{ $level->types->name }} </td>
-                                    <td> {{ $level->price }} </td>
+                                    <td> {{ $level->min_points ?? 'None' }} </td>
+                                    <td> {{ $level->max_points ?? 'None' }} </td>
                                     <td> {{ $level->active == 1 ? 'Active' : 'Deactive' }} </td>
                                     <td> {{ date('d-M-Y', strtotime($level->created_at)) }} </td>
 {{--                                    <td> {{ $level->updated_at }} </td>--}}
@@ -59,8 +59,7 @@
                                         <form action="{{ route('admin.levels.destroy',$level->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a class="btn btn-success" href="{{ route('admin.levels.show', $level->id) }}">Show</a>
-                                            <a class="btn btn-primary" href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
+                                                <a class="btn btn-primary" href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
                                             @if($level->active == 0)
                                                 <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>
                                             @else

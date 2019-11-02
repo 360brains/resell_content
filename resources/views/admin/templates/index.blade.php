@@ -43,7 +43,7 @@
                             $i = 0;
                         @endphp
                         @forelse($templates as $template)
-                            <tr>
+                            <tr class="table-row-clickable" onclick="window.location = '{{ route('admin.templates.show', $template->id) }}'">
                                 <td> {{ ++$i }} </td>
                                 <td> {{ $template->name }}</td>
                                 <td> {{ $template->created_at }} </td>
@@ -52,7 +52,6 @@
                                     <form action="{{ route('admin.templates.destroy',$template->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a class="btn btn-success" href="{{ route('admin.templates.show', $template->id) }}">Show</a>
                                         <a class="btn btn-primary" href="{{ route('admin.templates.edit', $template->id) }}">Edit</a>
                                         <button type="submit" class="btn btn-warning btn-outline sbold uppercase">Delete</button>
                                     </form>

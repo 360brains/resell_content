@@ -44,9 +44,9 @@
                         $i = 0;
                         @endphp
                             @forelse($categories as $category)
-                                <tr>
+                                <tr class="table-row-clickable" onclick="window.location = '{{route('admin.categories.show', $category->id)}}'">
                                     <td> {{ ++$i }} </td>
-                                    <td><a href="{{ route('admin.categories.show', $category->id) }}"> {{ $category->name }} </a></td>
+                                    <td> {{ $category->name }}</td>
                                     <td>{{ $category->parentCategory->name ?? 'None' }}</td>
                                     <td> {{ $category->created_at }} </td>
                                     <td> {{ $category->updated_at }} </td>
@@ -58,10 +58,19 @@
                                             <a class="btn btn-primary" href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>
 
                                             @if($category->childCategories->count() > 0)
-                                                <a class="btn btn-danger btn-outline sbold uppercase " id="demo_5"> Delete </a>
-                                                <button type="submit" class="btn btn-danger btn-outline sbold uppercase hidden-button" id="delete_category">Delete</button>
+                                                @if($category->active == 1)
+                                                    <a class="btn btn-danger btn-outline sbold uppercase " id="demo_5"> Inactive </a>
+                                                    <button type="submit" name="action" value="inactive" class="btn btn-danger btn-outline sbold uppercase hidden-button" id="delete_category">Proceed</button>
+                                                @elseif($category->active == 0)
+                                                    <button type="submit" name="action" value="active" class="btn btn-primary btn-outline sbold uppercase">Active</button>
+                                                @endif
+
                                             @else
-                                                <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Delete</button>
+                                                @if($category->active == 1)
+                                                <button type="submit" name="action" value="inactive" class="btn btn-danger btn-outline sbold uppercase">Inactive</button>
+                                                @elseif($category->active == 0)
+                                                    <button type="submit" name="action" value="active" class="btn btn-primary btn-outline sbold uppercase">Active</button>
+                                                @endif
                                             @endif
                                         </form>
                                     </td>

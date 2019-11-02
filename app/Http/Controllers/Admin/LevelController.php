@@ -16,7 +16,7 @@ class LevelController extends Controller
      */
     public function index()
     {
-        $data['levels'] = Level::with('types')->orderBy('name', 'asc')->paginate(10);
+        $data['levels'] = Level::where('active', 1)->orderBy('min_points', 'asc')->paginate(10);
         return view('admin.levels.index', $data);
     }
 
@@ -27,8 +27,7 @@ class LevelController extends Controller
      */
     public function create()
     {
-        $data['types'] = Type::get();
-        return view("admin.levels.create", $data);
+        return view("admin.levels.create");
     }
 
     /**
@@ -41,16 +40,16 @@ class LevelController extends Controller
     {
         $request->validate([
             'name'          => 'required',
-            'price'         => 'required',
-            'type_id'       => 'required',
+            'min_points'    => 'required',
+            'max_points'    => 'required',
             'active'        => 'required',
         ]);
 
         $data = [
             'name'          => $request->name,
-            'price'         => $request->price,
+            'min_points'    => $request->min_points,
+            'max_points'    => $request->max_points,
             'description'   => $request->description,
-            'type_id'       => $request->type_id,
             'active'        => $request->active,
         ];
 
@@ -71,7 +70,7 @@ class LevelController extends Controller
      */
     public function show(Level $level)
     {
-        $data['levels'] = $level;
+        $data['level'] = $level;
         return view('admin.levels.show', $data);
     }
 
@@ -84,7 +83,6 @@ class LevelController extends Controller
     public function edit(Level $level)
     {
         $data['level'] = $level;
-        $data['types'] = Type::get();
         return view('admin.levels.edit', $data);
     }
 
@@ -99,16 +97,18 @@ class LevelController extends Controller
     {
         $request->validate([
             'name'          => 'required',
-            'price'         => 'required',
-            'type_id'       => 'required',
+            'min_points'    => 'required',
+            'max_points'    => 'required',
             'active'        => 'required',
         ]);
-
             $level->name          = $request->name;
-            $level->price         = $request->price;
-            $level->type_id       = $request->type_id;
+            $level->min_points    = $request->min_points;
+            $level->max_points    = $request->max_points;
             $level->active        = $request->active;
+
         $response = $level->save();
+//        dd($level);
+
         if ($response){
             return redirect()->route('admin.levels.index')->with("success", "Successfully Completed.");
         }else{

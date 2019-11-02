@@ -45,7 +45,8 @@
                         $i = 0;
                         @endphp
                             @forelse($users as $user)
-                                <tr>
+                                <tr class="table-row-clickable" onclick="window.location = '{{route('admin.users.show', $user->id)}}'">
+
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $user->name }} </td>
                                     <td> {{ $user->gender }} </td>
@@ -56,8 +57,6 @@
                                         <form action="{{ route('admin.users.destroy',$user->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-
-                                            <a class="btn btn-success" href="{{ route('admin.users.show', $user->id) }}">Show</a>
                                             <a class="btn btn-primary" href="{{ route('admin.users.edit', $user->id) }}">Edit</a>
                                             @if($user->active == 0)
                                                 <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>

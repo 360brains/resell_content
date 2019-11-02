@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Project;
 use App\Models\Task;
+use App\Notifications\TaskResult;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,8 +23,6 @@ class TasksController extends Controller
         $training = 1;
         $isWorking = 0;
 
-        $level = auth()->user()->levels()->first();
-
         foreach (auth()->user()->tasks as $task){
             if ($task->status == 'started' OR $task->status == 'extended' OR $task->status == 'reworking'){
                 return redirect()->route('user.tasks')->with("error", "You already have a task. Complete it to get more.");
@@ -32,7 +31,12 @@ class TasksController extends Controller
 
         if ($project->active == 1 && $project->available > 0){
             // check if the user level type matches project level type
-            if ($level->types->name == $project->level->types->name && $level->name >= $project->level->name ){
+            if ( ($project->type->name == 'Content Writing' &&
+                 $project->level->name == auth()->user()->writing_level) OR
+                 ($project->type->name == 'Video Making' &&
+                 $project->level->name == auth()->user()->video_level) ){
+
+
                 // check if the user trainings matches project required trainings
                 foreach ($project->trainings as $projectTraining){
                     foreach (auth()->user()->trainings as $userTraining){
@@ -57,7 +61,6 @@ class TasksController extends Controller
                 'project_id'   => $id,
                 'user_id'      => auth()->user()->id,
                 'status'       => 'Started',
-
             ];
             if ($project->template_id != null){
                 $data['body']       = $project->template->body;
@@ -72,6 +75,13 @@ class TasksController extends Controller
             $project->update($available);
             $task       = Task::create($data);
             $response   = $task->statuses()->create($status);
+
+            $details = [
+                'taskName'      => $task->project->name,
+                'date'          => now(),
+                'message'        => 'Congratulations! You have been assigned a task'
+            ];
+            $task->user->notify(new TaskResult($details));
 
         }else{
             return redirect()->back()->with("error", "You do not have the required trainings.");
@@ -102,24 +112,20 @@ class TasksController extends Controller
                 'name' => 'delivered',
             ];
             $task->statuses()->create($data);
+        }
 
+//        elseif ($request->action == 'admin-save'){
+//            $task->body     = $request->body;
+//            $response       = $task->save();
+//
+//            if ($response){
+//                return redirect()->back()->with("success", "Completed Successfully.");
+//            }else{
+//                return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+//            }
+//        }
 
-
-            if ($response){
-                return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
-            }else{
-                return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
-            }
-        }elseif ($request->action == 'admin-save'){
-            $task->body     = $request->body;
-            $response       = $task->save();
-
-            if ($response){
-                return redirect()->back()->with("success", "Completed Successfully.");
-            }else{
-                return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
-            }
-        }elseif ($request->action == 'video'){
+        elseif ($request->action == 'video'){
 
             if ($request->hasFile("video") && $request->file('video')->isValid()) {
                 $filename           = $request->file('video')->getClientOriginalName();
@@ -134,23 +140,17 @@ class TasksController extends Controller
                     'name' => 'delivered',
                 ];
                 $task->statuses()->create($data);
-
-                if ($response){
-                    return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
-                }
             }
-                return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
-
 
         }else{
             $task->body         = $request->body;
             $response           = $task->save();
+        }
 
-            if ($response){
-                return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
-            }else{
-                return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
-            }
+        if ($response){
+            return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
 
     }

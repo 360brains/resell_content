@@ -66,15 +66,6 @@
                                         </select>
                                         <label>Type</label>
                                     </div>
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="level">
-                                            <option value="">Select level of training</option>
-                                            @foreach($levels as $level)
-                                                <option value="{{ $level->id }}" {{ $level->id ==  $trainings->type_id ? 'selected' : '' }}>{{ $level->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Level</label>
-                                    </div>
 
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active">

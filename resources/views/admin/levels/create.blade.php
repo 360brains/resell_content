@@ -43,10 +43,22 @@
                                         <input type="text" name="name" class="form-control" placeholder="Enter Level Name" value="{{old('name')}}">
                                         <label>Level Name</label>
                                     </div>
-                                    <div class="form-group form-md-line-input">
-                                        <input type="number" name="price" class="form-control" id="mask_number form_control_1" value="{{old('price')}}" placeholder="Enter wages for a Tasks">
-                                        <label>Task Wages</label>
+
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="min_points" class="form-control" id="form_control_1" placeholder="Enter min number of points" value="{{old('min_points')}}">
+                                                <label>Minimum Points</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="max_points" class="form-control" id="form_control_1" placeholder="Enter max number of points" value="{{old('max_points')}}">
+                                                <label>Maximun Points</label>
+                                            </div>
+                                        </div>
                                     </div>
+
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active" value="">
                                             <option value="">Status</option>
@@ -56,15 +68,6 @@
                                         <label>Status</label>
                                     </div>
 
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="type_id">
-                                            <option value="">Select a Type</option>
-                                            @foreach($types as $type)
-                                                <option value="{{ $type->id }}" {{old('type_id') == $type->id?'selected':''}}>{{ $type->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Type</label>
-                                    </div>
                                     <div class="form-group form-md-line-input">
                                         <textarea name="description" class="summernote" placeholder="Description">{{old('description')}}</textarea>
                                     </div>

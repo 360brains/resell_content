@@ -13,10 +13,26 @@
                 <!-- .topbar-nav -->
                 <a class="topbar-logo" href="{{ route('pages.home') }}"><img src="{{ asset('user/images/logo.png') }}" srcset="{{ asset('user/images/logo2x.png 2x') }}" alt="logo"></a>
                 <ul class="topbar-nav">
-                    <li class="topbar-nav-item relative"><span class="user-welcome d-none d-lg-inline-block">Welcome! {{ auth()->user()->name }}</span><a class="toggle-tigger user-thumb" href="#">
+                    <li class="topbar-nav-item relative" id="markAsRead" onclick="markNotificationAsRead()">
+                        <a href="#" class="toggle-tigger"><i class="far fa-bell pr-2"><span class="badge badge-info position-absolute btn-absolute-right">{{ count(auth()->user()->unreadNotifications) }}</span></i></a>
+                        <div class="toggle-class dropdown-content dropdown-content-right dropdown-arrow-right user-dropdown">
+                            <div class="user-status">
+                                <h6 class="user-status-title d-flex user-status-balance">Notification</h6>
+                            </div>
+                            <ul class="user-links">
+                                @forelse(auth()->user()->unreadNotifications as $notification)
+                                    <li class="pt-0 pb-0 pl-4 pr-4" data-toggle="tooltip"  title="Hooray!" data-placement="bottom">{{ $notification->data['message'] }}</li><hr class="mt-0 mb-0">
+                                @empty
+                                    <li class="pt-0 pb-0 pl-4 pr-4">No unread notification</li><hr>
+                                @endforelse
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                    <a class="toggle-tigger user-thumb" href="#">
                             <img src="{{ url(auth()->user()->avatar) }}" alt="">
                         </a>
-                        <div class="toggle-class dropdown-content dropdown-content-right dropdown-arrow-right user-dropdown">
+                    <div class="toggle-class dropdown-content dropdown-content-right-img dropdown-arrow-right user-dropdown">
                             <div class="user-status">
                                 <h6 class="user-status-title">Balance</h6>
                                 <div class="user-status-balance">
@@ -56,6 +72,7 @@
                     <li><a href="{{ route('user.dashboard') }}"><em class="ikon ikon-dashboard"></em> Dashboard</a></li>
                     <li><a href="{{ route('user.tasks') }}"><em class="ikon ikon-distribution"></em> My Tasks</a></li>
                     <li><a href="{{ route('user.transactions') }}"><em class="ikon ikon-transactions"></em> Transactions</a></li>
+                    <li><a href="{{ route('user.notifications') }}"><i class="far fa-bell "></i>&nbsp; Notifications</a></li>
                     <li><a href="{{ route('user.profile') }}"><em class="ikon ikon-user"></em> Profile</a></li>
                     <li class="has-dropdown page-links-all"><a class="drop-toggle" href="#"><em class="ikon ikon-exchange"></em> Brows</a>
                         <ul class="navbar-dropdown">

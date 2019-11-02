@@ -4778,11 +4778,26 @@ select.select-sm {
     font-size: 11px;
     line-height: 15px;
     text-align: center;
-    border-radius: 3px;
+    border-radius: 10px;
     font-weight: 500;
     color: #fff;
     border: 1px solid;
-    min-width: 60px
+    min-width: 60px;
+    margin-top: 3px;
+}
+
+.fa-bell .badge{
+    padding: 0px 0px;
+    font-size: 10px;
+    line-height: 15px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 500;
+    color: #fff;
+    border: 1px solid;
+    min-width: 17px;
+    min-height: 17px;
+    margin: 4px -2px 0px 0px;
 }
 
 .badge-sq {
@@ -5414,7 +5429,7 @@ select.select-sm {
         margin-bottom: 15px
     }
     .card-title {
-        font-size: 1.4em
+        font-size: 1em
     }
     .card-title-sm {
         font-size: 1.1em;
@@ -6097,7 +6112,7 @@ select.select-sm {
 [data-toggle="tooltip"] {
     cursor: help;
     color: #758698;
-    font-size: 11px
+    font-size: 16px
 }
 
 .tooltip-inner {
@@ -6270,6 +6285,11 @@ select.select-sm {
     left: auto;
     transform: translateX(0);
     right: 0
+}
+.dropdown-content-right-img {
+    left: auto;
+    transform: translateX(0);
+    right: 173px
 }
 
 .dropdown-arrow-left:after {
@@ -7119,7 +7139,7 @@ select.select-sm {
         margin-top: 1px
     }
     .token-balance:not(:last-child) {
-        margin-bottom: 25px
+        margin-bottom: 113px
     }
     .token-rate:not(:last-child),
     .token-bonus:not(:last-child) {
@@ -13706,4 +13726,36 @@ span.green_dot {
     border-radius: 50%;
     height: auto;
     margin-top: 2px;
+}
+.page-content .modal-body button{
+    padding: 13px;
+}
+.token-sales .profile-img .dashboard-user-img {
+    width: 72px;
+}
+.token-sales .user-data{
+    display: block;
+    width: 100%;
+}
+.token-sales .profile-name .name{
+    font-size: 20px;
+}
+.token-sales .pro .btn{
+    min-width: 91px;
+    border-radius: 20px;
+}
+.token-sales .user-data .progress-bar{
+    display: flex;
+    margin: 0px;
+
+}
+.token-sales .user-data ul li:nth-child(even){
+    font-size: 12px;
+}
+.token-sales .user-data ul li:nth-child(odd){
+    font-size: 14px;
+}
+.topbar-nav i{
+    font-size: 20px;
+    color: #0bbf0b;
 }

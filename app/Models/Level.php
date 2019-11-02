@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Level extends Model
 {
-    protected $fillable = ['name', 'description', 'type_id', 'active', 'price'];
+    protected $fillable = ['name', 'description', 'min_points', 'active', 'max_points'];
 
     public function types()
     {

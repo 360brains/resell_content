@@ -70,15 +70,6 @@
                                         <label>Type</label>
                                     </div>
                                     <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="level">
-                                            <option value="">Select level of Training</option>
-                                            @foreach($levels as $level)
-                                                <option value="{{ $level->id }}"  {{old('level')==$level->id?'selected':''}}>{{ $level->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Level</label>
-                                    </div>
-                                    <div class="form-group form-md-line-input">
                                         <input type="file" name="file" class="form-control" id="form_control_1">
                                         <label>Upload Zip File</label>
                                     </div>

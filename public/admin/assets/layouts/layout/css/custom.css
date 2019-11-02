@@ -2,3 +2,6 @@
 .hidden-button{
     display: none;
 }
+.table-row-clickable{
+    cursor: pointer;
+}

@@ -34,7 +34,6 @@
                             <th> Product </th>
                             <th> Date </th>
                             <th> Status </th>
-                            <th> Action </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -42,7 +41,7 @@
                         $i = 0;
                         @endphp
                             @forelse($transactions as $transaction)
-                                <tr>
+                                <tr class="table-row-clickable" onclick="window.location = '{{ route('admin.transactions.show', $transaction->id) }}'">
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $transaction->user->name }} </td>
                                     <td> {{ $transaction->amount }} </td>
@@ -57,7 +56,6 @@
                                     @endif
                                     <td> {{ $transaction->created_at }} </td>
                                     <td> {{ $transaction->status }} </td>
-                                    <td><a class="btn btn-success" href="{{ route('admin.transactions.show', $transaction->id) }}">Show</a></td>
                                 </tr>
                                 @empty
                                 <tr>
