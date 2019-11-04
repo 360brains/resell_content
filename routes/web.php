@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::post('user/tasks/upload-doc/{id}', 'User\OfficeController@uploadDoc')->name('user.tasks.upload.doc');
     Route::post('user/profile/edit-personal', 'User\ProfileController@editPersonal')->name('user.profile.edit.personal');
     Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')->name('user.profile.edit.password');
+    Route::resource('withdraw', 'WithdrawController');
 });
 Route::get('/', 'Pages\PagesController@home')->name('pages.home');
 Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');

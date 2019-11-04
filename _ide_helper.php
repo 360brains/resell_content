@@ -3,7 +3,11 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
+<<<<<<< HEAD
+ * Generated for Laravel 5.8.35 on 2019-11-02 17:40:24.
+=======
  * Generated for Laravel 5.8.35 on 2019-11-02 17:41:16.
+>>>>>>> 558505a94f67c68dff1400c271563cc3babf5fc6
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -9590,7 +9594,10 @@ namespace Illuminate\Support\Facades {
          * Checks whether or not the method is safe.
          *
          * @see https://tools.ietf.org/html/rfc7231#section-4.2.1
+<<<<<<< HEAD
+=======
          * @param bool $andCacheable Adds the additional condition that the method should be cacheable. True by default.
+>>>>>>> 558505a94f67c68dff1400c271563cc3babf5fc6
          * @return bool 
          * @static 
          */ 

@@ -164,7 +164,6 @@ return [
         Srmklive\PayPal\Providers\PayPalServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
-
         /*
          * Package Service Providers...
          */

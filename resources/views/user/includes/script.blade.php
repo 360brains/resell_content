@@ -1,5 +1,14 @@
 <script>
 
+        $("#amount").on("blur change", function() {
+            console.log($(this).val());
+            var amount = $("#amount").val();
+             var balance = $("#balance").val();
+             if (amount > balance){
+                 alert('Withdraw amount must be less than or equal to available balance!');
+             }
+        });
+
     function markNotificationAsRead(notificationCount) {
         if(notificationCount !=='0'){
             $.get('/markAsRead');
