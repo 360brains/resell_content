@@ -13767,10 +13767,9 @@ span.green_dot {
     font-size: 13px;
 }
 .notification-content-size {
-    font-size: 13px;
     height: 250px;
     overflow: auto;
 }
 .hr-m{
-    margin: 4px 0;
+    margin: 5px 0;
 }
