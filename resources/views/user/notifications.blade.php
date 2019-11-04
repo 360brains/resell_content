@@ -46,7 +46,6 @@
                         </tbody>
                     </table>
                     <div>
-                        {{auth()->user()->notifications()->paginate(10)->links()}}
                     </div>
                 </div>
                 <!-- .card-innr -->
