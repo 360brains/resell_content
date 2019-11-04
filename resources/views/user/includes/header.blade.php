@@ -17,22 +17,22 @@
                         <a href="#" class="toggle-tigger"><i class="far fa-bell pr-2"><span class="badge badge-info position-absolute btn-absolute-right">{{ count(auth()->user()->unreadNotifications) }}</span></i></a>
                         <div class="toggle-class dropdown-content dropdown-content-right dropdown-arrow-right user-dropdown">
                             <div class="user-status">
-                                <h6 class="user-status-title d-flex user-status-balance">Notification</h6>
+                                <h6 class="user-status-title d-flex notification-size user-status-balance">Notification</h6>
                             </div>
-                            <ul class="user-links">
+                            <ul class="user-links notification-content-size">
                                 @forelse(auth()->user()->unreadNotifications as $notification)
                                     <li class="pt-0 pb-0 pl-4 pr-4" data-toggle="tooltip"  title="Hooray!" data-placement="bottom">{{ $notification->data['message'] }}</li><hr class="mt-0 mb-0">
                                 @empty
-                                    <li class="pt-0 pb-0 pl-4 pr-4">No unread notification</li><hr>
+                                    <li class="pt-0 pb-0 pl-4 pr-4">No unread notification</li><hr class="hr-m">
                                 @endforelse
                             </ul>
                         </div>
                     </li>
-                    <li>
+                    <li class="topbar-nav-item relative">
                     <a class="toggle-tigger user-thumb" href="#">
                             <img src="{{ url(auth()->user()->avatar) }}" alt="">
                         </a>
-                    <div class="toggle-class dropdown-content dropdown-content-right-img dropdown-arrow-right user-dropdown">
+                    <div class="toggle-class dropdown-content  dropdown-content-right-img dropdown-arrow-right user-dropdown">
                             <div class="user-status">
                                 <h6 class="user-status-title">Balance</h6>
                                 <div class="user-status-balance">

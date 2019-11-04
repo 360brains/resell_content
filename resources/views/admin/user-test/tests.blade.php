@@ -65,7 +65,7 @@
                                 <td> {{ $test->test->deadline ?? 'None' }} </td>
                                 <td> {{ $test->status}} </td>
                                 <td>
-                                    <a class="btn btn-success" href="{{ route('admin.user.test.show', ['userId' => $test->user->id, 'testId' => $test->test->id] )}}">View</a>
+                                    <a class="btn btn-success" href="{{ route('admin.user.test.show', $test->id )}}">View</a>
                                 </td>
                             </tr>
                         @empty

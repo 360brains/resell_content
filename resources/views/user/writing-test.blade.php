@@ -8,7 +8,6 @@
                 <div class="col-lg-12">
                     <div class="referral-info card">
                         <div class="card-innr">
-                            {{ dd($test) }}
                             <h3 class="">{!! $test->description !!}</h3>
 
                         </div>

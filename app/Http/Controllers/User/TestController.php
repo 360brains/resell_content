@@ -126,7 +126,9 @@ class TestController extends Controller
                     'video'      => $videoName,
                     'status'    => 'completed',
                 ];
-                $response = auth()->user()->tests()->updateExistingPivot($id, $data);
+//                $response = auth()->user()->tests()->updateExistingPivot($id, $data);
+                $response = $test->update($data);
+
 
                 $details = [
                     'taskName'      => Test::where('id', $id)->select('name')->first(),

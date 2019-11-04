@@ -18,7 +18,7 @@ Auth::routes(['verify' => true]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'Admin', 'as' => 'admin.'], function (){
 
-    Route::get('user-test/show/{userId}/{testId}', 'UserTestController@showTest')->name('user.test.show');
+    Route::get('user-test/show/{id}', 'UserTestController@showTest')->name('user.test.show');
     Route::get('user-tests', 'UserTestController@userTests')->name('user.tests');
     Route::post('user-test/evaluate/{id}', 'UserTestController@evaluate')->name('user.test.evaluate');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');

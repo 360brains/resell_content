@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Level;
 use App\Models\Task;
 use App\Models\Transaction;
-use App\Models\User_level;
+use App\Models\UserLevel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +19,7 @@ class DashboardController extends Controller
         $data['totalEarned'] = $data['totalEarned'] + $task->project->price;
         }
         $data['transactions']   = Transaction::where('user_id', $user_id)->get();
-        $data['currentLevel']   = User_level::where('user_id', $user_id)->orderBy('created_at', 'desc')->take(1)->get();
+        $data['currentLevel']   = UserLevel::where('user_id', $user_id)->orderBy('created_at', 'desc')->take(1)->get();
         $myTask                 = Task::where('user_id', $user_id)->whereIn('status', array('started', 'extended', 'reworking'))->first();
         if (!is_null($myTask)){
         $myDate                 = strtotime($myTask->project->deadline);
