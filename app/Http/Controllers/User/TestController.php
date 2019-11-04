@@ -38,7 +38,9 @@ class TestController extends Controller
         ];
         auth()->user()->notify(new TaskResult($details));
 
-        return view('user.video-test', $data);
+//        return view('user.video-test', $data);
+        return redirect()->route('user.tests.video.test');
+
     }
 
     public function writingTest(){
@@ -69,7 +71,8 @@ class TestController extends Controller
         ];
         auth()->user()->notify(new TaskResult($details));
 
-        return view('user.writing-test', $data);
+        return redirect()->route('user.tests.writing.test');
+//        return view('user.writing-test', $data);
     }
 
     public function saveProgress(Request $request, $id){
