@@ -68,11 +68,11 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     function currentVideoTest(){
-        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video')->whereTypeId(2)->where('status' , '!=', 'failed');
+        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video')->whereTypeId(2)->where('status' , '!=', 'failed')->where('status' , '!=', 'passed');
     }
 
     function currentWritingTest(){
-        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video')->whereTypeId(1)->where('status' , '!=', 'failed');
+        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video')->whereTypeId(1)->where('status' , '!=', 'failed')->where('status' , '!=', 'passed');
     }
 
     function tasks(){
