@@ -60,9 +60,13 @@ class TrainingController extends Controller
             'type_id'       => $request->type,
             'fee'           => $request->fee,
             'description'   => $request->description,
+<<<<<<< HEAD
             'level_id'      => $request->level,
             'active'        => $request->active,
             'file'          => $name
+=======
+            'active'        => $request->active
+>>>>>>> e31befb737e684087777d74f94987f933084f009
         ];
         $response = Training::create($data);
         if ($response){

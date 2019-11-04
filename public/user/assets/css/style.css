@@ -13759,3 +13759,13 @@ span.green_dot {
     font-size: 20px;
     color: #0bbf0b;
 }
+.notification-size{
+    font-size: 15px;
+    width: 285px;
+}
+.notification-content-size{
+    font-size: 13px;
+}
+.hr-m{
+    margin: 4px 0;
+}

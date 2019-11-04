@@ -18,7 +18,7 @@ class TrainingController extends Controller
      */
     public function index()
     {
-        $data['trainings'] = Training::with('types')->orderBy('name', 'asc')->paginate(10);
+        $data['trainings'] = Training::with('types')->with('levels')->orderBy('name', 'asc')->paginate(10);
         return view('admin.trainings.index', $data);
     }
 
@@ -29,7 +29,8 @@ class TrainingController extends Controller
      */
     public function create()
     {
-        $data['types'] = Type::where('active', 1)->get();
+        $data['levels'] = Level::get();
+        $data['types'] = Type::get();
         return view('admin.trainings.create', $data);
     }
 
@@ -45,6 +46,7 @@ class TrainingController extends Controller
             'name'          => 'required',
             'type'          => 'required',
             'description'   => 'required',
+            'level'         => 'required',
             'active'        => 'required',
         ]);
         if ($request->hasFile("file") && $request->file('file')->isValid()) {
@@ -92,7 +94,8 @@ class TrainingController extends Controller
      */
     public function edit(Training $training)
     {
-        $data['types'] = Type::where('active', 1)->get();
+        $data['levels'] = Level::get();
+        $data['types'] = Type::get();
         $data['trainings']   = $training;
         return view('admin.trainings.edit', $data);
     }
@@ -111,12 +114,14 @@ class TrainingController extends Controller
             'type'          => 'required',
             'fee'           => 'required',
             'description'   => 'required',
+            'level'         => 'required',
             'active'        => 'required',
         ]);
         $training->name          = $request->name;
         $training->type_id       = $request->type;
         $training->fee           = $request->fee;
         $training->description   = $request->description;
+        $training->level_id      = $request->level;
         $training->active        = $request->active;
         $response = $training->save();
         if ($response){
