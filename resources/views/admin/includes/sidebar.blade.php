@@ -81,7 +81,7 @@
                 </a>
             </li>
 
-            <li class="nav-item  {{strpos((request()->path()),"admin/test") == 'true' ? 'active' : ''}}">
+            <li class="nav-item  {{strpos((request()->path()),"admin/user-test") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.user.tests') }}" class="nav-link">
                     <i class="icon-layers"></i>
                     <span class="title">User Tests</span>
@@ -91,6 +91,12 @@
                 <a href="{{ route('admin.transactions.index') }}" class="nav-link">
                     <i class="icon-layers"></i>
                     <span class="title">Transactions</span>
+                </a>
+            </li>
+            <li class="nav-item  {{strpos((request()->path()),"admin/memberships") == 'true' ? 'active' : ''}}">
+                <a href="{{ route('admin.memberships.index') }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Memberships</span>
                 </a>
             </li>
             <li class="nav-item  {{strpos((request()->path()),"admin/trainings") == 'true' ? 'active' : ''}}">
