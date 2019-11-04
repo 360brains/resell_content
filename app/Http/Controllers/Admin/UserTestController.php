@@ -14,8 +14,8 @@ class UserTestController extends Controller
         $data['tests'] = User_test::orderBy('updated_at', 'desc')->paginate(10);
         return view('admin.user-test.tests', $data);
     }
-    public function showTest($userId, $testId){
-        $data['test'] = User_test::where('user_id', $userId)->where('test_id', $testId)->first();
+    public function showTest($id){
+        $data['test'] = User_test::where('id', $id)->first();
         return view('admin.user-test.show', $data);
     }
 
