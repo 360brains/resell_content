@@ -77,7 +77,7 @@ class TasksController extends Controller
             $response   = $task->statuses()->create($status);
 
             $details = [
-                'taskName'      => $task->project->name,
+                'taskName'      => $project->name,
                 'date'          => now(),
                 'message'        => 'Congratulations! You have been assigned a task'
             ];
