@@ -39,6 +39,9 @@
                                     {{ auth()->user()->balance }}
                                     <small>PKR</small></div>
                             </div>
+                        <ul class="user-links">
+                            <li><a href="{{ route('withdraw.create') }}"><i class="ti ti-receipt"></i>Withdraw</a></li>
+                        </ul>
                             <ul class="user-links">
                                 <li><a href="{{ route('user.profile') }}"><i class="ti ti-id-badge"></i>My Profile</a></li>
                             </ul>
