@@ -18,9 +18,9 @@ Auth::routes(['verify' => true]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'Admin', 'as' => 'admin.'], function (){
 
-    Route::get('user-test/show/{userId}/{testId}', 'UserTestController@showTest')->name('user.test.show');
+    Route::get('user-test/show/{id}', 'UserTestController@showTest')->name('user.test.show');
     Route::get('user-tests', 'UserTestController@userTests')->name('user.tests');
-    Route::post('user-test/evaluate/{userId}/{testId}', 'UserTestController@evaluate')->name('user.test.evaluate');
+    Route::post('user-test/evaluate/{id}', 'UserTestController@evaluate')->name('user.test.evaluate');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::post('users/special/{id}',  'UserController@addToSpecial')->name('users.special');
     Route::resource('transactions', 'TransactionController');
@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::post('user/tasks/upload-doc/{id}', 'User\OfficeController@uploadDoc')->name('user.tasks.upload.doc');
     Route::post('user/profile/edit-personal', 'User\ProfileController@editPersonal')->name('user.profile.edit.personal');
     Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')->name('user.profile.edit.password');
+    Route::resource('withdraw', 'WithdrawController');
 });
 Route::get('/', 'Pages\PagesController@home')->name('pages.home');
 Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');
@@ -75,7 +76,9 @@ Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
 Route::get('send', 'HomeController@sendNotification');
-
+Route::get('/markAsRead',function(){
+    auth()->user()->unreadNotifications->markAsRead();
+});
 
 
 

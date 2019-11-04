@@ -21,17 +21,7 @@ class TestController extends Controller
             }
         }
 
-        $tests      = Test::where('level_id', $levels->id)->where('type_id', 2)->where('active', 1)->get();
-        $count      = count($tests);
-        $rand_num   = mt_rand(1,$count);
-        $i          = 1;
-        $test       = null;
-        foreach ($tests as $t){
-            if ($i == $rand_num){
-                $test = $t;
-                break;
-            }
-        }
+        $test       = Test::where('level_id', $levels->id)->where('type_id', 2)->get()->random(1)->first();
 
         $data['test'] = $test;
 
@@ -48,7 +38,9 @@ class TestController extends Controller
         ];
         auth()->user()->notify(new TaskResult($details));
 
-        return view('user.video-test', $data);
+//        return view('user.video-test', $data);
+        return redirect()->route('user.tests.video.test');
+
     }
 
     public function writingTest(){
@@ -61,25 +53,16 @@ class TestController extends Controller
             }
         }
 
-        $tests      = Test::where('level_id', $levels->id)->get();
-        $count      = count($tests);
-        $rand_num   = mt_rand(1,$count);
-        $i          = 1;
-        $test       = null;
-        foreach ($tests as $t){
-            if ($i == $rand_num){
-                $test = $t;
-                break;
-            }
-        }
-        $data['test'] = $test;
+        $test       = Test::where('level_id', $levels->id)->where('type_id', 1)->get()->random(1)->first();
 
         $user_test          = new User_test();
         $user_test->user_id = auth()->user()->id;
         $user_test->test_id = $test->id;
         $user_test->status  = 'started';
         $response           = $user_test->save();
-//      orderByRaw("RAND()");
+
+//kljh
+        $data['test'] = User_test::where('id', $user_test->id)->first();
 
         $details = [
             'taskName'      => $test->name,
@@ -88,18 +71,21 @@ class TestController extends Controller
         ];
         auth()->user()->notify(new TaskResult($details));
 
-        return view('user.writing-test', $data);
+        return redirect()->route('user.tests.writing.test');
+//        return view('user.writing-test', $data);
     }
 
     public function saveProgress(Request $request, $id){
-        $test = User_test::where('user_id', auth()->user()->id)->where('status', 'started')->where('test_id', $id)->first();
+        $test = User_test::where('id', $id)->first();
 
         if ($request->action == 'save'){
             $data = [
                 'body' => $request->body,
             ];
 
-            $response = auth()->user()->tests()->updateExistingPivot($id, $data);
+//            $response = auth()->user()->tests()->updateExistingPivot($id, $data);
+            $response = $test->update($data);
+
 
             if ($response){
                 return redirect()->back()->withInput($request->all())->with("success", "Completed successfully.");
@@ -113,7 +99,9 @@ class TestController extends Controller
                 'status'    => 'completed',
             ];
 
-            $response = auth()->user()->tests()->updateExistingPivot($id, $data);
+//            $response = auth()->user()->tests()->updateExistingPivot($id, $data);
+            $response = $test->update($data);
+
 
             $details = [
                 'taskName'      => Test::where('id', $id)->first(),
@@ -141,10 +129,12 @@ class TestController extends Controller
                     'video'      => $videoName,
                     'status'    => 'completed',
                 ];
-                $response = auth()->user()->tests()->updateExistingPivot($id, $data);
+//                $response = auth()->user()->tests()->updateExistingPivot($id, $data);
+                $response = $test->update($data);
+
 
                 $details = [
-                    'taskName'      => Test::where('id', $id)->first(),
+                    'taskName'      => Test::where('id', $id)->select('name')->first(),
                     'date'          => now(),
                     'message'       => 'You might have to wait for 2 days for approval.'
                 ];

@@ -13,52 +13,6 @@
     <!-- ========== Begin: Brows job Category ===============  -->
     <section class="brows-job-category">
         <div class="container">
-            <!-- Company Searrch Filter End -->
-            <div class="row extra-mrg">
-                <div class="wrap-search-filter">
-                    <form>
-                        <div class="col-md-3 col-sm-6">
-                            <input type="text" class="form-control" placeholder="Location: City, State, Zip">
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <select class="selectpicker form-control" multiple title="All Categories">
-                                <option>Information Technology</option>
-                                <option>Mechanical</option>
-                                <option>Hardware</option>
-                            </select>
-
-                        </div>
-
-                        <div class="col-md-6 col-sm-12">
-                            <div class="job-types">
-                                <label>
-                                    <input type="checkbox" class="full-time check-option checkbox" CHECKED />
-                                    Full Time
-                                </label>
-
-                                <label>
-                                    <input type="checkbox" class="part-time check-option checkbox" />
-                                    Part Time
-                                </label>
-
-                                <label>
-                                    <input type="checkbox" class="freelancer check-option checkbox" />
-                                    Freelancer
-                                </label>
-
-                                <label>
-                                    <input type="checkbox" class="internship check-option checkbox" />
-                                    Internship
-                                </label>
-
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-            <!-- Company Searrch Filter End -->
 
             <!-- Single Job List -->
             @forelse($projects as $project)
@@ -77,7 +31,7 @@
                                     <ul>
                                         <li>Total: {{ $project->quantity }}</li>
                                         <li>Level: {{ $project->level->name }}</li>
-                                        <li class="more-skill bg-primary">{{ $project->level->price }}</li>
+                                        <li class="more-skill bg-primary">{{ $project->price }}</li>
                                     </ul>
                                     {{--                                <p class="giveMeEllipsis">{!! $project->description !!} </p>--}}
                                 </div>
@@ -88,11 +42,11 @@
                             <ul class="grid-view-caption">
                                 <li>
                                     <div class="brows-job-location">
-                                        <p><i class="fa fa-clock-o"></i>{{ $project->deadline }}</p>
+                                        <p><i class="fa fa-clock-o"></i>{{ $project->deadline ?? 'None' }}</p>
                                     </div>
                                 </li>
                                 <li>
-                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $project->level->price }}</span></p>
+                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $project->price }}</span></p>
                                 </li>
                             </ul>
                         </div>

@@ -5,63 +5,159 @@
     <div class="page-content">
         <div class="container">
             <div class="row">
-
-                @if(auth()->user()->video_level == 0 && auth()->user()->video_level == 0)
-                    <div class="col-lg-12">
+                @if(auth()->user()->writing_points == 0)
+                    <div class="col-md-6">
                         <div class="content-area card">
                             <div class="card-innr">
-                                @if(count(auth()->user()->tests) >= 1)
-                                    @foreach(auth()->user()->tests as $test)
-                                        @if($test->pivot->status == 'completed' && $test->levels->name == 'Zero')
-                                            <h4>Your test is waiting approval. You will be promoted to level 1 if you pass.
-                                                <small>(You can take test again in case you fail).</small>
-                                            </h4>
-                                        @elseif($test->pivot->status == 'started' && $test->levels->name == 'Zero')
-                                            <div class="card-head d-inline">
-                                                <h6 class="d-inline card-title">Raise yor Level</h6><br>
-                                                <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
-                                            </div>
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">
-                                                Free Test
-                                            </button>
-                                            @break
-                                        @endif
-                                    @endforeach
-                                @else
-                                <div class="card-head d-inline">
-                                    <h6 class="d-inline card-title">Raise yor Level</h6><br>
-                                    <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
-                                </div>
-                                <!-- Button trigger modal -->
-                                <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">
-                                    Free Test
-                                </button>
-                                <!-- Modal -->
-                                @endif
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h3>Chose a test you would like to take.</h3>
-                                                <small class="text-light">Remember! you can chose from projects of type you have given test of.</small><br><br>
-                                                <a href="{{ route('user.tests.writing.test') }}" class="btn btn-info btn-block mt-3">Content Writing Test</a>
-                                                <a href="{{ route('user.tests.video.test') }}" class="btn btn-info btn-block mt-5 mb-5">Video Making Test</a>
-                                            </div>
-                                        </div>
+                                @forelse(auth()->user()->currentWritingTest as $test)
+                                    <div class="card-head d-inline">
+                                        <h6 class="d-inline card-title">Raise yor Level</h6><br>
+                                        <p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
                                     </div>
-                                </div>
+                                    @if($test->pivot->status == 'completed')
+                                    <!-- Button trigger modal -->
+                                        <button disabled class=" btn btn-info float-right">
+                                            Writing Test
+                                        </button>
+                                    @elseif($test->pivot->status == 'started')
+                                    <!-- Button trigger modal -->
+                                        <a  href="{{ route('user.tests.writing.test') }}" class=" btn btn-info float-right">
+                                            Writing Test
+                                        </a>
+                                    @else
+                                    <!-- Button trigger modal -->
+                                        <a  href="{{ route('user.tests.writing.test') }}" class=" btn btn-info float-right">
+                                            Writing Test
+                                        </a>
+                                    @endif
+                                @empty
+                                    <div class="card-head d-inline">
+                                        <h6 class="d-inline card-title">Raise yor Level</h6><br>
+                                        <p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                                    </div>
+                                    <!-- Button trigger modal -->
+                                    <a  href="{{ route('user.tests.writing.test') }}" class=" btn btn-info float-right">
+                                        Writing Test
+                                    </a>
+                                    <!-- Modal -->
+                                @endforelse
                             </div><!-- .card-innr -->
                         </div><!-- .card -->
                     </div>
                 @endif
 
-                <div class="col-lg-4">
+                @if(auth()->user()->video_points == 0)
+                    <div class="col-md-6">
+                        <div class="content-area card">
+                            <div class="card-innr">
+                                @forelse(auth()->user()->currentVideoTest as $test)
+                                    <div class="card-head d-inline">
+                                        <h6 class="d-inline card-title">Raise yor Level</h6><br>
+                                        <p class="d-inline">Your current Video Making Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                                    </div>
+                                        @if($test->pivot->status == 'completed')
+                                        <!-- Button trigger modal -->
+                                            <button disabled class=" btn btn-info float-right">
+                                                Video Making Test
+                                            </button>
+                                        @elseif($test->pivot->status == 'started')
+                                        <!-- Button trigger modal -->
+                                            <a  href="{{ route('user.tests.video.test') }}" class=" btn btn-info float-right">
+                                                Video Making Test
+                                            </a>
+                                        @else
+                                        <!-- Button trigger modal -->
+                                            <a  href="{{ route('user.tests.video.test') }}" class=" btn btn-info float-right">
+                                                Video Making Test
+                                            </a>
+                                        @endif
+                                @empty
+                                    <div class="card-head d-inline">
+                                        <h6 class="d-inline card-title">Raise yor Level</h6><br>
+                                        <p class="d-inline">Your current Video Making Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                                    </div>
+                                    <!-- Button trigger modal -->
+                                    <a  href="{{ route('user.tests.video.test') }}" class=" btn btn-info float-right">
+                                        Video Making Test
+                                    </a>
+                                    <!-- Modal -->
+                                @endforelse
+                            </div><!-- .card-innr -->
+                        </div><!-- .card -->
+                    </div>
+                @endif
+            </div>
+
+
+                {{--                    @if(auth()->user()->writing_level == 0 && auth()->user()->video_level == 0)--}}
+                {{--                        <div class="col-lg-12">--}}
+                {{--                            <div class="content-area card">--}}
+                {{--                                <div class="card-innr">--}}
+                {{--                                    @if(count(auth()->user()->tests) >= 1)--}}
+                {{--                                        @foreach(auth()->user()->tests as $test)--}}
+                {{--                                            @if($test->pivot->status == 'completed' && $test->levels->name == 'Zero')--}}
+                {{--                                                <h4>Your test is waiting approval. You will be promoted to level 1 if you pass.--}}
+                {{--                                                    <small>(You can take test again in case you fail).</small>--}}
+                {{--                                                </h4>--}}
+                {{--                                            @elseif($test->pivot->status == 'started' && $test->levels->name == 'Zero')--}}
+                {{--                                                <div class="card-head d-inline">--}}
+                {{--                                                    <h6 class="d-inline card-title">Raise yor Level</h6><br>--}}
+                {{--                                                    <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>--}}
+                {{--                                                </div>--}}
+                {{--                                                <!-- Button trigger modal -->--}}
+                {{--                                                <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">--}}
+                {{--                                                    Free Test--}}
+                {{--                                                </button>--}}
+                {{--                                                @break--}}
+                {{--                                            @elseif($test->pivot->status == 'failed' && $test->levels->name == 'Zero')--}}
+                {{--                                                <div class="card-head d-inline">--}}
+                {{--                                                    <h6 class="d-inline card-title">Raise yor Level</h6><br>--}}
+                {{--                                                    <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>--}}
+                {{--                                                </div>--}}
+                {{--                                                <!-- Button trigger modal -->--}}
+                {{--                                                <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">--}}
+                {{--                                                    Free Test--}}
+                {{--                                                </button>--}}
+                {{--                                                @break--}}
+                {{--                                            @endif--}}
+                {{--                                        @endforeach--}}
+                {{--                                    @else--}}
+                {{--                                        <div class="card-head d-inline">--}}
+                {{--                                            <h6 class="d-inline card-title">Raise yor Level</h6><br>--}}
+                {{--                                            <p class="d-inline">Your current Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>--}}
+                {{--                                        </div>--}}
+                {{--                                        <!-- Button trigger modal -->--}}
+                {{--                                        <button type="button" class=" btn btn-info float-right" data-toggle="modal" data-target="#exampleModalCenter">--}}
+                {{--                                            Free Test--}}
+                {{--                                        </button>--}}
+                {{--                                        <!-- Modal -->--}}
+                {{--                                    @endif--}}
+                {{--                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">--}}
+                {{--                                        <div class="modal-dialog modal-dialog-centered" role="document">--}}
+                {{--                                            <div class="modal-content">--}}
+                {{--                                                <div class="modal-header">--}}
+                {{--                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+                {{--                                                        <span aria-hidden="true">&times;</span>--}}
+                {{--                                                    </button>--}}
+                {{--                                                </div>--}}
+                {{--                                                <div class="modal-body">--}}
+                {{--                                                    <h3>Chose a test you would like to take.</h3>--}}
+                {{--                                                    <small class="text-light">Remember! you can chose from projects of type you have given test of.</small><br><br>--}}
+
+                {{--                                                    <a href="{{ route('user.tests.writing.test') }}" class="btn btn-info btn-block mt-3">Content Writing Test</a>--}}
+                {{--                                                    <a href="{{ route('user.tests.video.test') }}" class="btn btn-info btn-block mt-5 mb-5">Video Making Test</a>--}}
+                {{--                                                </div>--}}
+                {{--                                            </div>--}}
+                {{--                                        </div>--}}
+                {{--                                    </div>--}}
+                {{--                                </div><!-- .card-innr -->--}}
+                {{--                            </div><!-- .card -->--}}
+                {{--                        </div>--}}
+                {{--                    @endif--}}
+
+
+                <div class="row">
+                    <div class="col-lg-4">
                     <div class="token-statistics card card-token height-auto">
                         <div class="card-innr">
                             <div class="token-balance token-balance-with-icon">

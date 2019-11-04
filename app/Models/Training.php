@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Training extends Model
 {
-    protected $fillable = ['name', 'type_id','fee','description', 'active'];
+    protected $fillable = ['name', 'type_id','fee','description','level_id', 'active','file'];
+
     public function types()
     {
         return $this->belongsTo(Type::class, 'type_id');

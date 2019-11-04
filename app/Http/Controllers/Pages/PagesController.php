@@ -41,7 +41,13 @@ class PagesController extends Controller
             $data['projects']   = $data['projects']->where('type_id', $type);
         }
 
-        $data['projects']   = $data['projects']->paginate(5);
+        $data['projects']   = $data['projects']->orderBy('created_at', 'desc')->paginate(9);
+
+        return view('pages.projects', $data);
+    }
+
+    public function projectsByCategories($id){
+        $data['projects'] = Project::where('category_id', $id)->orderBy('created_at', 'desc')->paginate(9);
 
         return view('pages.projects', $data);
     }
