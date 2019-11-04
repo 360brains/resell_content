@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::post('users/special/{id}',  'UserController@addToSpecial')->name('users.special');
     Route::resource('transactions', 'TransactionController');
+    Route::resource('memberships', 'MembershipController');
     Route::resource('categories', 'CategoryController');
     Route::resource('trainings', 'TrainingController');
     Route::resource('projects', 'ProjectController');
