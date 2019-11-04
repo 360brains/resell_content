@@ -34,7 +34,7 @@
                             <th width="75px"> Sr No. </th>
                             <th> Membership Name </th>
                             <th> Price </th>
-                            <th> Duration </th>
+                            <th> Duration <small>(months)</small> </th>
                             <th> Action </th>
                         </tr>
                         </thead>
@@ -49,7 +49,7 @@
                                 <td> {{ $membership->price }} </td>
                                 <td> {{ $membership->duration }} </td>
                                 <td>
-                                    <form action="{{ route('admin.test.destroy',$membership->id) }}" method="POST">
+                                    <form action="{{ route('admin.memberships.destroy',$membership->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <a class="btn btn-primary" href="{{ route('admin.memberships.edit', $membership->id) }}">Edit</a>
