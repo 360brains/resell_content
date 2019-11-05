@@ -9,6 +9,7 @@ use App\Models\Template;
 use App\Models\Training;
 use App\Models\Type;
 use App\Models\Project;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -62,6 +63,8 @@ class ProjectController extends Controller
 
         if ($request->special == 'on') {
             $project->special = 1;
+            $users = User::where('special', 1)->get();
+            dd($users);
         }
 
         $response               = $project->save();
