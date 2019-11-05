@@ -7,7 +7,7 @@
             <div class="row">
                 @if(auth()->user()->writing_points == 0)
                     <div class="col-md-12">
-                        <div class="content-area shadow card">
+                        <div class="content-area card">
                             <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentWritingTest as $test)
                                     <div class="card-head d-inline">
@@ -48,7 +48,7 @@
 
                 @if(auth()->user()->video_points == 0)
                     <div class="col-md-12">
-                        <div class="content-area card shadow">
+                        <div class="content-area card ">
                             <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentVideoTest as $test)
                                     <div class="card-head d-inline">
@@ -316,13 +316,13 @@
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5">
-                    <div class="token-statistics card membership height-auto shadow-lg">
+                    <div class="token-statistics card membership height-auto ">
                         <div class="card-innr">
                             <div class="token-balance ">
                                 <div class="token-balance-text">
                                     <div class="countdown-clock" data-date="2019/04/05">
-                                        <div class="shadow"><span class="countdown-time countdown-time-first">DURATION</span><span class="countdown-text">1 month</span></div>
-                                        <div class="shadow"><span class="countdown-time">PRICE</span><span class="countdown-text">Rs.250</span></div>
+                                        <div ><span class="countdown-time countdown-time-first">DURATION</span><span class="countdown-text">1 month</span></div>
+                                        <div ><span class="countdown-time">PRICE</span><span class="countdown-text">Rs.250</span></div>
                                     </div>
                                 </div>
                                 <div class="text-center pt-5 pb-5">
