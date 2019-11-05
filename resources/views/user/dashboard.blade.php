@@ -251,7 +251,7 @@
                 </div>
                 <!-- .col -->
                 <div class="col-xl-8 col-lg-7">
-                    <div class="token-transaction card card-full-height">
+                    <div class="token-transaction card ">
                         <div class="card-innr">
                             <div class="card-head has-aside">
                                 <h4 class="card-title">Transaction</h4>
@@ -296,25 +296,7 @@
                             <!-- .table -->
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-5">
-                    <div class="referral-info card">
-                        <div class="card-innr">
-                            <h6 class="card-title card-title-sm">Earn with Referral</h6>
-                            <p class=" pdb-0-5x">Invite your friends &amp; family and Get <strong><span class="text-primary">10 points</span> for the current level.</strong></p>
-                            <div class="copy-wrap mgb-0-5x"><span class="copy-feedback"></span><em class="fas fa-link"></em>
-                                <input type="text" class="copy-address" value="{{ route('pages.home') }}/{{auth()->user()->id}}" disabled>
-                                <button class="copy-trigger copy-clipboard" data-clipboard-text="{{ route('pages.home') }}"><em class="ti ti-files"></em></button>
-                            </div>
-                            <!-- .copy-wrap -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- .row -->
-            <div class="row">
-                <div class="col-xl-8 col-lg-7">
-                    <div class="token-sale-graph card card-full-height">
+                    <div class="token-sale-graph card ">
                         <div class="card-innr">
                             <div class="card-head has-aside">
                                 <h4 class="card-title">Tokens Sale Graph</h4>
@@ -332,6 +314,31 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="token-statistics card membership height-auto shadow-lg">
+                        <div class="card-innr">
+                            <div class="token-balance ">
+                                <div class="token-balance-text">
+                                    <div class="countdown-clock" data-date="2019/04/05">
+                                        <div class="shadow"><span class="countdown-time countdown-time-first">DURATION</span><span class="countdown-text">1 month</span></div>
+                                        <div class="shadow"><span class="countdown-time">PRICE</span><span class="countdown-text">Rs.250</span></div>
+                                    </div>
+                                </div>
+                                <div class="text-center pt-5 pb-5">
+                                    <img src="{{ asset('user/images/premium.png') }}" alt="">
+                                </div>
+                            </div>
+                            <button class="btn btn-block btn-dark">Buy Membership</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- .row -->
+            <div class="row">
+                <div class="col-xl-8 col-lg-7">
+
                     <!-- .card -->
                 </div>
             {{--            <div class="col-lg-8">--}}
