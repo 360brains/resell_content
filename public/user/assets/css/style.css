@@ -13773,3 +13773,13 @@ span.green_dot {
 .hr-m{
     margin: 5px 0;
 }
+.membership .token-balance{
+    margin-bottom: 0px;
+}
+.membership .token-balance img{
+    width: 250px;
+    height: auto;
+}
+.membership li .lead{
+    color: black;
+}
