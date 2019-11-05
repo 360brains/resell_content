@@ -70,7 +70,7 @@
             <div class="gaps-2x"></div>
             <div class="gaps-2x"></div>
             <div class="form-note">Don’t have an account?
-                <a href="sign-up.html"> <strong>Sign up here</strong></a>
+                <a href="{{ route('register') }}"> <strong>Sign up here</strong></a>
             </div>
         </div>
         <div class="page-ath-footer">
