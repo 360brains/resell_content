@@ -201,7 +201,7 @@
                                 <strong class="text-light">{{ auth()->user()->email }}</strong>
                             </div>
                             <div class="user-data float-left pt-3">
-                                <strong class="text-light">From Pakistan</strong><br>
+                                <strong class="text-light">From {{ auth()->user()->country }}</strong><br>
                                 <strong class="text-light">Member since {{ auth()->user()->created_at }} </strong>
                                 <a href="{{route('user.profile')}}" type="button" class="btn btn-xs btn-block btn-info pt-2 mt-5">
                                     My Profile
