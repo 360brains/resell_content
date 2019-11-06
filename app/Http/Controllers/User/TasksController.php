@@ -30,6 +30,11 @@ class TasksController extends Controller
         }
 
         if ($project->active == 1 && $project->available > 0){
+
+            if ($project->special == 1 && auth()->user()->special == 1){
+
+            }
+
             // check if the user level type matches project level type
             if ( ($project->type->name == 'Content Writing' &&
                  $project->level->name == auth()->user()->writing_level) OR
@@ -54,6 +59,8 @@ class TasksController extends Controller
         }else{
             return redirect()->back()->with("error", "Project is not available");
         }
+
+
 
         if ($training == 1){
 
