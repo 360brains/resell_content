@@ -16,7 +16,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span> Test</span>
+                <span> Membership</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -30,10 +30,9 @@
                 </a>
             </div>
         </div>
-
     </div>
 
-    <h3 class="page-title">Details of <b>{{ $test->name }}</b>
+    <h3 class="page-title">Details of <b>{{ $membership->name }} <img width="30px" src="{{ asset($membership->badge) }}"></b>
     </h3>
 
     <div class="row">
@@ -43,44 +42,34 @@
                 <div class="portlet-body">
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
-                            <th>Test Name</th>
-                            <td>{{$test->name}}</td>
+                            <th>Membership Name</th>
+                            <td>{{$membership->name}}</td>
                         </tr>
 
                         <tr>
-                            <th>Test Type</th>
-                            <td>{{$test->types->name}}</td>
+                            <th>Price</th>
+                            <td>{{$membership->price}}</td>
                         </tr>
 
                         <tr>
-                            <th>Test Level</th>
-                            <td>{{$test->levels->name}}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Fee</th>
-                            <td>{{$test->fee}}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Status</th>
-                            <td>{{$test->active==1?'Active':'Deactive'}}</td>
+                            <th>Duration</th>
+                            <td>{{$membership->duration}} Months</td>
                         </tr>
 
                         <tr>
                             <th>Created</th>
-                            <td>{{$test->created_at}}</td>
+                            <td>{{$membership->created_at}}</td>
                         </tr>
 
                         <tr>
                             <th>Last Update</th>
-                            <td>{{$test->updated_at}}</td>
+                            <td>{{$membership->updated_at}}</td>
                         </tr>
 
                     </table>
 
                     <h3 >Description</h3>
-                    <div class="description">{!! $test->description !!}</div>
+                    <div class="description">{!! $membership->description !!}</div>
 
                 </div>
             </div>

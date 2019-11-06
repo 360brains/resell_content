@@ -7139,7 +7139,7 @@ select.select-sm {
         margin-top: 1px
     }
     .token-balance:not(:last-child) {
-        margin-bottom: 113px
+        margin-bottom: 165px
     }
     .token-rate:not(:last-child),
     .token-bonus:not(:last-child) {
@@ -13772,4 +13772,20 @@ span.green_dot {
 }
 .hr-m{
     margin: 5px 0;
+}
+.membership .token-balance{
+    margin-bottom: 0px;
+}
+.membership .token-balance img{
+    width: 250px;
+    height: auto;
+}
+.membership li .lead{
+    color: black;
+}
+.video-making-btn{
+    margin-top: -4px;
+}
+.video-making-card{
+    padding: 20px 20px 18px;
 }

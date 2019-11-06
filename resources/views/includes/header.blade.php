@@ -65,7 +65,7 @@
                 </ul>
             @else
                 <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li><a href="{{ route('pages.pricing') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>Pricing</a></li>
+{{--                    <li><a href="{{ route('pages.pricing') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>Pricing</a></li>--}}
                     <li class="left-br dropdown my-megamenu"><a href="{{ route('user.profile') }}"class="signin dropdown-toggle" data-toggle="dropdown"> {{ auth()->user()->name }} </a>
                         <ul class="dropdown-menu megamenu-user" role="menu">
                             <li>

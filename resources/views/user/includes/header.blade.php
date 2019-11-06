@@ -84,6 +84,7 @@
                             <li><a href="{{ route('pages.projects') }}"> Get Tasks </a></li>
                             <li><a href="{{ route('pages.home') }}"> How it Works </a></li>
                             <li><a href="{{ route('user.learn') }}"> Learn </a></li>
+                            <li><a href="{{ route('user.memberships') }}"> Memberships </a></li>
                             <li><a href="#"> Test </a></li>
                         </ul>
                     </li>

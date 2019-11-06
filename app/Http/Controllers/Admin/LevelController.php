@@ -104,6 +104,7 @@ class LevelController extends Controller
             $level->name          = $request->name;
             $level->min_points    = $request->min_points;
             $level->max_points    = $request->max_points;
+            $level->description   = $request->description;
             $level->active        = $request->active;
 
         $response = $level->save();

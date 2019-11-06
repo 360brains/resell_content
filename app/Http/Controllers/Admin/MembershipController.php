@@ -76,7 +76,8 @@ class MembershipController extends Controller
      */
     public function show(Membership $membership)
     {
-        //
+        $data['membership'] = $membership;
+        return view('admin.memberships.show', $data);
     }
 
     /**
@@ -104,10 +105,9 @@ class MembershipController extends Controller
             'name'          => 'required',
             'description'   => 'required',
             'price'         => 'required',
-            'duration'         => 'required',
+            'duration'      => 'required',
         ]);
 
-        $membership = new Membership();
         $membership->name          = $request->name;
         $membership->description   = $request->description;
         $membership->price         = $request->price;
@@ -138,6 +138,13 @@ class MembershipController extends Controller
      */
     public function destroy(Membership $membership)
     {
-        //
+        $membership->active    = $membership->active == 0 ? 1 : 0;
+        $response           = $membership->save();
+
+        if ($response){
+            return redirect()->back()->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
     }
 }

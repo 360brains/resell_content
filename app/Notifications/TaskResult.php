@@ -57,6 +57,8 @@ class TaskResult extends Notification implements ShouldQueue
             'taskName'  => $this->details['taskName'],
             'date'      => $this->details['date'],
             'message'   => $this->details['message'],
+            'tooltip'   => $this->details['tooltip'],
+            'link'      => $this->details['link'],
         ];
 
     }
