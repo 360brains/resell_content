@@ -166,10 +166,12 @@
                                 @if($transaction->task_id != NULL)
                                     <td>Task: {{ $transaction->task->name }} </td>
                                 @elseif($transaction->test_id != Null)
+
                                     <td>Test: {{ $transaction->test->name }} </td>
                                 @elseif($transaction->training_id != NULL)
                                     <td>Training: {{ $transaction->training->name }} </td>
                                 @endif
+
                                 <td> {{ $transaction->created_at }} </td>
                                 <td> {{ $transaction->status }} </td>
                                 <td><a class="btn btn-success" href="{{ route('admin.transactions.show', $transaction->id) }}">Show</a></td>
