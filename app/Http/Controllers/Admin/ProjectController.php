@@ -9,6 +9,8 @@ use App\Models\Template;
 use App\Models\Training;
 use App\Models\Type;
 use App\Models\Project;
+use App\Notifications\TaskResult;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -62,9 +64,26 @@ class ProjectController extends Controller
 
         if ($request->special == 'on') {
             $project->special = 1;
-        }
 
-        $response               = $project->save();
+            $response           = $project->save();
+            $lastInsertedId     = $project->id;
+            
+            $details = [
+                'taskName'      => $request->name,
+                'date'          => now(),
+                'message'       => 'Congratulations! You have been assigned a special task.',
+                'tooltip'       => ' It is a project that is only available and visible to the special users that we have chosen.',
+//                'link'          => '<a href="{{route(\'pages.project.details\', $lastInsertedId)}}" class="d-inline">Details</a>',
+                'link'          => "<a href=".route("pages.project.details", $lastInsertedId)." class='d-inline'>Details</a>",
+            ];
+
+            $users = User::where('special', 1)->get();
+            foreach ($users as $user){
+                $user->notify(new TaskResult($details));
+            }
+        }else{
+            $response          = $project->save();
+        }
 
         if ($response){
             $project->trainings()->sync($request->trainings);

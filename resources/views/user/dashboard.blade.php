@@ -6,13 +6,13 @@
         <div class="container">
             <div class="row">
                 @if(auth()->user()->writing_points == 0)
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="content-area card">
-                            <div class="card-innr">
+                            <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentWritingTest as $test)
                                     <div class="card-head d-inline">
-                                        <h6 class="d-inline card-title">Raise yor Level</h6><br>
-                                        <p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                                        <h6 class="d-inline card-title"><srtong>Raise yor Level:</srtong></h6>
+                                        <small><p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>
                                     @if($test->pivot->status == 'completed')
                                     <!-- Button trigger modal -->
@@ -21,22 +21,22 @@
                                         </button>
                                     @elseif($test->pivot->status == 'started')
                                     <!-- Button trigger modal -->
-                                        <a  href="{{ route('user.tests.writing.test') }}" class=" btn btn-info float-right">
+                                        <a  href="{{ route('user.tests.writing.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
                                             Writing Test
                                         </a>
                                     @else
                                     <!-- Button trigger modal -->
-                                        <a  href="{{ route('user.tests.writing.test') }}" class=" btn btn-info float-right">
+                                        <a  href="{{ route('user.tests.writing.test') }}" class="video-making-btn btn btn-sm btn-info float-right">
                                             Writing Test
                                         </a>
                                     @endif
                                 @empty
                                     <div class="card-head d-inline">
-                                        <h6 class="d-inline card-title">Raise yor Level</h6><br>
-                                        <p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                                        <h6 class="d-inline card-title"><srtong>Raise yor Level:</srtong></h6>
+                                       <small> <p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>
                                     <!-- Button trigger modal -->
-                                    <a  href="{{ route('user.tests.writing.test') }}" class=" btn btn-info float-right">
+                                    <a  href="{{ route('user.tests.writing.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
                                         Writing Test
                                     </a>
                                     <!-- Modal -->
@@ -47,37 +47,37 @@
                 @endif
 
                 @if(auth()->user()->video_points == 0)
-                    <div class="col-md-6">
-                        <div class="content-area card">
-                            <div class="card-innr">
+                    <div class="col-md-12">
+                        <div class="content-area card ">
+                            <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentVideoTest as $test)
                                     <div class="card-head d-inline">
-                                        <h6 class="d-inline card-title">Raise yor Level</h6><br>
-                                        <p class="d-inline">Your current Video Making Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                                        <h6 class="d-inline card-title"><srtong>Raise yor Level:</srtong></h6>
+                                       <small><p class="d-inline">Your current Video Making Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>
                                         @if($test->pivot->status == 'completed')
                                         <!-- Button trigger modal -->
-                                            <button disabled class=" btn btn-info float-right">
+                                            <button disabled class=" video-making-btn btn btn-sm btn-info float-right">
                                                 Video Making Test
                                             </button>
                                         @elseif($test->pivot->status == 'started')
                                         <!-- Button trigger modal -->
-                                            <a  href="{{ route('user.tests.video.test') }}" class=" btn btn-info float-right">
+                                            <a  href="{{ route('user.tests.video.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
                                                 Video Making Test
                                             </a>
                                         @else
                                         <!-- Button trigger modal -->
-                                            <a  href="{{ route('user.tests.video.test') }}" class=" btn btn-info float-right">
+                                            <a  href="{{ route('user.tests.video.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
                                                 Video Making Test
                                             </a>
                                         @endif
                                 @empty
                                     <div class="card-head d-inline">
-                                        <h6 class="d-inline card-title">Raise yor Level</h6><br>
-                                        <p class="d-inline">Your current Video Making Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
+                                        <h6 class="d-inline card-title"><srtong>Raise yor Level:</srtong></h6>
+                                       <small> <p class="d-inline">Your current Video Making Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>
                                     <!-- Button trigger modal -->
-                                    <a  href="{{ route('user.tests.video.test') }}" class=" btn btn-info float-right">
+                                    <a  href="{{ route('user.tests.video.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
                                         Video Making Test
                                     </a>
                                     <!-- Modal -->
@@ -202,7 +202,7 @@
                             <div class="user-data float-left pt-3">
                                 <strong class="text-light">From Pakistan</strong><br>
                                 <strong class="text-light">Member since {{ auth()->user()->created_at }} </strong>
-                                <button type="button" class="btn btn-xs btn-block btn-info pt-2 mt-2">
+                                <button type="button" class="btn btn-xs btn-block btn-info pt-2 mt-5">
                                     My Profile
                                 </button>
                             </div>
@@ -251,7 +251,7 @@
                 </div>
                 <!-- .col -->
                 <div class="col-xl-8 col-lg-7">
-                    <div class="token-transaction card card-full-height">
+                    <div class="token-transaction card ">
                         <div class="card-innr">
                             <div class="card-head has-aside">
                                 <h4 class="card-title">Transaction</h4>
@@ -296,25 +296,7 @@
                             <!-- .table -->
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-5">
-                    <div class="referral-info card">
-                        <div class="card-innr">
-                            <h6 class="card-title card-title-sm">Earn with Referral</h6>
-                            <p class=" pdb-0-5x">Invite your friends &amp; family and Get <strong><span class="text-primary">10 points</span> for the current level.</strong></p>
-                            <div class="copy-wrap mgb-0-5x"><span class="copy-feedback"></span><em class="fas fa-link"></em>
-                                <input type="text" class="copy-address" value="{{ route('pages.home') }}/{{auth()->user()->id}}" disabled>
-                                <button class="copy-trigger copy-clipboard" data-clipboard-text="{{ route('pages.home') }}"><em class="ti ti-files"></em></button>
-                            </div>
-                            <!-- .copy-wrap -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- .row -->
-            <div class="row">
-                <div class="col-xl-8 col-lg-7">
-                    <div class="token-sale-graph card card-full-height">
+                    <div class="token-sale-graph card ">
                         <div class="card-innr">
                             <div class="card-head has-aside">
                                 <h4 class="card-title">Tokens Sale Graph</h4>
@@ -332,6 +314,31 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="token-statistics card membership height-auto ">
+                        <div class="card-innr">
+                            <div class="token-balance ">
+                                <div class="token-balance-text">
+                                    <div class="countdown-clock" data-date="2019/04/05">
+                                        <div ><span class="countdown-time countdown-time-first">DURATION</span><span class="countdown-text">1 month</span></div>
+                                        <div ><span class="countdown-time">PRICE</span><span class="countdown-text">Rs.250</span></div>
+                                    </div>
+                                </div>
+                                <div class="text-center pt-5 pb-5">
+                                    <img src="{{ asset('user/images/premium.png') }}" alt="">
+                                </div>
+                            </div>
+                            <button class="btn btn-block btn-dark">Buy Membership</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- .row -->
+            <div class="row">
+                <div class="col-xl-8 col-lg-7">
+
                     <!-- .card -->
                 </div>
             {{--            <div class="col-lg-8">--}}
