@@ -51,16 +51,16 @@ class TrainingController extends Controller
             'image'         => 'required|mimes:jpg,jpeg,png',
         ]);
         if ($request->hasFile("zip") && $request->file('zip')->isValid()) {
-            $filename           = $request->file('zip')->getClientOriginalName();
-            $filename           = time()."-".$filename;
-            $destinationPath    = public_path('/trainings');
-            $name               = "trainings/".$filename;
-            $request->file('zip')->move($destinationPath, $filename);
+//            $filename           = $request->file('zip')->getClientOriginalName();
+//            $filename           = time()."-".$filename;
+//            $destinationPath    = public_path('/trainings');
+//            $name               = "trainings/".$filename;
+//            $request->file('zip')->move($destinationPath, $filename);
+//
+//            $Path               = public_path("trainings/".$filename);
 
-            $Path               = public_path("trainings/".$filename);
-
-            \Zipper::make($Path)->extractTo('Appdividend');
-            $logFiles = \Zipper::make($Path)->listFiles();
+            \Zipper::make($request->file('zip'))->extractTo('Appdividend');
+            $logFiles = \Zipper::make($request->file('zip'))->listFiles();
 
         }
 
@@ -77,7 +77,7 @@ class TrainingController extends Controller
             'fee'           => $request->fee,
             'description'   => $request->description,
             'active'        => $request->active,
-            'material'      => $name,
+//            'material'      => $name,
             'avatar'        => $imgName
         ];
         $response = Training::create($data);
