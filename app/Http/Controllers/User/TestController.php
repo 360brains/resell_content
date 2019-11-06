@@ -127,6 +127,11 @@ class TestController extends Controller
         }
         if ($request->action == 'video'){
 
+            $request->validate([
+                'video'         => 'required|mimes:mp4,3gp,mkv,flv',
+                'image'         => 'required|mimes:jpg,jpeg,png',
+            ]);
+
             if ($request->hasFile("video") && $request->file('video')->isValid()) {
                 $filename           = $request->file('video')->getClientOriginalName();
                 $filename           = time()."-".$filename;
