@@ -49,6 +49,7 @@
                 @if(auth()->user()->video_points == 0)
                     <div class="col-md-12">
                         <div class="content-area card ">
+                        <div class="content-area card ">
                             <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentVideoTest as $test)
                                     <div class="card-head d-inline">
@@ -202,9 +203,9 @@
                             <div class="user-data float-left pt-3">
                                 <strong class="text-light">From Pakistan</strong><br>
                                 <strong class="text-light">Member since {{ auth()->user()->created_at }} </strong>
-                                <button type="button" class="btn btn-xs btn-block btn-info pt-2 mt-5">
+                                <a href="{{route('user.profile')}}" type="button" class="btn btn-xs btn-block btn-info pt-2 mt-5">
                                     My Profile
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
