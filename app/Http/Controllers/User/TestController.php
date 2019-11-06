@@ -26,10 +26,11 @@ class TestController extends Controller
         $data['test'] = $test;
 
         $user_test = new User_test();
-        $user_test->user_id = auth()->user()->id;
-        $user_test->test_id = $test->id;
-        $user_test->status  = 'started';
-        $response           = $user_test->save();
+        $user_test->user_id     = auth()->user()->id;
+        $user_test->test_id     = $test->id;
+        $user_test->status      = 'started';
+        $user_test->deadline    = now()->addHours($test->deadline);
+        $response               = $user_test->save();
 
         $details = [
             'taskName'      => $test->name,
@@ -61,6 +62,7 @@ class TestController extends Controller
         $user_test->user_id = auth()->user()->id;
         $user_test->test_id = $test->id;
         $user_test->status  = 'started';
+        $user_test->deadline= now()->addHours($test->deadline);
         $response           = $user_test->save();
 
 //kljh

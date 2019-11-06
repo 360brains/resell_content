@@ -74,7 +74,9 @@ class TasksController extends Controller
                 'project_id'   => $id,
                 'user_id'      => auth()->user()->id,
                 'status'       => 'Started',
+                'deadline'     => now()->addHours($project->deadline),
             ];
+
             if ($project->template_id != null){
                 $data['body']       = $project->template->body;
             }
