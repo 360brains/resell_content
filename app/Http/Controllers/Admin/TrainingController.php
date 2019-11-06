@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Level;
 use App\Models\Test;
 use App\Models\Training;
+use App\Models\TrainingList;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -58,8 +59,9 @@ class TrainingController extends Controller
 
             $Path               = public_path("trainings/".$filename);
 
-//            \Zipper::make($Path)->extractTo('Appdividend');
-            dd(\Zipper::make($Path)->listFiles());
+            \Zipper::make($Path)->extractTo('Appdividend');
+            $logFiles = \Zipper::make($Path)->listFiles();
+
         }
 
         if ($request->hasFile("image") && $request->file('image')->isValid()) {
@@ -79,6 +81,14 @@ class TrainingController extends Controller
             'avatar'        => $imgName
         ];
         $response = Training::create($data);
+        $id       = $response->id;
+        foreach ($logFiles as $filesname){
+            $filesave = [
+                'name'          => $filesname,
+                'training_id'   => $id,
+            ];
+            TrainingList::create($filesave);
+        }
         if ($response){
             return redirect()->route('admin.trainings.index')->with("success", "Completed Successfully.");
         }else{
