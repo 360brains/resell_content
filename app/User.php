@@ -7,6 +7,7 @@ use App\Models\Task;
 use App\Models\Test;
 use App\Models\Training;
 use App\Models\Transaction;
+use App\Models\Withdraw;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -81,6 +82,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     function transactions(){
         return $this->hasMany(Transaction::class);
+    }
+    public function withdraws(){
+        return $this->hasMany(Withdraw::class);
     }
 
     public function getCreatedAtAttribute($date)

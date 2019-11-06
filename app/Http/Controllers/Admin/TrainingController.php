@@ -46,23 +46,32 @@ class TrainingController extends Controller
             'type'          => 'required',
             'description'   => 'required',
             'active'        => 'required',
+            'zip'           => 'required|mimes:zip,rar',
+            'image'         => 'required|mimes:jpg,jpeg,png',
         ]);
-        if ($request->hasFile("file") && $request->file('file')->isValid()) {
-            $filename           = $request->file('file')->getClientOriginalName();
+        if ($request->hasFile("zip") && $request->file('zip')->isValid()) {
+            $filename           = $request->file('zip')->getClientOriginalName();
             $filename           = time()."-".$filename;
             $destinationPath    = public_path('/trainings');
-            $name       = "trainings/".$filename;
-            $request->file('file')->move($destinationPath, $filename);
+            $name               = "trainings/".$filename;
+            $request->file('zip')->move($destinationPath, $filename);
         }
 
+        if ($request->hasFile("image") && $request->file('image')->isValid()) {
+            $imgFilename           = $request->file('image')->getClientOriginalName();
+            $imgFilename           = time()."-".$imgFilename;
+            $imgDestinationPath    = public_path('/images');
+            $imgName               = "images/".$imgFilename;
+            $request->file('image')->move($imgDestinationPath, $imgFilename);
+        }
         $data = [
             'name'          => $request->name,
             'type_id'       => $request->type,
             'fee'           => $request->fee,
             'description'   => $request->description,
-            'level_id'      => $request->level,
             'active'        => $request->active,
-            'file'          => $name
+            'material'      => $name,
+            'avatar'        => $imgName
         ];
         $response = Training::create($data);
         if ($response){

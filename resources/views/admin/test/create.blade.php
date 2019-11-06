@@ -72,8 +72,8 @@
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active">
                                             <option value="">Select status of test</option>
-                                                <option value="1" {{old('active')==1?'selected':''}}>Active</option>
-                                                <option value="0" {{old('active')==0?'selected':''}}>Inactive</option>
+                                                <option value="1" selected>Active</option>
+                                                <option value="0">Inactive</option>
                                         </select>
                                         <label>Status</label>
                                     </div>

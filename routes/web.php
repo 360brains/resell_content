@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::get('user-tests', 'UserTestController@userTests')->name('user.tests');
     Route::post('user-test/evaluate/{id}', 'UserTestController@evaluate')->name('user.test.evaluate');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('withrawRequests', 'TransactionController@withdrawIndex')->name('withrawRequests');
     Route::post('users/special/{id}',  'UserController@addToSpecial')->name('users.special');
     Route::resource('transactions', 'TransactionController');
     Route::resource('memberships', 'MembershipController');

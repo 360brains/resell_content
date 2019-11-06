@@ -23,7 +23,7 @@
         </div>
 
     </div>
-    <h3 class="page-title">Test
+    <h3 class="page-title">Trainings
         <small>Create Training</small>
     </h3>
 
@@ -70,14 +70,20 @@
                                         <label>Type</label>
                                     </div>
                                     <div class="form-group form-md-line-input">
-                                        <input type="file" name="file" class="form-control" id="form_control_1">
+                                        <input type="file" name="zip" accept=".zip,.rar" class="form-control" id="form_control_1">
                                         <label>Upload Zip File</label>
                                     </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <input type="file" name="image" accept=".jpg,.jpeg,.png," class="form-control" id="form_control_1">
+                                        <label>Upload image</label>
+                                    </div>
+
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active">
                                             <option value="">Select status of Training</option>
-                                                <option value="1"  {{old('active')==1?'selected':''}}>Active</option>
-                                                <option value="0"  {{old('active')==0?'selected':''}}>Deactive</option>
+                                                <option value="1" selected>Active</option>
+                                                <option value="0" >Deactive</option>
                                         </select>
                                         <label>Status</label>
                                     </div>
