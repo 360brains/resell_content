@@ -67,7 +67,7 @@ class ProjectController extends Controller
 
             $response           = $project->save();
             $lastInsertedId     = $project->id;
-            
+
             $details = [
                 'taskName'      => $request->name,
                 'date'          => now(),
