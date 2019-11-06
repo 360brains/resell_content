@@ -3,11 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
-<<<<<<< HEAD
- * Generated for Laravel 5.8.35 on 2019-11-02 17:40:24.
-=======
- * Generated for Laravel 5.8.35 on 2019-11-02 17:41:16.
->>>>>>> 558505a94f67c68dff1400c271563cc3babf5fc6
+ * Generated for Laravel 5.8.35 on 2019-11-06 15:55:37.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -9594,10 +9590,6 @@ namespace Illuminate\Support\Facades {
          * Checks whether or not the method is safe.
          *
          * @see https://tools.ietf.org/html/rfc7231#section-4.2.1
-<<<<<<< HEAD
-=======
-         * @param bool $andCacheable Adds the additional condition that the method should be cacheable. True by default.
->>>>>>> 558505a94f67c68dff1400c271563cc3babf5fc6
          * @return bool 
          * @static 
          */ 
@@ -14627,6 +14619,350 @@ namespace Srmklive\PayPal\Facades {
  
 }
 
+namespace Chumper\Zipper\Facades { 
+
+    /**
+     * 
+     *
+     */ 
+    class Zipper {
+        
+        /**
+         * Create a new zip Archive if the file does not exists
+         * opens a zip archive if the file exists
+         *
+         * @param $pathToFile string The file to open
+         * @param \Chumper\Zipper\RepositoryInterface|string $type The type of the archive, defaults to zip, possible are zip, phar
+         * @throws \RuntimeException
+         * @throws \Exception
+         * @throws \InvalidArgumentException
+         * @return \Chumper\Zipper\Zipper Zipper instance
+         * @static 
+         */ 
+        public static function make($pathToFile, $type = 'zip')
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->make($pathToFile, $type);
+        }
+        
+        /**
+         * Create a new zip archive or open an existing one
+         *
+         * @param $pathToFile
+         * @throws \Exception
+         * @return \Chumper\Zipper\Zipper 
+         * @static 
+         */ 
+        public static function zip($pathToFile)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->zip($pathToFile);
+        }
+        
+        /**
+         * Create a new phar file or open one
+         *
+         * @param $pathToFile
+         * @throws \Exception
+         * @return \Chumper\Zipper\Zipper 
+         * @static 
+         */ 
+        public static function phar($pathToFile)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->phar($pathToFile);
+        }
+        
+        /**
+         * Create a new rar file or open one
+         *
+         * @param $pathToFile
+         * @throws \Exception
+         * @return \Chumper\Zipper\Zipper 
+         * @static 
+         */ 
+        public static function rar($pathToFile)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->rar($pathToFile);
+        }
+        
+        /**
+         * Extracts the opened zip archive to the specified location <br/>
+         * you can provide an array of files and folders and define if they should be a white list
+         * or a black list to extract. By default this method compares file names using "string starts with" logic
+         *
+         * @param $path string The path to extract to
+         * @param array $files An array of files
+         * @param int $methodFlags The Method the files should be treated
+         * @throws \Exception
+         * @static 
+         */ 
+        public static function extractTo($path, $files = array(), $methodFlags = 2)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->extractTo($path, $files, $methodFlags);
+        }
+        
+        /**
+         * Extracts matching files/folders from the opened zip archive to the specified location.
+         *
+         * @param string $extractToPath The path to extract to
+         * @param string $regex regular expression used to match files. See @link http://php.net/manual/en/reference.pcre.pattern.syntax.php
+         * @throws \InvalidArgumentException
+         * @throws \RuntimeException
+         * @static 
+         */ 
+        public static function extractMatchingRegex($extractToPath, $regex)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->extractMatchingRegex($extractToPath, $regex);
+        }
+        
+        /**
+         * Gets the content of a single file if available
+         *
+         * @param $filePath string The full path (including all folders) of the file in the zip
+         * @throws \Exception
+         * @return mixed returns the content or throws an exception
+         * @static 
+         */ 
+        public static function getFileContent($filePath)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->getFileContent($filePath);
+        }
+        
+        /**
+         * Add one or multiple files to the zip.
+         *
+         * @param $pathToAdd array|string An array or string of files and folders to add
+         * @param null|mixed $fileName
+         * @return \Chumper\Zipper\Zipper Zipper instance
+         * @static 
+         */ 
+        public static function add($pathToAdd, $fileName = null)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->add($pathToAdd, $fileName);
+        }
+        
+        /**
+         * Add an empty directory
+         *
+         * @param $dirName
+         * @return \Zipper 
+         * @static 
+         */ 
+        public static function addEmptyDir($dirName)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->addEmptyDir($dirName);
+        }
+        
+        /**
+         * Add a file to the zip using its contents
+         *
+         * @param $filename string The name of the file to create
+         * @param $content string The file contents
+         * @return \Chumper\Zipper\Zipper Zipper instance
+         * @static 
+         */ 
+        public static function addString($filename, $content)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->addString($filename, $content);
+        }
+        
+        /**
+         * Gets the status of the zip.
+         *
+         * @return int The status of the internal zip file
+         * @static 
+         */ 
+        public static function getStatus()
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->getStatus();
+        }
+        
+        /**
+         * Remove a file or array of files and folders from the zip archive
+         *
+         * @param $fileToRemove array|string The path/array to the files in the zip
+         * @return \Chumper\Zipper\Zipper Zipper instance
+         * @static 
+         */ 
+        public static function remove($fileToRemove)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->remove($fileToRemove);
+        }
+        
+        /**
+         * Returns the path of the current zip file if there is one.
+         *
+         * @return string The path to the file
+         * @static 
+         */ 
+        public static function getFilePath()
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->getFilePath();
+        }
+        
+        /**
+         * Sets the password to be used for decompressing
+         *
+         * @param $password
+         * @return bool 
+         * @static 
+         */ 
+        public static function usePassword($password)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->usePassword($password);
+        }
+        
+        /**
+         * Closes the zip file and frees all handles
+         *
+         * @static 
+         */ 
+        public static function close()
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->close();
+        }
+        
+        /**
+         * Sets the internal folder to the given path.<br/>
+         * Useful for extracting only a segment of a zip file.
+         *
+         * @param $path
+         * @return \Chumper\Zipper\Zipper 
+         * @static 
+         */ 
+        public static function folder($path)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->folder($path);
+        }
+        
+        /**
+         * Resets the internal folder to the root of the zip file.
+         *
+         * @return \Chumper\Zipper\Zipper 
+         * @static 
+         */ 
+        public static function home()
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->home();
+        }
+        
+        /**
+         * Deletes the archive file
+         *
+         * @static 
+         */ 
+        public static function delete()
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->delete();
+        }
+        
+        /**
+         * Get the type of the Archive
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getArchiveType()
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->getArchiveType();
+        }
+        
+        /**
+         * Get the current internal folder pointer
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getCurrentFolderPath()
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->getCurrentFolderPath();
+        }
+        
+        /**
+         * Checks if a file is present in the archive
+         *
+         * @param $fileInArchive
+         * @return bool 
+         * @static 
+         */ 
+        public static function contains($fileInArchive)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->contains($fileInArchive);
+        }
+        
+        /**
+         * 
+         *
+         * @return \Chumper\Zipper\RepositoryInterface 
+         * @static 
+         */ 
+        public static function getRepository()
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->getRepository();
+        }
+        
+        /**
+         * 
+         *
+         * @return \Chumper\Zipper\Filesystem 
+         * @static 
+         */ 
+        public static function getFileHandler()
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->getFileHandler();
+        }
+        
+        /**
+         * Gets the path to the internal folder
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getInternalPath()
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->getInternalPath();
+        }
+        
+        /**
+         * List all files that are within the archive
+         *
+         * @param string|null $regexFilter regular expression to filter returned files/folders. See @link http://php.net/manual/en/reference.pcre.pattern.syntax.php
+         * @throws \RuntimeException
+         * @return array 
+         * @static 
+         */ 
+        public static function listFiles($regexFilter = null)
+        {
+                        /** @var \Chumper\Zipper\Zipper $instance */
+                        return $instance->listFiles($regexFilter);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -17422,6 +17758,8 @@ namespace  {
     class View extends \Illuminate\Support\Facades\View {}
 
     class PayPal extends \Srmklive\PayPal\Facades\PayPal {}
+
+    class Zipper extends \Chumper\Zipper\Facades\Zipper {}
  
 }
 

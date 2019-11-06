@@ -55,6 +55,11 @@ class TrainingController extends Controller
             $destinationPath    = public_path('/trainings');
             $name               = "trainings/".$filename;
             $request->file('zip')->move($destinationPath, $filename);
+
+            $Path               = public_path("trainings/".$filename);
+
+//            \Zipper::make($Path)->extractTo('Appdividend');
+            dd(\Zipper::make($Path)->listFiles());
         }
 
         if ($request->hasFile("image") && $request->file('image')->isValid()) {
