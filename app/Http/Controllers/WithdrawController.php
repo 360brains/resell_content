@@ -27,7 +27,7 @@ class WithdrawController extends Controller
     public function create()
     {
         $data['withdrawRequests']   = Withdraw::where('user_id', Auth::user()->id)->where('status', 'Pending')->latest()->get();
-        return view('admin.withdraws.index', $data);
+        return view('user.withdraw', $data);
     }
 
     /**
