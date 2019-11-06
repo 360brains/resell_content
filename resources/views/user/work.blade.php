@@ -75,7 +75,7 @@
                                         <h6 class="card-title card-title-sm">Upload your video</h6>
                                         <form action="{{ route('user.tasks.save.progress', $task->id) }}" method="post" enctype="multipart/form-data">
                                             @csrf
-                                            <input class="" type="file" id="video" name="video">
+                                            <input class="" type="file" accept=".mp4,.flv,.mkv,.3gp," id="video" name="video">
                                             <button class="btn btn-auto btn-lg btn-danger" name="action" value="video"><em class="fas fa-upload"></em> Upload </button>
                                         </form>
                                     </div>

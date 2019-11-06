@@ -18,7 +18,9 @@ class ProfileController extends Controller
             'name'          => 'required',
             'contact'       => 'required',
             'gender'        => 'required',
-            'country'       => 'required'
+            'country'       => 'required',
+            'image'         => 'required|mimes:jpg,jpeg,png',
+
         ]);
 
         $user = auth()->user();
