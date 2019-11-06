@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
-    protected $fillable = ['name', 'type_id','fee','description','level_id', 'active'];
+    protected $fillable = ['name', 'type_id','fee','description','level_id', 'active', 'deadline'];
     public function types()
     {
         return $this->belongsTo(Type::class, 'type_id');

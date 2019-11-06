@@ -47,6 +47,7 @@ class TestController extends Controller
             'description'   => 'required',
             'level'         => 'required',
             'active'        => 'required',
+            'deadline'      => 'required',
         ]);
 
         $data = [
@@ -55,7 +56,9 @@ class TestController extends Controller
             'fee'           => $request->fee,
             'description'   => $request->description,
             'level_id'      => $request->level,
-            'active'        => $request->active
+            'active'        => $request->active,
+            'deadline'      => $request->deadline
+
         ];
 
         $response = Test::create($data);
@@ -105,10 +108,10 @@ class TestController extends Controller
         $request->validate([
             'name'          => 'required',
             'type'          => 'required',
-            'fee'           => 'required',
             'description'   => 'required',
             'level'         => 'required',
             'active'        => 'required',
+            'deadline'      => 'required',
         ]);
 
 
@@ -118,6 +121,7 @@ class TestController extends Controller
             $test->description   = $request->description;
             $test->level_id      = $request->level;
             $test->active        = $request->active;
+            $test->deadline      = $request->deadline;
 
         $response = $test->save();
 

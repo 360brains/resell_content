@@ -45,10 +45,10 @@
                                         <label>Test Name</label>
                                     </div>
 
-                                    <div class="form-group form-md-line-input">
-                                        <input type="number" name="fee" class="form-control" id="mask_number form_control_1" placeholder="Enter Fee" value="{{old('fee')}}">
-                                        <label>Fee</label>
-                                    </div>
+{{--                                    <div class="form-group form-md-line-input">--}}
+{{--                                        <input type="number" name="fee" class="form-control" id="mask_number form_control_1" placeholder="Enter Fee" value="{{old('fee')}}">--}}
+{{--                                        <label>Fee</label>--}}
+{{--                                    </div>--}}
 
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="type">
@@ -68,7 +68,10 @@
                                         </select>
                                         <label>Level</label>
                                     </div>
-
+                                    <div class="form-group form-md-line-input">
+                                        <input type="number" name="deadline" class="form-control" id="form_control_1" placeholder="Time Awarded for test in hours" value="{{old('deadline')}}">
+                                        <label>Test Deadline <small>(in hours)</small></label>
+                                    </div>
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="active">
                                             <option value="">Select status of test</option>
