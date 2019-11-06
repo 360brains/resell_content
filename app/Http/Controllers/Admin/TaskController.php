@@ -152,7 +152,9 @@ class TaskController extends Controller
             $details = [
                 'taskName'      => $task->project->name,
                 'date'          => now(),
-                'message'        => 'Congratulations! Your task is approved'
+                'message'        => 'Congratulations! Your task is approved',
+                'tooltip'       => 'Your points and balance is updated',
+                'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take More</a>",
             ];
 
         }
@@ -169,8 +171,11 @@ class TaskController extends Controller
             $details = [
                 'taskName'      => $task->project->name,
                 'date'          => now(),
-                'message'        => 'Your task is rejected'
+                'message'        => 'Your task is rejected',
+                'tooltip'       => 'Try harder next time.',
+                'link'          => "<a href=".route("user.tasks")." class=\'d-inline\'>Details</a>",
             ];
+
         }
         elseif($request->action == 'reworking'){
             $task->status   = 'reworking';
@@ -182,7 +187,9 @@ class TaskController extends Controller
             $details = [
                 'taskName'      => $task->project->name,
                 'date'          => now(),
-                'message'        => 'Your task is opened for rework'
+                'message'        => 'Your task is opened for rework',
+                'tooltip'       => '',
+                'link'          => "<a href=".route("user.tasks")." class=\'d-inline\'>Details</a>",
             ];
         }
 

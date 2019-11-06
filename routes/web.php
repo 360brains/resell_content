@@ -63,6 +63,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')->name('user.profile.edit.password');
     Route::resource('withdraw', 'WithdrawController');
 });
+
 Route::get('/', 'Pages\PagesController@home')->name('pages.home');
 Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');
 Route::get('/howItWorks', 'Pages\PagesController@howItWorks')->name('pages.howItWorks');

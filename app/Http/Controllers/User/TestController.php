@@ -34,7 +34,9 @@ class TestController extends Controller
         $details = [
             'taskName'      => $test->name,
             'date'          => now(),
-            'message'       => 'You have been assigned a video making test.'
+            'message'       => 'You have been assigned a video making test.',
+            'tooltip'       => '',
+            'link'          => "",
         ];
         auth()->user()->notify(new TaskResult($details));
 
@@ -67,7 +69,9 @@ class TestController extends Controller
         $details = [
             'taskName'      => $test->name,
             'date'          => now(),
-            'message'       => 'You have been assigned a writing test.'
+            'message'       => 'You have been assigned a writing test.',
+            'tooltip'       => '',
+            'link'          => "",
         ];
         auth()->user()->notify(new TaskResult($details));
 
@@ -106,8 +110,11 @@ class TestController extends Controller
             $details = [
                 'taskName'      => Test::where('id', $id)->first(),
                 'date'          => now(),
-                'message'       => 'You might have to wait for 2 days for approval.'
+                'message'       => 'You might have to wait for 2 days for approval.',
+                'tooltip'       => 'Keep checking for result notification.',
+                'link'          => "",
             ];
+
             auth()->user()->notify(new TaskResult($details));
 
             if ($response){
@@ -136,8 +143,11 @@ class TestController extends Controller
                 $details = [
                     'taskName'      => Test::where('id', $id)->select('name')->first(),
                     'date'          => now(),
-                    'message'       => 'You might have to wait for 2 days for approval.'
+                    'message'       => 'You might have to wait for 2 days for approval.',
+                    'tooltip'       => 'You can Take more tasks during the waiting period ',
+                    'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take More</a>",
                 ];
+
                 auth()->user()->notify(new TaskResult($details));
 
                 if ($response){

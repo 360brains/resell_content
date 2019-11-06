@@ -73,7 +73,6 @@ class ProjectController extends Controller
                 'date'          => now(),
                 'message'       => 'Congratulations! You have been assigned a special task.',
                 'tooltip'       => ' It is a project that is only available and visible to the special users that we have chosen.',
-//                'link'          => '<a href="{{route(\'pages.project.details\', $lastInsertedId)}}" class="d-inline">Details</a>',
                 'link'          => "<a href=".route("pages.project.details", $lastInsertedId)." class='d-inline'>Details</a>",
             ];
 

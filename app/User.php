@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Admin\Membership;
 use App\Models\Level;
 use App\Models\Task;
 use App\Models\Test;
@@ -54,6 +55,10 @@ class User extends Authenticatable implements MustVerifyEmail
 
     function trainings(){
         return $this->belongsToMany(Training::class);
+    }
+
+    function memberships(){
+        return $this->belongsToMany(Membership::class);
     }
 
     function tests(){
