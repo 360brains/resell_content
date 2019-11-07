@@ -87,6 +87,12 @@
                     <span class="title">User Tests</span>
                 </a>
             </li>
+            <li class="nav-item  {{strpos((request()->path()),"admin/accounts") == 'true' ? 'active' : ''}}">
+                <a href="{{ route('admin.accounts.index') }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Accounts</span>
+                </a>
+            </li>
             <li class="nav-item  {{strpos((request()->path()),"admin/transactions") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.transactions.index') }}" class="nav-link">
                     <i class="icon-layers"></i>
