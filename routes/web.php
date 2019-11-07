@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::resource('tasks', 'TaskController');
     Route::resource('test', 'TestController');
     Route::resource('templates', 'TemplateController');
+    Route::resource('accounts', 'AccountController');
 
 
 });
@@ -47,6 +48,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
     Route::get('user/learn', 'User\LearnController@index')->name('user.learn');
     Route::get('user/memberships', 'User\MembershipController@index')->name('user.memberships');
+    Route::get('user/voucher', 'User\VoucherController@index')->name('user.voucher');
     Route::get('user/learn-details/{id}', 'User\LearnController@learnDetails')->name('user.learn.details');
     Route::get('user/transactions', 'User\TransactionController@index')->name('user.transactions');
     Route::get('user/notifications', 'User\NotificationController@index')->name('user.notifications');
