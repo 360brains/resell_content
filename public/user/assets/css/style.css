@@ -13789,3 +13789,28 @@ span.green_dot {
 .video-making-card{
     padding: 20px 20px 1px;
 }
+.voucher td {
+    padding-right: 63px;
+}
+
+.voucher {
+    height: 300px;
+}
+.voucher .heading{
+    padding: 10px;
+}
+.recipt{
+    background: #fff;
+    padding: 50px 0;
+}
+@media print{
+    .topbar-wrap{
+        display: none;
+    }
+    .footer-bar{
+        display: none;
+    }
+    .print-btn{
+        display: none;
+    }
+}
