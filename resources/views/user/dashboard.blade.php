@@ -11,7 +11,7 @@
                             <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentWritingTest as $test)
                                     <div class="card-head d-inline">
-                                        <h6 class="d-inline card-title"><srtong>Raise yor Level:</srtong></h6>
+                                        <h6 class="d-inline card-title"><srtong>Raise` yor Level:</srtong></h6>
                                         <small><p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>
                                     @if($test->pivot->status == 'completed')
