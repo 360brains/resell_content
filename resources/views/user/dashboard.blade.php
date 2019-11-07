@@ -322,13 +322,20 @@
                             <div class="token-balance ">
                                 <div class="token-balance-text">
                                     <div class="countdown-clock" data-date="2019/04/05">
-                                        <div ><span class="countdown-time countdown-time-first">DURATION</span><span class="countdown-text">1 month</span></div>
-                                        <div ><span class="countdown-time">PRICE</span><span class="countdown-text">Rs.250</span></div>
+                                        <div ><span class="countdown-time countdown-time-first">DURATION</span><span class="countdown-text">{{ $membership->duration }} month</span></div>
+                                        <div ><span class="countdown-time">PRICE</span><span class="countdown-text">Rs.{{ $membership->price }}</span></div>
                                     </div>
                                 </div>
                                 <div class="text-center pt-5 pb-5">
                                     <img src="{{ asset('user/images/premium.png') }}" alt="">
                                 </div>
+                            </div>
+                            <div>
+                                <ul class="membership-benefits">
+                                    <li>Get Premium Tasks</li>
+                                    <li>Earn Higher Wages</li>
+                                    <li>No level Restriction</li>
+                                </ul>
                             </div>
                             <button class="btn btn-block btn-dark">Buy Membership</button>
                         </div>

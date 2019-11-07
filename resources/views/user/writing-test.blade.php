@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <div class="referral-info card">
                         <div class="card-innr">
-                            <h3 class="">{!! $test->description !!}
+                            <h3 class="d-inline">{!! $test->description !!}
                                 <span class="float-right countdown-time">
                                 @php
                                     $now = new DateTime();

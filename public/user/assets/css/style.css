@@ -13789,3 +13789,13 @@ span.green_dot {
 .video-making-card{
     padding: 20px 20px 1px;
 }
+.membership-benefits li{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #495463;
+}
+.membership-benefits{
+    margin-bottom: 30px;
+}
