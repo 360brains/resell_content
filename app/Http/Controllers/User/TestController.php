@@ -65,7 +65,6 @@ class TestController extends Controller
         $user_test->deadline= now()->addHours($test->deadline);
         $response           = $user_test->save();
 
-//kljh
         $data['test'] = User_test::where('id', $user_test->id)->first();
 
         $details = [

@@ -21,6 +21,17 @@
                             @csrf
                             <input class="" type="file" id="video" name="video">
                             <button type="submit" class="btn btn-auto btn-lg btn-danger" name="action" value="video"><em class="fas fa-upload"></em> Upload </button>
+                            <span class="float-right countdown-time">
+                                @php
+                                    $now = new DateTime();
+                                    $future_date = new DateTime($test->pivot->deadline);
+
+                                    $interval = $future_date->diff($now);
+
+                                    echo $interval->format("%a days, %h hours, %i minutes left");
+                                @endphp
+{{--                                {{ $test->pivot->deadline }}--}}
+                            </span>
                         </form>
                     </div>
                     <!-- .copy-wrap -->

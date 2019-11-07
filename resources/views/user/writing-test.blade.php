@@ -8,7 +8,19 @@
                 <div class="col-lg-12">
                     <div class="referral-info card">
                         <div class="card-innr">
-                            <h3 class="">{!! $test->description !!}</h3>
+                            <h3 class="">{!! $test->description !!}
+                                <span class="float-right countdown-time">
+                                @php
+                                    $now = new DateTime();
+                                    $future_date = new DateTime($test->pivot->deadline);
+
+                                    $interval = $future_date->diff($now);
+
+                                    echo $interval->format("%a days, %h hours, %i minutes left");
+                                @endphp
+                                    {{--                                {{ $test->pivot->deadline }}--}}
+                            </span>
+                            </h3>
 
                         </div>
                         <!-- .copy-wrap -->
