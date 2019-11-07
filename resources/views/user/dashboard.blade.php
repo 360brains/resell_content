@@ -49,7 +49,6 @@
                 @if(auth()->user()->video_points == 0)
                     <div class="col-md-12">
                         <div class="content-area card ">
-                        <div class="content-area card ">
                             <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentVideoTest as $test)
                                     <div class="card-head d-inline">
