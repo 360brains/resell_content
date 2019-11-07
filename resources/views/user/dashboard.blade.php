@@ -11,7 +11,7 @@
                             <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentWritingTest as $test)
                                     <div class="card-head d-inline">
-                                        <h6 class="d-inline card-title"><srtong>Raise yor Level:</srtong></h6>
+                                        <h6 class="d-inline card-title"><srtong>Raise` yor Level:</srtong></h6>
                                         <small><p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>
                                     @if($test->pivot->status == 'completed')
@@ -200,11 +200,11 @@
                                 <strong class="text-light">{{ auth()->user()->email }}</strong>
                             </div>
                             <div class="user-data float-left pt-3">
-                                <strong class="text-light">From Pakistan</strong><br>
+                                <strong class="text-light">From {{ auth()->user()->country }}</strong><br>
                                 <strong class="text-light">Member since {{ auth()->user()->created_at }} </strong>
-                                <button type="button" class="btn btn-xs btn-block btn-info pt-2 mt-5">
+                                <a href="{{route('user.profile')}}" type="button" class="btn btn-xs btn-block btn-info pt-2 mt-5">
                                     My Profile
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -321,15 +321,24 @@
                             <div class="token-balance ">
                                 <div class="token-balance-text">
                                     <div class="countdown-clock" data-date="2019/04/05">
-                                        <div ><span class="countdown-time countdown-time-first">DURATION</span><span class="countdown-text">1 month</span></div>
-                                        <div ><span class="countdown-time">PRICE</span><span class="countdown-text">Rs.250</span></div>
+                                        <div ><span class="countdown-time countdown-time-first">DURATION</span><span class="countdown-text">{{ $membership->duration }} month</span></div>
+                                        <div ><span class="countdown-time">PRICE</span><span class="countdown-text">Rs.{{ $membership->price }}</span></div>
                                     </div>
                                 </div>
                                 <div class="text-center pt-5 pb-5">
                                     <img src="{{ asset('user/images/premium.png') }}" alt="">
                                 </div>
                             </div>
-                            <button class="btn btn-block btn-dark">Buy Membership</button>
+{{--                            <form action="{{ route('user.payment') }}" method="get">--}}
+                                <button class="btn btn-block btn-dark" data-toggle="modal" data-target="#pay-online">Buy Membership</button>
+{{--                            </form>--}}
+                            <div>
+                                <ul class="membership-benefits">
+                                    <li>Get Premium Tasks</li>
+                                    <li>Earn Higher Wages</li>
+                                    <li>No level Restriction</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -414,5 +423,48 @@
         </div>
         <!-- .container -->
     </div>
+
+
+
+    <!-- Modal Start -->
+    <div class="modal fade" id="pay-online" tabindex="-1">
+        <div class="modal-dialog modal-dialog-md modal-dialog-centered">
+            <div class="modal-content pb-0">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="popup-body">
+                    <h4 class="popup-title">Pay online For Membership</h4>
+                    <p class="lead">To receive <strong>Premium</strong> Membership require payment amount of <strong>{{ $membership->price }}</strong>.</p>
+                    <p>You can choose any of following payment method to make your payment. You will be nitified after your payment is varified.</p>
+                    <h5 class="mgt-1-5x font-mid">Select payment method:</h5>
+                    <ul class="pay-list guttar-20px">
+                        <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
+                                                    id="pay-coin"><label class="pay-check-label" for="pay-coin"><img src="images/pay-a.png"
+                                                                                                                     alt="pay-logo"></label></li>
+                        <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
+                                                    id="pay-coinpay"><label class="pay-check-label" for="pay-coinpay"><img
+                                    src="images/pay-b.png" alt="pay-logo"></label></li>
+                        <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
+                                                    id="pay-paypal"><label class="pay-check-label" for="pay-paypal"><img
+                                    src="images/pay-c.png" alt="pay-logo"></label></li>
+                    </ul><span class="text-light font-italic mgb-2x"><small>* Payment gateway company may charge you a
+                            processing fees.</small></span>
+                    <div class="pdb-2-5x pdt-1-5x"><input type="checkbox" class="input-checkbox input-checkbox-md"
+                                                          id="agree-term-3"><label for="agree-term-3">I hereby agree to the <strong>Membership purchase
+                                aggrement</strong>.</label></div>
+                    <ul class="d-flex flex-wrap align-items-center guttar-30px">
+                        <li><a href="#" data-dismiss="modal" data-toggle="modal" data-target="#pay-review"
+                               class="btn btn-primary"> Process to Pay <em
+                                    class="ti ti-arrow-right mgl-2x"></em></a></li>
+                        <li class="pdt-1x pdb-1x"><a href="{{ route('user.voucher') }}" class="link link-primary">Make Manual Payment</a></li>
+                    </ul>
+                    <div class="gaps-2x"></div>
+                    <div class="gaps-1x d-none d-sm-block"></div>
+                    <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>
+                        <p class="text-light">You will automatically redirect for payment after you click on process to pay.</p>
+                    </div>
+                </div>
+            </div><!-- .modal-content -->
+        </div><!-- .modal-dialog -->
+    </div><!-- Modal End -->
 
 @endsection

@@ -26,15 +26,18 @@ class TestController extends Controller
         $data['test'] = $test;
 
         $user_test = new User_test();
-        $user_test->user_id = auth()->user()->id;
-        $user_test->test_id = $test->id;
-        $user_test->status  = 'started';
-        $response           = $user_test->save();
+        $user_test->user_id     = auth()->user()->id;
+        $user_test->test_id     = $test->id;
+        $user_test->status      = 'started';
+        $user_test->deadline    = now()->addHours($test->deadline);
+        $response               = $user_test->save();
 
         $details = [
             'taskName'      => $test->name,
             'date'          => now(),
-            'message'       => 'You have been assigned a video making test.'
+            'message'       => 'You have been assigned a video making test.',
+            'tooltip'       => '',
+            'link'          => "",
         ];
         auth()->user()->notify(new TaskResult($details));
 
@@ -59,15 +62,17 @@ class TestController extends Controller
         $user_test->user_id = auth()->user()->id;
         $user_test->test_id = $test->id;
         $user_test->status  = 'started';
+        $user_test->deadline= now()->addHours($test->deadline);
         $response           = $user_test->save();
 
-//kljh
         $data['test'] = User_test::where('id', $user_test->id)->first();
 
         $details = [
             'taskName'      => $test->name,
             'date'          => now(),
-            'message'       => 'You have been assigned a writing test.'
+            'message'       => 'You have been assigned a writing test.',
+            'tooltip'       => '',
+            'link'          => "",
         ];
         auth()->user()->notify(new TaskResult($details));
 
@@ -106,8 +111,11 @@ class TestController extends Controller
             $details = [
                 'taskName'      => Test::where('id', $id)->first(),
                 'date'          => now(),
-                'message'       => 'You might have to wait for 2 days for approval.'
+                'message'       => 'You might have to wait for 2 days for approval.',
+                'tooltip'       => 'Keep checking for result notification.',
+                'link'          => "",
             ];
+
             auth()->user()->notify(new TaskResult($details));
 
             if ($response){
@@ -117,6 +125,11 @@ class TestController extends Controller
             }
         }
         if ($request->action == 'video'){
+
+            $request->validate([
+                'video'         => 'required|mimes:mp4,3gp,mkv,flv',
+                'image'         => 'required|mimes:jpg,jpeg,png',
+            ]);
 
             if ($request->hasFile("video") && $request->file('video')->isValid()) {
                 $filename           = $request->file('video')->getClientOriginalName();
@@ -136,8 +149,11 @@ class TestController extends Controller
                 $details = [
                     'taskName'      => Test::where('id', $id)->select('name')->first(),
                     'date'          => now(),
-                    'message'       => 'You might have to wait for 2 days for approval.'
+                    'message'       => 'You might have to wait for 2 days for approval.',
+                    'tooltip'       => 'You can Take more tasks during the waiting period ',
+                    'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take More</a>",
                 ];
+
                 auth()->user()->notify(new TaskResult($details));
 
                 if ($response){

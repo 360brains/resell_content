@@ -30,30 +30,43 @@ class TasksController extends Controller
         }
 
         if ($project->active == 1 && $project->available > 0){
-            // check if the user level type matches project level type
-            if ( ($project->type->name == 'Content Writing' &&
-                 $project->level->name == auth()->user()->writing_level) OR
-                 ($project->type->name == 'Video Making' &&
-                 $project->level->name == auth()->user()->video_level) ){
 
+            if(!is_null(auth()->user()->memberships()->where('name', 'Premium')->where('status', 'Bought')->first())){
 
-                // check if the user trainings matches project required trainings
-                foreach ($project->trainings as $projectTraining){
-                    foreach (auth()->user()->trainings as $userTraining){
-                        if ($projectTraining->name == $userTraining->name){
-                            $training = 1;
-                            break;
-                        }else{
-                            $training = 0;
+                $training = 1;
+
+            }elseif($project->special == 1 && auth()->user()->special == 1){
+
+                $training = 1;
+
+            }else{
+                // check if the user level type matches project level type
+                if ( ($project->type->name == 'Content Writing' &&
+                        $project->level->name == auth()->user()->writing_level) OR
+                    ($project->type->name == 'Video Making' &&
+                        $project->level->name == auth()->user()->video_level) ){
+
+                    // check if the user trainings matches project required trainings
+                    foreach ($project->trainings as $projectTraining){
+                        foreach (auth()->user()->trainings as $userTraining){
+                            if ($projectTraining->name == $userTraining->name){
+                                $training = 1;
+                                break;
+                            }else{
+                                $training = 0;
+                            }
                         }
                     }
+                }else{
+                    return redirect()->back()->with("error", "Your skills do not match project requirements");
                 }
-            }else{
-                return redirect()->back()->with("error", "Your skills do not match project requirements");
             }
+
         }else{
             return redirect()->back()->with("error", "Project is not available");
         }
+
+
 
         if ($training == 1){
 
@@ -61,7 +74,9 @@ class TasksController extends Controller
                 'project_id'   => $id,
                 'user_id'      => auth()->user()->id,
                 'status'       => 'Started',
+                'deadline'     => now()->addHours($project->deadline),
             ];
+
             if ($project->template_id != null){
                 $data['body']       = $project->template->body;
             }
@@ -79,8 +94,11 @@ class TasksController extends Controller
             $details = [
                 'taskName'      => $project->name,
                 'date'          => now(),
-                'message'        => 'Congratulations! You have been assigned a task'
+                'message'       => 'Congratulations! You have been assigned a task',
+                'tooltip'       => '',
+                'link'          => "<a href=".route("user.tasks")." class=\'d-inline\'>Details</a>",
             ];
+
             $task->user->notify(new TaskResult($details));
 
         }else{

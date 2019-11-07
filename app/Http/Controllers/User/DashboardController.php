@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Admin\Membership;
 use App\Models\Level;
 use App\Models\Task;
 use App\Models\Transaction;
@@ -15,6 +16,8 @@ class DashboardController extends Controller
         $user_id = auth()->user()->id;
         $data['totalEarned'] = 0;
         $tasks    = Task::where('user_id', $user_id)->where('status', 'approved')->get();
+        $data['membership'] = Membership::where('name', 'Premium')->first();
+
         foreach ($tasks as $task){
         $data['totalEarned'] = $data['totalEarned'] + $task->project->price;
         }

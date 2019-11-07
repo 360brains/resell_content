@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Withdraw;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WithdrawController extends Controller
 {
@@ -24,7 +26,8 @@ class WithdrawController extends Controller
      */
     public function create()
     {
-        return view('user.withdraw');
+        $data['withdrawRequests']   = Withdraw::where('user_id', Auth::user()->id)->where('status', 'Pending')->latest()->get();
+        return view('user.withdraw', $data);
     }
 
     /**
@@ -35,7 +38,34 @@ class WithdrawController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->balance < $request->amount){
+            return redirect()->route('withdraw.create')->withInput($request->all())->with('error','Requested amount must be less than or equal to available balance.');
+        }
+        else{
+            $request->validate([
+                'account'         => 'required',
+                'amount'          => 'required',
+            ]);
+            $data = [
+                'account'         => $request->account,
+                'amount'          => $request->amount,
+                'status'          => "Pending",
+                'user_id'         => Auth::user()->id,
+            ];
+
+            $response = Withdraw::create($data);
+            $remaining            = Auth::user()->balance - $request->amount;
+            $set                  = User::find( Auth::user()->id);
+            if ($set){
+                $set->balance     = $remaining;
+                $set->save();
+            }
+            if ($response){
+                return redirect()->route('withdraw.create')->with("success", "Completed Successfully.");
+            }else{
+                return redirect()->route('withdraw.create')->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+            }
+        }
     }
 
     /**

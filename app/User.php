@@ -2,11 +2,13 @@
 
 namespace App;
 
+use App\Admin\Membership;
 use App\Models\Level;
 use App\Models\Task;
 use App\Models\Test;
 use App\Models\Training;
 use App\Models\Transaction;
+use App\Models\Withdraw;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -55,8 +57,12 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Training::class);
     }
 
+    function memberships(){
+        return $this->belongsToMany(Membership::class);
+    }
+
     function tests(){
-        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video');
+        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video', 'deadline');
     }
 
     function videoTest(){
@@ -81,6 +87,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     function transactions(){
         return $this->hasMany(Transaction::class);
+    }
+    public function withdraws(){
+        return $this->hasMany(Withdraw::class);
     }
 
     public function getCreatedAtAttribute($date)

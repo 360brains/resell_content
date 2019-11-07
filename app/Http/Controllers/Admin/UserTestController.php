@@ -47,7 +47,9 @@ class UserTestController extends Controller
             $details = [
                 'taskName'      => $test->name,
                 'date'          => now(),
-                'message'       => 'Congratulations! Your test is approved.'
+                'message'       => 'Congratulations! Your test is approved.',
+                'tooltip'       => 'Now you can take tasks of your level',
+                'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Projects</a>",
             ];
             $user->notify(new TaskResult($details));
         }
@@ -63,7 +65,9 @@ class UserTestController extends Controller
             $details = [
                 'taskName'      => $test->name,
                 'date'          => now(),
-                'message'       => 'Your test is rejected. Try again.'
+                'message'       => 'Your test is rejected. Try again.',
+                'tooltip'       => 'Go to dashboard to take the test again.',
+                'link'          => "<a href=".route("user.dashboard")." class=\'d-inline\'>Dashboard</a>",
             ];
             $user->notify(new TaskResult($details));
 

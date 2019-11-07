@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::get('user-tests', 'UserTestController@userTests')->name('user.tests');
     Route::post('user-test/evaluate/{id}', 'UserTestController@evaluate')->name('user.test.evaluate');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('withrawRequests', 'TransactionController@withdrawIndex')->name('withrawRequests');
     Route::post('users/special/{id}',  'UserController@addToSpecial')->name('users.special');
     Route::resource('transactions', 'TransactionController');
     Route::resource('memberships', 'MembershipController');
@@ -33,6 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::resource('tasks', 'TaskController');
     Route::resource('test', 'TestController');
     Route::resource('templates', 'TemplateController');
+    Route::resource('accounts', 'AccountController');
 
 
 });
@@ -46,6 +48,8 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
     Route::get('user/learn', 'User\LearnController@index')->name('user.learn');
     Route::get('user/memberships', 'User\MembershipController@index')->name('user.memberships');
+    Route::get('user/voucher', 'User\VoucherController@index')->name('user.voucher');
+    Route::get('user/payment', 'User\PaymentController@index')->name('user.payment');
     Route::get('user/learn-details/{id}', 'User\LearnController@learnDetails')->name('user.learn.details');
     Route::get('user/transactions', 'User\TransactionController@index')->name('user.transactions');
     Route::get('user/notifications', 'User\NotificationController@index')->name('user.notifications');
@@ -62,6 +66,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')->name('user.profile.edit.password');
     Route::resource('withdraw', 'WithdrawController');
 });
+
 Route::get('/', 'Pages\PagesController@home')->name('pages.home');
 Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');
 Route::get('/howItWorks', 'Pages\PagesController@howItWorks')->name('pages.howItWorks');

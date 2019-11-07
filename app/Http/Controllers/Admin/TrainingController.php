@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Level;
 use App\Models\Test;
 use App\Models\Training;
+use App\Models\TrainingList;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -46,25 +47,48 @@ class TrainingController extends Controller
             'type'          => 'required',
             'description'   => 'required',
             'active'        => 'required',
+            'zip'           => 'required|mimes:zip,rar',
+            'image'         => 'required|mimes:jpg,jpeg,png',
         ]);
-        if ($request->hasFile("file") && $request->file('file')->isValid()) {
-            $filename           = $request->file('file')->getClientOriginalName();
-            $filename           = time()."-".$filename;
-            $destinationPath    = public_path('/trainings');
-            $name       = "trainings/".$filename;
-            $request->file('file')->move($destinationPath, $filename);
+        if ($request->hasFile("zip") && $request->file('zip')->isValid()) {
+//            $filename           = $request->file('zip')->getClientOriginalName();
+//            $filename           = time()."-".$filename;
+//            $destinationPath    = public_path('/trainings');
+//            $name               = "trainings/".$filename;
+//            $request->file('zip')->move($destinationPath, $filename);
+//
+//            $Path               = public_path("trainings/".$filename);
+
+            \Zipper::make($request->file('zip'))->extractTo('Appdividend');
+            $logFiles = \Zipper::make($request->file('zip'))->listFiles();
+
         }
 
+        if ($request->hasFile("image") && $request->file('image')->isValid()) {
+            $imgFilename           = $request->file('image')->getClientOriginalName();
+            $imgFilename           = time()."-".$imgFilename;
+            $imgDestinationPath    = public_path('/images');
+            $imgName               = "images/".$imgFilename;
+            $request->file('image')->move($imgDestinationPath, $imgFilename);
+        }
         $data = [
             'name'          => $request->name,
             'type_id'       => $request->type,
             'fee'           => $request->fee,
             'description'   => $request->description,
-            'level_id'      => $request->level,
             'active'        => $request->active,
-            'file'          => $name
+//            'material'      => $name,
+            'avatar'        => $imgName
         ];
         $response = Training::create($data);
+        $id       = $response->id;
+        foreach ($logFiles as $filesname){
+            $filesave = [
+                'name'          => $filesname,
+                'training_id'   => $id,
+            ];
+            TrainingList::create($filesave);
+        }
         if ($response){
             return redirect()->route('admin.trainings.index')->with("success", "Completed Successfully.");
         }else{

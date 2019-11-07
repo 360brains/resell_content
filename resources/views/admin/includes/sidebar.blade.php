@@ -87,6 +87,12 @@
                     <span class="title">User Tests</span>
                 </a>
             </li>
+            <li class="nav-item  {{strpos((request()->path()),"admin/accounts") == 'true' ? 'active' : ''}}">
+                <a href="{{ route('admin.accounts.index') }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Accounts</span>
+                </a>
+            </li>
             <li class="nav-item  {{strpos((request()->path()),"admin/transactions") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.transactions.index') }}" class="nav-link">
                     <i class="icon-layers"></i>
@@ -113,12 +119,22 @@
                 </a>
             </li>
 
+            <li class="nav-item  {{strpos((request()->path()),"admin/withrawRequests") == 'true' ? 'active' : ''}}">
+                <a href="{{ route('admin.withrawRequests') }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Withdraw Requests</span>
+                </a>
+            </li>
+
+
             <li class="nav-item  {{strpos((request()->path()),"backend/role") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.roles') }}" class="nav-link">
                     <i class="icon-layers"></i>
                     <span class="title">Roles</span>
                 </a>
             </li>
+
+
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->

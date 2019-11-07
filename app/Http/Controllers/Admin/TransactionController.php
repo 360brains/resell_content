@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Transaction;
+use App\Models\Withdraw;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -84,5 +85,9 @@ class TransactionController extends Controller
     public function destroy(Transaction $transaction)
     {
         //
+    }
+    public function withdrawIndex(){
+        $data['withdrawRequests']   = Withdraw::with('user')->orderBy('status', 'desc')->paginate(10);
+        return view('admin.withdraws.index', $data);
     }
 }

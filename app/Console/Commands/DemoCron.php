@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Task;
+use App\Models\User_test;
 use Illuminate\Console\Command;
 
 class DemoCron extends Command
@@ -38,9 +39,11 @@ class DemoCron extends Command
      */
     public function handle()
     {
-    $tasks = Task::whereIn('status', array('started', 'extended', 'reworking'))->get();
+        $tasks = Task::whereIn('status', array('started', 'extended', 'reworking'))->get();
+        $tests = User_test::where('status', 'started')->get();
+
     foreach ($tasks as $task){
-        $myDate = strtotime($task->project->deadline);
+        $myDate = strtotime($task->deadline);
         $now  = strtotime(date("y-m-d h:i:s"));
         $diff = $myDate - $now;
         if ($diff <= 0){
@@ -50,6 +53,18 @@ class DemoCron extends Command
             $task->update($data);
         }
     }
+
+        foreach ($tests as $test){
+            $myDate = strtotime($test->deadline);
+            $now  = strtotime(date("y-m-d h:i:s"));
+            $diff = $myDate - $now;
+            if ($diff <= 0){
+                $data = [
+                    'status' => 'failed',
+                ];
+                $test->update($data);
+            }
+        }
 
     }
 }

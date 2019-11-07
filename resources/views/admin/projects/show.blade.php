@@ -65,7 +65,10 @@
                             <th>Number of Tasks</th>
                             <td>{{$project->quantity}}</td>
                         </tr>
-
+                        <tr>
+                            <th>Available Tasks</th>
+                            <td>{{$project->available   }}</td>
+                        </tr>
                         <tr>
                             <th>Category</th>
                             <td>{{$project->category->name}}</td>

@@ -18,12 +18,16 @@ class ProfileController extends Controller
             'name'          => 'required',
             'contact'       => 'required',
             'gender'        => 'required',
+            'country'       => 'required',
+            'image'         => 'required|mimes:jpg,jpeg,png',
+
         ]);
 
         $user = auth()->user();
         $user->name     = $request->name;
         $user->contact  = $request->contact;
         $user->gender   = $request->gender;
+        $user->country   = $request->country;
 
         if ($request->hasFile("image") && $request->file('image')->isValid()) {
             $filename           = $request->file('image')->getClientOriginalName();

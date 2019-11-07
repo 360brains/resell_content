@@ -10,22 +10,23 @@ use App\Http\Controllers\Controller;
 class OfficeController extends Controller
 {
     public function createDoc($id){
-        $task = Task::find($id);
-        $word = new \PhpOffice\PhpWord\PhpWord();
-        $section = $word->addSection();
-        $html = $task->body;
+        $task       = Task::find($id);
+        $body       = str_replace("<br>","<br></br>",$task->body);
+        $word       = new \PhpOffice\PhpWord\PhpWord();
+        $section    = $word->addSection();
+        $html       = $task->body;
 
         \PhpOffice\PhpWord\Shared\Html::addHtml($section, $html, false, false);
 
 
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($word, 'Word2007');
         try{
-            $objWriter->save(storage_path('helloWorld.docx'));
+            $objWriter->save(storage_path('MyTask.docx'));
 
         }catch(Exception $e){
 
         }
-        return response()->download(storage_path('helloWorld.docx'));
+        return response()->download(storage_path('MyTask.docx'));
     }
 
     public function uploadDoc(Request $request, $id){

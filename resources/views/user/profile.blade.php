@@ -37,8 +37,8 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="input-item input-with-label">
-                                                    <label for="date-of-birth" class="input-item-label">Date of Birth</label>
-                                                    <input class="input-bordered date-picker-dob" type="text" id="date-of-birth" name="date-of-birth">
+                                                    <label for="country" class="input-item-label">Country</label>
+                                                    <input class="input-bordered" type="text" id="country" value="{{ auth()->user()->country }}" name="country">
                                                 </div>
                                                 <!-- .input-item -->
                                             </div>

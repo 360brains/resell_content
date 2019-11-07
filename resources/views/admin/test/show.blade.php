@@ -58,6 +58,11 @@
                         </tr>
 
                         <tr>
+                            <th>Deadline</th>
+                            <td>{{$test->deadline}}</td>
+                        </tr>
+
+                        <tr>
                             <th>Fee</th>
                             <td>{{$test->fee}}</td>
                         </tr>

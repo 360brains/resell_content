@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends Model
 {
-    protected $fillable = ['name', 'type_id','fee','description','level_id', 'active'];
+    protected $fillable = ['name', 'type_id','fee','description','level_id', 'active', 'deadline'];
     public function types()
     {
         return $this->belongsTo(Type::class, 'type_id');
@@ -17,7 +17,7 @@ class Test extends Model
         return $this->belongsTo(Level::class, 'level_id');
     }
     function users(){
-        return $this->belongsToMany(User::class, 'user_tests')->withPivot('id', 'status', 'body', 'video');
+        return $this->belongsToMany(User::class, 'user_tests')->withPivot('id', 'status', 'body', 'deadline' , 'video');
     }
 
 

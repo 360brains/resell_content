@@ -47,6 +47,11 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
+                                        <input type="number" name="deadline" value="{{$test->deadline}}" class="form-control" id="mask_number form_control_1" placeholder="Enter Deadline">
+                                        <label>Deadline</label>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
                                         <input type="number" name="fee" value="{{$test->fee}}" class="form-control" id="mask_number form_control_1" placeholder="Enter Fee">
                                         <label>Fee</label>
                                     </div>
