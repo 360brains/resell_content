@@ -13813,4 +13813,13 @@ span.green_dot {
     .print-btn{
         display: none;
     }
+.membership-benefits li{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #495463;
+}
+.membership-benefits{
+    margin-bottom: 30px;
 }

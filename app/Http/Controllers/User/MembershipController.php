@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Admin\Membership;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class MembershipController extends Controller
 {
     public function index(){
-        return view('user.memberships');
+        $data['membership'] = Membership::where('name', 'Premium')->first();
+        return view('user.memberships', $data);
     }
 }
