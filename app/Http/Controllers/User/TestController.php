@@ -21,7 +21,17 @@ class TestController extends Controller
             }
         }
 
-        $test       = Test::where('level_id', $levels->id)->where('type_id', 2)->get()->random(1)->first();
+//        $test       = Test::where('level_id', $levels->id)->where('type_id', 2)->get()->random(1)->first();
+        // query above is for tests of different levels.
+        $lastTest = null;
+        if(count(auth()->user()->lastVideoTest) > 0){
+            foreach(auth()->user()->lastVideoTest as $t){
+                $lastid     = $t->id;
+                $test       = Test::where('id', '!=' , $lastid)->where('type_id', 2)->get()->random(1)->first();
+            }
+        }else{
+            $test       = Test::where('type_id', 2)->get()->random(1)->first();
+        }
 
         $data['test'] = $test;
 
@@ -56,7 +66,18 @@ class TestController extends Controller
             }
         }
 
-        $test       = Test::where('level_id', $levels->id)->where('type_id', 1)->get()->random(1)->first();
+        $lastTest = null;
+        if(count(auth()->user()->lastWritingTest) > 0){
+            foreach(auth()->user()->lastWritingTest as $t){
+                $lastid     = $t->id;
+                $test       = Test::where('id', '!=' , $lastid)->where('type_id', 1)->get()->random(1)->first();
+            }
+        }else{
+            $test           = Test::where('type_id', 1)->get()->random(1)->first();
+        }
+
+        // $test       = Test::where('level_id', $levels->id)->where('type_id', 1)->get()->random(1)->first();
+        // query above is for tests of different levels.
 
         $user_test          = new User_test();
         $user_test->user_id = auth()->user()->id;
@@ -128,7 +149,6 @@ class TestController extends Controller
 
             $request->validate([
                 'video'         => 'required|mimes:mp4,3gp,mkv,flv',
-                'image'         => 'required|mimes:jpg,jpeg,png',
             ]);
 
             if ($request->hasFile("video") && $request->file('video')->isValid()) {
