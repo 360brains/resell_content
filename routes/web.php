@@ -42,8 +42,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::group(['middleware' => ['auth', 'verified']], function() {
+// ['auth', 'verified']
+// Use when email setup is complete
+Route::group(['middleware' => ['auth']], function() {
     Route::get('user/dashboard', 'User\DashboardController@index')->name('user.dashboard');
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
     Route::get('user/learn', 'User\LearnController@index')->name('user.learn');
