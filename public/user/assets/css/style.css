@@ -13803,16 +13803,19 @@ span.green_dot {
     background: #fff;
     padding: 50px 0;
 }
-@media print{
-    .topbar-wrap{
+@media print {
+    .topbar-wrap {
         display: none;
     }
-    .footer-bar{
+
+    .footer-bar {
         display: none;
     }
-    .print-btn{
+
+    .print-btn {
         display: none;
     }
+}
 .membership-benefits li{
     text-align: center;
     width: 80%;
@@ -13823,3 +13826,4 @@ span.green_dot {
 .membership-benefits{
     margin-top: 30px;
 }
+

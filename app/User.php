@@ -66,19 +66,25 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     function videoTest(){
-        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video')->whereTypeId(2);
+        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video', 'deadline')->whereTypeId(2);
+    }
+    function lastVideoTest(){
+        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video', 'deadline')->whereTypeId(2)->orderBy('created_at', 'desc')->limit(1);
     }
 
     function writingTest(){
-        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video')->whereTypeId(1);
+        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video', 'deadline')->whereTypeId(1);
+    }
+    function lastWritingTest(){
+        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video', 'deadline')->whereTypeId(1)->orderBy('created_at', 'desc')->limit(1);
     }
 
     function currentVideoTest(){
-        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video')->whereTypeId(2)->where('status' , '!=', 'failed')->where('status' , '!=', 'passed');
+        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video', 'deadline')->whereTypeId(2)->where('status' , '!=', 'failed')->where('status' , '!=', 'passed');
     }
 
     function currentWritingTest(){
-        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video')->whereTypeId(1)->where('status' , '!=', 'failed')->where('status' , '!=', 'passed');
+        return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video', 'deadline')->whereTypeId(1)->where('status' , '!=', 'failed')->where('status' , '!=', 'passed');
     }
 
     function tasks(){
