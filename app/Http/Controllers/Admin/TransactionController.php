@@ -90,4 +90,32 @@ class TransactionController extends Controller
         $data['withdrawRequests']   = Withdraw::with('user')->orderBy('status', 'desc')->paginate(10);
         return view('admin.withdraws.index', $data);
     }
+
+    public function withdrawApprove($id){
+
+        $withdraw = Withdraw::where('id', $id)->first();
+
+        $data = [
+            'type'            =>'Debit',
+            'amount'          => $withdraw->amount,
+            'description'     =>'Withdraw by user',
+            'withdraw_id'     => $withdraw->id,
+            'status'          => "Paid",
+            'user_id'         => $withdraw->id,
+        ];
+
+        $response = Transaction::create($data);
+
+        $data = [
+            'status'          => "Approved",
+        ];
+
+        $response = $withdraw->update($data);
+
+        if ($response){
+            return redirect()->route('admin.withrawRequests')->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
+    }
 }
