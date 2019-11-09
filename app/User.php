@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Admin\Membership;
+use App\Models\Membership;
 use App\Models\Level;
 use App\Models\Task;
 use App\Models\Test;
