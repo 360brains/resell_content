@@ -133,12 +133,12 @@
                     <span class="title">Roles</span>
                 </a>
             </li>
-            <li class="nav-item  {{strpos((request()->path()),"backend/notification") == 'true' ? 'active' : ''}}">
-                <a href="{{ route('admin.notification') }}" class="nav-link">
-                    <i class="icon-layers"></i>
-                    <span class="title">Notification</span>
-                </a>
-            </li>
+{{--            <li class="nav-item  {{strpos((request()->path()),"backend/notification") == 'true' ? 'active' : ''}}">--}}
+{{--                <a href="{{ route('admin.notification') }}" class="nav-link">--}}
+{{--                    <i class="icon-layers"></i>--}}
+{{--                    <span class="title">Notification</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
 
         </ul>
         <!-- END SIDEBAR MENU -->
