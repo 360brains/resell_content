@@ -31,7 +31,7 @@
                         <li>
                             <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
                                 @forelse(auth()->user()->notifications as $notification)
-                                    <li class="margin-bottom-15 margin-top-15 margin-left-10 pl-5 ml-5">
+                                    <li class=" margin-top-15" style="margin-left: 5px;">
                                             <span class="details bord ">
                                                 <span class="label label-sm label-icon label-success">
                                                     <i class="fa fa-plus"></i>

@@ -45,46 +45,60 @@
                         </thead>
                         <tbody>
                         @php
-                        $i = 0;
+                            $i = 0;
                         @endphp
-                            @forelse($projects as $project)
-                                <tr class="table-row-clickable" onclick="window.location = '{{ route('admin.projects.show', $project->id) }}'">
-                                    <td> {{ ++$i }} </td>
-                                    <td><a href="{{ route('admin.projects.show', $project->id) }}"> {{ $project->name }} </a></td>
-                                    <td> {{ $project->quantity }} </td>
-                                    <td> {{ $project->type->name }} </td>
-                                    <td> {{ $project->deadline ?? 'Unknown' }} Hours </td>
-                                    <td> {{ $project->category->name }} </td>
-                                    <td> {{ $project->level->name }} </td>
-                                    <td> {{ $project->price }} </td>
-                                    <td> {{ $project->active == 1 ? 'Active' : 'Inactive'}} </td>
-                                    <td>
-                                        <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <a class="btn btn-primary btn-sm" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
-                                            @if($project->active == 0)
-                                                <button type="submit" class="btn btn-success btn-outline btn-sm sbold uppercase">Active</button>
-                                            @else
-                                                <button type="submit" class="btn btn-danger btn-outline btn-sm sbold uppercase">Inactive</button>
+                        @forelse($projects as $project)
+                            <tr class="table-row-clickable" onclick="window.location = '{{ route('admin.projects.show', $project->id) }}'">
+                                <td> {{ ++$i }} </td>
+                                <td><a href="{{ route('admin.projects.show', $project->id) }}"> {{ $project->name }} </a>
+                                    <span class="badge badge-info">
+                                        @php
+                                            $i= 0;
+                                        @endphp
+                                        @foreach(auth()->user()->notifications as $notification)
+                                            @if($notification->data['taskName'] == $project->id)
+                                                @php
+                                                    $i++;
+                                                @endphp
                                             @endif
-                                        </form>
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="9">
-                                        Data Not Found
-                                    </td>
-                                </tr>
-                            @endforelse
+                                        @endforeach
+                                        {{ $i }}
+                                    </span>
+                                </td>
+                                <td> {{ $project->quantity }} </td>
+                                <td> {{ $project->type->name }} </td>
+                                <td> {{ $project->deadline ?? 'Unknown' }} Hours </td>
+                                <td> {{ $project->category->name }} </td>
+                                <td> {{ $project->level->name }} </td>
+                                <td> {{ $project->price }} </td>
+                                <td> {{ $project->active == 1 ? 'Active' : 'Inactive'}} </td>
+                                <td>
+                                    <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a class="btn btn-primary btn-sm" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
+                                        @if($project->active == 0)
+                                            <button type="submit" class="btn btn-success btn-outline btn-sm sbold uppercase">Active</button>
+                                        @else
+                                            <button type="submit" class="btn btn-danger btn-outline btn-sm sbold uppercase">Inactive</button>
+                                        @endif
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="9">
+                                    Data Not Found
+                                </td>
+                            </tr>
+                        @endforelse
                         </tbody>
                     </table>
                     <div class="text-center">
-                    {{$projects->links()}}
+                        {{$projects->links()}}
                     </div>
+                </div>
             </div>
         </div>
-    </div>
 @endsection
 

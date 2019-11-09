@@ -64,7 +64,21 @@
             <li class="nav-item  {{strpos((request()->path()),"admin/projects") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.projects.index') }}" class="nav-link nav-toggle">
                     <i class="icon-layers"></i>
-                    <span class="title">Projects</span>
+                    <span class="title">Projects
+                        <span class="badge badge-info">
+                            @php
+                            $i= 0;
+                            @endphp
+                            @foreach(auth()->user()->unreadNotifications as $notification)
+                                @if($notification->data['tooltip'] == 'Task')
+                                    @php
+                                        $i++;
+                                    @endphp
+                                @endif
+                            @endforeach
+                            {{ $i }}
+                        </span>
+                    </span>
                 </a>
             </li>
             <li class="nav-item  {{strpos((request()->path()),"admin/users") == 'true' ? 'active' : ''}}">
@@ -84,7 +98,21 @@
             <li class="nav-item  {{strpos((request()->path()),"admin/user-test") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.user.tests') }}" class="nav-link">
                     <i class="icon-layers"></i>
-                    <span class="title">User Tests</span>
+                    <span class="title">User Tests
+                        <span class="badge badge-info">
+                            @php
+                                $i= 0;
+                            @endphp
+                            @foreach(auth()->user()->notifications as $notification)
+                                @if($notification->data['tooltip'] == 'Test')
+                                    @php
+                                        $i++;
+                                    @endphp
+                                @endif
+                            @endforeach
+                            {{ $i }}
+                        </span>
+                    </span>
                 </a>
             </li>
             <li class="nav-item  {{strpos((request()->path()),"admin/accounts") == 'true' ? 'active' : ''}}">

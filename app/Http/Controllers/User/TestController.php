@@ -142,10 +142,11 @@ class TestController extends Controller
             $adminDetails = [
                 'taskName'      => Test::where('id', $id)->select('name')->first(),
                 'date'          => now(),
-                'message'       => "<a href=".route("admin.users.show", $test->user->id)." class=\'d-inline\'>View User</a>". $test->user->name . " delivered a test.",
+                'message'       => "<a href=".route("admin.users.show", $test->user->id)." class='d-inline'>". $test->user->name . "</a> <a href=".route("admin.user.test.show", $test->id)." class='d-inline'> delivered a test.</a>",
                 'tooltip'       => 'Test',
-                'link'          => "<a href=".route("admin.user.test.show", $test->pivot->id)." class=\'d-inline\'>View task</a>",
+                'link'          => "<a href=".route("admin.user.test.show", $test->id)." class='d-inline'>View test</a>",
             ];
+
             $admins = Admin::all();
             foreach ($admins as $admin) {
                 $admin->notify(new TaskResult($adminDetails));
