@@ -6,6 +6,8 @@ use App\Models\Project;
 use App\Models\Task;
 use App\Notifications\TaskResult;
 use App\User;
+use Bitfumes\Multiauth\Model\Admin;
+use Bitfumes\Multiauth\Model\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -130,6 +132,29 @@ class TasksController extends Controller
                 'name' => 'delivered',
             ];
             $task->statuses()->create($data);
+
+            $details = [
+                'taskName'      => $task->project->name,
+                'date'          => now(),
+                'message'       => 'Your task is delivered and awaiting result.',
+                'tooltip'       => ' You will get result notification soon',
+                'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take More</a>",
+            ];
+            $task->user->notify(new TaskResult($details));
+
+            $adminDetails = [
+                'taskName'      => $task->project->id,
+                'date'          => now(),
+                'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . " delivered a task.</a>",
+                'tooltip'       => 'Task',
+                'link'          => "<a href=".route("admin.tasks.show", $task->id)." class='d-inline'>View task</a>",
+
+            ];
+            $admins = Admin::all();
+            foreach ($admins as $admin) {
+                $admin->notify(new TaskResult($adminDetails));
+            }
+
         }
 
 //        elseif ($request->action == 'admin-save'){
@@ -158,6 +183,29 @@ class TasksController extends Controller
                     'name' => 'delivered',
                 ];
                 $task->statuses()->create($data);
+
+                $details = [
+                    'taskName'      => $task->project->name,
+                    'date'          => now(),
+                    'message'       => 'Your task is delivered and awaiting result.',
+                    'tooltip'       => ' You will get result notification soon',
+                    'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take More</a>",
+                ];
+                $task->user->notify(new TaskResult($details));
+
+                $adminDetails = [
+                    'taskName'      => $task->project->id,
+                    'date'          => now(),
+                    'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . " delivered a task.</a>",
+                    'tooltip'       => 'Task',
+                    'link'          => "<a href=".route("admin.tasks.show", $task->id)." class='d-inline'>View task</a>",
+
+                ];
+                $admins = Admin::all();
+                foreach ($admins as $admin) {
+                    $admin->notify(new TaskResult($adminDetails));
+                }
+
             }
 
         }else{

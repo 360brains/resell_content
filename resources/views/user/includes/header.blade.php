@@ -21,7 +21,7 @@
                             </div>
                             <ul class="user-links notification-content-size">
                                 @forelse(auth()->user()->unreadNotifications as $notification)
-                                    <a href="{{route('user.notifications')}}"><li class="pt-0 pb-0 pl-4 pr-4" data-toggle="tooltip"  title="Hooray!" data-placement="bottom">{{ $notification->data['message'] }}</li><hr class="hr-m"></a>
+                                    <a href="{{route('user.notifications')}}"><li class="pt-0 pb-0 pl-4 pr-4" data-toggle="tooltip"  title="Click for details!" data-placement="bottom">{{ $notification->data['message'] }}</li><hr class="hr-m"></a>
                                 @empty
                                     <li class="pt-0 pb-0 pl-4 pr-4">No unread notification</li><hr>
                                 @endforelse

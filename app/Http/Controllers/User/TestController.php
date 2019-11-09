@@ -6,6 +6,7 @@ use App\Models\Level;
 use App\Models\Test;
 use App\Models\User_test;
 use App\Notifications\TaskResult;
+use Bitfumes\Multiauth\Model\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -130,14 +131,25 @@ class TestController extends Controller
 
 
             $details = [
-                'taskName'      => Test::where('id', $id)->first(),
+                'taskName'      => Test::where('id', $id)->select('name')->first(),
                 'date'          => now(),
                 'message'       => 'You might have to wait for 2 days for approval.',
                 'tooltip'       => 'Keep checking for result notification.',
                 'link'          => "",
             ];
-
             auth()->user()->notify(new TaskResult($details));
+
+            $adminDetails = [
+                'taskName'      => Test::where('id', $id)->select('name')->first(),
+                'date'          => now(),
+                'message'       => "<a href=".route("admin.users.show", $test->user->id)." class=\'d-inline\'>View User</a>". $test->user->name . " delivered a test.",
+                'tooltip'       => 'Test',
+                'link'          => "<a href=".route("admin.user.test.show", $test->pivot->id)." class=\'d-inline\'>View task</a>",
+            ];
+            $admins = Admin::all();
+            foreach ($admins as $admin) {
+                $admin->notify(new TaskResult($adminDetails));
+            }
 
             if ($response){
                 return redirect()->route('user.dashboard')->with("success", "Completed successfully.");
@@ -175,6 +187,18 @@ class TestController extends Controller
                 ];
 
                 auth()->user()->notify(new TaskResult($details));
+
+                $adminDetails = [
+                    'taskName'      => Test::where('id', $id)->select('name')->first(),
+                    'date'          => now(),
+                    'message'       => "<a href=".route("admin.users.show", $test->user->id)." class=\'d-inline\'>View User</a>". $test->user->name . " delivered a test.",
+                    'tooltip'       => 'Test',
+                    'link'          => "<a href=".route("admin.user.test.show", $test->pivot->id)." class=\'d-inline\'>View task</a>",
+                ];
+                $admins = Admin::all();
+                foreach ($admins as $admin) {
+                    $admin->notify(new TaskResult($adminDetails));
+                }
 
                 if ($response){
                     return redirect()->route('user.dashboard')->with("success", "Completed successfully.");
