@@ -16,10 +16,7 @@ class ProfileController extends Controller
     public function editPersonal(Request $request){
         $request->validate([
             'name'          => 'required',
-            'contact'       => 'required',
-            'gender'        => 'required',
-            'country'       => 'required',
-            'image'         => 'required|mimes:jpg,jpeg,png',
+            'image'         => 'nullable|mimes:jpg,jpeg,png',
 
         ]);
 

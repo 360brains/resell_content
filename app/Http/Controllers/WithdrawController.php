@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use App\Models\Withdraw;
 use App\User;
 use Illuminate\Http\Request;
@@ -43,11 +44,15 @@ class WithdrawController extends Controller
         }
         else{
             $request->validate([
-                'account'         => 'required',
-                'amount'          => 'required',
+                'iban'         => 'required',
+                'amount'       => 'required',
+                'holder'       => 'required',
+                'bank'         => 'required',
             ]);
             $data = [
-                'account'         => $request->account,
+                'holder'          =>$request->holder,
+                'iban'            => $request->iban,
+                'bank'            => $request->bank,
                 'amount'          => $request->amount,
                 'status'          => "Pending",
                 'user_id'         => Auth::user()->id,

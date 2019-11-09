@@ -13,12 +13,6 @@
                 <i class="fa fa-circle"></i>
             </li>
         </ul>
-        <div class="page-toolbar">
-            <div class="btn-group pull-right open">
-                <a href="" class="btn blue btn-sm" > <b><i class="fa fa-plus"></i> Add </b></a>
-            </div>
-        </div>
-
     </div>
     <h3 class="page-title">Withdraw Requests
     </h3>
@@ -34,7 +28,9 @@
                         <tr>
                             <th width="75px"> Sr No. </th>
                             <th> Username </th>
-                            <th> Account </th>
+                            <th> Account Holder </th>
+                            <th> IBAN </th>
+                            <th> Bank Name </th>
                             <th> Amount </th>
                             <th> Status </th>
                             <th> Created </th>
@@ -49,20 +45,23 @@
                             @forelse($withdrawRequests as $withdraw)
                                 <tr>
                                     <td> {{ ++$i }} </td>
-                                    <td> {{ $withdraw->user->name}} </td>
-                                    <td> {{ $withdraw->account}} </td>
+                                    <td><a href="{{route('admin.users.show', $withdraw->user->id)}}">{{ $withdraw->user->name}}</a></td>
+                                    <td> {{ $withdraw->holder}} </td>
+                                    <td> {{ $withdraw->iban}} </td>
+                                    <td> {{ $withdraw->bank}} </td>
                                     <td> {{ $withdraw->amount}} </td>
                                     <td> {{ $withdraw->status}} </td>
                                     <td> {{ date('d-M-Y', strtotime($withdraw->created_at)) }} </td>
 {{--                                    <td> {{ $level->updated_at }} </td>--}}
-                                    <td>
-                                        <form action="" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                                <a class="btn btn-primary" href="">Approve</a>
-                                                <button type="submit" class="btn btn-success btn-outline sbold uppercase">Reject</button>
-                                        </form>
-                                    </td>
+                                        <td>
+                                            @if($withdraw->status == 'Pending')
+                                            <form action="{{ route('admin.withdraw.approve', $withdraw->id) }}">
+                                                @csrf
+                                                    <button class="btn btn-primary" type="submit">Approve</button>
+    {{--                                                <button type="submit" class="btn btn-success btn-outline sbold uppercase">Reject</button>--}}
+                                            </form>
+                                            @endif
+                                        </td>
                                 </tr>
                                 @empty
                                 <tr>
