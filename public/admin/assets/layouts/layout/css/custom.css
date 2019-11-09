@@ -5,3 +5,9 @@
 .table-row-clickable{
     cursor: pointer;
 }
+.label.label-icon {
+    padding: 3px 0px 3px 3px !important;
+    margin-right: 2px;
+    text-align: center !important;
+    border-radius: 50%;
+}
