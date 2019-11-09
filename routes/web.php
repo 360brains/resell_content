@@ -86,9 +86,9 @@ Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
 Route::get('send', 'HomeController@sendNotification');
-Route::get('/markAsRead',function(){
-    auth()->user()->unreadNotifications->markAsRead();
-});
+//Route::get('/markAsRead',function(){
+//    auth()->user()->unreadNotifications->markAsRead();
+//});
 
 
 

@@ -9,11 +9,11 @@
         //      }
         // });
 
-    function markNotificationAsRead(notificationCount) {
-        if(notificationCount !=='0'){
-            $.get('/markAsRead');
-        }
-    }
+    // function markNotificationAsRead(notificationCount) {
+    //     if(notificationCount !=='0'){
+    //         $.get('/markAsRead');
+    //     }
+    // }
 
     var myDate = $('#count-down').val();console.log(myDate)
     $('#one').vTimer('start', {duration: Number(myDate)})

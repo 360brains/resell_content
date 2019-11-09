@@ -23,6 +23,9 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach(auth()->user()->unreadNotifications as $notification)
+                                {{ $notification->markAsRead() }}
+                        @endforeach
                         @php($i = 1)
                         @forelse(auth()->user()->notifications()->paginate(10) as $notification)
                             <tr class="data-item">

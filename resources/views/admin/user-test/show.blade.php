@@ -34,6 +34,12 @@
 
     </div>
 
+    @foreach(auth()->user()->unreadNotifications as $notification)
+        @if(strpos($notification->data['link'], "".$test->id))
+            {{ $notification->markAsRead() }}
+        @endif
+    @endforeach
+
     <h3 class="page-title">Details of <b> {{ $test->test->name }}</b>
     </h3>
 

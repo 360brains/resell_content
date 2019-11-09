@@ -103,7 +103,7 @@
                             @php
                                 $i= 0;
                             @endphp
-                            @foreach(auth()->user()->notifications as $notification)
+                            @foreach(auth()->user()->unreadNotifications as $notification)
                                 @if($notification->data['tooltip'] == 'Test')
                                     @php
                                         $i++;
