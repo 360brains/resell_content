@@ -17,7 +17,6 @@ class ProfileController extends Controller
         $request->validate([
             'name'          => 'required',
             'image'         => 'nullable|mimes:jpg,jpeg,png',
-
         ]);
 
         $user = auth()->user();

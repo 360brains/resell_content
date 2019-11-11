@@ -178,8 +178,19 @@ class PaymentController extends Controller
         }
     }
 
-    public function depositFunds(){
-        return view('user.deposit-funds');
+    public function depositFunds(Request $request){
+
+        $data['method'] = null;
+
+        if($request->option == 'bank'){
+            $data['method'] = 'bank';
+        }elseif($request->option == 'jazzcash'){
+            $data['method'] = 'jazzcash';
+        }elseif($request->option == 'easypaisa'){
+            $data['method'] = 'easypaisa';
+        }
+
+        return view('user.deposit-funds', $data);
     }
 
 }
