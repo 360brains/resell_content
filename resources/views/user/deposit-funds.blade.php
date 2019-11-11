@@ -51,7 +51,7 @@
                                     @csrf
                                     <div class="input-item input-with-label">
                                         <label for="amount" class="input-item-label">Bank account name you are deposit from:</label>
-                                        <input class="input-bordered" type="text" id="bank" name="bank" value="{{old('bank')}}"  placeholder="">
+                                        <input class="input-bordered" type="text" id="bank" name="bank" value="{{old('bank')}}"  placeholder="Enter bank account name:">
                                     </div>
 
                                     <div class="input-item input-with-label">
@@ -60,7 +60,7 @@
                                     </div>
 
                                     <div class="input-item input-with-label">Deposit reference <small>(transaction id or reference number):</small></label>
-                                        <input class="input-bordered" type="text" id="iban" name="holder" value="{{old('holder')}}" placeholder="">
+                                        <input class="input-bordered" type="text" id="iban" name="holder" value="{{old('holder')}}" placeholder="Enter transaction id">
                                     </div>
                                     <div class="input-item input-with-label">Amount:</label>
                                         <input class="input-bordered" type="number" id="iban" name="holder" value="{{old('holder')}}" placeholder="">
@@ -70,7 +70,7 @@
                                     </div>
 
                                     <div class="input-item input-with-label">
-                                        <button class="btn btn-block btn-primary mt-3" name="action" value="bank" type="submit">Submit</button>
+                                        <button class="btn btn-block btn-primary mt-3" name="action" value="bank" type="submit">Confirm and pay</button>
                                     </div>
                                 </form>
                             </div>
@@ -128,7 +128,7 @@
                                     @csrf
                                     <div class="input-item input-with-label">
                                         <label for="amount" class="input-item-label">Bank account name you are deposit from:</label>
-                                        <input class="input-bordered" type="text" id="bank" name="bank" value="{{old('bank')}}"  placeholder="">
+                                        <input class="input-bordered" type="text" id="bank" name="bank" value="{{old('bank')}}"  placeholder="Enter bank account name:">
                                     </div>
 
                                     <div class="input-item input-with-label">
@@ -137,7 +137,7 @@
                                     </div>
 
                                     <div class="input-item input-with-label">Deposit reference <small>(transaction id or reference number):</small></label>
-                                        <input class="input-bordered" type="text" id="iban" name="holder" value="{{old('holder')}}" placeholder="">
+                                        <input class="input-bordered" type="text" id="iban" name="holder" value="{{old('holder')}}" placeholder="Enter transaction id">
                                     </div>
                                     <div class="input-item input-with-label">Amount:</label>
                                         <input class="input-bordered" type="number" id="iban" name="holder" value="{{old('holder')}}" placeholder="">
@@ -147,7 +147,7 @@
                                     </div>
 
                                     <div class="input-item input-with-label">
-                                        <button class="btn btn-block btn-primary mt-3" name="action" value="bank" type="submit">Submit</button>
+                                        <button class="btn btn-block btn-primary mt-3" name="action" value="bank" type="submit">Confirm and pay</button>
                                     </div>
                                 </form>
                             </div>
@@ -209,7 +209,7 @@
                                     @csrf
                                     <div class="input-item input-with-label">
                                         <label for="amount" class="input-item-label">Bank account name you are deposit from:</label>
-                                        <input class="input-bordered" type="text" id="bank" name="bank" value="{{old('bank')}}"  placeholder="">
+                                        <input class="input-bordered" type="text" id="bank" name="bank" value="{{old('bank')}}"  placeholder="Enter bank account name:">
                                     </div>
 
                                     <div class="input-item input-with-label">
@@ -218,7 +218,7 @@
                                     </div>
 
                                     <div class="input-item input-with-label">Deposit reference <small>(transaction id or reference number):</small></label>
-                                        <input class="input-bordered" type="text" id="iban" name="holder" value="{{old('holder')}}" placeholder="">
+                                        <input class="input-bordered" type="text" id="iban" name="holder" value="{{old('holder')}}" placeholder="Enter transaction id">
                                     </div>
                                     <div class="input-item input-with-label">Amount:</label>
                                         <input class="input-bordered" type="number" id="iban" name="holder" value="{{old('holder')}}" placeholder="">
@@ -228,7 +228,7 @@
                                     </div>
 
                                     <div class="input-item input-with-label">
-                                        <button class="btn btn-block btn-primary mt-3" name="action" value="bank" type="submit">Submit</button>
+                                        <button class="btn btn-block btn-primary mt-3" name="action" value="bank" type="submit">Confirm and pay</button>
                                     </div>
                                 </form>
                             </div>
