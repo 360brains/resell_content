@@ -204,7 +204,15 @@
                             <p>Add bank Account that you would like to use for your future transactions.</p>
                             <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#pay-online">Add Account</a>
                             <h5 class="card-title card-title-sm pt-3">Previous Accounts</h5>
-                            <h6>hfghfhf</h6>
+                            @forelse(auth()->user()->accounts as $account)
+                                <h6>{{ $account->bank }} <small> ( {{ $account->holder }} )</small>
+                                </h6>
+                                <h6>{{ $account->iban }} <a class="float-right" href="{{ route('user.edit.account', $account->id) }}">Edit</a></h6>
+
+                                <hr>
+                            @empty
+                                <h6>No Accounts</h6>
+                            @endforelse
                             </div>
                     </div>
                 </div>

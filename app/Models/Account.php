@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Account extends Model
 {
     protected $fillable = [
-        'bank', 'holder', 'iban', 
+        'bank', 'holder', 'iban', 'user_id', 'type', 'active'
     ];
 }

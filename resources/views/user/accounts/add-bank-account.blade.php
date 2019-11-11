@@ -26,7 +26,7 @@
                                 </div>
 
                                 <div class="input-item input-with-label">Account Holder</label>
-                                    <input class="input-bordered" type="text" id="iban" name="holder" value="{{old('holder')}}" placeholder="Enter Account Holder Name">
+                                    <input class="input-bordered" type="text" id="holder" name="holder" value="{{old('holder')}}" placeholder="Enter Account Holder Name">
                                 </div>
 
                                 <div class="input-item input-with-label">
