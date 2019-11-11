@@ -198,6 +198,15 @@
                             <!-- .copy-wrap -->
                         </div>
                     </div>
+                    <div class="referral-info card">
+                        <div class="card-innr">
+                            <h6 class="card-title card-title-sm">Deposit Funds</h6>
+                            <p>You can deposit funds to use in future.<br><small><b>NOTE: Deposited funds are added to Balance.</b></small></p>
+                            <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#pay-online">Deposit Funds</a>
+
+                            <!-- .copy-wrap -->
+                        </div>
+                    </div>
                     <div class="kyc-info card">
                         <div class="card-innr">
                             <h6 class="card-title card-title-sm">Add Bank Account</h6>
@@ -207,7 +216,10 @@
                             @forelse(auth()->user()->accounts as $account)
                                 <h6>{{ $account->bank }} <small> ( {{ $account->holder }} )</small>
                                 </h6>
-                                <h6>{{ $account->iban }} <a class="float-right" href="{{ route('user.edit.account', $account->id) }}">Edit</a></h6>
+                                <h6>{{ $account->iban }}
+                                    <a class="float-right" href="{{ route('user.remove.account', $account->id) }}">Remove</a>
+                                    <a class="float-right pr-2" href="{{ route('user.edit.account', $account->id) }}">Edit</a>
+                                </h6>
 
                                 <hr>
                             @empty

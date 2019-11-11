@@ -59,7 +59,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     function accounts(){
-        return $this->hasMany(Account::class);
+        return $this->hasMany(Account::class)->whereActive(1);
     }
 
     function memberships(){
