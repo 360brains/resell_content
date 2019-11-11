@@ -202,7 +202,7 @@
                         <div class="card-innr">
                             <h6 class="card-title card-title-sm">Add Bank Account</h6>
                             <p>Add bank Account that you would like to use for your future transactions.</p>
-                            <a href="#" class="btn btn-primary btn-block">Add Account</a>
+                            <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#pay-online">Add Account</a>
                             <h5 class="card-title card-title-sm pt-3">Previous Accounts</h5>
                             <h6>hfghfhf</h6>
                             </div>
@@ -211,5 +211,45 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="pay-online" tabindex="-1">
+        <div class="modal-dialog modal-dialog-md modal-dialog-centered">
+            <div class="modal-content pb-0">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="popup-body">
+                    <h4 class="popup-title">Add account for future transactions</h4>
+                    <p>You can choose any of following payment method. You will be able to use these accounts for future references.</p>
+                    <h5 class="mgt-1-5x font-mid">Select payment method:</h5>
+                    <ul class="pay-list guttar-20px">
+                        <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
+                                                    id="pay-coin"><label class="pay-check-label" for="pay-coin"><img src="images/pay-a.png"
+                                                                                                                     alt="pay-logo"></label></li>
+                        <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
+                                                    id="pay-coinpay"><label class="pay-check-label" for="pay-coinpay"><img
+                                    src="images/pay-b.png" alt="pay-logo"></label></li>
+                        <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
+                                                    id="pay-paypal"><label class="pay-check-label" for="pay-paypal"><img
+                                    src="images/pay-c.png" alt="pay-logo"></label></li>
+                    </ul>
+                    <div class="pdb-2-5x pdt-1-5x"><input type="checkbox" class="input-checkbox input-checkbox-md"
+                                                          id="agree-term-3"><label for="agree-term-3">I hereby agree to the <strong>Membership purchase
+                                aggrement</strong>.</label></div>
+                    <ul class="d-flex flex-wrap align-items-center guttar-30px">
+                        <li><a href="#" data-dismiss="modal" data-toggle="modal" data-target="#pay-review"
+                               class="btn btn-primary"> Process to Pay <em
+                                    class="ti ti-arrow-right mgl-2x"></em></a></li>
+                        <li class="pdt-1x pdb-1x"><a href="{{ route('user.voucher') }}" class="link link-primary">Make Manual Payment</a></li>
+                    </ul>
+                    <div class="gaps-2x"></div>
+                    <div class="gaps-1x d-none d-sm-block"></div>
+                    <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>
+                        <p class="text-light">You will automatically redirect for payment after you click on process to pay.</p>
+                    </div>
+                </div>
+            </div><!-- .modal-content -->
+        </div><!-- .modal-dialog -->
+    </div><!-- Modal End -->
+
 
 @endsection
