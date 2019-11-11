@@ -211,4 +211,23 @@ class PaymentController extends Controller
         return view('user.deposit-funds', $data);
     }
 
+    public function storeFunds(Request $request){
+
+        if($request->option == 'bank'){
+            $data = [
+                'bank' => $request->bank,
+                'reference-id' => $request->reference_id,
+                'bank' => $request->amount,
+                'user_id' => auth()->user()->id,
+                'date_deposited' => $request->date,
+            ];
+        }elseif($request->option == 'jazzcash'){
+            $data['method'] = 'jazzcash';
+        }elseif($request->option == 'easypaisa'){
+            $data['method'] = 'easypaisa';
+        }
+
+        return view('user.deposit-funds', $data);
+    }
+
 }

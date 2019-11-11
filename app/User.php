@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Account;
+use App\Models\Deposit;
 use App\Models\Membership;
 use App\Models\Level;
 use App\Models\Task;
@@ -60,6 +61,10 @@ class User extends Authenticatable implements MustVerifyEmail
 
     function accounts(){
         return $this->hasMany(Account::class)->whereActive(1);
+    }
+
+    function deposits(){
+        return $this->hasMany(Deposit::class);
     }
 
     function memberships(){

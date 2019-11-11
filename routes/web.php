@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::get('user-tests', 'UserTestController@userTests')->name('user.tests');
     Route::post('user-test/evaluate/{id}', 'UserTestController@evaluate')->name('user.test.evaluate');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+//    Route::get('deposit-funds', 'TransactionController@depositIndex')->name('deposit.funds');
     Route::get('withrawRequests', 'TransactionController@withdrawIndex')->name('withrawRequests');
     Route::get('withdraw-approve{id}', 'TransactionController@withdrawApprove')->name('withdraw.approve');
     Route::get('notifications', 'NotificationController@index')->name('notifications');
@@ -58,6 +59,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('user/update/account/{id}', 'User\PaymentController@updateAccount')->name('user.update.account');
     Route::post('user/store/account', 'User\PaymentController@storeAccount')->name('user.store.account');
     Route::get('user/deposit-funds', 'User\PaymentController@depositFunds')->name('user.deposit.funds');
+    Route::post('user/store-funds', 'User\PaymentController@storeFunds')->name('user.store.funds');
     Route::get('user/learn-details/{id}', 'User\LearnController@learnDetails')->name('user.learn.details');
     Route::get('user/transactions', 'User\TransactionController@index')->name('user.transactions');
     Route::get('user/notifications', 'User\NotificationController@index')->name('user.notifications');
