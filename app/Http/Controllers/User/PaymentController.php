@@ -11,8 +11,14 @@ class PaymentController extends Controller
         return view('user.payment');
     }
 
-    public function addAccount(){
-        return view('user.add-account');
+    public function addAccount(Request $request){
+        if($request->option == 'bank'){
+            return view('user.add-bank-account');
+        }elseif($request->option == 'jazzcash'){
+            return view('user.add-jazzcash-account');
+        }elseif($request->option == 'easypaisa'){
+            return view('user.add-easypaisa-account');
+        }
     }
 
     public function storeAccount(){

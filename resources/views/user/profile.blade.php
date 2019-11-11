@@ -221,26 +221,32 @@
                     <h4 class="popup-title">Add account for future transactions</h4>
                     <p>You can choose any of following payment method. You will be able to use these accounts for future references.</p>
                     <h5 class="mgt-1-5x font-mid">Select payment method:</h5>
+                    <form action="{{ route('user.add.account') }}" method="get">
+                        @csrf
                     <ul class="pay-list guttar-20px">
-                        <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
-                                                    id="pay-coin"><label class="pay-check-label" for="pay-coin"><img src="images/telenor-pakistan-easypaisa-logo.png"
-                                                                                                                     alt="pay-logo"></label></li>
-                        <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
-                                                    id="pay-coinpay"><label class="pay-check-label" for="pay-coinpay"><img
-                                    src="images/JazzCash_logo.png" alt="pay-logo"></label></li>
-                        <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
-                                                    id="pay-paypal"><label class="pay-check-label" for="pay-paypal"><img
-                                    src="images//Bank-Free-Download-PNG.png" alt="pay-logo"></label></li>
+                        <li class="pay-item">
+                            <input type="radio" class="pay-check" name="option" value="easypaisa" id="pay-coin">
+                            <label class="pay-check-label" for="pay-coin"><img src="images/telenor-pakistan-easypaisa-logo.png" alt="pay-logo"></label></li>
+                        <li class="pay-item">
+                            <input type="radio" class="pay-check" name="option" value="jazzcash" id="pay-coinpay">
+                            <label class="pay-check-label" for="pay-coinpay"><img src="images/JazzCash_logo.png" alt="pay-logo"></label>
+                        </li>
+                        <li class="pay-item">
+                            <input type="radio" class="pay-check" name="option" value="bank" id="pay-paypal">
+                            <label class="pay-check-label" for="pay-paypal"><img src="images//Bank-Free-Download-PNG.png" alt="pay-logo"></label>
+                        </li>
                     </ul>
-                    <div class="pdb-2-5x pdt-1-5x"><input type="checkbox" class="input-checkbox input-checkbox-md"
-                                                          id="agree-term-3"><label for="agree-term-3">I hereby agree to the <strong>Membership purchase
-                                aggrement</strong>.</label></div>
-                    <ul class="d-flex flex-wrap align-items-center guttar-30px">
-                        <li><a href="#" data-dismiss="modal" data-toggle="modal" data-target="#pay-review"
-                               class="btn btn-primary"> Process to Pay <em
-                                    class="ti ti-arrow-right mgl-2x"></em></a></li>
-                        <li class="pdt-1x pdb-1x"><a href="{{ route('user.voucher') }}" class="link link-primary">Make Manual Payment</a></li>
-                    </ul>
+{{--                    <div class="pdb-2-5x pdt-1-5x">--}}
+{{--                        <input type="checkbox" class="input-checkbox input-checkbox-md" id="agree-term-3">--}}
+{{--                        <label for="agree-term-3">I hereby agree to the <strong>Membership purchase aggrement</strong>.</label>--}}
+{{--                    </div>--}}
+                        <ul class="d-flex flex-wrap align-items-center guttar-30px">
+                            <li><button class="btn btn-primary"> Process to Pay <em class="ti ti-arrow-right mgl-2x"></em></button>
+                            </li>
+                            <li class="pdt-1x pdb-1x"><a href="{{ route('user.voucher') }}" class="link link-primary">Make Manual Payment</a></li>
+                        </ul>
+                    </form>
+
                     <div class="gaps-2x"></div>
                     <div class="gaps-1x d-none d-sm-block"></div>
                     <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>

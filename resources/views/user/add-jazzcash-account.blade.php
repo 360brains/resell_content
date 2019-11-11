@@ -7,7 +7,7 @@
             <div class="card content-area">
                 <div class="card-innr">
                     <div class="card-head">
-                        <h4 class="card-title">Add Bank Account</h4>
+                        <h4 class="card-title">Add JazzCash Account</h4>
                     </div>
                     <form action="{{ route('user.store.account' ) }}" method="post">
                         @csrf

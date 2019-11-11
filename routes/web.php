@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('user/voucher', 'User\VoucherController@index')->name('user.voucher');
     Route::get('user/payment', 'User\PaymentController@index')->name('user.payment');
     Route::get('user/add/account', 'User\PaymentController@addAccount')->name('user.add.account');
-    Route::get('user/add/account', 'User\PaymentController@addAccount')->name('user.store.account');
+    Route::get('user/store/account', 'User\PaymentController@storeAccount')->name('user.store.account');
     Route::get('user/learn-details/{id}', 'User\LearnController@learnDetails')->name('user.learn.details');
     Route::get('user/transactions', 'User\TransactionController@index')->name('user.transactions');
     Route::get('user/notifications', 'User\NotificationController@index')->name('user.notifications');
