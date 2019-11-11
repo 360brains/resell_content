@@ -42,7 +42,7 @@ class MembershipController extends Controller
             'name'          => 'required',
             'description'   => 'required',
             'price'         => 'required',
-            'duration'         => 'required',
+            'duration'      => 'required',
         ]);
 
         $membership = new Membership();

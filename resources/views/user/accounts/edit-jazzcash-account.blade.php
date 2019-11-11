@@ -7,29 +7,29 @@
             <div class="card content-area">
                 <div class="card-innr">
                     <div class="card-head">
-                        <h4 class="card-title">Add EasyPaisa Account</h4>
+                        <h4 class="card-title">Add JazzCash Account</h4>
                     </div>
-                    <form action="{{ route('user.store.account' ) }}" method="post">
-                        @csrf
+                    <form action="{{ route('user.update.account', $account->id ) }}" method="post">
+                    @csrf
                         <div class="row">
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
 
                                 <div>
-                                    <small>Please make sure the EasyPaisa acoount exists.</small>
+                                    <small>Please make sure the JazzCash acoount exists.</small>
                                 </div>
 
                                 <div class="input-item input-with-label">
-                                    <label for="balance" class="input-item-label">EasyPaisa Number</label>
-                                    <input class="input-bordered" type="text" id="iban" name="iban" value="{{old('iban')}}" placeholder="Enter EasyPaisa Phone Number">
+                                    <label for="balance" class="input-item-label">JazzCash Number</label>
+                                    <input class="input-bordered" type="text" id="iban" name="number" value="{{ $account->iban }}" placeholder="Enter JazzCash Phone Number">
                                 </div>
 
                                 <div class="input-item input-with-label">Account Holder</label>
-                                    <input class="input-bordered" type="text" id="iban" name="holder" value="{{old('holder')}}" placeholder="Enter Account Holder Name">
+                                    <input class="input-bordered" type="text" id="iban" name="holder" value="{{ $account->holder }}" placeholder="Enter Account Holder Name">
                                 </div>
 
                                 <div class="input-item input-with-label">
-                                    <button class="btn btn-primary" name="action" value="easypaisa" type="submit">Submit</button>
+                                    <button class="btn btn-primary" name="action" value="jazzcash" type="submit">Submit</button>
                                 </div>
 
                             </div>

@@ -1,0 +1,47 @@
+@extends('user.layouts.master')
+
+@section('content')
+
+    <div class="page-content">
+        <div class="container">
+            <div class="card content-area">
+                <div class="card-innr">
+                    <div class="card-head">
+                        <h4 class="card-title">Add EasyPaisa Account</h4>
+                    </div>
+                    <form action="{{ route('user.update.account', $account->id ) }}" method="post">
+                    @csrf
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+
+                                <div>
+                                    <small>Please make sure the EasyPaisa acoount exists.</small>
+                                </div>
+
+                                <div class="input-item input-with-label">
+                                    <label for="balance" class="input-item-label">EasyPaisa Number</label>
+                                    <input class="input-bordered" type="text" id="iban" name="number" value="{{$account->iban}}" placeholder="Enter EasyPaisa Phone Number">
+                                </div>
+
+                                <div class="input-item input-with-label">Account Holder</label>
+                                    <input class="input-bordered" type="text" id="iban" name="holder" value="{{$account->holder}}" placeholder="Enter Account Holder Name">
+                                </div>
+
+                                <div class="input-item input-with-label">
+                                    <button class="btn btn-primary" name="action" value="easypaisa" type="submit">Submit</button>
+                                </div>
+
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                    </form>
+                    <!-- form -->
+                </div>
+                <!-- .tab-pane -->
+            </div>
+        </div>
+        <!-- .card-innr -->
+    </div>
+
+@endsection

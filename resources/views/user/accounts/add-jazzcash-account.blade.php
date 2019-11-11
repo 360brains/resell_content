@@ -21,7 +21,7 @@
 
                                 <div class="input-item input-with-label">
                                     <label for="balance" class="input-item-label">JazzCash Number</label>
-                                    <input class="input-bordered" type="text" id="iban" name="iban" value="{{old('iban')}}" placeholder="Enter JazzCash Phone Number">
+                                    <input class="input-bordered" type="text" id="iban" name="number" value="{{old('number')}}" placeholder="Enter JazzCash Phone Number">
                                 </div>
 
                                 <div class="input-item input-with-label">Account Holder</label>
