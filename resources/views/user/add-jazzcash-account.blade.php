@@ -15,14 +15,13 @@
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
 
-                                <div class="input-item input-with-label">
-                                    <label for="amount" class="input-item-label">Bank Name</label>
-                                    <input class="input-bordered" type="text" id="bank" name="bank" value="{{old('bank')}}"  placeholder="Enter amount to withdraw">
+                                <div>
+                                    <small>Please make sure the JazzCash acoount exists.</small>
                                 </div>
 
                                 <div class="input-item input-with-label">
-                                    <label for="balance" class="input-item-label">Account Number <small>(IBAN)</small></label>
-                                    <input class="input-bordered" type="text" id="iban" name="iban" value="{{old('iban')}}" placeholder="Enter IBAN Number">
+                                    <label for="balance" class="input-item-label">JazzCash Number</label>
+                                    <input class="input-bordered" type="text" id="iban" name="iban" value="{{old('iban')}}" placeholder="Enter JazzCash Phone Number">
                                 </div>
 
                                 <div class="input-item input-with-label">Account Holder</label>
@@ -30,8 +29,9 @@
                                 </div>
 
                                 <div class="input-item input-with-label">
-                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                    <button class="btn btn-primary" name="action" value="jazzcash" type="submit">Submit</button>
                                 </div>
+
                             </div>
                             <div class="col-md-3"></div>
                         </div>
