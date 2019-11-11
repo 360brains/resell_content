@@ -202,7 +202,7 @@
                         <div class="card-innr">
                             <h6 class="card-title card-title-sm">Deposit Funds</h6>
                             <p>You can deposit funds to use in future.<br><small><b>NOTE: Deposited funds are added to Balance.</b></small></p>
-                            <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#pay-online">Deposit Funds</a>
+                            <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#deposit">Deposit Funds</a>
 
                             <!-- .copy-wrap -->
                         </div>
