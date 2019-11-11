@@ -19,7 +19,7 @@
                                     <table>
                                         <tr>
                                             <td>Account Name</td>
-                                            <td>Freelancer</td>
+                                            <td>Sunztech</td>
                                         </tr>
                                         <tr>
                                             <td>Account Number</td>
@@ -27,11 +27,11 @@
                                         </tr>
                                         <tr>
                                             <td>Bank Name</td>
-                                            <td>Allied</td>
+                                            <td>MCB Bank Limited</td>
                                         </tr>
                                         <tr>
                                             <td>Branch Adress</td>
-                                            <td>Alnoor garden</td>
+                                            <td>Susan Road, Faisalabad.</td>
                                         </tr>
                                         <tr>
                                             <td>ABA/Routing Number</td>
