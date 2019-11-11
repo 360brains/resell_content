@@ -25,4 +25,8 @@ class PaymentController extends Controller
         //
     }
 
+    public function depositFunds(){
+        return view('user.deposit-funds');
+    }
+
 }
