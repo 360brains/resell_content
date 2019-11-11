@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('user/payment', 'User\PaymentController@index')->name('user.payment');
     Route::get('user/add/account', 'User\PaymentController@addAccount')->name('user.add.account');
     Route::get('user/edit/account/{id}', 'User\PaymentController@editAccount')->name('user.edit.account');
+    Route::get('user/remove/account/{id}', 'User\PaymentController@removeAccount')->name('user.remove.account');
     Route::post('user/update/account/{id}', 'User\PaymentController@updateAccount')->name('user.update.account');
     Route::post('user/store/account', 'User\PaymentController@storeAccount')->name('user.store.account');
     Route::get('user/deposit-funds', 'User\PaymentController@depositFunds')->name('user.deposit.funds');

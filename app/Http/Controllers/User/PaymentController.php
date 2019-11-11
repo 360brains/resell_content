@@ -31,6 +31,10 @@ class PaymentController extends Controller
                 'holder'        => 'required',
             ]);
 
+            $account = Account::where('bank', $request->bank)->where('iban', $request->iban)->where('active', 0)->first();
+
+
+            if (count($account) > 0)
             $data = [
                 'type'      => 'bank',
                 'user_id'   => auth()->user()->id,
@@ -175,6 +179,20 @@ class PaymentController extends Controller
             return view('user.accounts.edit-bank-account', $data);
         }elseif ($account->type == 'jazzcash'){
             return view('user.accounts.edit-jazzcash-account', $data);
+        }
+    }
+    public function removeAccount($id){
+        $account = Account::where('id', $id)->first();
+
+        $data = [
+            'active'    => 0,
+
+        ];
+        $response = $account->update($data);
+        if ($response){
+            return redirect()->route('user.profile')->with("success", "Completed successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
     }
 
