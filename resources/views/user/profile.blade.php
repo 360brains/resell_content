@@ -223,14 +223,14 @@
                     <h5 class="mgt-1-5x font-mid">Select payment method:</h5>
                     <ul class="pay-list guttar-20px">
                         <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
-                                                    id="pay-coin"><label class="pay-check-label" for="pay-coin"><img src="images/pay-a.png"
+                                                    id="pay-coin"><label class="pay-check-label" for="pay-coin"><img src="images/telenor-pakistan-easypaisa-logo.png"
                                                                                                                      alt="pay-logo"></label></li>
                         <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
                                                     id="pay-coinpay"><label class="pay-check-label" for="pay-coinpay"><img
-                                    src="images/pay-b.png" alt="pay-logo"></label></li>
+                                    src="images/JazzCash_logo.png" alt="pay-logo"></label></li>
                         <li class="pay-item"><input type="radio" class="pay-check" name="pay-option"
                                                     id="pay-paypal"><label class="pay-check-label" for="pay-paypal"><img
-                                    src="images/pay-c.png" alt="pay-logo"></label></li>
+                                    src="images//Bank-Free-Download-PNG.png" alt="pay-logo"></label></li>
                     </ul>
                     <div class="pdb-2-5x pdt-1-5x"><input type="checkbox" class="input-checkbox input-checkbox-md"
                                                           id="agree-term-3"><label for="agree-term-3">I hereby agree to the <strong>Membership purchase
