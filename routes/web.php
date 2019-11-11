@@ -38,7 +38,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::resource('templates', 'TemplateController');
     Route::resource('accounts', 'AccountController');
 
-
 });
 
 Auth::routes();
@@ -53,6 +52,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('user/memberships', 'User\MembershipController@index')->name('user.memberships');
     Route::get('user/voucher', 'User\VoucherController@index')->name('user.voucher');
     Route::get('user/payment', 'User\PaymentController@index')->name('user.payment');
+    Route::get('user/add/account', 'User\PaymentController@addAccount')->name('user.add.account');
+    Route::get('user/add/account', 'User\PaymentController@addAccount')->name('user.store.account');
     Route::get('user/learn-details/{id}', 'User\LearnController@learnDetails')->name('user.learn.details');
     Route::get('user/transactions', 'User\TransactionController@index')->name('user.transactions');
     Route::get('user/notifications', 'User\NotificationController@index')->name('user.notifications');

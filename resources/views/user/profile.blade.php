@@ -200,10 +200,12 @@
                     </div>
                     <div class="kyc-info card">
                         <div class="card-innr">
-                            <h6 class="card-title card-title-sm">Identity Verification - KYC</h6>
-                            <p>To comply with regulation, participant will have to go through indentity verification.</p>
-                            <p class="lead text-light pdb-0-5x">You have not submitted your KYC application to verify your indentity.</p><a href="#" class="btn btn-primary btn-block">Click to Proceed</a>
-                            <h6 class="kyc-alert text-danger">* KYC verification required for purchase token</h6></div>
+                            <h6 class="card-title card-title-sm">Add Bank Account</h6>
+                            <p>Add bank Account that you would like to use for your future transactions.</p>
+                            <a href="#" class="btn btn-primary btn-block">Add Account</a>
+                            <h5 class="card-title card-title-sm pt-3">Previous Accounts</h5>
+                            <h6>hfghfhf</h6>
+                            </div>
                     </div>
                 </div>
             </div>
