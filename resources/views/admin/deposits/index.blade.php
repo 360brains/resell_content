@@ -48,6 +48,7 @@
                                     <td> {{ $deposit->amount}} </td>
                                     <td> {{ $deposit->date_deposit}} </td>
                                     <td> {{ date('d-M-Y', strtotime($deposit->created_at)) }} </td>
+                                    <td> {{ $deposit->active == 1 ? 'Pending' : 'Approved'}} </td>
                                         <td>
                                             @if($deposit->status == 'Pending')
                                             <form action="{{ route('admin.deposits.update', $deposit->id) }}">
@@ -57,7 +58,7 @@
                                             </form>
                                             @endif
                                         </td>
-                                    <td> {{ $deposit->active == 1 ? 'Active' : 'Inactive'}} </td>
+
                                 </tr>
                                 @empty
                                 <tr>
