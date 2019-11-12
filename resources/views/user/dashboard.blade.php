@@ -16,7 +16,7 @@
                                     </div>
                                     @if($test->pivot->status == 'completed')
                                     <!-- Button trigger modal -->
-                                        <button disabled class=" btn btn-info float-right">
+                                        <button disabled class=" btn btn-sm btn-info float-right">
                                             Writing Test
                                         </button>
                                     @elseif($test->pivot->status == 'started')
