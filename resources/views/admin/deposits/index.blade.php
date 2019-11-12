@@ -27,13 +27,12 @@
                         <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>
-                            <th> Account Holder </th>
-                            <th> IBAN </th>
                             <th> Bank Name </th>
+                            <th> Tranx. ID </th>
                             <th> Amount </th>
+                            <th> Deposit Date </th>
+                            <th>Created At</th>
                             <th> Status </th>
-                            <th> Created </th>
-{{--                            <th> Last Updated </th>--}}
                             <th> Action </th>
                         </tr>
                         </thead>
@@ -46,19 +45,19 @@
                                     <td> {{ ++$i }} </td>
                                     <td> {{ $deposit->bank}} </td>
                                     <td> {{ $deposit->reference_id}} </td>
-                                    <td> {{ $deposit->date_deposit}} </td>
                                     <td> {{ $deposit->amount}} </td>
+                                    <td> {{ $deposit->date_deposit}} </td>
                                     <td> {{ date('d-M-Y', strtotime($deposit->created_at)) }} </td>
-{{--                                    <td> {{ $level->updated_at }} </td>--}}
                                         <td>
                                             @if($deposit->status == 'Pending')
-                                            <form action="{{ route('admin.withdraw.approve', $deposit->id) }}">
+                                            <form action="{{ route('admin.deposits.update', $deposit->id) }}">
                                                 @csrf
                                                     <button class="btn btn-primary" type="submit">Approve</button>
     {{--                                                <button type="submit" class="btn btn-success btn-outline sbold uppercase">Reject</button>--}}
                                             </form>
                                             @endif
                                         </td>
+                                    <td> {{ $deposit->active == 1 ? 'Active' : 'Inactive'}} </td>
                                 </tr>
                                 @empty
                                 <tr>
