@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Account;
+use App\Models\Deposit;
+use App\Notifications\TaskResult;
+use Bitfumes\Multiauth\Model\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -213,21 +216,55 @@ class PaymentController extends Controller
 
     public function storeFunds(Request $request){
 
-        if($request->option == 'bank'){
-            $data = [
-                'bank' => $request->bank,
-                'reference-id' => $request->reference_id,
-                'bank' => $request->amount,
-                'user_id' => auth()->user()->id,
-                'date_deposited' => $request->date,
-            ];
-        }elseif($request->option == 'jazzcash'){
-            $data['method'] = 'jazzcash';
-        }elseif($request->option == 'easypaisa'){
-            $data['method'] = 'easypaisa';
+        $response = null;
+        $data = null;
+
+        $data = [
+            'reference_id'       => $request->reference_id,
+            'amount'             => $request->amount,
+            'user_id'            => auth()->user()->id,
+            'date_deposit'       => $request->date,
+        ];
+
+        if($request->action == 'bank'){
+            $data['bank'] = $request->bank;
+
+        }elseif($request->action == 'jazzcash'){
+            $data['bank'] = 'JazzCash';
+
+        }elseif($request->action == 'easypaisa'){
+            $data['bank'] = 'EasyPaisa';
         }
 
-        return view('user.deposit-funds', $data);
+        $response = Deposit::create($data);
+
+        $details = [
+            'taskName'      => 'Deposit Funds',
+            'date'          => now(),
+            'message'       => 'Your fund deposit request is delivered and waiting approval.',
+            'tooltip'       => ' You will be notified when admin approves your deposit. Your balance will be updated after approval.',
+            'link'          => "",
+        ];
+
+        auth()->user()->notify(new TaskResult($details));
+
+        $adminDetails = [
+            'taskName'      => 'Deposit Funds',
+            'date'          => now(),
+            'message'       => "<a href=".route("admin.users.show", auth()->user()->id)." class='d-inline'>". auth()->user()->name . "</a><a href=".route("admin.deposits.show", $response->id)." class='d-inline'> deposited funds.</a>",
+            'tooltip'       => 'funds',
+            'link'          => "<a href=".route("admin.deposits.show", $response->id)." class='d-inline'>View deposit</a>",
+        ];
+        $admins = Admin::all();
+        foreach ($admins as $admin) {
+            $admin->notify(new TaskResult($adminDetails));
+        }
+
+        if ($response){
+            return redirect()->route('user.profile')->with("success", "Completed successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 
 }
