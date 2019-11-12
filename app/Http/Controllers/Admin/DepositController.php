@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Deposit;
 use App\Models\Membership;
+use App\Notifications\TaskResult;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -72,7 +73,46 @@ class DepositController extends Controller
      */
     public function update(Request $request, Deposit $deposit)
     {
-        //
+        if( $request->action == 'approve' ){
+
+            $deposit->user->balance = $deposit->user->balance +  $deposit->amount;
+            $deposit->user->update();
+
+            $deposit->status = 'Approved';
+            $response = $deposit->update();
+
+            $details = [
+                'taskName'      => 'Deposited Funds',
+                'date'          => now(),
+                'message'       => 'Your fund deposit request is approved.',
+                'tooltip'       => ' Your balance is updated. You can use it for different payments or can withdraw it any time.',
+                'link'          => "",
+            ];
+
+        }elseif ( $request->action == 'reject' ){
+
+
+            $deposit->status = 'Rejected';
+            $response = $deposit->update();
+
+            $details = [
+                'taskName'      => 'Deposited Funds',
+                'date'          => now(),
+                'message'       => 'Your fund deposit request is rejected.',
+                'tooltip'       => 'Your deposit request is rejected. Please try again with valid information.',
+                'link'          => "",
+            ];
+
+        }
+
+        $deposit->user->notify(new TaskResult($details));
+
+
+        if ($response){
+            return redirect()->route('admin.deposits.index')->with("success", "Completed successfully.");
+        }else{
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
     }
 
     /**

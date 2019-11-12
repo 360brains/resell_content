@@ -46,14 +46,16 @@
                                     <td> {{ $deposit->bank}} </td>
                                     <td> {{ $deposit->reference_id}} </td>
                                     <td> {{ $deposit->amount}} </td>
-                                    <td> {{ $deposit->date_deposit}} </td>
+                                    <td> {{ date('d-M-Y h:i', strtotime($deposit->date_deposit)) }} </td>
                                     <td> {{ date('d-M-Y', strtotime($deposit->created_at)) }} </td>
-                                    <td> {{ $deposit->active == 1 ? 'Pending' : 'Approved'}} </td>
+                                    <td> {{ $deposit->status}} </td>
                                         <td>
                                             @if($deposit->status == 'Pending')
-                                            <form action="{{ route('admin.deposits.update', $deposit->id) }}">
+                                            <form action="{{ route('admin.deposits.update', $deposit->id) }}" method="post">
                                                 @csrf
-                                                    <button class="btn btn-primary" type="submit">Approve</button>
+                                                {{ method_field('PATCH') }}
+                                                <button class="btn btn-primary" type="submit" name="action" value="approve">Approve</button>
+                                                <button class="btn btn-danger" type="submit" name="action" value="reject">Reject</button>
     {{--                                                <button type="submit" class="btn btn-success btn-outline sbold uppercase">Reject</button>--}}
                                             </form>
                                             @endif
