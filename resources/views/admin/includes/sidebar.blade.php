@@ -147,6 +147,13 @@
                 </a>
             </li>
 
+            <li class="nav-item  {{strpos((request()->path()),"admin/deposits") == 'true' ? 'active' : ''}}">
+                <a href="{{ route('admin.deposits.index') }}" class="nav-link">
+                    <i class="icon-layers"></i>
+                    <span class="title">Deposited Funds</span>
+                </a>
+            </li>
+
             <li class="nav-item  {{strpos((request()->path()),"admin/withrawRequests") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.withrawRequests') }}" class="nav-link">
                     <i class="icon-layers"></i>
