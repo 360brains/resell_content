@@ -184,6 +184,7 @@ class PaymentController extends Controller
             return view('user.accounts.edit-jazzcash-account', $data);
         }
     }
+
     public function removeAccount($id){
         $account = Account::where('id', $id)->first();
 
@@ -195,7 +196,7 @@ class PaymentController extends Controller
         if ($response){
             return redirect()->route('user.profile')->with("success", "Completed successfully.");
         }else{
-            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+            return redirect()->back()->with("error", "Something went wrong. Please try again.");
         }
     }
 
@@ -224,6 +225,7 @@ class PaymentController extends Controller
             'amount'             => $request->amount,
             'user_id'            => auth()->user()->id,
             'date_deposit'       => $request->date,
+            'status'             => 'Pending'
         ];
 
         if($request->action == 'bank'){
