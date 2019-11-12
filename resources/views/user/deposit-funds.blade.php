@@ -147,7 +147,7 @@
                                     </div>
 
                                     <div class="input-item input-with-label">
-                                        <button class="btn btn-block btn-primary mt-3" name="action" value="bank" type="submit">Confirm and pay</button>
+                                        <button class="btn btn-block btn-primary mt-3" name="action" value="jazzcash" type="submit">Confirm and pay</button>
                                     </div>
                                 </form>
                             </div>
@@ -228,7 +228,7 @@
                                     </div>
 
                                     <div class="input-item input-with-label">
-                                        <button class="btn btn-block btn-primary mt-3" name="action" value="bank" type="submit">Confirm and pay</button>
+                                        <button class="btn btn-block btn-primary mt-3" name="action" value="easypaisa" type="submit">Confirm and pay</button>
                                     </div>
                                 </form>
                             </div>
