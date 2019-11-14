@@ -101,7 +101,7 @@ class TransactionController extends Controller
             'description'     =>'Withdraw by user',
             'withdraw_id'     => $withdraw->id,
             'status'          => "Paid",
-            'user_id'         => $withdraw->id,
+            'user_id'         => $withdraw->user->id,
         ];
 
         $response = Transaction::create($data);
@@ -111,6 +111,25 @@ class TransactionController extends Controller
         ];
 
         $response = $withdraw->update($data);
+        $details = [
+            'taskName'      => 'Withdraw Funds',
+            'date'          => now(),
+            'message'       => 'Your withdraw request is approved.',
+            'tooltip'       => ' You have been sent requested amount. In case of any issue feel free to contact us.',
+            'link'          => "",
+        ];
+
+        $withdraw->user->notify(new TaskResult($details));
+
+        foreach (auth()->user()->unreadNotifications as $notification)
+        {
+            if (strpos($notification->data['link'], "".$withdraw->id))
+            {
+                $notification->markAsRead();
+                break;
+            }
+        }
+
 
         if ($response){
             return redirect()->route('admin.withrawRequests')->with("success", "Completed Successfully.");
