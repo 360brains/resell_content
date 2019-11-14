@@ -19,12 +19,28 @@ class MembershipController extends Controller
             if (auth()->user()->balance >= $membership->price){
                 $date = new \DateTime("+2 months");
                 $data = [
-                    'user_id' => auth()->user()->id,
-                    'membership_id' => $membership->id,
-                    'status' => 'Bought',
-                    'deadline' => $date,
+                    'user_id'           => auth()->user()->id,
+                    'membership_id'     => $membership->id,
+                    'status'            => 'Bought',
+                    'deadline'          => $date,
                 ];
                 $responce = Membership::create($data);
+
+                if ($responce){
+                    // To be continued
+                    // To be continued
+                    // To be continued
+                    // To be continued
+                    // To be continued
+                    // To be continued
+                    // To be continued
+                    // To be continued
+                    // To be continued
+                    // To be continued
+                    // To be continued
+                }
+            }else{
+                return redirect()->back()->with("error", "Your balance is not enough to Buy this membership. Try after depositing Funds.");
             }
         }else{
             return redirect()->back()->with("error", "Please agree to the membership purchase agreement.");
