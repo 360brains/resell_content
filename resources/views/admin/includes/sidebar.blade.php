@@ -150,14 +150,44 @@
             <li class="nav-item  {{strpos((request()->path()),"admin/deposits") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.deposits.index') }}" class="nav-link">
                     <i class="icon-layers"></i>
-                    <span class="title">Deposited Funds</span>
+                    <span class="title">Deposited Funds
+                        <span class="badge badge-info">
+                            @php
+                                $i= 0;
+                            @endphp
+                            @foreach(auth()->user()->unreadNotifications as $notification)
+                                @if($notification->data['tooltip'] == 'funds')
+                                    @php
+                                        $i++;
+                                    @endphp
+                                @endif
+                            @endforeach
+                            {{ $i }}
+                        </span>
+                    </span>
+
                 </a>
             </li>
 
             <li class="nav-item  {{strpos((request()->path()),"admin/withrawRequests") == 'true' ? 'active' : ''}}">
                 <a href="{{ route('admin.withrawRequests') }}" class="nav-link">
                     <i class="icon-layers"></i>
-                    <span class="title">Withdraw Requests</span>
+                    <span class="title">Withdraw Requests
+                        <span class="badge badge-info">
+                            @php
+                                $i= 0;
+                            @endphp
+                            @foreach(auth()->user()->unreadNotifications as $notification)
+                                @if($notification->data['tooltip'] == 'withdraw')
+                                    @php
+                                        $i++;
+                                    @endphp
+                                @endif
+                            @endforeach
+                            {{ $i }}
+                        </span>
+                    </span>
+
                 </a>
             </li>
 

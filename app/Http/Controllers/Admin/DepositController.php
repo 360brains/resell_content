@@ -73,6 +73,7 @@ class DepositController extends Controller
      */
     public function update(Request $request, Deposit $deposit)
     {
+
         if( $request->action == 'approve' ){
 
             $deposit->user->balance = $deposit->user->balance +  $deposit->amount;
@@ -103,6 +104,14 @@ class DepositController extends Controller
                 'link'          => "",
             ];
         }
+    foreach (auth()->user()->unreadNotifications as $notification)
+    {
+        if (strpos($notification->data['link'], "".$deposit->id))
+        {
+            $notification->markAsRead();
+            break;
+        }
+    }
 
         $deposit->user->notify(new TaskResult($details));
 
