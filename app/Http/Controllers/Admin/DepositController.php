@@ -102,7 +102,6 @@ class DepositController extends Controller
                 'tooltip'       => 'Your deposit request is rejected. Please try again with valid information.',
                 'link'          => "",
             ];
-
         }
 
         $deposit->user->notify(new TaskResult($details));
