@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use App\Models\Withdraw;
+use App\Notifications\TaskResult;
 use App\User;
+use Bitfumes\Multiauth\Model\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,14 +46,18 @@ class WithdrawController extends Controller
         }
         else{
             $request->validate([
-                'account'         => 'required',
-                'amount'          => 'required',
+                'iban'         => 'required',
+                'amount'       => 'required',
+                'holder'       => 'required',
+                'bank'         => 'required',
             ]);
             $data = [
-                'account'         => $request->account,
+                'holder'          =>$request->holder,
+                'iban'            => $request->iban,
+                'bank'            => $request->bank,
                 'amount'          => $request->amount,
                 'status'          => "Pending",
-                'user_id'         => Auth::user()->id,
+                'user_id'         => Auth()->user()->id,
             ];
 
             $response = Withdraw::create($data);
@@ -60,6 +67,32 @@ class WithdrawController extends Controller
                 $set->balance     = $remaining;
                 $set->save();
             }
+
+            // hassaan
+            $details = [
+                'taskName'      => 'Withdraw Funds',
+                'date'          => now(),
+                'message'       => 'Your fund withdraw request is waiting approval.',
+                'tooltip'       => ' You will be notified when admin approves your withdraw.',
+                'link'          => "<a href=".route("withdraw.create")." class='d-inline'>View withdraw</a>",
+            ];
+
+            auth()->user()->notify(new TaskResult($details));
+
+            $adminDetails = [
+                'taskName'      => 'Withdraw Funds',
+                'date'          => now(),
+                'message'       => "<a href=".route("admin.users.show", auth()->user()->id)." class='d-inline'>". auth()->user()->name . "</a><a href=".route("admin.withrawRequests")." class='d-inline'> Requested funds withdraw.</a>",
+                'tooltip'       => 'withdraw',
+                'link'          => "<a href=".route("admin.withrawRequests")." class='d-inline'>View withdraw</a>",
+            ];
+            $admins = Admin::all();
+            foreach ($admins as $admin) {
+                $admin->notify(new TaskResult($adminDetails));
+            }
+            // hassaan
+
+
             if ($response){
                 return redirect()->route('withdraw.create')->with("success", "Completed Successfully.");
             }else{

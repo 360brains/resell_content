@@ -34,6 +34,12 @@
 
     </div>
 
+    @foreach(auth()->user()->unreadNotifications as $notification)
+        @if(strpos($notification->data['link'], "".$task->id))
+            {{ $notification->markAsRead() }}
+        @endif
+    @endforeach
+
     <h3 class="page-title">Details of <b> {{ $task->project->name }}</b>
     </h3>
 

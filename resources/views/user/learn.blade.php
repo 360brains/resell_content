@@ -20,7 +20,7 @@
                                     </div>
 
                                     <div class="cource_pading">
-                                        <h3 class="product_name">{{ $training->name }}
+                                        <h3 class="product_name mt-3 mb-1">{{ $training->name }}
                                         </h3>
 
                                         <!-- Jon Youshaei -->

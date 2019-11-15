@@ -2,7 +2,9 @@
 
 namespace App;
 
-use App\Admin\Membership;
+use App\Models\Account;
+use App\Models\Deposit;
+use App\Models\Membership;
 use App\Models\Level;
 use App\Models\Task;
 use App\Models\Test;
@@ -57,8 +59,20 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Training::class);
     }
 
+    function accounts(){
+        return $this->hasMany(Account::class)->whereActive(1);
+    }
+
+    function deposits(){
+        return $this->hasMany(Deposit::class);
+    }
+
     function memberships(){
-        return $this->belongsToMany(Membership::class);
+        return $this->belongsToMany(Membership::class)->withPivot('status', 'deadline', 'id', 'created_at');
+    }
+
+    function currentMembership(){
+        return $this->belongsToMany(Membership::class)->withPivot('status', 'deadline', 'id', 'created_at')->whereStatus('Bought')->limit(1);
     }
 
     function tests(){

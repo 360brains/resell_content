@@ -8,7 +8,7 @@
                 <section class="blog-wrap clearfix custom_sticky_main">
                     <div class="blog-inner sticky">
                         <div class="blog-left">
-                            <h1 class="h1">Brand Strategy and Design for Small Businesses</h1>
+                            <h1 class="h1">{{$trainings->name}}</h1>
                             <div class="course_label">
                                 <!-- otherwise course is still for sale or user can resume -->
                             </div>
@@ -33,7 +33,11 @@
                 </section>
                 <div class="row">
                     <div class="col-md-8">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/EU7PRmCpx-0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{--                        <iframe width="560" height="315" src="https://www.youtube.com/embed/EU7PRmCpx-0"></iframe>--}}
+                        <video width="560" height="315" controls>
+                            <source src="{{asset('/trainings/12/2 learn.mp4')}}" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                        </video>
                         <div class="user-prof">
                             <a href="/pages/haylee-powers">
                                 <span><img
@@ -101,29 +105,15 @@
                                 <div class="course-list">
                                     <ul>
                                         <!-- icon-lesson -->
-                                        <li data-type="icon-lesson">
-                                            1. An intro to branding (4:54)
+                                        @foreach($trainings->trainingLists as $list)
+                                        <li data-type="icon-lesson" class="training-name" data-link="{{ asset('trainings/'.$trainings->id.'/'.$list->name)}}">
+                                            {{$list->name}}
                                         </li>
-                                        <!-- icon-download -->
-                                        <li data-type="icon-download">
-                                            Downloadable Worksheets
-                                        </li>
+                                        @endforeach
                                         <!-- icon-lesson -->
-                                        <li data-type="icon-lesson">
-                                            2. Why do we need branding (4:05)
-                                        </li>
-                                        <!-- icon-lesson -->
-                                        <li data-type="icon-lesson">
-                                            3. Neuroscience and branding (5:23)
-                                        </li>
-                                        <!-- icon-lesson -->
-                                        <li data-type="icon-lesson">
-                                            4. Negative Communication (2:54)
-                                        </li>
-                                        <!-- icon-lesson -->
-                                        <li data-type="icon-lesson">
-                                            5. Your Brand Checklist (0:40)
-                                        </li>
+{{--                                        <li data-type="icon-lesson">--}}
+{{--                                            5. Your Brand Checklist (0:40)--}}
+{{--                                        </li>--}}
                                     </ul>
                                 </div>
                             </div>

@@ -11,6 +11,7 @@ use App\Notifications\TaskResult;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Notifications\Notification;
 
 class TaskController extends Controller
 {

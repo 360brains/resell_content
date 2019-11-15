@@ -1,7 +1,6 @@
 @extends('admin.layouts.master')
 
 @section('content')
-
     <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>

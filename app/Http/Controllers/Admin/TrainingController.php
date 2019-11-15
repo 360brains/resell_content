@@ -43,14 +43,14 @@ class TrainingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'          => 'required',
-            'type'          => 'required',
-            'description'   => 'required',
-            'active'        => 'required',
-            'zip'           => 'required|mimes:zip,rar',
-            'image'         => 'required|mimes:jpg,jpeg,png',
+            'name' => 'required',
+            'type' => 'required',
+            'description' => 'required',
+            'active' => 'required',
+            'zip' => 'required|mimes:zip,rar',
+            'image' => 'required|mimes:jpg,jpeg,png',
         ]);
-        if ($request->hasFile("zip") && $request->file('zip')->isValid()) {
+//        if ($request->hasFile("zip") && $request->file('zip')->isValid()) {
 //            $filename           = $request->file('zip')->getClientOriginalName();
 //            $filename           = time()."-".$filename;
 //            $destinationPath    = public_path('/trainings');
@@ -58,12 +58,7 @@ class TrainingController extends Controller
 //            $request->file('zip')->move($destinationPath, $filename);
 //
 //            $Path               = public_path("trainings/".$filename);
-
-            \Zipper::make($request->file('zip'))->extractTo('Appdividend');
-            $logFiles = \Zipper::make($request->file('zip'))->listFiles();
-
-        }
-
+//    }
         if ($request->hasFile("image") && $request->file('image')->isValid()) {
             $imgFilename           = $request->file('image')->getClientOriginalName();
             $imgFilename           = time()."-".$imgFilename;
@@ -82,12 +77,22 @@ class TrainingController extends Controller
         ];
         $response = Training::create($data);
         $id       = $response->id;
-        foreach ($logFiles as $filesname){
-            $filesave = [
-                'name'          => $filesname,
-                'training_id'   => $id,
-            ];
-            TrainingList::create($filesave);
+        if ($request->hasFile("zip") && $request->file('zip')->isValid()) {
+            $folder = public_path('../public/trainings/' . $id . '/');
+
+    if (!\Storage::exists($folder)) {
+        \Storage::makeDirectory($folder, 0775, true, true);
+    }
+            \Zipper::make($request->file('zip'))->extractTo($folder);
+            $logFiles = \Zipper::make($request->file('zip'))->listFiles();
+
+            foreach ($logFiles as $filesname){
+                $filesave = [
+                    'name'          => $filesname,
+                    'training_id'   => $id,
+                ];
+                TrainingList::create($filesave);
+            }
         }
         if ($response){
             return redirect()->route('admin.trainings.index')->with("success", "Completed Successfully.");

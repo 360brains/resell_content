@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Admin\Membership;
+use App\Models\Membership;
 use App\Models\Level;
 use App\Models\Task;
 use App\Models\Transaction;
@@ -35,6 +35,12 @@ class DashboardController extends Controller
         $data['currentTask']    = null;
         $data['diff']           = 0;
         }
+
+        $data['currentMembership'] = null;
+        foreach (auth()->user()->currentMembership as $membership){
+            $data['currentMembership'] = $membership;
+        }
+
         return view('user.dashboard', $data);
     }
 }

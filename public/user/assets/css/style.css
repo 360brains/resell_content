@@ -6409,7 +6409,7 @@ select.select-sm {
 }
 
 .user-status {
-    padding: 20px 25px;
+    padding: 20px 43px;
     background: #07b107;
     border-radius: 4px 4px 0 0
 }
@@ -7139,7 +7139,7 @@ select.select-sm {
         margin-top: 1px
     }
     .token-balance:not(:last-child) {
-        margin-bottom: 165px
+        margin-bottom: 37px;
     }
     .token-rate:not(:last-child),
     .token-bonus:not(:last-child) {
@@ -13581,7 +13581,7 @@ border-radius: 10px;"
 .blog-img {
     position: relative;
     width: 100%;
-    height: 348px;
+    height: 250px;
 }
 .blog-img img{
     width: 100%;
@@ -13636,17 +13636,16 @@ span.green_dot {
 
 .cource_pading {
     padding: 0px 20px 20px 20px;
-    min-height: 175px;
+    min-height: 160px;
 }
 
 .cource_pading h3 {
     line-height: 28px;
     color: #222325;
     font-weight: 600 !important;
-    font-size: 20px;
+    font-size: 23px;
     letter-spacing: 0px !important;
-    font-family: 'Proxima Nova';
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -13777,7 +13776,7 @@ span.green_dot {
     margin-bottom: 0px;
 }
 .membership .token-balance img{
-    width: 250px;
+    width: 220px;
     height: auto;
 }
 .membership li .lead{
@@ -13826,4 +13825,41 @@ span.green_dot {
 .membership-benefits{
     margin-top: 30px;
 }
+.imgi {
+    border-radius: 2%;
+    padding: 20px 0;
+    background-position: center;
+    background-size: contain;
+    background-image: linear-gradient(45deg, #1c65c9 0%, #07b107 100%);
+}
+
+.mem-text {
+    position: relative;
+    font-family: 'Satisfy';
+    color: #ffffff;
+    font-size: 3em;
+}
+
+.member{
+    position: absolute;
+    bottom: -10px;
+    right: 90px;
+    font-size: 20px;
+    font-family: 'Cinzel';
+
+
+}
+
+.member,
+.member-date p {
+    font-family: 'Cinzel';
+    color: #ffffff;
+
+}
+
+.text {
+    background: rgba(162, 218, 236, 0.7);
+    padding: 7px 35px;
+}
+
 
