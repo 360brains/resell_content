@@ -17861,3 +17861,6 @@ screen and (max-height:300px) {
         color: #7245d8
     }
 }
+.training-name{
+    cursor: pointer;
+}
