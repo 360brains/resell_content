@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::get('user-tests', 'UserTestController@userTests')->name('user.tests');
     Route::post('user-test/evaluate/{id}', 'UserTestController@evaluate')->name('user.test.evaluate');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+//    Route::get('deposit-funds', 'TransactionController@depositIndex')->name('deposit.funds');
     Route::get('withrawRequests', 'TransactionController@withdrawIndex')->name('withrawRequests');
     Route::get('withdraw-approve{id}', 'TransactionController@withdrawApprove')->name('withdraw.approve');
     Route::get('notifications', 'NotificationController@index')->name('notifications');
@@ -37,7 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::resource('test', 'TestController');
     Route::resource('templates', 'TemplateController');
     Route::resource('accounts', 'AccountController');
-
+    Route::resource('deposits', 'DepositController');
 
 });
 
@@ -51,8 +52,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
     Route::get('user/learn', 'User\LearnController@index')->name('user.learn');
     Route::get('user/memberships', 'User\MembershipController@index')->name('user.memberships');
+    Route::get('user/memberships/buy/{id}', 'User\MembershipController@buy')->name('user.memberships.buy');
     Route::get('user/voucher', 'User\VoucherController@index')->name('user.voucher');
     Route::get('user/payment', 'User\PaymentController@index')->name('user.payment');
+    Route::get('user/add/account', 'User\PaymentController@addAccount')->name('user.add.account');
+    Route::get('user/edit/account/{id}', 'User\PaymentController@editAccount')->name('user.edit.account');
+    Route::get('user/remove/account/{id}', 'User\PaymentController@removeAccount')->name('user.remove.account');
+    Route::post('user/update/account/{id}', 'User\PaymentController@updateAccount')->name('user.update.account');
+    Route::post('user/store/account', 'User\PaymentController@storeAccount')->name('user.store.account');
+    Route::get('user/deposit-funds', 'User\PaymentController@depositFunds')->name('user.deposit.funds');
+    Route::post('user/store-funds', 'User\PaymentController@storeFunds')->name('user.store.funds');
     Route::get('user/learn-details/{id}', 'User\LearnController@learnDetails')->name('user.learn.details');
     Route::get('user/transactions', 'User\TransactionController@index')->name('user.transactions');
     Route::get('user/notifications', 'User\NotificationController@index')->name('user.notifications');
@@ -68,6 +77,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('user/profile/edit-personal', 'User\ProfileController@editPersonal')->name('user.profile.edit.personal');
     Route::post('user/profile/edit-password', 'User\ProfileController@editPassword')->name('user.profile.edit.password');
     Route::resource('withdraw', 'WithdrawController');
+//    Route::resource('accounts', 'AccountController');
+
 });
 
 Route::get('/', 'Pages\PagesController@home')->name('pages.home');

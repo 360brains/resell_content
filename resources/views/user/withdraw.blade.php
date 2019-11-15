@@ -6,6 +6,9 @@
         <div class="container">
             <div class="card content-area">
                 <div class="card-innr">
+                    <div class="card-head">
+                        <h4 class="card-title">Withdraw Request</h4>
+                    </div>
                             <form action="{{ route('withdraw.store' ) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
