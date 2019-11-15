@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
     Route::get('user/learn', 'User\LearnController@index')->name('user.learn');
     Route::get('user/memberships', 'User\MembershipController@index')->name('user.memberships');
+    Route::get('user/memberships/buy/{id}', 'User\MembershipController@buy')->name('user.memberships.buy');
     Route::get('user/voucher', 'User\VoucherController@index')->name('user.voucher');
     Route::get('user/payment', 'User\PaymentController@index')->name('user.payment');
     Route::get('user/add/account', 'User\PaymentController@addAccount')->name('user.add.account');

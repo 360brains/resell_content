@@ -103,7 +103,6 @@ class DepositController extends Controller
                 'tooltip'       => 'Your deposit request is rejected. Please try again with valid information.',
                 'link'          => "",
             ];
-
         }
     foreach (auth()->user()->unreadNotifications as $notification)
     {
