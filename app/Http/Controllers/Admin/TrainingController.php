@@ -80,9 +80,9 @@ class TrainingController extends Controller
         if ($request->hasFile("zip") && $request->file('zip')->isValid()) {
             $folder = public_path('../public/trainings/' . $id . '/');
 
-            if (!\Storage::exists($folder)) {
-                \Storage::makeDirectory($folder, 0775, true, true);
-            }
+    if (!\Storage::exists($folder)) {
+        \Storage::makeDirectory($folder, 0775, true, true);
+    }
             \Zipper::make($request->file('zip'))->extractTo($folder);
             $logFiles = \Zipper::make($request->file('zip'))->listFiles();
 

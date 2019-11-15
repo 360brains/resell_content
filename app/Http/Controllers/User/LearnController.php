@@ -13,7 +13,7 @@ class LearnController extends Controller
         return view('user.learn', $data);
     }
     public function learnDetails($id){
-        $data['trainings']      = Training::find($id);
+        $data['trainings']      = Training::with('trainingLists')->find($id);
         return view('user.learn-details', $data);
     }
 }
