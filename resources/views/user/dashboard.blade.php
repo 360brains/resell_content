@@ -315,36 +315,40 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-xl-4 col-lg-5">
-                    <div class="token-statistics card membership height-auto ">
-                        <div class="card-innr">
-                            <div class="token-balance ">
-                                <div class="token-balance-text">
-                                    <div class="countdown-clock" data-date="2019/04/05">
-                                        <div ><span class="countdown-time countdown-time-first">DURATION</span><span class="countdown-text">{{ $membership->duration }} month</span></div>
-                                        <div ><span class="countdown-time">PRICE</span><span class="countdown-text">Rs.{{ $membership->price }}</span></div>
+                    @if(!is_null($currentMembership) && $currentMembership->name == 'premium')
+                        <h1>Premium Member</h1>
+                    @else
+                        <div class="token-statistics card membership height-auto ">
+                            <div class="card-innr">
+                                <div class="token-balance ">
+                                    <div class="token-balance-text">
+                                        <div class="countdown-clock" data-date="2019/04/05">
+                                            <div ><span class="countdown-time countdown-time-first">DURATION</span><span class="countdown-text">{{ $membership->duration }} month</span></div>
+                                            <div ><span class="countdown-time">PRICE</span><span class="countdown-text">Rs.{{ $membership->price }}</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center pt-5 pb-5">
+                                        <img src="{{ asset($membership->badge) }}" alt="">
                                     </div>
                                 </div>
-                                <div class="text-center pt-5 pb-5">
-                                    <img src="{{ asset($membership->badge) }}" alt="">
-
+                                <button class="btn btn-block btn-dark" data-toggle="modal" data-target="#pay-online">Buy Membership</button>
+                                <div>
+                                    <ul class="membership-benefits">
+                                        <li>Get Premium Tasks</li>
+                                        <li>Earn Higher Wages</li>
+                                        <li>No level Restriction</li>
+                                    </ul>
                                 </div>
                             </div>
-{{--                            <form action="{{ route('user.payment') }}" method="get">--}}
-                                <button class="btn btn-block btn-dark" data-toggle="modal" data-target="#pay-online">Buy Membership</button>
-{{--                            </form>--}}
-                            <div>
-                                <ul class="membership-benefits">
-                                    <li>Get Premium Tasks</li>
-                                    <li>Earn Higher Wages</li>
-                                    <li>No level Restriction</li>
-                                </ul>
-                            </div>
                         </div>
-                    </div>
-
+                    @endif
                 </div>
+
+
             </div>
+
             <!-- .row -->
             <div class="row">
                 <div class="col-xl-8 col-lg-7">
@@ -425,8 +429,6 @@
         <!-- .container -->
     </div>
 
-
-
     <!-- Modal Start -->
     <div class="modal fade" id="pay-online" tabindex="-1">
         <div class="modal-dialog modal-dialog-md modal-dialog-centered">
@@ -436,18 +438,18 @@
                     <h4 class="popup-title">Pay For Membership</h4>
                     <p class="lead">To receive <strong>Premium</strong> Membership require payment amount of <strong>{{ $membership->price }}</strong>.</p>
                     <p>This amount will be deducted from your balance. Please make sure you have enough money in your balance or you can deposit funds.</p>
-                        <form action="{{ route('user.memberships.buy', $membership->id) }}">
-                            <div class="pdb-2-5x pdt-1-5x">
+                    <form action="{{ route('user.memberships.buy', $membership->id) }}">
+                        <div class="pdb-2-5x pdt-1-5x">
                             @csrf
-                        <input type="checkbox" name="check" class="input-checkbox input-checkbox-md" id="agree-term-3" >
-                        <label for="agree-term-3">I hereby agree to the
-                            <strong>Membership purchase
-                                aggrement</strong>.
-                        </label>
-                    </div>
-                    <ul class="d-flex flex-wrap align-items-center guttar-30px">
-                        <li><button id="buyMembership" class="btn btn-primary">Proceed</button></li>
-                    </ul>
+                            <input type="checkbox" name="check" class="input-checkbox input-checkbox-md" id="agree-term-3" >
+                            <label for="agree-term-3">I hereby agree to the
+                                <strong>Membership purchase
+                                    aggrement</strong>.
+                            </label>
+                        </div>
+                        <ul class="d-flex flex-wrap align-items-center guttar-30px">
+                            <li><button id="buyMembership" class="btn btn-primary">Proceed</button></li>
+                        </ul>
                     </form>
 
                     <div class="gaps-2x"></div>
@@ -458,6 +460,7 @@
                 </div>
             </div><!-- .modal-content -->
         </div><!-- .modal-dialog -->
-    </div><!-- Modal End -->
+    </div>
+    <!-- Modal End -->
 
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Membership;
+use App\Models\Membership_user;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,27 +18,19 @@ class MembershipController extends Controller
         $membership = Membership::where('id', $id)->first();
         if ($request->check == 'on'){
             if (auth()->user()->balance >= $membership->price){
-                $date = new \DateTime("+2 months");
+                $date = new \DateTime("+1 months");
                 $data = [
                     'user_id'           => auth()->user()->id,
                     'membership_id'     => $membership->id,
                     'status'            => 'Bought',
                     'deadline'          => $date,
                 ];
-                $responce = Membership::create($data);
+                $responce = Membership_user::create($data);
 
                 if ($responce){
-                    // To be continued
-                    // To be continued
-                    // To be continued
-                    // To be continued
-                    // To be continued
-                    // To be continued
-                    // To be continued
-                    // To be continued
-                    // To be continued
-                    // To be continued
-                    // To be continued
+                    return redirect()->route('user.dashboard')->with("success", "Completed Successfully.");
+                }else{
+                    return redirect()->back()->with("error", "Something went wrong. Please try again.");
                 }
             }else{
                 return redirect()->back()->with("error", "Your balance is not enough to Buy this membership. Try after depositing Funds.");
