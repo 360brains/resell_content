@@ -344,6 +344,32 @@
 
                 </div>
             </div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="token-statistics membership height-auto ">
+                        <div class="token-balance ">
+                            <div class="text-center pt-5 pb-5">
+                                <div class="imgi" style="background: url('../user/images/gold.png')" >
+                                    <div class="text-center pt-5 pb-5">
+                                        <h1 class="mem-text">Premium</h1>
+                                        <h2 class="member">Member</h2>
+                                    </div>
+                                    <div class="member-date text clearfix">
+                                        <div class="float-left ">
+                                            <p class="m-0">START DATE:</p>
+                                            <p class="m-0">112233</p>
+                                        </div>
+                                        <div class="float-right">
+                                            <p class="m-0">VALID TILL:</p>
+                                            <p class="m-0">2025/01/10</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
             <!-- .row -->
             <div class="row">
                 <div class="col-xl-8 col-lg-7">

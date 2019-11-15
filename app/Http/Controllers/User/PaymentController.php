@@ -243,7 +243,7 @@ class PaymentController extends Controller
         $details = [
             'taskName'      => 'Deposit Funds',
             'date'          => now(),
-            'message'       => 'Your fund deposit request is delivered and waiting approval.',
+            'message'       => 'Your fund deposit request is waiting approval.',
             'tooltip'       => ' You will be notified when admin approves your deposit. Your balance will be updated after approval.',
             'link'          => "",
         ];

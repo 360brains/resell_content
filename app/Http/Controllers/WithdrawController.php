@@ -72,7 +72,7 @@ class WithdrawController extends Controller
             $details = [
                 'taskName'      => 'Withdraw Funds',
                 'date'          => now(),
-                'message'       => 'Your fund withdraw request is delivered and waiting approval.',
+                'message'       => 'Your fund withdraw request is waiting approval.',
                 'tooltip'       => ' You will be notified when admin approves your withdraw.',
                 'link'          => "<a href=".route("withdraw.create")." class='d-inline'>View withdraw</a>",
             ];
