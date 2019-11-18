@@ -110,7 +110,8 @@ class TemplateController extends Controller
      */
     public function destroy(Template $template)
     {
-        $response       = $template->delete();
+        $template->active    = $template->active == 0 ? 1 : 0;
+        $response            = $template->save();
 
         if ($response){
             return redirect()->route('admin.templates.index')->with("success", "Completed Successfully.");
