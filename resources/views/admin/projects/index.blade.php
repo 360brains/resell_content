@@ -51,19 +51,7 @@
                             <tr class="table-row-clickable" onclick="window.location = '{{ route('admin.projects.show', $project->id) }}'">
                                 <td> {{ ++$i }} </td>
                                 <td><a href="{{ route('admin.projects.show', $project->id) }}"> {{ $project->name }} </a>
-                                    <span class="badge badge-info">
-                                        @php
-                                            $i= 0;
-                                        @endphp
-                                        @foreach(auth()->user()->unreadNotifications as $notification)
-                                            @if($notification->data['taskName'] == $project->id)
-                                                @php
-                                                    $i++;
-                                                @endphp
-                                            @endif
-                                        @endforeach
-                                        {{ $i }}
-                                    </span>
+
                                 </td>
                                 <td> {{ $project->quantity }} </td>
                                 <td> {{ $project->type->name }} </td>
@@ -101,4 +89,3 @@
             </div>
         </div>
 @endsection
-

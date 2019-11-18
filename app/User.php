@@ -68,7 +68,11 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     function memberships(){
-        return $this->belongsToMany(Membership::class);
+        return $this->belongsToMany(Membership::class)->withPivot('status', 'deadline', 'id', 'created_at');
+    }
+
+    function currentMembership(){
+        return $this->belongsToMany(Membership::class)->withPivot('status', 'deadline', 'id', 'created_at')->whereStatus('Bought')->limit(1);
     }
 
     function tests(){

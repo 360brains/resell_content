@@ -14,6 +14,10 @@
     //         $.get('/markAsRead');
     //     }
     // }
+        $('.training-name').click(function () {
+            // $('source').attr('src', asset("trainings/".$(this).data('link')));
+            $('source').attr('src', $(this).data('link'));
+        })
 
     var myDate = $('#count-down').val();console.log(myDate)
     $('#one').vTimer('start', {duration: Number(myDate)})

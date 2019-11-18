@@ -35,6 +35,12 @@ class DashboardController extends Controller
         $data['currentTask']    = null;
         $data['diff']           = 0;
         }
+
+        $data['currentMembership'] = null;
+        foreach (auth()->user()->currentMembership as $membership){
+            $data['currentMembership'] = $membership;
+        }
+
         return view('user.dashboard', $data);
     }
 }

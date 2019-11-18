@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Membership_user extends Model
 {
+    protected $table = 'membership_user';
+
     protected $fillable = [
         'membership_id','user_id','deadline', 'status'
     ];

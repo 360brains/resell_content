@@ -12,4 +12,5 @@ class Membership extends Model
     function users(){
         return $this->belongsToMany(User::class);
     }
+
 }

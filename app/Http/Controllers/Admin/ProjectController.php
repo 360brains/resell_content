@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Level;
 use App\Models\Category;
+use App\Models\Project;
 use App\Models\Task;
 use App\Models\Template;
 use App\Models\Training;
 use App\Models\Type;
-use App\Models\Project;
 use App\Notifications\TaskResult;
 use App\User;
 use Illuminate\Http\Request;
