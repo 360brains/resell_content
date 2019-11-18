@@ -7,22 +7,36 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    protected $fillable = ['user_id','training_id','withdraw_id','amount','type', 'description', 'status'];
+    protected $fillable = [
+        'user_id','training_id','withdraw_id', 'membership_id', 'deposit_id', 'amount', 'type', 'description', 'status'
+    ];
 
     function user(){
         return $this->belongsTo(User::class);
     }
 
-    function task(){
-        return $this->belongsTo(Task::class);
+//    function task(){
+//        return $this->belongsTo(Task::class);
+//    }
+//
+//    function test(){
+//        return $this->belongsTo(Test::class);
+//    }
+//
+//    function training(){
+//    return $this->belongsTo(Training::class);
+//    }
+//
+//    function membership(){
+//        return $this->belongsTo(Membership::class);
+//    }
+
+    function withdraw(){
+        return $this->belongsTo(Withdraw::class);
     }
 
-    function test(){
-        return $this->belongsTo(Test::class);
-    }
-
-    function training(){
-    return $this->belongsTo(Training::class);
+    function deposit(){
+        return $this->belongsTo(Deposit::class);
     }
 
     public function getCreatedAtAttribute($date)

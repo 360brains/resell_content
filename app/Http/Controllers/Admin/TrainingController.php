@@ -50,15 +50,7 @@ class TrainingController extends Controller
             'zip' => 'required|mimes:zip,rar',
             'image' => 'required|mimes:jpg,jpeg,png',
         ]);
-//        if ($request->hasFile("zip") && $request->file('zip')->isValid()) {
-//            $filename           = $request->file('zip')->getClientOriginalName();
-//            $filename           = time()."-".$filename;
-//            $destinationPath    = public_path('/trainings');
-//            $name               = "trainings/".$filename;
-//            $request->file('zip')->move($destinationPath, $filename);
-//
-//            $Path               = public_path("trainings/".$filename);
-//    }
+
         if ($request->hasFile("image") && $request->file('image')->isValid()) {
             $imgFilename           = $request->file('image')->getClientOriginalName();
             $imgFilename           = time()."-".$imgFilename;

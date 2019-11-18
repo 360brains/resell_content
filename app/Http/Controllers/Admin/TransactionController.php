@@ -101,7 +101,7 @@ class TransactionController extends Controller
             'amount'          => $withdraw->amount,
             'description'     =>'Withdraw by user',
             'withdraw_id'     => $withdraw->id,
-            'status'          => "Paid",
+            'status'          => "Received",
             'user_id'         => $withdraw->user->id,
         ];
 
