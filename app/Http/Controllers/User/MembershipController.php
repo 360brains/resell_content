@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Membership;
 use App\Models\Membership_user;
+use App\Models\Transaction;
 use App\Notifications\TaskResult;
 use Bitfumes\Multiauth\Model\Admin;
 use Illuminate\Http\Request;
@@ -35,6 +36,17 @@ class MembershipController extends Controller
 
                 auth()->user()->update($newBalance);
 
+//                $data = [
+//                    'type'            =>'Debit',
+//                    'amount'          => $membership->price,
+//                    'description'     =>'Purchased Membership',
+//                    'membership_id'   => $membership->id,
+//                    'status'          => "Paid",
+//                    'user_id'         => auth()->user()->id,
+//                ];
+//
+//                $response = Transaction::create($data);
+
                 $details = [
                     'taskName'      => 'Membership',
                     'date'          => now(),
@@ -42,6 +54,7 @@ class MembershipController extends Controller
                     'tooltip'       => 'This Membership is valid for 1 month. You can take tasks of any level now.',
                     'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take Tasks</a>",
                 ];
+
                 auth()->user()->notify(new TaskResult($details));
 
                 $adminDetails = [

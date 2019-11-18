@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Deposit;
 use App\Models\Membership;
+use App\Models\Transaction;
 use App\Notifications\TaskResult;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -81,6 +82,17 @@ class DepositController extends Controller
 
             $deposit->status = 'Approved';
             $response = $deposit->update();
+
+            $data = [
+                'type'            =>'Debit',
+                'amount'          => $deposit->amount,
+                'description'     =>'Deposited Funds',
+                'deposit_id'      => $deposit->id,
+                'status'          => "Paid",
+                'user_id'         => $deposit->user->id,
+            ];
+
+            $response = Transaction::create($data);
 
             $details = [
                 'taskName'      => 'Deposited Funds',

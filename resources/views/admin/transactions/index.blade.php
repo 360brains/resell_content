@@ -47,12 +47,16 @@
                                     <td> {{ $transaction->amount }} </td>
                                     <td> {{ $transaction->type }} </td>
 
-                                    @if($transaction->task_id != NULL)
-                                        <td>Task: {{ $transaction->task->name }} </td>
-                                    @elseif($transaction->test_id != Null)
+                                    @if($transaction->test_id != Null)
                                         <td>Test: {{ $transaction->test->name }} </td>
                                     @elseif($transaction->training_id != NULL)
                                         <td>Training: {{ $transaction->training->name }} </td>
+                                    @elseif($transaction->withdraw_id != NULL)
+                                        <td>Withdrawn Funds </td>
+                                    @elseif($transaction->membership_id != NULL)
+                                        <td>Membership: {{ $transaction->membership->name }} </td>
+                                    @elseif($transaction->deposit_id != NULL)
+                                        <td>Deposit Funds</td>
                                     @endif
                                     <td> {{ $transaction->created_at }} </td>
                                     <td> {{ $transaction->status }} </td>

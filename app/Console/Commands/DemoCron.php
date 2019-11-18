@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Membership_user;
 use App\Models\Task;
 use App\Models\User_test;
 use Illuminate\Console\Command;
@@ -39,8 +40,9 @@ class DemoCron extends Command
      */
     public function handle()
     {
-        $tasks = Task::whereIn('status', array('started', 'extended', 'reworking'))->get();
-        $tests = User_test::where('status', 'started')->get();
+        $tasks          = Task::whereIn('status', array('started', 'extended', 'reworking'))->get();
+        $tests          = User_test::where('status', 'started')->get();
+        $memberships    = Membership_user::where('status', 'Bought')->get();
 
     foreach ($tasks as $task){
         $myDate = strtotime($task->deadline);
@@ -63,6 +65,18 @@ class DemoCron extends Command
                     'status' => 'failed',
                 ];
                 $test->update($data);
+            }
+        }
+
+        foreach ($memberships as $membership){
+            $myDate = strtotime($membership->deadline);
+            $now  = strtotime(date("y-m-d h:i:s"));
+            $diff = $myDate - $now;
+            if ($diff <= 0){
+                $data = [
+                    'status' => 'Expired',
+                ];
+                $membership->update($data);
             }
         }
 

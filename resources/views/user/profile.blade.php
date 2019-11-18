@@ -207,6 +207,15 @@
                             <!-- .copy-wrap -->
                         </div>
                     </div>
+                    <div class="referral-info card">
+                        <div class="card-innr">
+                            <h6 class="card-title card-title-sm">Withdraw Funds</h6>
+                            <p>You can withdraw funds to use in future.<br><small><b>NOTE: Withdraw funds are added to Balance.</b></small></p>
+                            <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#withdraw">Withdraw Funds</a>
+
+                            <!-- .copy-wrap -->
+                        </div>
+                    </div>
                     <div class="kyc-info card">
                         <div class="card-innr">
                             <h6 class="card-title card-title-sm">Add Bank Account</h6>
@@ -214,8 +223,7 @@
                             <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#pay-online">Add Account</a>
                             <h5 class="card-title card-title-sm pt-3">Previous Accounts</h5>
                             @forelse(auth()->user()->accounts as $account)
-                                <h6>{{ $account->bank }} <small> ( {{ $account->holder }} )</small>
-                                </h6>
+                                <h6>{{ $account->bank }} <small> ( {{ $account->holder }} )</small></h6>
                                 <h6>{{ $account->iban }}
                                     <a class="float-right" href="{{ route('user.remove.account', $account->id) }}">Remove</a>
                                     <a class="float-right pr-2" href="{{ route('user.edit.account', $account->id) }}">Edit</a>
@@ -309,6 +317,46 @@
                             <li><button class="btn btn-primary"> Process to Pay <em class="ti ti-arrow-right mgl-2x"></em></button>
                             </li>
                             <li class="pdt-1x pdb-1x"><a href="{{ route('user.voucher') }}" class="link link-primary">Make Manual Payment</a></li>
+                        </ul>
+                    </form>
+
+                    <div class="gaps-2x"></div>
+                    <div class="gaps-1x d-none d-sm-block"></div>
+                    <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>
+                        <p class="text-light">You will automatically redirect for payment after you click on process to pay.</p>
+                    </div>
+                </div>
+            </div><!-- .modal-content -->
+        </div><!-- .modal-dialog -->
+    </div><!-- Modal End -->
+    <div class="modal fade" id="withdraw" tabindex="-1">
+        <div class="modal-dialog modal-dialog-md modal-dialog-centered">
+            <div class="modal-content pb-0">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="popup-body">
+                    <h4 class="popup-title">Choose account to Withdraw funds</h4>
+                    <p>You can choose any of following account. Withdraw funds will be added to your balance as soon as it is approved by the admin.</p>
+                    <form action="{{ route('user.deposit.funds') }}" method="get">
+                        @csrf
+                        <div class="input-item input-with-label">
+                            <label class="input-item-label">
+                                <h5 class="mgt-1-5x font-mid">Select payment method:</h5>
+                            </label>
+                            <select class="select select-block select-bordered">
+                                    @forelse(auth()->user()->accounts as $account)
+                                    <option>
+                                    <h6>{{ $account->bank }}</h6>&emsp;
+                                        <h6>{{ $account->iban }}</h6>
+                                    @empty
+                                        <h6>No Accounts</h6>
+                                    </option>
+                                @endforelse
+                            </select>
+                        </div>
+                       <ul class="d-flex flex-wrap align-items-center guttar-30px">
+                            <li><button class="btn btn-primary"> Process to Withdraw <em class="ti ti-arrow-right mgl-2x"></em></button>
+                            </li>
+                            <li class="pdt-1x pdb-1x"><a href="{{ route('user.voucher') }}" data-dismiss="modal"  data-toggle="modal" data-target="#pay-online" class="link link-primary">Add account</a></li>
                         </ul>
                     </form>
 

@@ -134,22 +134,41 @@
                                     </div>
 
 
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="trainings[]" multiple="multiple">
+{{--                                    <div class="form-group form-md-line-input">--}}
+{{--                                        <select class="form-control" name="trainings[]" multiple="multiple">--}}
+{{--                                            @foreach($trainings as $training)--}}
+{{--                                                <option value="{{ $training->id }}" {{old('trainings[]')==$training->id?'selected':''}}>{{$training->name }}</option>--}}
+{{--                                            @endforeach--}}
+{{--                                        </select>--}}
+{{--                                        <label>Trainings Required  <small>(Can Select Multiple Trainings)</small></label>--}}
+{{--                                    </div>--}}
+
+
+                                    <div class="row">
+                                        <div class="form-group form-md-line-input">
                                             @foreach($trainings as $training)
-                                                <option value="{{ $training->id }}" {{old('trainings[]')==$training->id?'selected':''}}>{{$training->name }}</option>
+                                                <div class="col-sm-6">
+                                                    <div class="md-checkbox">
+                                                        <input type="checkbox" name="trainings[]" value="{{ $training->id }}" {{old('trainings[]')==$training->id?'checked':''}} id="checkbox{{$training->id}}" class="md-check">
+                                                        <label for="checkbox{{$training->id}}">
+                                                            <span class="inc"></span>
+                                                            <span class="check"></span>
+                                                            <span class="box"></span> {{ $training->name }}
+                                                        </label>
+                                                    </div>
+                                                </div>
                                             @endforeach
-                                        </select>
-                                        <label>Trainings Required  <small>(Can Select Multiple Trainings)</small></label>
+                                        </div>
                                     </div>
 
-                                    <div class="form-group form-md-line-input">
+                                    <br/><div class="form-group form-md-line-input">
                                         <div class="md-checkbox">
                                             <input type="checkbox" name="special" id="checkbox8" class="md-check">
                                             <label for="checkbox8">
                                                 <span class="inc"></span>
                                                 <span class="check"></span>
-                                                <span class="box"></span> For Special Users </label>
+                                                <span class="box"></span> For Special Users
+                                            </label>
                                         </div>
                                     </div>
 

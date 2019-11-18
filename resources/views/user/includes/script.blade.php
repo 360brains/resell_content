@@ -15,7 +15,6 @@
     //     }
     // }
         $('.training-name').click(function () {
-            // $('source').attr('src', asset("trainings/".$(this).data('link')));
             $('source').attr('src', $(this).data('link'));
         })
 

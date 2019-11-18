@@ -39,9 +39,9 @@
                                     {{ auth()->user()->balance }}
                                     <small>PKR</small></div>
                             </div>
-                        <ul class="user-links">
-                            <li><a href="{{ route('withdraw.create') }}"><i class="ti ti-receipt"></i>Withdraw Funds</a></li>
-                        </ul>
+{{--                        <ul class="user-links">--}}
+{{--                            <li><a href="{{ route('withdraw.create') }}"><i class="ti ti-receipt"></i>Withdraw Funds</a></li>--}}
+{{--                        </ul>--}}
 {{--                        <ul class="user-links">--}}
 {{--                            <li><a href="#" data-toggle="modal" data-target="#deposit"><i class="ti ti-package"></i>Deposit Funds</a></li>--}}
 {{--                        </ul>--}}

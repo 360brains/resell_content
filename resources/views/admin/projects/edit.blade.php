@@ -136,18 +136,38 @@
                                         <label>Project Template</label>
                                     </div>
 
-                                    <div class="form-group form-md-line-input">
-                                        <select class="form-control" name="trainings[]" multiple="multiple">
+                                    <div class="row">
+                                        <div class="form-group form-md-line-input">
                                             @foreach($trainings as $training)
-                                                <option
-                                                    @if (in_array($training->name, $projectTrainings))
-                                                    selected
-                                                    @endif
-                                                    value="{{ $training->id }}">{{$training->name }}
-                                                </option>
+                                                <div class="col-sm-6">
+                                                    <div class="md-checkbox">
+                                                        <input type="checkbox" name="trainings[]" value="{{ $training->id }}" id="checkbox{{$training->id}}" class="md-check"
+                                                           @if (in_array($training->name, $projectTrainings))
+                                                               checked
+                                                            @endif >
+                                                        <label for="checkbox{{$training->id}}">
+                                                            <span class="inc"></span>
+                                                            <span class="check"></span>
+                                                            <span class="box"></span> {{ $training->name }}
+                                                        </label>
+                                                    </div>
+                                                </div>
                                             @endforeach
-                                        </select>
-                                        <label>Trainings Required  <small>(Can Select Multiple Trainings)</small></label>
+                                        </div>
+                                    </div>
+
+                                    <br/><div class="form-group form-md-line-input">
+                                        <div class="md-checkbox">
+                                            <input type="checkbox" name="special" id="checkbox8" class="md-check"
+                                                   @if ($project->special == 1)
+                                                   checked
+                                                @endif >
+                                            <label for="checkbox8">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> For Special Users
+                                            </label>
+                                        </div>
                                     </div>
 
                                     <div class="portlet-body form">
