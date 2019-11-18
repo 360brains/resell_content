@@ -356,7 +356,7 @@
                        <ul class="d-flex flex-wrap align-items-center guttar-30px">
                             <li><button class="btn btn-primary"> Process to Withdraw <em class="ti ti-arrow-right mgl-2x"></em></button>
                             </li>
-                            <li class="pdt-1x pdb-1x"><a href="{{ route('user.voucher') }}" data-dismiss="modal"  data-toggle="modal" data-target="#pay-online" class="link link-primary">Make Manual Payment</a></li>
+                            <li class="pdt-1x pdb-1x"><a href="{{ route('user.voucher') }}" data-dismiss="modal"  data-toggle="modal" data-target="#pay-online" class="link link-primary">Add account</a></li>
                         </ul>
                     </form>
 
