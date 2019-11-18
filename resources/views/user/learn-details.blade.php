@@ -8,25 +8,24 @@
                 <section class="blog-wrap clearfix custom_sticky_main">
                     <div class="blog-inner sticky">
                         <div class="blog-left">
-                            <h1 class="h1">{{$trainings->name}}</h1>
+                            <h1 class="h1">{{$training->name}}</h1>
                             <div class="course_label">
                                 <!-- otherwise course is still for sale or user can resume -->
                             </div>
                         </div>
                         <div class="blog-right">
                             <div class="price-blog">
-                                @if(!is_null($trainings->fee))
+                                @if(!is_null($training->fee))
                                     <strong>
-                                        <sup>$</sup>{{ $trainings->fee }}
+                                        <sup>$</sup>{{ $training->fee }}
                                     </strong>
+                                    <a href="/enroll/455029" class="btn btn-auto btn-lg btn-success">Buy Course</a>
                                 @else
                                     <strong>
                                         FREE
                                     </strong>
                                 @endif
 
-                                <a href="/enroll/455029" class="btn btn-auto btn-lg btn-success">Buy Course</a>
-                                <!--<a href="/enroll/455029" class="un-view">Unlimited Views</a>-->
                             </div>
                         </div>
                     </div>
@@ -34,9 +33,9 @@
                 <div class="row">
                     <div class="col-md-8">
 {{--                        <iframe width="560" height="315" src="https://www.youtube.com/embed/EU7PRmCpx-0"></iframe>--}}
-                        <video width="560" height="315" controls>
-                            <source src="{{asset('/trainings/12/2 learn.mp4')}}" type="video/mp4">
-                            Your browser does not support HTML5 video.
+                        <video id="myVideo" width="560" height="315" controls>
+                            <source id="myVideoSrc" src="{{asset('/trainings/12/2 learn.mp4')}}" type="video/mp4">
+                            Your browser does not support video.
                         </video>
                         <div class="user-prof">
                             <a href="/pages/haylee-powers">
@@ -105,7 +104,7 @@
                                 <div class="course-list">
                                     <ul>
                                         <!-- icon-lesson -->
-                                        @foreach($trainings->trainingLists as $list)
+                                        @foreach($training->trainingLists as $list)
                                         <li data-type="icon-lesson" class="training-name" data-link="{{ asset('trainings/'.$trainings->id.'/'.$list->name)}}">
                                             {{$list->name}}
                                         </li>
