@@ -13614,9 +13614,6 @@ border-radius: 10px;"
     line-height: 18px;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
-
-
 }
 
 .blog_overlay_new p {
@@ -13636,7 +13633,8 @@ span.green_dot {
 
 .cource_pading {
     padding: 0px 20px 20px 20px;
-    min-height: 160px;
+    height: 160px;
+    overflow: hidden;
 }
 
 .cource_pading h3 {
@@ -13694,6 +13692,7 @@ span.green_dot {
     top: calc(100% - 50px);
     justify-content: space-between;
     right: 0;
+    margin-top: 12px;
 }
 
 .bottom_fix_cource:before {
