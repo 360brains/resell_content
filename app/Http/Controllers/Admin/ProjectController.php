@@ -145,7 +145,28 @@ class ProjectController extends Controller
         $project->price         = $request->price;
         $project->points        = $request->points;
         $project->active        = $request->active;
-        $response               = $project->save();
+
+        if ($request->special == 'on') {
+            $project->special = 1;
+            $response           = $project->save();
+            $lastInsertedId     = $project->id;
+
+            $details = [
+                'taskName'      => $request->name,
+                'date'          => now(),
+                'message'       => 'Congratulations! You have been assigned a special task.',
+                'tooltip'       => ' It is a project that is only available and visible to the special users that we have chosen.',
+                'link'          => "<a href=".route("pages.project.details", $lastInsertedId)." class='d-inline'>Details</a>",
+            ];
+
+            $users = User::where('special', 1)->get();
+            foreach ($users as $user){
+                $user->notify(new TaskResult($details));
+            }
+        }else{
+            $project->special = 0;
+            $response          = $project->save();
+        }
 
         if ($response){
             $project->trainings()->sync($request->trainings);

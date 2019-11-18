@@ -144,31 +144,24 @@
 {{--                                    </div>--}}
 
 
-                                    {{--testing--}}
-
-
                                     <div class="row">
-                                    <div class="form-group form-md-line-input">
-                                        @foreach($trainings as $training)
-                                            <div class="col-sm-6">
-                                                <div class="md-checkbox">
-                                                    <input type="checkbox" name="trainings[]" value="{{ $training->id }}" {{old('trainings[]')==$training->id?'checked':''}} id="checkbox{{$training->id}}" class="md-check">
-                                                    <label for="checkbox{{$training->id}}">
-                                                        <span class="inc"></span>
-                                                        <span class="check"></span>
-                                                        <span class="box"></span> {{ $training->name }}
-                                                    </label>
+                                        <div class="form-group form-md-line-input">
+                                            @foreach($trainings as $training)
+                                                <div class="col-sm-6">
+                                                    <div class="md-checkbox">
+                                                        <input type="checkbox" name="trainings[]" value="{{ $training->id }}" {{old('trainings[]')==$training->id?'checked':''}} id="checkbox{{$training->id}}" class="md-check">
+                                                        <label for="checkbox{{$training->id}}">
+                                                            <span class="inc"></span>
+                                                            <span class="check"></span>
+                                                            <span class="box"></span> {{ $training->name }}
+                                                        </label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
+                                            @endforeach
+                                        </div>
                                     </div>
-                                    </div>
 
-
-                                    {{--testing--}}
-
-
-                                    <div class="form-group form-md-line-input">
+                                    <br/><div class="form-group form-md-line-input">
                                         <div class="md-checkbox">
                                             <input type="checkbox" name="special" id="checkbox8" class="md-check">
                                             <label for="checkbox8">

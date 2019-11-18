@@ -52,7 +52,11 @@
                                         @csrf
                                         @method('DELETE')
                                         <a class="btn btn-primary" href="{{ route('admin.templates.edit', $template->id) }}">Edit</a>
-                                        <button type="submit" class="btn btn-warning btn-outline sbold uppercase">Delete</button>
+                                        @if($template->active == 0)
+                                            <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>
+                                        @else
+                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Inactive</button>
+                                        @endif
                                     </form>
                                 </td>
                             </tr>
