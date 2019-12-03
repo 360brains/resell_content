@@ -2,7 +2,7 @@
     <div class="row nav-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light p-0 d-flex">
-                <a class="navbar-brand" href="{{ route('user.dashboard') }}">great
+                <a class="navbar-brand" href="{{ route('pages.home') }}">great
                     <span
                         style="color: #07b107; font-weight: 500;">Content</span>
                 </a>

@@ -32,7 +32,7 @@ Updated	 :	03.13.2019
 
 @font-face {
     font-family: 'Roboto';
-    src: url("../fonts/Roboto-Bold.eot");
+    src: url("public/fonts/Roboto-Bold.eot.parallax");
     src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/Roboto-Boldd41d.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff"), url("../fonts/Roboto-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: normal
@@ -3331,9 +3331,9 @@ select {
     width: 100%;
     padding: 0;
     margin: 0;
-    background-position: 100% 100%;
+    background-position: 50% 30%;
     background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat
 
 }
 
@@ -3391,7 +3391,7 @@ select {
 }
 footer{
     background: #161E2C;
-    padding: 20px 0;
+    padding: 30px 0;
 }
 footer .footer-logo ul li{
     padding: 8px 0;
@@ -3408,4 +3408,17 @@ footer .freelancer h4{
 footer .freelancer ul li a{
     color: #9DA297;
     text-transform: capitalize;
+}
+footer .footer-line{
+    border-top: 1px solid #29313E;
+}
+footer .footer-social ul li a{
+    padding: 0 5px;
+}
+footer .footer-social ul li a i{
+    color: #ffff;
+    font-size: 20px;
+}
+footer .footer-bottom{
+    color: #EBE9E4;
 }
