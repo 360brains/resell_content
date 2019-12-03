@@ -412,7 +412,7 @@
                     <div class="gaps-2x"></div>
                     <div class="gaps-1x d-none d-sm-block"></div>
                     <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>
-                        <p class="text-light">You will automatically get membership after clicking process to pay.</p>
+                        <p class="text-light">You will automatically get membership after clicking proceed.</p>
                     </div>
                 </div>
             </div><!-- .modal-content -->

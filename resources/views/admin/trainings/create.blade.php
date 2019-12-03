@@ -51,7 +51,7 @@
 
                                     <div class="form-group form-md-line-input">
                                         <div class="md-checkbox has-info">
-                                            <input type="checkbox" id="checkbox35" class="md-check">
+                                            <input type="checkbox" id="checkbox35" class="md-check" >
                                             <label for="checkbox35" style="color: #333;">
                                                 <span class="inc"></span>
                                                 <span class="check"></span>
@@ -71,12 +71,17 @@
                                     </div>
                                     <div class="form-group form-md-line-input">
                                         <input type="file" name="zip" accept=".zip,.rar" class="form-control" id="form_control_1">
-                                        <label>Upload Zip File</label>
+                                        <label>Upload Zip File of trainings</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">
                                         <input type="file" name="image" accept=".jpg,.jpeg,.png," class="form-control" id="form_control_1">
-                                        <label>Upload image</label>
+                                        <label>Upload training cover image</label>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <input type="file" name="badge" accept=".jpg,.jpeg,.png," class="form-control" id="form_control_1">
+                                        <label>Upload training badge</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">

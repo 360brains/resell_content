@@ -56,7 +56,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     function trainings(){
-        return $this->belongsToMany(Training::class);
+        return $this->belongsToMany(Training::class)->withPivot('status', 'created_at', 'completed_at')->withTimestamps();
     }
 
     function accounts(){
