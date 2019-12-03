@@ -5,7 +5,7 @@
     <div class="page-content ">
         <div class="container">
             <div class="bg-white">
-                <section class="blog-wrap clearfix custom_sticky_main mt-3 mb-3">
+                <section class="blog-wrap clearfix custom_sticky_main">
                     <div class="blog-inner sticky">
                         <div class="blog-left">
                             <h1 class="h1">{{$training->name}}</h1>
@@ -13,41 +13,30 @@
                                 <!-- otherwise course is still for sale or user can resume -->
                             </div>
                         </div>
-
-                        @if($trained == 0)
                         <div class="blog-right">
                             <div class="price-blog">
                                 @if(!is_null($training->fee))
                                     <strong>
                                         <sup>$</sup>{{ $training->fee }}
                                     </strong>
-                                    <button data-toggle="modal" data-target="#buy-training" class="btn btn-auto btn-lg btn-success">
-                                        Buy Course
-                                    </button>
+                                    <a href="/enroll/455029" class="btn btn-auto btn-lg btn-success">Buy Course</a>
                                 @else
                                     <strong>
                                         FREE
                                     </strong>
                                 @endif
+
                             </div>
                         </div>
-                            @elseif($trained == 1)
-                                <div class="blog-right">
-                                    <div class="price-blog">
-                                        <button class="btn btn-outline btn-success">Purchased</button>
-                                    </div>
-                                </div>
-                            @endif
-
                     </div>
                 </section>
                 <div class="row">
                     <div class="col-md-8">
-                        <video class="border" id="myVideo" width="560" height="315" controls>
-                            <source id="myVideoSrc" src="{{ asset('trainings/'.$training->id.'/grb_2.mp4') }}" type="video/mp4">
+{{--                        <iframe width="560" height="315" src="https://www.youtube.com/embed/EU7PRmCpx-0"></iframe>--}}
+                        <video id="myVideo" width="560" height="315" controls>
+                            <source id="myVideoSrc" src="{{asset('/trainings/12/2 learn.mp4')}}" type="video/mp4">
                             Your browser does not support video.
                         </video>
-
                         <div class="user-prof">
                             <a href="/pages/haylee-powers">
                                 <span><img
@@ -68,7 +57,7 @@
                                     <li>
                                         <img src="https://cdn-themes.thinkific.com/114242/301560/dawX7dssSW6lLx1jeGV6_play-course.png"
                                              alt="play">
-                                        <a>{{ count($training->trainingLists) }} Videos </a>
+                                        <a>22 Videos </a>
                                     </li>
                                     <li>
                                         <img src="https://cdn-themes.thinkific.com/114242/301560/time-1571417719.png"
@@ -80,10 +69,21 @@
                             <div>
                                 <div class="custom-theme">
                                     <div class="fr-view">
-                                        {!! $training->description !!}
+                                        <p>Developing a solid brand makes selling easier. Brand Strategy and Design
+                                            communicates your superiority with ease so that you can rise above your
+                                            competition. When you differentiate through brand strategy and design, you
+                                            create a compelling brand that brings in more profit. This course would be
+                                            very
+                                            valuable for anyone that wants to learn the key principles of branding,
+                                            including business owners, solopreneurs, freelancers, marketing
+                                            professionals,
+                                            designers or anyone that is interested in understanding branding.</p>
+                                        <p>Join Haylee to learn how to take the right steps to begin to build your brand
+                                            strategy and design!</p>
                                     </div>
                                 </div>
                             </div>
+                            <a href="/enroll/455029" class="btn btn-auto btn-lg btn-success mid_cta">Buy Course</a>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -91,7 +91,8 @@
                             <div class="course-badge-section">
                                 <div class="badge-flex">
                                     <div class="course-badge-icon">
-                                        <img src="{{ asset($training->badge) }}">
+                                        <img src="https://s3.amazonaws.com/thinkific-import/114242/ocNaEhCQY6Y6ftdmgHtg_Branding%20%281%29.svg"
+                                             class="" alt="">
                                     </div>
                                     <div class="course-badge-text">
                                         <h4>This badge will appear on your profile once you complete this course.</h4>
@@ -104,7 +105,7 @@
                                     <ul>
                                         <!-- icon-lesson -->
                                         @foreach($training->trainingLists as $list)
-                                        <li onclick="changeVideo( '{{ asset('trainings/'.$training->id.'/'.$list->name)}}' )" data-type="icon-lesson" class="training-name">
+                                        <li data-type="icon-lesson" class="training-name" data-link="{{ asset('trainings/'.$trainings->id.'/'.$list->name)}}">
                                             {{$list->name}}
                                         </li>
                                         @endforeach
@@ -154,6 +155,29 @@
                                         Analytics - Fundamentals</a>
                                 </li>
 
+                                <li>
+                                    <a href="/courses/email-marketing-fundamentals-using-mailchimp"
+                                       class="related-link regular related-link___8c14a regular___8c14a">Email
+                                        Marketing Fundamentals</a>
+                                </li>
+
+                                <li>
+                                    <a href="" class="related-link regular related-link___8c14a regular___8c14a">Google
+                                        Ads Course</a>
+                                </li>
+
+                                <li>
+                                    <a href="/courses/lead-generation-with-facebook-ads"
+                                       class="related-link regular related-link___8c14a regular___8c14a">Lead
+                                        Generation Course</a>
+                                </li>
+
+                                <li>
+                                    <a href="/courses/symbol-design-for-branding"
+                                       class="related-link regular related-link___8c14a regular___8c14a">Symbol Design
+                                        Course</a>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -161,38 +185,5 @@
             </div>
         </div><!-- .container -->
     </div>
-
-    <div class="modal fade" id="buy-training" tabindex="-1">
-        <div class="modal-dialog modal-dialog-md modal-dialog-centered">
-            <div class="modal-content pb-0">
-                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
-                <div class="popup-body">
-                    <h4 class="popup-title">Pay For Training</h4>
-                    <p class="lead">To receive <strong>{{ $training->name }}</strong> require payment amount of <strong>{{ $training->fee }}</strong>.</p>
-                    <p>This amount will be deducted from your balance. Please make sure you have enough money in your balance or you can deposit funds.</p>
-                    <form action="{{ route('user.training.buy', $training->id) }}">
-                        <div class="pdb-2-5x pdt-1-5x">
-                            @csrf
-                            <input type="checkbox" name="check" class="input-checkbox input-checkbox-md" id="agree-term-3" >
-                            <label for="agree-term-3">I hereby agree to the
-                                <strong>Training purchase
-                                    aggrement</strong>.
-                            </label>
-                        </div>
-                        <ul class="d-flex flex-wrap align-items-center guttar-30px">
-                            <li><button id="buyMembership" class="btn btn-primary">Proceed</button></li>
-                        </ul>
-                    </form>
-
-                    <div class="gaps-2x"></div>
-                    <div class="gaps-1x d-none d-sm-block"></div>
-                    <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>
-                        <p class="text-light">You will automatically be assigned training after clicking proceed.</p>
-                    </div>
-                </div>
-            </div><!-- .modal-content -->
-        </div><!-- .modal-dialog -->
-    </div>
-
 
 @endsection

@@ -8,4 +8,5 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link type="text/css" rel="stylesheet" id="jssDefault" href="{{ asset('assets/css/colors/green-style.css') }}">
     <link href="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+
 </head>

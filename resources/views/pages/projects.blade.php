@@ -1,72 +1,141 @@
 @extends("layouts.master")
 
 @section("content")
-    <!-- Title Header Start -->
-    <section class="inner-header-title" style="background-image:url({{ asset('assets/img/banner-10.jpg') }});">
-        <div class="container">
-            <h1>Browse Projects</h1>
+<div class="browse-img" style="background-image:url({{ asset('assets/img/browse-projects.jpg') }});">
+        <h1>Browse Projects</h1>
+</div>
+<section class="projects-content pt-5 pb-5">
+    <div class="container">
+        <div class="jobs-heading">
+            <h3 class="avil-jobs">Available Jobs</h3>
+            <hr>
         </div>
-    </section>
-    <div class="clearfix"></div>
-    <!-- Title Header End -->
-
-    <!-- ========== Begin: Brows job Category ===============  -->
-    <section class="brows-job-category">
-        <div class="container">
-
-            <!-- Single Job List -->
-            @forelse($projects as $project)
-                <a href="{{ route('pages.project.details', $project->id) }}">
-                    <div class="col-md-4 col-sm-4">
-                        <div class="popular-jobs-container">
-                            <div class="popular-jobs-box">
-                                <div class="popular-jobs-box">
-                                    <div class="brows-job-company-img">
-                                        <img src="{{ asset('assets/img/project.png') }}" class="img-responsive" alt="" />
-                                    </div>
-                                    <div class="popular-jobs-box-detail">
-                                        <h4>{{ $project->name }}</h4><span class="desination">{{ $project->category->name }}</span></div>
-                                </div>
-                                <div class="popular-jobs-box-extra">
-                                    <ul>
-                                        <li>Total: {{ $project->quantity }}</li>
-                                        <li>Level: {{ $project->level->name }}</li>
-                                        <li class="more-skill bg-primary">{{ $project->price }}</li>
-                                    </ul>
-                                    {{--                                <p class="giveMeEllipsis">{!! $project->description !!} </p>--}}
-                                </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group position-relative">
+                    <i class="fas custom-arrow fa-chevron-down"></i>
+                    <label for="exampleFormControlSelect1"><h5>Level</h5></label>
+                    <select class="form-control custom-inp" id="exampleFormControlSelect1">
+                        <option>Basic</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group position-relative">
+                    <i class="fas custom-arrow fa-chevron-down"></i>
+                    <label for="exampleFormControlSelect1"><h5>Points</h5></label>
+                    <select class="form-control custom-inp" id="exampleFormControlSelect1">
+                        <option>100-500</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group position-relative">
+                    <i class="fas custom-arrow fa-chevron-down"></i>
+                    <label for="exampleFormControlSelect1"><h5>Account Type</h5></label>
+                    <select class="form-control custom-inp" id="exampleFormControlSelect1">
+                        <option>Premium</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group position-relative">
+                    <i class="fas custom-arrow fa-chevron-down"></i>
+                    <label for="exampleFormControlSelect1"><h5>Type</h5></label>
+                    <select class="form-control custom-inp" id="exampleFormControlSelect1">
+                        <option>Content Writing</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group position-relative">
+                    <i class="fas custom-arrow fa-chevron-down"></i>
+                    <label for="exampleFormControlSelect1"><h5>Money</h5></label>
+                    <select class="form-control custom-inp" id="exampleFormControlSelect1">
+                        <option>Rs.500-1000</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button class="btn apply-btn btn-sm btn-outline-success">
+                    Apply
+                </button>
+            </div>
+        </div>
+        @foreach($projects as $project)
+        <div class="project-detail shadow-sm rounded p-4 mb-3">
+            <div class="clearfix">
+                <div class="project-heading float-left">
+                    <h1 class="m-0 ">{{ $project->name }}</h1>
+                    <span class="text-success font-weight-bold">{{ $project->type->name }}</span>
+                </div>
+                <div class="project-price float-right d-flex">
+                    <h1 class="m-0 pt-2 font-weight-bold">Rs.{{ $project->price }}</h1>
+                    <a href="{{ route('user.tasks.take', $project->id) }}">
+                        <button class="btn start-job btn-lg btn-success ml-2">
+                            Start This Job
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <hr>
+            <div class="project-des">
+                <div class="row">
+                    <div class="col-md-7">
+                        <p>{!! $project->description !!}</p>
+                        <h6 class="font-weight-bold">REQUIRED TRANING</h6>
+                        <ul class="d-flex">
+                            <li><a href=""><img src="{{ asset('user/images/asset 1.png') }}" alt=""></a></li>
+                            <li><a href=""><img src="{{ asset('user/images/asset 2.png') }}" alt=""></a></li>
+                            <li><a href=""><img src="{{ asset('user/images/asset 3.png') }}" alt=""></a></li>
+                            <li><a href=""><img src="{{ asset('user/images/asset 4.png') }}" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-4  pl-4">
+                                <h6 class="m-0 font-weight-bold">LEVEL</h6>
+                                <span class="text-success">{{$project->level->name}}</span>
+                                <h6 class="m-0 font-weight-bold pt-4">TIME AWARDED</h6>
+                                <span class="text-danger">{{ $project->deadline }}</span>
                             </div>
-                            <div class="brows-job-type">
-                                <span class="full-time">{{ $project->type->name }}</span>
+                            <div class="col-md-4 pl-4">
+                                <h6 class="m-0 font-weight-bold">CATEGORY</h6>
+                                <span class="text-success">{{ $project->category->name }}</span>
+                                <h6 class="m-0 font-weight-bold pt-4">NO. OF WORDS</h6>
+                                <span class="text-success">978</span>
                             </div>
-                            <ul class="grid-view-caption">
-                                <li>
-                                    <div class="brows-job-location">
-                                        <p><i class="fa fa-clock-o"></i>{{ $project->deadline ?? 'None' }}</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p><span class="brows-job-sallery"><i class="fa fa-money"></i>{{ $project->price }}</span></p>
-                                </li>
-                            </ul>
+                            <div class="col-md-4 pl-5">
+                                <h6 class="m-0 font-weight-bold">POINTS</h6>
+                                <span class="text-success">+{{ $project->points }}</span>
+                            </div>
                         </div>
                     </div>
-                </a>
-            @empty
-                No Featured Projects found
-        @endforelse
-        <!-- Single Job List -->
-            <div class="clearfix"></div>
-
-
-            <!--row-->
-            <div class="row">
-                <ul class="pagination">
-                    {{ $projects->links() }}
-                </ul>
+                </div>
             </div>
-            <!-- /.row-->
         </div>
-    </section>
+            @endforeach
+    </div>
+</section>
     <!-- ========== Begin: Brows job Category End ===============  -->
 @endsection

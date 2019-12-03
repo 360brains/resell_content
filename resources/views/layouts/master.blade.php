@@ -2,7 +2,7 @@
 <html lang="en">
 
 <!-- BEGIN HEAD -->
-@include('includes.head')
+@include('user.includes.head')
 <!-- END HEAD -->
 
 <body>

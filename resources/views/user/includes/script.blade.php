@@ -14,18 +14,11 @@
     //         $.get('/markAsRead');
     //     }
     // }
-    //     $('.training-name').click(function () {
-    //         $('source').attr('src', $(this).data('link'));
-    //         $('#myVideo').load();
-    //     })
+        $('.training-name').click(function () {
+            $('source').attr('src', $(this).data('link'));
+        })
 
-        function changeVideo(url) {
-            document.getElementById("myVideoSrc").src = url;
-            document.getElementById("myVideo").load();
-            document.getElementById("myVideo").play();
-        }
-
-        var myDate = $('#count-down').val();console.log(myDate)
+    var myDate = $('#count-down').val();console.log(myDate)
     $('#one').vTimer('start', {duration: Number(myDate)})
         .on('update', function (e, remaining) {
             $('#one').text(remaining);
@@ -43,4 +36,8 @@
     // cancel the timer
     $('#el').vTimer('cancel');
 
+    function disableEdit() {
+        $('#edit').addClass('disabled');
+        $('#save').removeClass('d-none');
+    }
 </script>

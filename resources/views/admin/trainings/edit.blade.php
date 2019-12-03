@@ -48,10 +48,7 @@
 
                                     <div class="form-group form-md-line-input">
                                         <div class="md-checkbox has-info">
-                                            <input type="checkbox" id="checkbox35" class="md-check"
-                                            @if($trainings->fee != null)
-                                                checked
-                                            @endif>
+                                            <input type="checkbox" id="checkbox35" class="md-check">
                                             <label for="checkbox35" style="color: #333;">
                                                 <span class="inc"></span>
                                                 <span class="check"></span>

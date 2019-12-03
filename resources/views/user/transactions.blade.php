@@ -1,42 +1,70 @@
 @extends('user.layouts.master')
 
 @section('content')
-
-    <div class="page-content">
+    <section class="transactions pt-5 pb-5">
         <div class="container">
-            <div class="card content-area">
-                <div class="card-innr">
-                    <div class="card-head">
-                        <h4 class="card-title">User Transactions</h4></div>
-                    <table class="data-table dt-init user-tnx">
+            <div class="clearfix pb-2">
+                <h4 class="float-left">Earnings</h4>
+                <a href="{{ route('withdraw.create') }}" class="btn btn-sm btn-outline-success float-right">Withdraw </a>
+            </div>
+            <div class="statictics text-center">
+                <div class="row">
+                    <div class="col-md border-right pt-3 pb-3">
+                        <h5>NET INCOME</h5>
+                        <h3>250</h3>
+                    </div>
+                    <div class="col-md border-right pt-3 pb-3">
+                        <h5>WITHDRAWN</h5>
+                        <h3>250</h3>
+                    </div>
+                    <div class="col-md border-right pt-3 pb-3">
+                        <h5>USED FOR PUCHASES</h5>
+                        <h3>250</h3>
+                    </div>
+                    <div class="col-md border-right pt-3 pb-3">
+                        <h5>PENDING CLEARANCE</h5>
+                        <h3>250</h3>
+                    </div>
+                    <div class="col-md pt-3 pb-3">
+                        <h5>AVAILABLE</h5>
+                        <h3>250</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix pt-3 pb-2">
+                <h4 class="pt-3 float-left">Transaction History</h4>
+                <div class="dropdown float-right">
+                    Shown by:
+                    <button class="btn btn-sm btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        PENDING FUNDS
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="my-jobs-table shadow">
+                <div class="table-responsive">
+                    <table class="table table-hover table-borderless ">
                         <thead>
-                        <tr class="data-item data-head">
-                            <th class="data-col dt-tnxno">Tranx No.</th>
-                            <th class="data-col dt-amount">Amount</th>
-                            <th class="data-col dt-usd-amount">USD Amount</th>
-                            <th class="data-col dt-account">Date</th>
-                            <th class="data-col dt-type">
-                                <div class="dt-type-text">Type</div>
-                            </th>
-                            <th class="data-col"></th>
+                        <tr>
+                            <th>SR.</th>
+                            <th>FOR</th>
+                            <th>DATE</th>
+                            <th>AMOUNT</th>
                         </tr>
                         </thead>
                         <tbody>
                         @php($i = 1)
                         @forelse($transactions as $transaction)
-                            <tr class="data-item">
-                                <td class="data-col dt-tnxno">
-                                    <div class="d-flex align-items-center">
-                                        <div class="data-state data-state-approved"><span class="d-none">Approved</span></div>
-                                        <div class="fake-class"><span class="lead tnx-id">{{ $i++ }}</span></div>
-                                    </div>
-                                </td>
-                                <td class="data-col dt-amount"><span class="lead amount-pay">{{ $transaction->amount }}</span><span class="sub sub-symbol">PKR <em class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="1 PKR = 0.0064 USD"></em></span></td>
-                                <td class="data-col dt-usd-amount"><span class="lead amount-pay">{{ $transaction->amount*0.0064 }}</span><span class="sub sub-symbol">USD <em class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="1 PKR = 0.0064 USD"></em></span></td>
-                                <td class="data-col dt-account"><span class="lead user-info">{{ $transaction->created_at }}</span></td>
-                                <td class="data-col dt-type"><span class="dt-type-md badge badge-outline badge-success badge-md">{{ $transaction->status }}</span><span class="dt-type-sm badge badge-sq badge-outline badge-success badge-md">P</span></td>
-                                <td class="data-col text-right"><a href="#" data-toggle="modal" data-target="#transaction-details{{$transaction->id}}" class="btn btn-light-alt btn-xs btn-icon"><em class="ti ti-eye"></em></a></td>
-
+                            <tr>
+                                <td>{{ $i++ }}</td>
+                                <td ></td>
+                                <td ></td>
+                                <td >PKR {{ $transaction->amount }}</td>
+                                <td><a href="#" data-toggle="modal" data-target="#transaction-details{{$transaction->id}}" class="btn btn-light-alt btn-xs btn-icon"><em class="ti ti-eye"></em></a></td>
 
                                 <div class="modal fade" id="transaction-details{{$transaction->id}}" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-lg modal-dialog-centered">
@@ -130,23 +158,14 @@
                                     </div>
                                     <!-- .modal-dialog -->
                                 </div>
-
-
                             </tr>
                         @empty
                             <tr><td colspan="5">No Transactions Found</td></tr>
                         @endforelse
-                        <!-- .data-item -->
                         </tbody>
                     </table>
                 </div>
-                <!-- .card-innr -->
             </div>
-            <!-- .card -->
         </div>
-        <!-- .container -->
-    </div>
-
-
-
+    </section>
 @endsection

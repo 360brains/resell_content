@@ -1,4 +1,3 @@
-
 <script>
 $('.stat-number').each(function () {
       var size = $(this).text().split(".")[1] ? $(this).text().split(".")[1].length : 0;

@@ -13,13 +13,6 @@ class LearnController extends Controller
         return view('user.learn', $data);
     }
     public function learnDetails($id){
-        $trained = 0;
-        foreach (auth()->user()->trainings as $training){
-            if ($training->id == $id){
-                $trained = 1;
-            }
-        }
-        $data['trained'] = $trained;
         $data['training']      = Training::with('trainingLists')->find($id);
         return view('user.learn-details', $data);
     }

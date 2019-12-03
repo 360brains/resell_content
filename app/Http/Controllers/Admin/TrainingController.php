@@ -43,13 +43,12 @@ class TrainingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'          => 'required',
-            'type'          => 'required',
-            'description'   => 'required',
-            'active'        => 'required',
-            'zip'           => 'required|mimes:zip,rar',
-            'image'         => 'required|mimes:jpg,jpeg,png',
-            'badge'         => 'required|mimes:jpg,jpeg,png',
+            'name' => 'required',
+            'type' => 'required',
+            'description' => 'required',
+            'active' => 'required',
+            'zip' => 'required|mimes:zip,rar',
+            'image' => 'required|mimes:jpg,jpeg,png',
         ]);
 
         if ($request->hasFile("image") && $request->file('image')->isValid()) {
@@ -59,25 +58,15 @@ class TrainingController extends Controller
             $imgName               = "images/".$imgFilename;
             $request->file('image')->move($imgDestinationPath, $imgFilename);
         }
-
-        if ($request->hasFile("badge") && $request->file('badge')->isValid()) {
-            $imgFilename           = $request->file('badge')->getClientOriginalName();
-            $imgFilename           = time()."-".$imgFilename;
-            $imgDestinationPath    = public_path('/images');
-            $badgeName               = "images/".$imgFilename;
-            $request->file('badge')->move($imgDestinationPath, $imgFilename);
-        }
-
         $data = [
             'name'          => $request->name,
             'type_id'       => $request->type,
             'fee'           => $request->fee,
             'description'   => $request->description,
             'active'        => $request->active,
-            'avatar'        => $imgName,
-            'badge'         => $badgeName
+//            'material'      => $name,
+            'avatar'        => $imgName
         ];
-
         $response = Training::create($data);
         $id       = $response->id;
         if ($request->hasFile("zip") && $request->file('zip')->isValid()) {

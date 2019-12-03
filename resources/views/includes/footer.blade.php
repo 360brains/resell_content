@@ -1,198 +1,220 @@
-<!-- Download app Section End -->
-<footer class="footer">
-    <div class="row lg-menu">
-        <div class="container">
-            <div class="col-md-4 col-sm-4"><img src="assets/img/footer-logo.png" class="img-responsive" alt="" /> </div>
-            <div class="col-md-8 co-sm-8 pull-right">
-                <ul>
-                    <li><a href="index.html" title="">Home</a></li>
-                    <li><a href="blog.html" title="">Blog</a></li>
-                    <li><a href="404.html" title="">404</a></li>
-                    <li><a href="faq.html" title="">FAQ</a></li>
-                    <li><a href="contact.html" title="">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="row no-padding">
-        <div class="container">
-            <div class="col-md-3 col-sm-12">
-                <div class="footer-widget">
-                    <h3 class="widgettitle widget-title">About Job Stock</h3>
-                    <div class="textwidget">
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
-                        <p>7860 North Park Place
-                            <br>San Francisco, CA 94120</p>
-                        <p><strong>Email:</strong> Support@careerdesk</p>
-                        <p><strong>Call:</strong> <a href="tel:+15555555555">555-555-1234</a></p>
-                        <ul class="footer-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="footer-logo">
+                    <h1>great Content</h1>
+                    <ul>
+                        <li><a href=""><i class="fas fa-globe"></i>&nbsp; US (International)/English </a></li>
+                        <li><a href=""><i class="fas fa-question-circle"></i>&nbsp; Help & Support </a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="footer-widget">
-                    <h3 class="widgettitle widget-title">All Navigation</h3>
-                    <div class="textwidget">
-                        <div class="textwidget">
-                            <ul class="footer-navigation">
-                                <li><a href="manage-company.html" title="">Front-end Design</a></li>
-                                <li><a href="manage-company.html" title="">Android Developer</a></li>
-                                <li><a href="manage-company.html" title="">CMS Development</a></li>
-                                <li><a href="manage-company.html" title="">PHP Development</a></li>
-                                <li><a href="manage-company.html" title="">IOS Developer</a></li>
-                                <li><a href="manage-company.html" title="">Iphone Developer</a></li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="col-md-2">
+                <div class="freelancer">
+                    <h4>Freelancer</h4>
+                    <ul>
+                        <li><a href="">categories</a></li>
+                        <li><a href="">projects</a></li>
+                        <li><a href="">contests</a></li>
+                        <li><a href="">freelancers</a></li>
+                        <li><a href="">enterprise</a></li>
+                        <li><a href="">preferred freelancer</a></li>
+                        <li><a href="">program</a></li>
+                        <li><a href="">project management</a></li>
+                        <li><a href="">local jobs</a></li>
+                        <li><a href="">showcase</a></li>
+                        <li><a href="">API for Developers</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="footer-widget">
-                    <h3 class="widgettitle widget-title">All Categories</h3>
-                    <div class="textwidget">
-                        <ul class="footer-navigation">
-                            <li><a href="manage-company.html" title="">Front-end Design</a></li>
-                            <li><a href="manage-company.html" title="">Android Developer</a></li>
-                            <li><a href="manage-company.html" title="">CMS Development</a></li>
-                            <li><a href="manage-company.html" title="">PHP Development</a></li>
-                            <li><a href="manage-company.html" title="">IOS Developer</a></li>
-                            <li><a href="manage-company.html" title="">Iphone Developer</a></li>
-                        </ul>
-                    </div>
+            <div class="col-md-2">
+                <div class="freelancer">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="">about us</a></li>
+                        <li><a href="">how it works</a></li>
+                        <li><a href="">security</a></li>
+                        <li><a href="">investors</a></li>
+                        <li><a href="">enterprise</a></li>
+                        <li><a href="">preferred freelancer</a></li>
+                        <li><a href="">program</a></li>
+                        <li><a href="">project management</a></li>
+                        <li><a href="">local jobs</a></li>
+                        <li><a href="">showcase</a></li>
+                        <li><a href="">API for Developers</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="footer-widget">
-                    <h3 class="widgettitle widget-title">Connect Us</h3>
-                    <div class="textwidget">
-                        <form class="footer-form">
-                            <input type="text" class="form-control" placeholder="Your Name">
-                            <input type="text" class="form-control" placeholder="Email">
-                            <textarea class="form-control" placeholder="Message"></textarea>
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row copyright">
-        <div class="container">
-            <p>Copyright Job Stock © 2019. All Rights Reserved </p>
+            <div class="col-md-2"></div>
+            <div class="col-md-2"></div>
         </div>
     </div>
 </footer>
-<div class="clearfix"></div>
-<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="tab" role="tabpanel">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#login" role="tab" data-toggle="tab">Sign In</a></li>
-                        <li role="presentation"><a href="#register" role="tab" data-toggle="tab">Sign Up</a></li>
-                    </ul>
-                    <div class="tab-content" id="myModalLabel2">
-                        <div role="tabpanel" class="tab-pane fade in active" id="login"><img src="assets/img/logo.png" class="img-responsive" alt="" />
-                            <div class="subscribe wow fadeInUp">
-                                <form class="form-inline" method="post">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <input type="email" name="email" class="form-control" placeholder="Username" required="">
-                                            <input type="password" name="password" class="form-control" placeholder="Password" required="">
-                                            <div class="center">
-                                                <button type="submit" id="login-btn" class="submit-btn"> Login </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+
+
+
+
+<div class="modal fade text-dark " id="login" tabindex="-1">
+    <div class="modal-dialog  modal-dialog-sm modal-dialog-centered">
+        <div class="modal-content pb-0">
+            <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em
+                    class="ti ti-close"></em></a>
+            <div class="popup-body">
+                <h4>great<span>Content</span></h4>
+                <h3 class="font-weight-bold pb-2">Log into your account</h3>
+                <form action="{{ route('login') }}" method="get">
+                    @csrf
+                    <div class="position-relative input-with-label">
+                        <div class="form-group">
+                            <lable>Email Address:</lable>
+                            <input id="email" type="email"
+                                   class="form-control input-bordered @error('email') is-invalid @enderror"
+                                   name="email" value="{{ old('email') }}" required
+                                   autocomplete="email" autofocus
+                                   placeholder="Enter Email Address">
+                            <i class="fas fa-at input-at"></i>
+                            @error('email')
+                            <span class="invalid-feedback"
+                                  role="alert"><strong>{{ $message }}</strong>
+                                        </span>
+                            @enderror
                         </div>
-                        <div role="tabpanel" class="tab-pane fade" id="register"><img src="assets/img/logo.png" class="img-responsive" alt="" />
-                            <form class="form-inline" method="post">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <input type="text" name="email" class="form-control" placeholder="Your Name" required="">
-                                        <input type="email" name="email" class="form-control" placeholder="Your Email" required="">
-                                        <input type="email" name="email" class="form-control" placeholder="Username" required="">
-                                        <input type="password" name="password" class="form-control" placeholder="Password" required="">
-                                        <div class="center">
-                                            <button type="submit" id="subscribe" class="submit-btn"> Create Account </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                        <div class="form-group">
+                            <lable>Password:</lable>
+                            <input type="password" class="form-control"
+                                   placeholder="Enter Password ">
+                            <i class="fas fa-lock input-lock"></i>
+                        </div>
+                        <ul class="float-right pb-2">
+                            <li>
+                                <a href="{{ route('user.voucher') }}" data-dismiss="modal"
+                                   data-toggle="modal" data-target="#forgot"
+                                   class="text-success ">Forgot password?</a>
+                            </li>
+                        </ul>
+                        <button class="btn btn-block btn-success">SIGN IN <i
+                                class="fas fa-arrow-circle-right"></i></button>
+                        <div class="text-center pt-3">
+                            <p>Don't have an account?
+                                <a href="#" data-dismiss="modal"
+                                   data-toggle="modal" data-target="#signup"
+                                   class="text-success">SignUp</a>
+                            </p>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-    </div>
-</div>
-<button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()"><i class="spin fa fa-cog" aria-hidden="true"></i></button>
-<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="display:none;right:0;" id="rightMenu">
-    <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
-    <ul id="styleOptions" title="switch styling">
-        <li>
-            <a href="javascript: void(0)" class="cl-box blue" data-theme="colors/blue-style"></a>
-        </li>
-        <li>
-            <a href="javascript: void(0)" class="cl-box red" data-theme="colors/red-style"></a>
-        </li>
-        <li>
-            <a href="javascript: void(0)" class="cl-box purple" data-theme="colors/purple-style"></a>
-        </li>
-        <li>
-            <a href="javascript: void(0)" class="cl-box green" data-theme="colors/green-style"></a>
-        </li>
-        <li>
-            <a href="javascript: void(0)" class="cl-box dark-red" data-theme="colors/dark-red-style"></a>
-        </li>
-        <li>
-            <a href="javascript: void(0)" class="cl-box orange" data-theme="colors/orange-style"></a>
-        </li>
-        <li>
-            <a href="javascript: void(0)" class="cl-box sea-blue" data-theme="colors/sea-blue-style "></a>
-        </li>
-        <li>
-            <a href="javascript: void(0)" class="cl-box pink" data-theme="colors/pink-style"></a>
-        </li>
-    </ul>
-</div>
+    </div><!-- .modal-content -->
+</div><!-- .modal-dialog -->
+
+<div class="modal fade text-dark" id="forgot" tabindex="-1">
+    <div class="modal-dialog modal-dialog-sm modal-dialog-centered">
+        <div class="modal-content pb-0">
+            <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em
+                    class="ti ti-close"></em></a>
+            <div class="popup-body">
+                <h4>great<span>Content</span></h4>
+                <h3 class="font-weight-bold pb-2">Recover Password</h3>
+                <form action="#" method="get">
+                    @csrf
+                    <div class="position-relative input-with-label">
+                        <lable>Email Address:</lable>
+                        <input type="text" class="form-control" placeholder="Email Address">
+                        <i class="fas fa-at input-at"></i>
+                        <button class="btn btn-block btn-success mt-4">Recover <i
+                                class="fas fa-arrow-circle-right"></i></button>
+                        <div class="text-center pt-3">
+                            <p>Don't have an account?
+                                <a href="#" data-dismiss="modal"
+                                   data-toggle="modal" data-target="#signup"
+                                   class="text-success">SignUp</a>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><!-- .modal-content -->
+</div><!-- .modal-dialog -->
+
+<div class="modal fade text-dark" id="signup" tabindex="-1">
+    <div class="modal-dialog modal-dialog-sm modal-dialog-centered">
+        <div class="modal-content pb-0">
+            <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em
+                    class="ti ti-close"></em></a>
+            <div class="popup-body">
+                <h4>great<span>Content</span></h4>
+                <h3 class="font-weight-bold pb-2">Create Your Free Account</h3>
+                <form action="#" method="get">
+                    @csrf
+                    <div class="position-relative input-with-label">
+                        <div class="form-group">
+                            <lable>Full Name:</lable>
+                            <input type="text" class="form-control" placeholder="Full Name">
+                            <i class="far fa-user input-at"></i>
+                        </div>
+                        <div class="form-group">
+                            <lable>Email Address:</lable>
+                            <input type="text" class="form-control" placeholder="Email Address">
+                            <i class="fas fa-at input-lock"></i>
+                        </div>
+                        <div class="form-group">
+                            <lable>Password:</lable>
+                            <input type="password" class="form-control" placeholder="Enter Password ">
+                            <i class="fas fa-lock input-user"></i>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    I agree to the <a href="">Terms of Services</a> and <a href="">Privacy
+                                        Policy</a>
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn btn-block btn-success mt-4">SIGN Up
+                            <i class="fas fa-arrow-circle-right"></i>
+                        </button>
+                        <div class="text-center pt-3">
+                            <p>Already have an account?
+                                <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#login"
+                                   class="text-success">Sign In</a>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><!-- .modal-content -->
+</div><!-- .modal-dialog -->
+
+
 <!-- Scripts==================================================-->
-<script type="text/javascript" src="{{ asset('assets/plugins/js/jquery.min.js') }}"></script>
+
+<script src="{{ asset('user/assets/js/jquery.bundle49f7.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/plugins/js/viewportchecker.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/plugins/js/bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/plugins/js/bootsnav.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/plugins/js/select2.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/plugins/js/datedropper.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/plugins/js/dropzone.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/plugins/js/loader.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/plugins/js/owl.carousel.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/plugins/js/slick.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/plugins/js/gmap3.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/plugins/js/jquery.easy-autocomplete.min.js') }}"></script>
 <script src="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.js') }}" type="text/javascript"></script>
 
+
 <script src="{{ asset('assets/js/custom.js') }}"></script>
 <script src="{{ asset('assets/js/jQuery.style.switcher.js') }}"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#styleOptions').styleSwitcher();
+<script>
+    $("#carousel").owlCarousel({
+        autoplay: true,
+        dots:true,
+        loop: true,
+        items: 1,
+        dots: true,
+        autoHeight: true,
+        autoplayTimeout: 3000,
+        smartSpeed: 800,
+        dots: true,
+
     });
 </script>
-<script>
-    function openRightMenu() {
-        document.getElementById("rightMenu").style.display = "block";
-    }
 
-    function closeRightMenu() {
-        document.getElementById("rightMenu").style.display = "none";
-    }
-</script>
