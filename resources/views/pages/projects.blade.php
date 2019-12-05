@@ -143,7 +143,7 @@
                 <div class="popup-body popup-body-lg">
                     <div class="content-area">
                         <div class="card-head d-flex justify-content-between align-items-center">
-                            <h4 class="card-title mb-0">Transaction Details</h4></div>
+                            <h4 class="card-title mb-0">Project Details</h4></div>
                         <div class="gaps-1-5x"></div>
                         <div class="data-details d-md-flex">
                             <div class="fake-class"><span class="data-details-title">Tranx Date</span><span class="data-details-info"></span></div>

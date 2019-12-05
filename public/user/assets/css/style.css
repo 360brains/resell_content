@@ -2078,10 +2078,6 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     color: #ff3535
 }
 
-.input-item {
-    position: relative;
-    padding-bottom: 20px
-}
 
 .input-item-sm {
     padding-bottom: 6px
@@ -2945,6 +2941,12 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 
 
 
+
+
+
+.badge{
+    font-size: 13px;
+}
 .hvrcenter {
     display: inline-block;
     vertical-align: middle;
@@ -3004,12 +3006,12 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     border-radius: 50%;
 }
 
-.dashborad-content, .projects-content, .my-projects, .transactions, .profile-content {
+.dashborad-content, .projects-content, .my-projects, .transactions, .profile-content, .setting {
     background-color: #F7FAFC;
     margin-top: -5px;
 }
 
-.recent-projects, .profile, .account, .project-detail, .statictics, .my-jobs-table, .edit-profile, .linked-accounts, .earn-badges {
+.recent-projects, .profile, .account, .project-detail, .statictics, .my-jobs-table, .edit-profile, .linked-accounts, .earn-badges, .setting-card {
     background-color: #fff;
     padding: 20px;
 }
@@ -3404,4 +3406,51 @@ footer .footer-social ul li a i{
 }
 footer .footer-bottom{
     color: #EBE9E4;
+}
+.setting-card .security .security-input{
+    padding: 6px;
+    margin-bottom: 0;
+}
+
+
+.setting-card .notification .notifiaction-area input[type=checkbox] + label {
+    display: block;
+    margin: 0.2em;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.setting-card .notification .notifiaction-area input[type=checkbox] {
+    display: none;
+}
+
+.setting-card .notification .notifiaction-area input[type=checkbox] + label:before {
+    content: "\2714";
+    border:1px solid #000;
+    display: inline-block;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+    width: 20px;
+    height: 20px;
+    padding-bottom: 19px;
+    padding-left: 3px;
+}
+
+.setting-card .notification .notifiaction-area input[type=checkbox] + label:active:before {
+    transform: scale(0);
+}
+
+.setting-card .notification .notifiaction-area input[type=checkbox]:checked + label:before {
+    border-color: MediumSeaGreen;
+    color: MediumSeaGreen;
+}
+.setting-card .notification ul li{
+    padding: 10px 0;
+}
+.setting-card .notification  i{
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
 }
