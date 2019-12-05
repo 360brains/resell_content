@@ -158,37 +158,49 @@
         <div class="parallax today-on-iwriter" id="parallax-one">
             <div class="parallax-text-container-1">
                 <div class="parallax-text-item">
-                                <h2>Today On <span>GreatContent</span></h2>
+                                <h2 class="text-center">Today On <span>GreatContent</span></h2>
                             <div class="d-flex counter-bg">
                                 <div class="container">
                                     <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="parallax-content-wrapper">
-                                        <div class="today-icon"><img src="{{ asset('assets/img/counter-img-1.png') }}"></div>
-                                        <div class="counter-item">
-                                            <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
-                                            <div class="stat-number" style="display: inline-block">15</div>
-                                            <h5><span>jobs posted (last 30 days)</span></h5>
+                                        <div class="clearfix">
+                                            <div class="today-icon float-left"><img src="{{ asset('assets/img/counter-img-1.png') }}"></div>
+                                            <div class="counter-item">
+                                                <div>
+                                                    <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
+                                                    <div class="stat-number" style="display: inline-block">15</div><br>
+                                                </div>
+                                                <h5><span>jobs posted (last 30 days)</span></h5>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                         <div class="col-xs-12 col-sm-12 col-md-4">
                                             <div class="parallax-content-wrapper">
-                                                <div class="today-icon"><img src="{{ asset('assets/img/counter-img-2.png') }}"></div>
-                                                <div class="counter-item">
-                                                    <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
-                                                    <div class="stat-number" style="display: inline-block">15</div>
-                                                    <h5><span>writers</span></h5>
+                                                <div class="clearfix">
+                                                    <div class="today-icon float-left"><img src="{{ asset('assets/img/counter-img-3.png') }}"></div>
+                                                    <div class="counter-item">
+                                                        <div>
+                                                            <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
+                                                            <div class="stat-number" style="display: inline-block">15</div><br>
+                                                        </div>
+                                                        <h5><span>writers</span></h5>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="parallax-content-wrapper">
-                                        <div class="today-icon"><img src="{{ asset('assets/img/counter-img-3.png') }}"></div>
-                                        <div class="counter-item">
-                                            <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
-                                            <div class="stat-number" style="display: inline-block">15</div>
-                                            <h5><span>articles written (till now)</span></h5>
+                                        <div class="clearfix">
+                                            <div class="today-icon float-left"><img class="pt-2 pr-2" src="{{ asset('assets/img/counter-img-2.png') }}"></div>
+                                            <div class="counter-item">
+                                                <div>
+                                                    <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
+                                                    <div class="stat-number" style="display: inline-block">15</div><br>
+                                                </div>
+                                                <h5><span>articles written (till now)</span></h5>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -199,4 +211,7 @@
             </div>
         </div>
     </section>
+
+    <div class="clearfix"></div>
+
 @endsection

@@ -50,8 +50,8 @@
                             <th>SR.</th>
                             <th>JOB TITLE</th>
                             <th>DUE ON</th>
-                            <th>DELIVERD AT</th>
-                            <th>TOTAL</th>
+                            <th>STARTED DATE</th>
+                            <th>ACTION</th>
                             <th>STATUS</th>
                         </tr>
                         </thead>
@@ -63,7 +63,17 @@
                                 <td>{{ $task->project->name }}</td>
                                 <td>{{ $task->created_at }}</td>
                                 <td>{{ $task->deadline }}</td>
-                                <td></td>
+                                <td class="data-col dt-account">
+                                    @if( $task->status == 'started' OR $task->status == 'extended' OR $task->status == 'reworking')
+                                        <span class="lead user-info">
+                                                @if($task->project->type->name == 'Content Writing')
+                                                <a href="{{ route('user.tasks.work') }}" class="btn btn-auto btn-xs btn-warning">Write</a>
+                                            @else
+                                                <a href="{{ route('user.tasks.work') }}" class="btn btn-auto btn-xs btn-warning">Film</a>
+                                            @endif
+                                            </span>
+                                    @endif
+                                </td>
                                 <td>{{ $task->status }}</td>
                                 <td class="data-col text-right"><a href="#" data-toggle="modal" data-target="#transaction-details{{$task->id}}" class="btn btn-light-alt btn-xs btn-icon"><em class="ti ti-eye"></em></a></td>
                                 <div class="modal fade" id="transaction-details{{$task->id}}" tabindex="-1">

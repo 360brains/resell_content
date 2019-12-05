@@ -91,7 +91,7 @@
                 </div>
                 <div class="project-price float-right d-flex">
                     <h1 class="m-0 pt-2 font-weight-bold">Rs.{{ $project->price }}</h1>
-                    <a href="{{ route('user.tasks.take', $project->id) }}">
+                    <a data-toggle="modal" data-target="#start-job" href="#">
                         <button class="btn start-job btn-lg btn-success ml-2">
                             Start This Job
                         </button>
@@ -136,6 +136,100 @@
         </div>
             @endforeach
     </div>
+
+    <div class="modal fade" id="start-job" tabindex="-1">
+        <div class="modal-dialog modal-dialog-lg modal-dialog-centered">
+            <div class="modal-content"><a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="popup-body popup-body-lg">
+                    <div class="content-area">
+                        <div class="card-head d-flex justify-content-between align-items-center">
+                            <h4 class="card-title mb-0">Transaction Details</h4></div>
+                        <div class="gaps-1-5x"></div>
+                        <div class="data-details d-md-flex">
+                            <div class="fake-class"><span class="data-details-title">Tranx Date</span><span class="data-details-info"></span></div>
+                            <div class="fake-class"><span class="data-details-title">Tranx Status</span><span class="badge badge-success ucap"></span></div>
+                            <div class="fake-class"><span class="data-details-title">Tranx Approved Note</span><span class="data-details-info">By <strong>Admin</strong> </span></div>
+                        </div>
+                        <div class="gaps-3x"></div>
+                        <h6 class="card-sub-title">Transaction Info</h6>
+                        <ul class="data-details-list">
+                            <li>
+                                <div class="data-details-head">Transaction Type</div>
+                                <div class="data-details-des"><strong></strong></div>
+                            </li>
+                            <!-- li -->
+                            <li>
+                                <div class="data-details-head">Payment Getway</div>
+                                <div class="data-details-des"><strong>Ethereum <small>- Offline Payment</small></strong></div>
+                            </li>
+                            <!-- li -->
+                            <li>
+                                <div class="data-details-head">Deposit From</div>
+                                <div class="data-details-des"><strong>0xa87d264f935920005810653734156d3342d5c385</strong></div>
+                            </li>
+                            <!-- li -->
+                            <li>
+                                <div class="data-details-head">Tx Hash</div>
+                                <div class="data-details-des"><span>Tx156d3342d5c87d264f9359200xa058106537340385c87d264f93</span> <span></span></div>
+                            </li>
+                            <!-- li -->
+                            <li>
+                                <div class="data-details-head">Deposit To</div>
+                                <div class="data-details-des"><span>0xa058106537340385156d3342d5c87d264f935920</span> <span></span></div>
+                            </li>
+                            <!-- li -->
+                            <li>
+                                <div class="data-details-head">Details</div>
+                                <div class="data-details-des"> </div>
+                            </li>
+                            <!-- li -->
+                        </ul>
+                        <!-- .data-details -->
+                        <div class="gaps-3x"></div>
+                        <h6 class="card-sub-title"></h6>
+                        <ul class="data-details-list">
+                            <li>
+                                <div class="data-details-head"></div>
+                                <div class="data-details-des"><strong>
+                                    </strong></div>
+                            </li>
+                            <!-- li -->
+                            <li>
+                                <div class="data-details-head">Contribution</div>
+                                <div class="data-details-des"><span><strong>1.000 ETH</strong> <em class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="1 ETH = 100 TWZ"></em></span><span><em class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="1 ETH = 100 TWZ"></em> $2540.65</span></div>
+                            </li>
+                            <!-- li -->
+                            <li>
+                                <div class="data-details-head">Tokens Added To</div>
+                                <div class="data-details-des"><strong>UD1020001 <small>- infoicox@gmail..com</small></strong></div>
+                            </li>
+                            <!-- li -->
+                            <li>
+                                <div class="data-details-head">Token (T)</div>
+                                <div class="data-details-des"><span>4,780.00</span><span>(4780 * 1)</span></div>
+                            </li>
+                            <!-- li -->
+                            <li>
+                                <div class="data-details-head">Bonus Tokens (B)</div>
+                                <div class="data-details-des"><span>956.00</span><span>(956 * 1)</span></div>
+                            </li>
+                            <!-- li -->
+                            <li>
+                                <div class="data-details-head">Total Amount</div>
+                                <div class="data-details-des"><span><strong></strong></span><span>(T+B)</span></div>
+                            </li>
+                            <!-- li -->
+                        </ul>
+                        <!-- .data-details -->
+                    </div>
+                    <!-- .card -->
+                </div>
+            </div>
+            <!-- .modal-content -->
+        </div>
+        <!-- .modal-dialog -->
+    </div>
+
 </section>
     <!-- ========== Begin: Brows job Category End ===============  -->
 @endsection
