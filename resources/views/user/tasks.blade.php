@@ -28,19 +28,19 @@
                     </div>
                 </div>
             </div>
-            <div class="clearfix pt-3 pb-2">
+            <div class="clearfix pt-3 pb-3">
                 <h4 class="pt-3 float-left">My Jobs</h4>
-                <div class="dropdown float-right">
-                    Sort by:
-                    <button class="btn btn-sm btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Completed
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
+{{--                <div class="dropdown float-right">--}}
+{{--                    Sort by:--}}
+{{--                    <button class="btn btn-sm btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                        Completed--}}
+{{--                    </button>--}}
+{{--                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--}}
+{{--                        <a class="dropdown-item" href="#">Action</a>--}}
+{{--                        <a class="dropdown-item" href="#">Another action</a>--}}
+{{--                        <a class="dropdown-item" href="#">Something else here</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
             <div class="my-jobs-table shadow">
                 <div class="table-responsive">
@@ -183,9 +183,8 @@
                                                         </li>
                                                         <!-- li -->
                                                         @forelse($task->project->trainings as $training)
-
                                                             <li>
-                                                                <div class="data-details-head">Trainings Required</div>
+                                                                <div class="data-details-head">Training Required</div>
                                                                 <div class="data-details-des"><span>{{ $training->name }}</span> <span></span></div>
                                                             </li>
                                                         @empty
@@ -203,8 +202,6 @@
                                                         </li>
                                                         <!-- li -->
                                                     </ul>
-                                                    <!-- .data-details -->
-
                                                     <!-- .data-details -->
                                                 </div>
                                                 <!-- .card -->

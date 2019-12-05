@@ -24,11 +24,14 @@ class TasksController extends Controller
         $data['tasks']    = Task::where('user_id', Auth()->user()->id)->orderBy('created_at', 'desc')->paginate(10);
 
         foreach ($data['tasks'] as $task){
-           if ($task->project->type_id == 1){
-               $data['totalWritings'] = $data['totalWritings'] + 1;
-           }elseif($task->project->type_id == 2){
-               $data['totalVideos'] = $data['totalVideos'] + 1;
-           }
+            if ($task->status == 'approved'){
+                if ($task->project->type_id == 1){
+                    $data['totalWritings'] = $data['totalWritings'] + 1;
+                }
+                elseif($task->project->type_id == 2){
+                    $data['totalVideos'] = $data['totalVideos'] + 1;
+                }
+            }
             if ($task->status == 'delivered'){
                 $data['delivered'] = $data['delivered'] + 1;
             }
@@ -243,4 +246,5 @@ class TasksController extends Controller
         }
 
     }
+
 }
