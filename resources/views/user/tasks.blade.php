@@ -50,9 +50,9 @@
                             <th>SR.</th>
                             <th>JOB TITLE</th>
                             <th>DUE ON</th>
-                            <th>STARTED DATE</th>
-                            <th>ACTION</th>
+                            <th>START DATE</th>
                             <th>STATUS</th>
+                            <th>ACTION</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -61,8 +61,9 @@
                             <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>{{ $task->project->name }}</td>
-                                <td>{{ $task->created_at }}</td>
-                                <td>{{ $task->deadline }}</td>
+                                <td>{{ date('d-M-Y / h:i', strtotime($task->deadline)) }}</td>
+                                <td>{{ date('d-M-Y / h:i', strtotime($task->created_at)) }}</td>
+                                <td>{{ $task->status }}</td>
                                 <td class="data-col dt-account">
                                     @if( $task->status == 'started' OR $task->status == 'extended' OR $task->status == 'reworking')
                                         <span class="lead user-info">
@@ -74,7 +75,6 @@
                                             </span>
                                     @endif
                                 </td>
-                                <td>{{ $task->status }}</td>
                                 <td class="data-col text-right"><a href="#" data-toggle="modal" data-target="#transaction-details{{$task->id}}" class="btn btn-light-alt btn-xs btn-icon"><em class="ti ti-eye"></em></a></td>
                                 <div class="modal fade" id="transaction-details{{$task->id}}" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-lg modal-dialog-centered">
@@ -118,38 +118,37 @@
                                                                 @case('extended')
                                                                 <li>
                                                                     <div class="data-details-head">Extended at</div>
-                                                                    <div class="data-details-des"><span>{{ $status->extended_at }}</span> <span></span></div>
+                                                                    <div class="data-details-des"><strong>{{ $status->created_at }}</strong></div>
                                                                 </li>
                                                                 @break
 
                                                                 @case('delivered')
                                                                 <li>
                                                                     <div class="data-details-head">Delivered at</div>
-                                                                    <div class="data-details-des"><span>{{ $status->delivered_at }}</span> <span></span></div>
+                                                                    <div class="data-details-des"><strong>{{ $status->created_at }}</strong></div>
                                                                 </li>
                                                                 @break
 
                                                                 @case('approved')
                                                                 <li>
                                                                     <div class="data-details-head">Approved at</div>
-                                                                    <div class="data-details-des"><span>{{ $status->approved_at }}</span> <span></span></div>
+                                                                    <div class="data-details-des"><strong>{{ $status->created_at }}</strong></div>
                                                                 </li>
                                                                 @break
 
                                                                 @case('rejected')
                                                                 <li>
                                                                     <div class="data-details-head">Rejected at</div>
-                                                                    <div class="data-details-des">{{ $status->rejected_at }}</div>
+                                                                    <div class="data-details-des"><strong>{{ $status->created_at }}</strong></div>
                                                                 </li>
                                                                 @break
 
                                                                 @case('reworking')
                                                                 <li>
                                                                     <div class="data-details-head">Reworking at</div>
-                                                                    <div class="data-details-des">{{ $status->reworking_at }}</div>
+                                                                    <div class="data-details-des"><strong>{{ $status->created_at }}</strong></div>
                                                                 </li>
                                                                 @break
-
 
                                                                 @default
                                                                 <span>No Status Found</span>
@@ -179,7 +178,7 @@
                                                         <!-- li -->
                                                         <li>
                                                             <div class="data-details-head">Points Awarded</div>
-                                                            <div class="data-details-des"><span>{{ $task->points_awarded }}</span> <span></span></div>
+                                                            <div class="data-details-des"><strong>{{ $task->project->points }}</strong> <span></span></div>
 
                                                         </li>
                                                         <!-- li -->
@@ -206,30 +205,6 @@
                                                     </ul>
                                                     <!-- .data-details -->
 
-
-                                                    <div class="gaps-3x"></div>
-                                                    <h6 class="card-sub-title">Task Transaction Details</h6>
-                                                    <ul class="data-details-list">
-                                                        @foreach(auth()->user()->transactions as $transaction)
-                                                            @if($transaction->task_id == $task->id)
-                                                                <li>
-                                                                    <div class="data-details-head">Status</div>
-                                                                    <div class="data-details-des"><span class="badge badge-success ucap">{{ $transaction->status }}</span></div>
-                                                                </li>
-                                                                <!-- li -->
-                                                                <li>
-                                                                    <div class="data-details-head">Amount</div>
-                                                                    <div class="data-details-des"><span><strong>{{ $transaction->amount }} PKR</strong> <em class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="1 PKR = 0.0064 USD"></em></span><span><em class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="1 PKR = 0.0064 USD"></em> ${{ $transaction->amount*0.0064 }}</span></div>
-                                                                </li>
-                                                                <!-- li -->
-                                                                <li>
-                                                                    <div class="data-details-head">Date</div>
-                                                                    <div class="data-details-des"><strong>{{ $transaction->created_at }}</strong></div>
-                                                                </li>
-                                                                <!-- li -->
-                                                            @endif
-                                                        @endforeach
-                                                    </ul>
                                                     <!-- .data-details -->
                                                 </div>
                                                 <!-- .card -->
