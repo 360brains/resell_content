@@ -32,8 +32,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::resource('categories', 'CategoryController');
     Route::resource('trainings', 'TrainingController');
     Route::resource('projects', 'ProjectController');
+    Route::post('get-projects', 'ProjectController@getProjects')->name('get.projects');
     Route::resource('levels', 'LevelController');
     Route::resource('users',  'UserController');
+    Route::post('get-users', 'UserController@getUsers')->name('get.users');
     Route::resource('tasks', 'TaskController');
     Route::resource('test', 'TestController');
     Route::resource('templates', 'TemplateController');
