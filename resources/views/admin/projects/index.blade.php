@@ -28,7 +28,7 @@
             <div class="portlet light portlet-fit bordered">
 
                 <div class="portlet-body flip-scroll">
-                    <table class="table table-bordered table-striped flip-content">
+                    <table class="table table-bordered table-striped flip-content" id="projects">
                         <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>
@@ -36,7 +36,6 @@
                             <th> No. of Tasks </th>
                             <th> Type </th>
                             <th> Deadline </th>
-                            <th> Category </th>
                             <th> Level </th>
                             <th> Price </th>
                             <th> Status </th>
@@ -44,48 +43,39 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @php
-                            $i = 0;
-                        @endphp
-                        @forelse($projects as $project)
-                            <tr class="table-row-clickable" onclick="window.location = '{{ route('admin.projects.show', $project->id) }}'">
-                                <td> {{ ++$i }} </td>
-                                <td><a href="{{ route('admin.projects.show', $project->id) }}"> {{ $project->name }} </a>
-
-                                </td>
-                                <td> {{ $project->quantity }} </td>
-                                <td> {{ $project->type->name }} </td>
-                                <td> {{ $project->deadline ?? 'Unknown' }} Hours </td>
-                                <td> {{ $project->category->name }} </td>
-                                <td> {{ $project->level->name }} </td>
-                                <td> {{ $project->price }} </td>
-                                <td> {{ $project->active == 1 ? 'Active' : 'Inactive'}} </td>
-                                <td>
-                                    <form action="{{ route('admin.projects.destroy',$project->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <a class="btn btn-primary btn-sm" href="{{ route('admin.projects.edit', $project->id) }}">Edit</a>
-                                        @if($project->active == 0)
-                                            <button type="submit" class="btn btn-success btn-outline btn-sm sbold uppercase">Active</button>
-                                        @else
-                                            <button type="submit" class="btn btn-danger btn-outline btn-sm sbold uppercase">Inactive</button>
-                                        @endif
-                                    </form>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="9">
-                                    Data Not Found
-                                </td>
-                            </tr>
-                        @endforelse
                         </tbody>
                     </table>
-                    <div class="text-center">
-                        {{$projects->links()}}
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#projects').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax":{
+                    "url": "{{ route('admin.get.projects') }}",
+                    "dataType": "json",
+                    "type": "POST",
+                    "data":{ _token: "{{csrf_token()}}"}
+                },
+                "columns": [
+                    { "data": "sr" },
+                    { "data": "name" },
+                    { "data": "quantity" },
+                    { "data": "type" },
+                    { "data": "deadline" },
+                    { "data": "level" },
+                    { "data": "price" },
+                    { "data": "active" },
+                    { "data": "options" }
+                ]
+
+            });
+        });
+    </script>
+@endpush
+

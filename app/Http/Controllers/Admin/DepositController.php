@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Deposit;
 use App\Models\Membership;
 use App\Models\Transaction;
+use App\Notifications\EmailUser;
 use App\Notifications\TaskResult;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -101,6 +102,11 @@ class DepositController extends Controller
                 'tooltip'       => ' Your balance is updated. You can use it for different payments or can withdraw it any time.',
                 'link'          => "",
             ];
+            $emailDetails = [
+                'message'       => 'Your fund deposit request is approved and your balance is updated. You can use it for different payments or can withdraw it any time.',
+                'url'          => route("user.dashboard"),
+                'urlText'      => 'Dashboard',
+            ];
 
         }elseif ( $request->action == 'reject' ){
 
@@ -115,6 +121,11 @@ class DepositController extends Controller
                 'tooltip'       => 'Your deposit request is rejected. Please try again with valid information.',
                 'link'          => "",
             ];
+            $emailDetails = [
+                'message'       => 'Your fund deposit request is rejected. Please try again with valid information.',
+                'url'          => route("user.dashboard"),
+                'urlText'      => 'Dashboard',
+            ];
         }
     foreach (auth()->user()->unreadNotifications as $notification)
     {
@@ -126,6 +137,7 @@ class DepositController extends Controller
     }
 
         $deposit->user->notify(new TaskResult($details));
+        $deposit->user->notify(new EmailUser($emailDetails));
 
 
         if ($response){

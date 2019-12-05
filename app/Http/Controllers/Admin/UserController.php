@@ -17,8 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data['users'] = User::orderBy('name', 'asc')->paginate(10);
-        return view('admin.users.index', $data);
+        return view('admin.users.index');
     }
 
     /**
@@ -168,6 +167,104 @@ class UserController extends Controller
             return redirect()->back()->with("success", "Completed Successfully.");
         }else{
             return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
+    }
+
+    public function getUsers(Request $request)
+    {
+        if ($request->ajax()){
+            $columns = array(
+                0   => 'id',
+                1   => 'name',
+                2   => 'gender',
+                3   => 'email',
+                4   => 'tasks',
+                5   => 'active',
+            );
+
+            $totalData = User::count();
+
+            $totalFiltered = $totalData;
+            $counter = 1;
+
+
+            $limit = $request->input('length');
+            $start = $request->input('start');
+            $order = $columns[$request->input('order.0.column')];
+            $dir   = $request->input('order.0.dir');
+
+            if(empty($request->input('search.value')))
+            {
+                $users = User::offset($start)
+                    ->limit($limit)
+                    ->orderBy($order,$dir)
+                    ->get();
+            }
+            else {
+                $search = $request->input('search.value');
+
+                $users =  User::where('email','LIKE',"%{$search}%")
+                    ->orWhere('name', 'LIKE',"%{$search}%")
+                    ->orWhere('gender', 'LIKE',"%{$search}%")
+                    ->offset($start)
+                    ->limit($limit)
+                    ->orderBy($order,$dir)
+                    ->get();
+
+                $totalFiltered = User::where('email','LIKE',"%{$search}%")
+                    ->orWhere('name', 'LIKE',"%{$search}%")
+                    ->orWhere('gender', 'LIKE',"%{$search}%")
+                    ->count();
+            }
+
+            $data = array();
+            if(!empty($users))
+            {
+                foreach ($users as $user)
+                {
+                    $show   =  route('admin.users.show',$user->id);
+                    $edit   =  route('admin.users.edit',$user->id);
+                    $delete =  route('admin.users.destroy',$user->id);
+                    $btn = null;
+                    $status = null;
+                    $token = csrf_token();
+
+                    if ($user->active == 1){
+                        $status =  'DEACTIVE';
+                        $btn = 'btn-danger';
+                    }
+                    elseif($user->active == 0){
+                        $status =  'ACTIVE';
+                        $btn = 'btn-success';
+
+                    }
+
+                    $nestedData['sr']       = $counter++;
+                    $nestedData['name']     = $user->name;
+                    $nestedData['gender']   = $user->gender;
+                    $nestedData['email']    = $user->email;
+                    $nestedData['tasks']    = count($user->tasks);
+                    $nestedData['active']   = $user->active == 1 ? 'ACTIVE' : 'DEACTIVE';
+                    $nestedData['options']  = "<a href='{$show}' title='SHOW' class='btn btn-info btn-xs'>SHOW</a>
+                                               <a href='{$edit}' title='EDIT' class='btn btn-primary btn-xs'>EDIT</a>
+                                               <form action='{$delete}' method='post'>
+                                               <input type='hidden' name='_method' value='DELETE'>
+                                               <input type='hidden' name='_token' value='$token'>
+                                               <button type='submit' title='$status' class='btn $btn btn-outline btn-xs sbold uppercase'>$status</button>
+                                               </form>";
+                    $data[] = $nestedData;
+
+                }
+            }
+
+            $json_data = array(
+                "draw"            => intval($request->input('draw')),
+                "recordsTotal"    => intval($totalData),
+                "recordsFiltered" => intval($totalFiltered),
+                "data"            => $data
+            );
+
+            return response()->json($json_data);
         }
     }
 }

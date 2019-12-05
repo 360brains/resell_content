@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaction;
 use App\Models\Withdraw;
+use App\Notifications\EmailUser;
 use App\Notifications\TaskResult;
 use App\User;
 use Bitfumes\Multiauth\Model\Admin;
@@ -73,8 +74,8 @@ class WithdrawController extends Controller
                 'taskName'      => 'Withdraw Funds',
                 'date'          => now(),
                 'message'       => 'Your fund withdraw request is waiting approval.',
-                'tooltip'       => ' You will be notified when admin approves your withdraw.',
-                'link'          => "<a href=".route("withdraw.create")." class='d-inline'>View withdraw</a>",
+                'tooltip'       => 'You will be notified when admin approves your withdraw.',
+                'link'          => "<a href=".route("withdraw.create")." class='d-inline'>View Withdraw</a>",
             ];
 
             auth()->user()->notify(new TaskResult($details));

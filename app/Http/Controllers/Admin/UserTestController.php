@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User_test;
+use App\Notifications\EmailUser;
 use App\Notifications\TaskResult;
 use App\User;
 use Illuminate\Http\Request;
@@ -48,10 +49,16 @@ class UserTestController extends Controller
                 'taskName'      => $test->name,
                 'date'          => now(),
                 'message'       => 'Congratulations! Your test is approved.',
-                'tooltip'       => 'Now you can take tasks of your level',
+                'tooltip'       => 'Now you can take tasks of your level.',
                 'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Projects</a>",
             ];
+            $emailDetails = [
+                'message'       => 'Congratulations! Your test is approved. Now you can take intro level tasks.',
+                'url'          => route("pages.projects"),
+                'urlText'      => 'Projects',
+            ];
             $user->notify(new TaskResult($details));
+            $user->notify(new EmailUser($emailDetails));
         }
 
         elseif ($request->action == 'rejected'){
@@ -69,7 +76,13 @@ class UserTestController extends Controller
                 'tooltip'       => 'Go to dashboard to take the test again.',
                 'link'          => "<a href=".route("user.dashboard")." class=\'d-inline\'>Dashboard</a>",
             ];
+            $emailDetails = [
+                'message'       => 'Your test is rejected. Please try again. Go to dashboard to take the test again.',
+                'url'          => route("user.dashboard"),
+                'urlText'      => 'Dashboard',
+            ];
             $user->notify(new TaskResult($details));
+            $user->notify(new EmailUser($emailDetails));
 
         }
 

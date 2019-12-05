@@ -15,7 +15,34 @@ use Illuminate\Support\Facades\Auth;
 class TasksController extends Controller
 {
     public function index(){
+        $data['totalWritings'] = 0;
+        $data['totalVideos'] = 0;
+        $data['reworking'] = 0;
+        $data['delivered'] = 0;
+        $data['rejected'] = 0;
+
         $data['tasks']    = Task::where('user_id', Auth()->user()->id)->orderBy('created_at', 'desc')->paginate(10);
+
+        foreach ($data['tasks'] as $task){
+            if ($task->status == 'approved'){
+                if ($task->project->type_id == 1){
+                    $data['totalWritings'] = $data['totalWritings'] + 1;
+                }
+                elseif($task->project->type_id == 2){
+                    $data['totalVideos'] = $data['totalVideos'] + 1;
+                }
+            }
+            if ($task->status == 'delivered'){
+                $data['delivered'] = $data['delivered'] + 1;
+            }
+            if ($task->status == 'reworking'){
+                $data['reworking'] = $data['reworking'] + 1;
+            }
+            if ($task->status == 'rejected'){
+                $data['rejected'] = $data['rejected'] + 1;
+            }
+        }
+
         return view('user.tasks', $data);
     }
 
@@ -139,6 +166,7 @@ class TasksController extends Controller
                 'message'       => 'Your task is delivered and awaiting result.',
                 'tooltip'       => ' You will get result notification soon',
                 'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take More</a>",
+
             ];
             $task->user->notify(new TaskResult($details));
 
@@ -219,4 +247,5 @@ class TasksController extends Controller
         }
 
     }
+
 }

@@ -149,6 +149,9 @@
                             <div class="fake-class"><span class="data-details-title">Tranx Date</span><span class="data-details-info"></span></div>
                             <div class="fake-class"><span class="data-details-title">Tranx Status</span><span class="badge badge-success ucap"></span></div>
                             <div class="fake-class"><span class="data-details-title">Tranx Approved Note</span><span class="data-details-info">By <strong>Admin</strong> </span></div>
+                            <div class="ur-detail-btn">
+                                <a href="{{ route('user.tasks.take', $project->id) }}" class="btn btn-info full-width"><i class="ti-thumb-up mrg-r-5"></i>Take a task</a><br>
+                            </div>
                         </div>
                         <div class="gaps-3x"></div>
                         <h6 class="card-sub-title">Transaction Info</h6>
