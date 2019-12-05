@@ -21,10 +21,6 @@
                         <li><a href="">enterprise</a></li>
                         <li><a href="">preferred freelancer</a></li>
                         <li><a href="">program</a></li>
-                        <li><a href="">project management</a></li>
-                        <li><a href="">local jobs</a></li>
-                        <li><a href="">showcase</a></li>
-                        <li><a href="">API for Developers</a></li>
                     </ul>
                 </div>
             </div>
@@ -58,7 +54,7 @@
                 <div class="freelancer">
                     <h4>Apps</h4>
                     <ul>
-                        <li><a href=""></a></li>
+                        <li class="pb-2"><a href=""><img src="{{ asset('assets/img/google-play.svg') }}" alt=""></a></li>
                         <li><a href=""></a></li>
                     </ul>
                     <div class="footer-social">

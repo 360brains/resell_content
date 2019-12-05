@@ -40,7 +40,7 @@
                                     <tr>
                                         <td>{{ $task->project->name  }}</td>
                                         <td>{{ $task->project->points }}</td>
-                                        <td><i class="fas fa-stopwatch text-success"></i> {{ $task->deadline }}</td>
+                                        <td>{{ $task->deadline }}</td>
                                         <td>{{ $task->project->price }}</td>
                                         <td>{{ $task->status }}</td>
                                     </tr>
