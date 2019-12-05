@@ -47,7 +47,7 @@
             </div>
             <div class="my-jobs-table shadow">
                 <div class="table-responsive">
-                    <table class="table table-hover table-borderless ">
+                    <table class="table table-borderless ">
                         <thead>
                         <tr>
                             <th>SR.</th>

@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div class=" table-responsive">
-                            <table  class="table table-hover table-borderless">
+                            <table  class="table table-borderless">
                                 <thead>
                                 <tr>
                                     <th>JOB TITLE</th>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="profile-img pt-2 text-center">
                             <img src="{{ url(auth()->user()->avatar) }}" alt="">
-                            <h5>{{ auth()->user()->name }}</h5>
+                            <h5 class="pt-2">{{ auth()->user()->name }}</h5>
                         </div>
                         <div class="profile-dec pt-3">
                             <h6>CONTENT WRITING <span class="badge badge-success">{{ auth()->user()->writing_level }}</span></h6>

@@ -70,6 +70,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('user/store-funds', 'User\PaymentController@storeFunds')->name('user.store.funds');
     Route::get('user/learn-details/{id}', 'User\LearnController@learnDetails')->name('user.learn.details');
     Route::get('user/transactions', 'User\TransactionController@index')->name('user.transactions');
+    Route::get('user/settings', 'User\SettingController@index')->name('user.settings');
     Route::get('user/notifications', 'User\NotificationController@index')->name('user.notifications');
     Route::get('user/tasks', 'User\TasksController@index')->name('user.tasks');
     Route::get('user/tasks/take/{id}', 'User\TasksController@taskTake')->name('user.tasks.take');
