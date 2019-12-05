@@ -32,7 +32,7 @@
                         <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>
-                            <th> Projects Name </th>
+                            <th> Project Name </th>
                             <th> No. of Tasks </th>
                             <th> Type </th>
                             <th> Deadline </th>
@@ -56,6 +56,7 @@
             $('#projects').DataTable({
                 "processing": true,
                 "serverSide": true,
+                "order": [[ 0, "desc" ]],
                 "ajax":{
                     "url": "{{ route('admin.get.projects') }}",
                     "dataType": "json",
