@@ -8,23 +8,23 @@
                 <div class="row">
                     <div class="col-md border-right pt-3 pb-3">
                         <h5>TOTAL WRITING</h5>
-                        <h3>250</h3>
+                        <h3>{{ $totalWritings }}</h3>
                     </div>
                     <div class="col-md border-right pt-3 pb-3">
                         <h5>TOTAL VIDEOS</h5>
-                        <h3>250</h3>
+                        <h3>{{ $totalVideos }}</h3>
                     </div>
                     <div class="col-md border-right pt-3 pb-3">
                         <h5>IN REVISION</h5>
-                        <h3>250</h3>
+                        <h3>{{ $reworking }}</h3>
                     </div>
                     <div class="col-md border-right pt-3 pb-3">
                         <h5>PENDING</h5>
-                        <h3>250</h3>
+                        <h3>{{ $delivered }}</h3>
                     </div>
                     <div class="col-md pt-3 pb-3">
                         <h5>REJECTED</h5>
-                        <h3>250</h3>
+                        <h3>{{ $rejected }}</h3>
                     </div>
                 </div>
             </div>
