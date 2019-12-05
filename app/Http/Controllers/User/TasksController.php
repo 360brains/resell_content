@@ -166,6 +166,7 @@ class TasksController extends Controller
                 'message'       => 'Your task is delivered and awaiting result.',
                 'tooltip'       => ' You will get result notification soon',
                 'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take More</a>",
+
             ];
             $task->user->notify(new TaskResult($details));
 

@@ -29,7 +29,7 @@ class PagesController extends Controller
         $level              = $request->level;
         $category           = $request->category;
         $type               = $request->type;
-        $data['projects']   = Project::where('active', 1)->where('special', 0)->whereNotNull('id');
+        $data['projects']   = Project::where('active', 1)->where('special', 0)->where('available', '>', 0)->whereNotNull('id');
 
         if (!is_null($level)){
             $data['projects']   = $data['projects']->where('level_id', $level);

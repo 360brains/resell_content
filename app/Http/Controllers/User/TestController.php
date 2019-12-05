@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Level;
 use App\Models\Test;
 use App\Models\User_test;
+use App\Notifications\EmailUser;
 use App\Notifications\TaskResult;
 use Bitfumes\Multiauth\Model\Admin;
 use Illuminate\Http\Request;
@@ -50,7 +51,13 @@ class TestController extends Controller
             'tooltip'       => '',
             'link'          => "",
         ];
+        $emailDetails = [
+            'message'       => 'You have been assigned a video making test. You will have to complete it to get tasks and start earning.',
+            'url'          => route("user.dashboard"),
+            'urlText'      => 'Dashboard',
+        ];
         auth()->user()->notify(new TaskResult($details));
+        auth()->user()->notify(new EmailUser($emailDetails));
 
 //        return view('user.video-test', $data);
         return redirect()->route('user.tests.video.test');
@@ -96,7 +103,13 @@ class TestController extends Controller
             'tooltip'       => '',
             'link'          => "",
         ];
+        $emailDetails = [
+            'message'       => 'You have been assigned a writing test. You will have to complete it to get tasks and start earning.',
+            'url'          => route("user.dashboard"),
+            'urlText'      => 'Dashboard',
+        ];
         auth()->user()->notify(new TaskResult($details));
+        auth()->user()->notify(new EmailUser($emailDetails));
 
         return redirect()->route('user.tests.writing.test');
 //        return view('user.writing-test', $data);
@@ -137,7 +150,13 @@ class TestController extends Controller
                 'tooltip'       => 'Keep checking for result notification.',
                 'link'          => "",
             ];
+            $emailDetails = [
+                'message'       => 'You might have to wait for 2 days for your writing test approval. Keep checking for result notification.',
+                'url'          => route("user.dashboard"),
+                'urlText'      => 'Dashboard',
+            ];
             auth()->user()->notify(new TaskResult($details));
+            auth()->user()->notify(new EmailUser($emailDetails));
 
             $adminDetails = [
                 'taskName'      => Test::where('id', $id)->select('name')->first(),
@@ -184,7 +203,7 @@ class TestController extends Controller
                     'taskName'      => Test::where('id', $id)->select('name')->first(),
                     'date'          => now(),
                     'message'       => 'You might have to wait for 2 days for approval.',
-                    'tooltip'       => 'You can Take more tasks during the waiting period ',
+                    'tooltip'       => 'You can Take more tasks during the waiting period. ',
                     'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take More</a>",
                 ];
 

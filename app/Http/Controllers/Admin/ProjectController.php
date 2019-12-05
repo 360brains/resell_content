@@ -9,6 +9,7 @@ use App\Models\Task;
 use App\Models\Template;
 use App\Models\Training;
 use App\Models\Type;
+use App\Notifications\EmailUser;
 use App\Notifications\TaskResult;
 use App\User;
 use Illuminate\Http\Request;
@@ -75,10 +76,16 @@ class ProjectController extends Controller
                 'tooltip'       => ' It is a project that is only available and visible to the special users that we have chosen.',
                 'link'          => "<a href=".route("pages.project.details", $lastInsertedId)." class='d-inline'>Details</a>",
             ];
+            $emailDetails = [
+                'message'       => 'Congratulations! You have been assigned a special task. It is a project that is only available and visible to the special users that we have chosen.',
+                'url'          => route("pages.project.details", $lastInsertedId),
+                'urlText'      => 'Details',
+            ];
 
             $users = User::where('special', 1)->get();
             foreach ($users as $user){
                 $user->notify(new TaskResult($details));
+                $user->notify(new EmailUser($emailDetails));
             }
         }else{
             $response          = $project->save();
@@ -159,9 +166,16 @@ class ProjectController extends Controller
                 'link'          => "<a href=".route("pages.project.details", $lastInsertedId)." class='d-inline'>Details</a>",
             ];
 
+            $emailDetails = [
+                'message'       => 'Congratulations! You have been assigned a special task. It is a project that is only available and visible to the special users that we have chosen.',
+                'url'          => route("pages.project.details", $lastInsertedId),
+                'urlText'      => 'Details',
+            ];
+
             $users = User::where('special', 1)->get();
             foreach ($users as $user){
                 $user->notify(new TaskResult($details));
+                $user->notify(new EmailUser($emailDetails));
             }
         }else{
             $project->special = 0;

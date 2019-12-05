@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Account;
 use App\Models\Deposit;
+use App\Notifications\EmailUser;
 use App\Notifications\TaskResult;
 use Bitfumes\Multiauth\Model\Admin;
 use Illuminate\Http\Request;
@@ -247,8 +248,15 @@ class PaymentController extends Controller
             'tooltip'       => ' You will be notified when admin approves your deposit. Your balance will be updated after approval.',
             'link'          => "",
         ];
+        $emailDetails = [
+            'message'       => 'Your fund deposit request is waiting approval. You will be notified when admin approves your deposit. Your balance will be updated after approval',
+            'url'          => route("user.dashboard"),
+            'urlText'      => 'Dashboard',
+        ];
 
         auth()->user()->notify(new TaskResult($details));
+        auth()->user()->notify(new EmailUser($emailDetails));
+
 
         $adminDetails = [
             'taskName'      => 'Deposit Funds',
