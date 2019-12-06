@@ -17,7 +17,6 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{ asset('user/assets/css/style49f7.css') }}" id="layoutstyle">
 </head>
-
 <body class="page-ath">
 <div class="page-ath-wrap">
     <div class="page-ath-content">
@@ -28,6 +27,9 @@
 
                 <div class="input-item">
                     <label for="name" class=" col-form-label text-md-right">Name:</label>
+                    @if(isset($_REQUEST['id']))
+                        <input type="hidden" name="referer" value="{{ $_REQUEST['id'] }}">
+                    @endif
                     <input id="name" type="text" class="form-control input-bordered @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                     @error('name')
                     <span class="invalid-feedback" role="alert">
