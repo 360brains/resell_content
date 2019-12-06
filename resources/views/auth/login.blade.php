@@ -22,9 +22,9 @@
 <div class="login-bg">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 offset-md-8">
+            <div class="col-md-4 pt-5 offset-md-8">
                 <h2 class="page-ath-heading">Login</h2>
-                <p>Enter your information below to create a free account</p>
+                <p>Enter your information below to create a free account.</p>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="input-item">
@@ -50,7 +50,7 @@
                         @enderror
                     </div>
 
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center pt-2 pb-2">
                         <div class="input-item text-left">
                             <input class="input-checkbox input-checkbox-md" type="checkbox" name="remember"
                                    id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -65,10 +65,10 @@
                         </div>
 
                     </div>
-                    <button type="submit" class="btn btn-success btn-block"> Login</button>
+                    <button type="submit" class="btn btn-success btn-block mt-2 mb-2"> Login</button>
                 </form>
-                <div class="form-note">Don’t have an account yet?
-                    <a href="{{ route('register') }}"> <strong class="text-success">Sign up here</strong></a>
+                <div class="form-note text-center">Don’t Have an Account Yet?
+                    <a href="{{ route('register') }}"> <strong class="text-success">Signup</strong></a>
                 </div>
             </div>
         </div>

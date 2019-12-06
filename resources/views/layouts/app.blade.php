@@ -18,10 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}" id="layoutstyle">
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-fixed-top navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-fixed-top navbar-expand-md navbar-light bg-white shadow-sm p-0">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('pages.home') }}">
                     great<span style="color: #07b107; font-weight: 700;">Content</span>
@@ -63,5 +65,6 @@
             @yield('content')
         </main>
     </div>
+    @include("includes.footer")
 </body>
 </html>

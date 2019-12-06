@@ -1,6 +1,6 @@
 .login-bg{
-    background-image: url("/user/images/Login.svg") ;
+    background-image: url("/user/images/login.png") ;
     background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: left top;
+    height: 765px;
+    background-position: -30px -30px;
 }
