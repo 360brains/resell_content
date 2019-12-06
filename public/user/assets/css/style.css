@@ -1124,9 +1124,26 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     font-size: 20px
 }
 
+.gaps-3x {
+    height: 30px;
+}
+.gaps-1-5x {
+    height: 15px;
+}
+
 .data-details-list {
     border-radius: 4px;
     border: 1px solid #d2dde9
+}
+.card-sub-title {
+    text-transform: uppercase;
+    color: #758698;
+    letter-spacing: 0.1em;
+    display: block;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    margin-bottom: 4px;
 }
 
 .data-details-list li {
@@ -3453,4 +3470,9 @@ footer .footer-bottom{
     padding-left: 10px;
     padding-top: 2px;
 }
+.project-des .dec{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 52px;
 }
