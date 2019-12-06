@@ -30,17 +30,6 @@
             </div>
             <div class="clearfix pt-3 pb-3">
                 <h4 class="pt-3 float-left">My Jobs</h4>
-{{--                <div class="dropdown float-right">--}}
-{{--                    Sort by:--}}
-{{--                    <button class="btn btn-sm btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        Completed--}}
-{{--                    </button>--}}
-{{--                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--}}
-{{--                        <a class="dropdown-item" href="#">Action</a>--}}
-{{--                        <a class="dropdown-item" href="#">Another action</a>--}}
-{{--                        <a class="dropdown-item" href="#">Something else here</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             </div>
             <div class="my-jobs-table shadow">
                 <div class="table-responsive">
