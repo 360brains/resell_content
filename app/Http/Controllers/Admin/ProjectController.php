@@ -46,6 +46,8 @@ class ProjectController extends Controller
             'level'         => 'required',
             'price'         => 'required',
             'points'        => 'required',
+            'words'         => 'required',
+            'quantity'      => 'required',
 
         ]);
 
@@ -53,6 +55,7 @@ class ProjectController extends Controller
         $project->name          = $request->name;
         $project->quantity      = $request->quantity;
         $project->available     = $request->quantity;
+        $project->words         = $request->words;
         $project->type_id       = $request->type;
         $project->template_id   = $request->template;
         $project->deadline      = $request->deadline;
@@ -139,10 +142,13 @@ class ProjectController extends Controller
             'level'         => 'required',
             'price'         => 'required',
             'points'        => 'required',
+            'words'         => 'required',
+            'quantity'      => 'required',
         ]);
 
         $project->name          = $request->name;
         $project->quantity      = $request->quantity;
+        $project->words         = $request->words;
         $project->type_id       = $request->type;
         $project->template_id   = $request->template;
         $project->deadline      = $request->deadline;

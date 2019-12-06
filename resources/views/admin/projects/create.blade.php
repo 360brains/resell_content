@@ -45,6 +45,11 @@
                                         <label>Project Name</label>
                                     </div>
 
+                                    <div class="form-group form-md-line-input">
+                                        <input type="number" name="deadline" class="form-control" id="form_control_1" placeholder="Time Awarded for task in hours" value="{{old('deadline')}}">
+                                        <label>Task Deadline <small>(in hours)</small></label>
+                                    </div>
+
                                     <div class="row margin-bottom-25">
                                         <div class="col-sm-6">
                                             <div class="form-group form-md-line-input">
@@ -54,8 +59,8 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group form-md-line-input">
-                                                <input type="number" name="deadline" class="form-control" id="form_control_1" placeholder="Time Awarded for task in hours" value="{{old('deadline')}}">
-                                                <label>Task Deadline <small>(in hours)</small></label>
+                                                <input type="number" name="words" class="form-control" id="form_control_1" placeholder="Enter Number of words for a Task" value="{{old('words')}}">
+                                                <label>Total words</label>
                                             </div>
                                         </div>
                                     </div>
