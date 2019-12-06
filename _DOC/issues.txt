@@ -1,0 +1,5 @@
+Backend:
+if admin updates price of a project, user income statistics get disturbed.
+
+Frontend:
+notification bell highlight on clicking.

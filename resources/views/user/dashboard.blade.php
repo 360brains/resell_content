@@ -40,7 +40,7 @@
                                     <tr>
                                         <td>{{ $task->project->name  }}</td>
                                         <td>{{ $task->project->points }}</td>
-                                        <td>{{ $task->deadline }}</td>
+                                        <td>{{ date('d-m-y h:i', strtotime($task->deadline)) }}</td>
                                         <td>{{ $task->project->price }}</td>
                                         <td>{{ $task->status }}</td>
                                     </tr>
@@ -93,7 +93,7 @@
                     </div>
                     <div class="account mt-4 shadow rounded">
                         <h5>Account Balance</h5>
-                        <h1 class="acc-blnc">Rs.{{ auth()->user()->balance }}</h1>
+                        <h1 class="acc-blnc">Rs.{{ floor(auth()->user()->balance) }}</h1>
                         <p>This Month: <span><b>Rs.5400</b></span> This Year: <span><b>Rs.5400</b></span></p>
                         <div class="pt-4">
                             <a  href="{{ route('withdraw.create') }}" class="btn  btn-outline-success">Withdraw </a>

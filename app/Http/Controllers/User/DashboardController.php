@@ -19,7 +19,7 @@ class DashboardController extends Controller
         $totalWritingTasks = 0;
         $tasks    = Task::where('user_id', $user_id)->where('status', 'approved')->get();
 //        $data['membership'] = Membership::where('name', 'Premium')->first();
-        $data['tasks']    = Task::where('user_id', Auth()->user()->id)->orderBy('created_at', 'desc')->paginate(10);
+        $data['tasks']    = Task::where('user_id', Auth()->user()->id)->orderBy('created_at', 'desc')->limit(6)->get();
         $approvedTasks    = Task::where('user_id', Auth()->user()->id)->where('status', 'approved')->get();
         foreach ($approvedTasks as $task){
             if ($task->project->type_id == 2){
