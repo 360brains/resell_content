@@ -17,7 +17,7 @@
                     <div class="setting-card shadow">
                         <div class="tab-content">
                             <div id="account" class="account p-4 tab-pane active">
-                                
+
                             </div>
 
                             <div id="security" class="security p-4 tab-pane fade">
