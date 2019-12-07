@@ -10,79 +10,84 @@
                 <h3 class="avil-jobs">Available Jobs</h3>
                 <hr>
             </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="form-group position-relative">
-                        <i class="fas custom-arrow fa-chevron-down"></i>
-                        <label for="exampleFormControlSelect1"><h5>Level</h5></label>
-                        <select class="form-control custom-inp" id="exampleFormControlSelect1">
-                            <option>Basic</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
+            <form class="form-horizontal" action="{{ route('user.projects') }}" method="get">
+                <div class="row">
+                    <div class="col-lg col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group position-relative">
+                            <i class="fas custom-arrow fa-chevron-down"></i>
+                            <label for="exampleFormControlSelect1"><h5>Level</h5></label>
+                            <select name="level" class="form-control custom-inp" id="exampleFormControlSelect1">
+                                <option value="">Choose Level</option>
+                                @forelse($levels as $level)
+                                    <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                @empty
+                                    <option>No Levels found</option>
+                                @endforelse
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group position-relative">
+                            <i class="fas custom-arrow fa-chevron-down"></i>
+                            <label for="exampleFormControlSelect1"><h5>Points</h5></label>
+                            <select name="category" class="form-control custom-inp" id="exampleFormControlSelect1">
+                                <option value="">Choose Category</option>
+                                @forelse($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @empty
+                                    <option>No categories found</option>
+                                @endforelse
+                            </select>
+                        </div>
+                    </div>
+{{--                    <div class="col-md-2">--}}
+{{--                        <div class="form-group position-relative">--}}
+{{--                            <i class="fas custom-arrow fa-chevron-down"></i>--}}
+{{--                            <label for="exampleFormControlSelect1"><h5>Account Type</h5></label>--}}
+{{--                            <select name="account" class="form-control custom-inp" id="exampleFormControlSelect1">--}}
+{{--                                <option>Choose Account</option>--}}
+{{--                                <option value="free">Free</option>--}}
+{{--                                <option value="premium">Premium</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+                    <div class="col-lg col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group position-relative">
+                            <i class="fas custom-arrow fa-chevron-down"></i>
+                            <label for="exampleFormControlSelect1"><h5>Type</h5></label>
+                            <select name="type" class="form-control custom-inp" id="exampleFormControlSelect1">
+                                <option value="">Choose Type</option>
+                                @forelse($types as $type)
+                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @empty
+                                    <option>No types found</option>
+                                @endforelse
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group position-relative">
+                            <i class="fas custom-arrow fa-chevron-down"></i>
+                            <label for="exampleFormControlSelect1"><h5>Money</h5></label>
+                            <select name="price" class="form-control custom-inp" id="exampleFormControlSelect1">
+                                <option value="">price range</option>
+                                <option value="0-100">Rs.0-100</option>
+                                <option value="101-200">Rs.101-200</option>
+                                <option value="201-500">Rs.201-500</option>
+                                <option value="501-1000">Rs.501-1000</option>
+                                <option value="1000-more">Rs.1001-More</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg col-md-4 col-sm-12 col-xs-12">
+                        <button type="submit" class="btn apply-btn btn-sm btn-outline-success">
+                            Apply
+                        </button>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="form-group position-relative">
-                        <i class="fas custom-arrow fa-chevron-down"></i>
-                        <label for="exampleFormControlSelect1"><h5>Points</h5></label>
-                        <select class="form-control custom-inp" id="exampleFormControlSelect1">
-                            <option>100-500</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-group position-relative">
-                        <i class="fas custom-arrow fa-chevron-down"></i>
-                        <label for="exampleFormControlSelect1"><h5>Account Type</h5></label>
-                        <select class="form-control custom-inp" id="exampleFormControlSelect1">
-                            <option>Premium</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-group position-relative">
-                        <i class="fas custom-arrow fa-chevron-down"></i>
-                        <label for="exampleFormControlSelect1"><h5>Type</h5></label>
-                        <select class="form-control custom-inp" id="exampleFormControlSelect1">
-                            <option>Content Writing</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-group position-relative">
-                        <i class="fas custom-arrow fa-chevron-down"></i>
-                        <label for="exampleFormControlSelect1"><h5>Money</h5></label>
-                        <select class="form-control custom-inp" id="exampleFormControlSelect1">
-                            <option>Rs.500-1000</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <button class="btn apply-btn btn-sm btn-outline-success">
-                        Apply
-                    </button>
-                </div>
-            </div>
-            @foreach($projects as $project)
+            </form>
+
+            @forelse($projects as $project)
                 <div class="project-detail shadow-sm rounded p-4 mb-3">
                     <div class="clearfix">
                         <div class="project-heading float-left">
@@ -90,7 +95,7 @@
                             <span class="text-success font-weight-bold">{{ $project->type->name }}</span>
                         </div>
                         <div class="project-price float-right d-flex">
-                            <h1 class="m-0 pt-2 font-weight-bold">Rs.{{ $project->price }}</h1>
+                            <h1 class="m-0 pt-2 font-weight-bold">Rs.{{ floor($project->price) }}</h1>
                             <a data-toggle="modal" data-target="#start-job-{{$project->id}}" href="#">
                                 <button class="btn start-job btn-lg btn-success ml-2">
                                     Start This Job
@@ -204,7 +209,9 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <h1>No projects found.</h1>
+            @endforelse
         </div>
 
 

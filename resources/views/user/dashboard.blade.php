@@ -8,19 +8,17 @@
                     <div class="slider position-relative pb-2">
                         <div class="owl-slider owl-theme">
                             <div id="carousel" class="owl-carousel">
+                                @if(is_null($currentMembership) && $currentMembership->name != 'premium')
+                                    <div class="item info">
+                                        <a href="#" data-toggle="modal" data-target="#pay-online">
+                                            <img class="" src="{{ asset('user/images/1111.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                @else
+                                @endif
                                 <div class="item info">
-                                    <a href="#" data-toggle="modal" data-target="#pay-online">
-                                        <img class="" src="{{ asset('user/images/1111.png') }}" alt="">
-                                    </a>
-                                </div>
-                                <div class="item info">
-                                    <a href="#" data-toggle="modal" data-target="#pay-online">
-                                        <img class="" src="{{ asset('user/images/1111.png') }}" alt="">
-                                    </a>
-                                </div>
-                                <div class="item info">
-                                    <a href="#" data-toggle="modal" data-target="#pay-online">
-                                        <img class="" src="{{ asset('user/images/1111.png') }}" alt="">
+                                    <a href="#">
+                                        <img class="" src="{{ asset('user/images/WEB-BANNER-1-3.jpg') }}" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -82,7 +80,11 @@
                     <div class="profile shadow rounded">
                         <div class="clearfix">
                             <h6 class="float-left">Your Profile</h6>
-                            <h6 class="float-right"><a href="">FREE ACCOUNT</a></h6>
+                            @if(!is_null($currentMembership) && $currentMembership->name == 'premium')
+                                <h6 class="float-right"><a href="">Premium <small><br>{{ date('Y/m/d', strtotime($currentMembership->pivot->deadline)) }}</small></a></h6>
+                            @else
+                                <h6 class="float-right"><a href="">FREE ACCOUNT</a></h6>
+                            @endif
                         </div>
                         <div class="profile-img pt-2 text-center">
                             <img src="{{ url(auth()->user()->avatar) }}" alt="">
