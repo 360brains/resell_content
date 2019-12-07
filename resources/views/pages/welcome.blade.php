@@ -168,10 +168,9 @@
                                             <div class="today-icon float-left"><img src="{{ asset('assets/img/counter-img-1.png') }}"></div>
                                             <div class="counter-item">
                                                 <div>
-                                                    <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
-                                                    <div class="stat-number" style="display: inline-block">15</div><br>
+                                                    <div class="stat-number" style="display: inline-block">{{ $totalJobs }}</div><br>
                                                 </div>
-                                                <h5><span>jobs posted (last 30 days)</span></h5>
+                                                <h5><span>jobs posted</span></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -182,8 +181,7 @@
                                                     <div class="today-icon float-left"><img src="{{ asset('assets/img/counter-img-3.png') }}"></div>
                                                     <div class="counter-item">
                                                         <div>
-                                                            <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
-                                                            <div class="stat-number" style="display: inline-block">15</div><br>
+                                                            <div class="stat-number" style="display: inline-block">{{ $totalWriters }}</div><br>
                                                         </div>
                                                         <h5><span>writers</span></h5>
                                                     </div>
@@ -196,8 +194,7 @@
                                             <div class="today-icon float-left"><img class="pt-2 pr-2" src="{{ asset('assets/img/counter-img-2.png') }}"></div>
                                             <div class="counter-item">
                                                 <div>
-                                                    <div class="stat-number" style="display: inline-block">55</div><span class="timer-2">,</span>
-                                                    <div class="stat-number" style="display: inline-block">15</div><br>
+                                                    <div class="stat-number" style="display: inline-block">{{ $totalWork }}</div><br>
                                                 </div>
                                                 <h5><span>articles written (till now)</span></h5>
                                             </div>
