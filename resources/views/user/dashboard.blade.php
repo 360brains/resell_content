@@ -26,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-<div class="clearfix"></div>
+                    <div class="clearfix"></div>
                     <div class="recent-projects mt-4 shadow rounded">
                         <div class="clearfix">
                             <strong><h5 class="float-left">RECENT PROJECTS</h5></strong>

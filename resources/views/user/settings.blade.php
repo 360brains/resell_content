@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-md-2">
                     <div>
-                        <ul class="nav d-block" role="tablist">
-                            <li><a data-toggle="pill" href="#account">Account</a></li>
-                            <li><a data-toggle="pill" href="#security">Security</a></li>
-                            <li><a data-toggle="pill" href="#notification">Notifications</a></li>
+                        <ul class="nav d-block nav-pills" role="tablist">
+                            <li><a class="nav-link active" data-toggle="pill" href="#account">Account</a></li>
+                            <li><a class="nav-link" data-toggle="pill" href="#security">Security</a></li>
+                            <li><a class="nav-link" data-toggle="pill" href="#notification">Notifications</a></li>
                         </ul>
                     </div>
                 </div>
@@ -17,7 +17,33 @@
                     <div class="setting-card shadow">
                         <div class="tab-content">
                             <div id="account" class="account p-4 tab-pane active">
-
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5>Payment & Financials</h5>
+                                        <hr>
+                                        <h6>Payment Methods <a href="#"  data-toggle="modal" data-target="#pay-online"><i class="fas fa-plus-circle"></i></a></h6>
+                                        <div class=" table-responsive">
+                                            <table class="table table-bordered table-sm">
+                                                <thead>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <th>Account Title</th>
+                                                    <th>Account Number</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>2</td>
+                                                        <td>3</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                                <button class="btn btn-success float-right" id="manage-btn" onclick="visible()">Manage Accounts</button>
+                                            <button class="btn btn-success float-right d-none" id="save-btn" onclick="redo()">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div id="security" class="security p-4 tab-pane fade">
@@ -162,5 +188,47 @@
         </div>
     </section>
 
+    <div class="modal fade" id="pay-online" tabindex="-1">
+        <div class="modal-dialog modal-dialog-md modal-dialog-centered">
+            <div class="modal-content pb-0">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="popup-body">
+                    <h4 class="popup-title">Add account for future transactions</h4>
+                    <p>You can choose any of following payment method. You will be able to use these accounts for future references.</p>
+                    <h5 class="mgt-1-5x font-mid">Select payment method:</h5>
+                    <form action="{{ route('user.add.account') }}" method="get">
+                        @csrf
+                        <ul class="pay-list guttar-20px">
+                            <li class="pay-item">
+                                <input type="radio" class="pay-check" name="option" value="easypaisa" id="pay-coin">
+                                <label class="pay-check-label" for="pay-coin"><img src="images/telenor-pakistan-easypaisa-logo.png" alt="pay-logo"></label></li>
+                            <li class="pay-item">
+                                <input type="radio" class="pay-check" name="option" value="jazzcash" id="pay-coinpay">
+                                <label class="pay-check-label" for="pay-coinpay"><img src="images/JazzCash_logo.png" alt="pay-logo"></label>
+                            </li>
+                            <li class="pay-item">
+                                <input type="radio" class="pay-check" name="option" value="bank" id="pay-paypal">
+                                <label class="pay-check-label" for="pay-paypal"><img src="images//Bank-Free-Download-PNG.png" alt="pay-logo"></label>
+                            </li>
+                        </ul>
+                        {{--                    <div class="pdb-2-5x pdt-1-5x">--}}
+                        {{--                        <input type="checkbox" class="input-checkbox input-checkbox-md" id="agree-term-3">--}}
+                        {{--                        <label for="agree-term-3">I hereby agree to the <strong>Membership purchase aggrement</strong>.</label>--}}
+                        {{--                    </div>--}}
+                        <ul class="d-flex flex-wrap align-items-center guttar-30px">
+                            <li><button class="btn btn-primary"> Process to add account <em class="ti ti-arrow-right mgl-2x"></em></button>
+                            </li>
+                        </ul>
+                    </form>
+
+                    <div class="gaps-2x"></div>
+                    <div class="gaps-1x d-none d-sm-block"></div>
+                    <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>
+                        <p class="text-light">You will automatically redirect for process  to add account after you click on process to pay.</p>
+                    </div>
+                </div>
+            </div><!-- .modal-content -->
+        </div><!-- .modal-dialog -->
+    </div><!-- Modal End -->
 
 @endsection

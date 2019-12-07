@@ -102,19 +102,24 @@ p.large {
 
 @media (min-width: 576px) {
     h1, .h1 {
-        font-size: 1.714em
+        font-size: 1.714em;
+        font-weight: 900;
     }
     h2, .h2 {
-        font-size: 1.62em
+        font-size: 1.62em;
+        font-weight: 900;
     }
     h3, .h3 {
-        font-size: 1.52em
+        font-size: 1.52em;
+        font-weight: 900;
     }
     h4, .h4 {
-        font-size: 1.29em
+        font-size: 1.29em;
+        font-weight: 900;
     }
     p.large {
-        font-size: 1.2em
+        font-size: 1.2em;
+        font-weight: 900;
     }
 }
 
@@ -3023,7 +3028,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     border-radius: 50%;
 }
 
-.dashborad-content, .projects-content, .my-projects, .transactions, .profile-content, .setting {
+.dashborad-content, .projects-content, .my-projects, .transactions, .profile-content, .setting , .learn {
     background-color: #F7FAFC;
     margin-top: -5px;
 }
@@ -3426,7 +3431,36 @@ footer .footer-bottom{
 }
 
 
-.setting-card .account
+
+.setting .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #8B8C8C;
+    font-weight: 700;
+     background-color: transparent;
+}
+.setting .nav-link {
+    padding: .3rem 1rem;
+    color: #8B8C8C;
+}
+
+.setting-card .account table th{
+    color:#727171
+}
+.setting-card .account td {
+    width: 25%;
+    padding-left: 30px;
+}
+
+.setting-card .account th {
+    padding-left: 30px;
+}
+
+
+
+.setting-card .account  i{
+    color: #75CB63;
+    font-size: 17px;
+    vertical-align: bottom
+}
 
 .setting-card .security .security-input{
     padding: 6px;
@@ -3480,3 +3514,116 @@ footer .footer-bottom{
     white-space: nowrap;
     height: 52px;
 }
+.learn .learn-content .main-heading p{
+    position: relative;
+}
+.learn .learn-content .main-heading p:after{
+    position: absolute;
+    content: "";
+    height: 2px;
+    background-color: #75CB63;
+    width: 53px;
+    top: 38px;
+    left: 47%;
+}
+.learn .learn-content .learn-boxes .box{
+    background: #fff;
+    border-radius: 5px;
+}
+.learn .learn-content .learn-boxes .box img{
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.learn .learn-content .learn-boxes .box p .rating{
+    color: #FFB33E;
+    font-weight: 900;
+    vertical-align: middle;
+    font-size: 17px;
+}
+.learn .learn-content .learn-boxes .box p span{
+    color: #C2C7CB;
+    vertical-align: middle;
+}
+.learn .learn-content .learn-boxes .see-btn{
+    border-radius: 25px;
+    width: 113px;
+    background-color: #8BD27D;
+    border-color: #8BD27D;
+    font-weight: 500;
+}
+.copy-wrap {
+    position: relative;
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    line-height: 20px;
+    padding: 13px 0;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    border: 1px solid rgba(211, 224, 243, 0.5);
+    color: #07b107;
+}
+.copy-wrap .link {
+    position: absolute;
+    top: 0;
+    left: 18px;
+    line-height: 20px;
+    padding: 12px 0;
+    font-size: 14px;
+    text-align: center;
+    color: #495463;
+}
+.copy-address {
+    color: #495463;
+    line-height: 20px;
+    padding: 12px 50px 12px 75px;
+    border-radius: 10px;
+    width: 100%;
+    background: #fff;
+    border: none;
+}
+.copy-trigger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 44px;
+    width: 55px;
+    line-height: 20px;
+    padding: 10px 0;
+    text-align: center;
+    color: #758698;
+    background: #e9eff9;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    transition: all .4s;
+    cursor: pointer;
+}
+.refer .referal{
+    padding: 28px 64px;
+    border-radius: 6px;
+}
+.refer .referal p{
+    font-size: 21px;
+}
+.refer .steps{
+    padding: 20px 0;
+    background-color: #F5F5F5;
+}
+.refer .steps p{
+    font-size: 32px;
+}
+/*.copy-trigger:focus, .copy-trigger:hover {*/
+/*    color: #fff;*/
+/*    background: #07b107;*/
+/*    outline: none;*/
+/*}*/

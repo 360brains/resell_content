@@ -98,7 +98,7 @@
                                 </a>
                                 <ul class="dropdown-menu user-img-menu ">
                                    <li><a class="dropdown-item" href="{{ route('user.profile') }}">Profile</a></li>
-                                   <li><a class="dropdown-item" href="#">Refer & Get upto Rs. 250</a></li>
+                                   <li><a class="dropdown-item" href="{{ route('user.refer') }}">Refer & Get upto Rs. 250</a></li>
                                     <div class="dropdown-divider"></div>
                                     <li><a class="dropdown-item" href="{{ route('user.settings') }}">Settings</a></li>
                                     <li><a class="dropdown-item" href="#">Help and Support</a></li>

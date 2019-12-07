@@ -1,70 +1,104 @@
 @extends('user.layouts.master')
 
 @section('content')
-
-    <div class="page-content">
-        <div class="container">
-            <div class="creative-box clearfix">
-                <div class="row">
-                    @forelse($trainings as $training)
-                    <div class="col-md-4">
-                        <div class="spacing">
-                            <a href="{{ route('user.learn.details', $training->id) }}">
-                                <div class="border_cource  blog-img-course">
-                                    <div class="blog-img">
-                                        <img src="{{ url( $training->avatar ) }}"
-                                             alt="Training image">
-                                        <div class="blog_overlay_new">
-                                            <p>learn more<span class="green_dot">.</span></p>
-                                        </div>
-                                    </div>
-
-                                    <div class="cource_pading">
-                                        <h3 class="product_name mt-3 mb-1">{{ $training->name }}
-                                        </h3>
-
-                                        <!-- Jon Youshaei -->
-
-                                        <p class="instructor_title">
-                                            {!! $training->description !!}
-                                        </p>
-
-                                        <div class="bottom_fix_cource">
-                                            <div class="left_con_cource float-left">
-                                                @if(!is_null($training->fee))
-                                                    <span><sup>$</sup><strong>{{ $training->fee }}</strong></span>
-                                                @else
-                                                    <span><strong>FREE</strong></span>
-                                                @endif
-                                            </div>
-
-                                            <div class="right_con_cource float-right">
-
-                                            <i class="fas {{ $training->medium == 'Live' ? 'fa-chalkboard-teacher' : 'fa-video'}}" title="Video Lecture"></i>
-
-                                            <div class="right_con_cource">
-
-
-                                            </div>
-                                        </div>
+    <section class="learn pb-3">
+        <div class="learn-banner">
+            <img class="img-fluid" src="{{ asset('user/images/learn-banner.png') }}" alt="">
+        </div>
+        <div class="learn-content pt-3">
+            <div class="main-heading">
+                <h3 class="m-0">Content <span>Course</span></h3>
+                <p class="pt-1">Achieve your career goal with recognized learings paths</p>
+            </div>
+            <div class="learn-boxes pt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="box shadow ">
+                                <img class="img-fluid" src="{{ asset('user/images/learn-box.png') }}" alt="">
+                                <div class="p-3">
+                                    <h4>From Shapes to Complex & Beautiful Illustration</h4>
+                                    <p><img class="img-fluid" src="{{ asset('user/images/learn-star.png') }}" alt=""> <span class="rating">4.9</span> <span>(254)</span></p>
+                                    <hr>
+                                    <div class="clearfix">
+                                        <h4 class="float-right">Rs. 750</h4>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="box shadow ">
+                                <img class="img-fluid" src="{{ asset('user/images/learn-box.png') }}" alt="">
+                                <div class="p-3">
+                                    <h4>From Shapes to Complex & Beautiful Illustration</h4>
+                                    <p><img class="img-fluid" src="{{ asset('user/images/learn-star.png') }}" alt=""> <span class="rating">4.9</span> <span>(254)</span></p>
+                                    <hr>
+                                    <div class="clearfix">
+                                        <h4 class="float-right">Rs. 750</h4>
+                                    </div>
                                 </div>
-                            </a>
-
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="box shadow ">
+                                <img class="img-fluid" src="{{ asset('user/images/learn-box.png') }}" alt="">
+                                <div class="p-3">
+                                    <h4>From Shapes to Complex & Beautiful Illustration</h4>
+                                    <p><img class="img-fluid" src="{{ asset('user/images/learn-star.png') }}" alt=""> <span class="rating">4.9</span> <span>(254)</span></p>
+                                    <hr>
+                                    <div class="clearfix">
+                                        <h4 class="float-right">Rs. 750</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="row pt-4">
+                        <div class="col-md-4">
+                            <div class="box shadow ">
+                                <img class="img-fluid" src="{{ asset('user/images/learn-box.png') }}" alt="">
+                                <div class="p-3">
+                                    <h4>From Shapes to Complex & Beautiful Illustration</h4>
+                                    <p><img class="img-fluid" src="{{ asset('user/images/learn-star.png') }}" alt=""> <span class="rating">4.9</span> <span>(254)</span></p>
+                                    <hr>
+                                    <div class="clearfix">
+                                        <h4 class="float-right">Rs. 750</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="box shadow ">
+                                <img class="img-fluid" src="{{ asset('user/images/learn-box.png') }}" alt="">
+                                <div class="p-3">
+                                    <h4>From Shapes to Complex & Beautiful Illustration</h4>
+                                    <p><img class="img-fluid" src="{{ asset('user/images/learn-star.png') }}" alt=""> <span class="rating">4.9</span> <span>(254)</span></p>
+                                    <hr>
+                                    <div class="clearfix">
+                                        <h4 class="float-right">Rs. 750</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="box shadow ">
+                                <img class="img-fluid" src="{{ asset('user/images/learn-box.png') }}" alt="">
+                                <div class="p-3">
+                                    <h4>From Shapes to Complex & Beautiful Illustration</h4>
+                                    <p><img class="img-fluid" src="{{ asset('user/images/learn-star.png') }}" alt=""> <span class="rating">4.9</span> <span>(254)</span></p>
+                                    <hr>
+                                    <div class="clearfix">
+                                        <h4 class="float-right">Rs. 750</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    @empty
-                        <h2>No Trainings found</h2>
-                    @endforelse
-
-
-                </div>
-                <div class="text-center">
-                    {{$trainings->links()}}
+                    <div class="text-center pt-5">
+                        <button class="btn btn-success see-btn">See More</button>
+                    </div>
                 </div>
             </div>
-        </div><!-- .container -->
-    </div>
-
+        </div>
+    </section>
 @endsection

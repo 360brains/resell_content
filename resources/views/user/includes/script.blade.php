@@ -40,6 +40,16 @@
         $('#edit').addClass('disabled');
         $('#save').removeClass('d-none');
     }
+    function visible(){
+        $('#save-btn').removeClass('d-none');
+        // $('#pls-btn').removeClass('d-none');
+        $('#manage-btn').addClass('d-none');
+    }
+    function redo(){
+        $('#save-btn').addClass('d-none');
+        // $('#pls-btn').addClass('d-none');
+        $('#manage-btn').removeClass('d-none');
+    }
 
         $("#carousel").owlCarousel({
             autoplay: true,
