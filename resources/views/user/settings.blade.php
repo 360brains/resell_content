@@ -16,7 +16,11 @@
                 <div class="col-md-10">
                     <div class="setting-card shadow">
                         <div class="tab-content">
-                            <div id="security" class="security p-4 tab-pane active">
+                            <div id="account" class="account p-4 tab-pane active">
+                                
+                            </div>
+
+                            <div id="security" class="security p-4 tab-pane fade">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h5>Change Password</h5>
@@ -114,9 +118,9 @@
                                         <div class="col-md-4">
                                             <h6>Type</h6>
                                             <ul>
-                                                <li>Order Updates</li>
-                                                <li>Order Message</li>
-                                                <li>My Account</li>
+                                                <li>Task Update</li>
+                                                <li>Support Notification</li>
+                                                <li>Withdraw</li>
                                             </ul>
                                         </div>
                                         <div class="col-md-4 ">

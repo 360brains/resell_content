@@ -103,11 +103,9 @@
         dots:true,
         loop: true,
         items: 1,
-        dots: true,
         autoHeight: true,
         autoplayTimeout: 3000,
         smartSpeed: 800,
-        dots: true,
 
     });
 </script>

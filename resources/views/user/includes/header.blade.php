@@ -27,7 +27,7 @@
                 <li class="nav-item">
                     <a class="nav-link hvrcenter
                         {{strpos((request()->path()),"projects") == 'true' ? 'nav-active' : ''}}"
-                       href="{{ route('pages.projects') }}">Browser Projects</a>
+                       href="{{ route('user.projects') }}">Browser Projects</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link hvrcenter

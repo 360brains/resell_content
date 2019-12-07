@@ -248,4 +248,25 @@ class TasksController extends Controller
 
     }
 
+    public function projects(Request $request){
+        $level              = $request->level;
+        $category           = $request->category;
+        $type               = $request->type;
+        $data['projects']   = Project::where('active', 1)->where('special', 0)->where('available', '>', 0)->whereNotNull('id');
+
+        if (!is_null($level)){
+            $data['projects']   = $data['projects']->where('level_id', $level);
+        }
+        if (!is_null($category)){
+            $data['projects']   = $data['projects']->where('category_id', $category);
+        }
+        if (!is_null($type)){
+            $data['projects']   = $data['projects']->where('type_id', $type);
+        }
+
+        $data['projects']   = $data['projects']->orderBy('created_at', 'desc')->paginate(9);
+
+        return view('user.projects', $data);
+    }
+
 }

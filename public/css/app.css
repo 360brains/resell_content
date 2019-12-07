@@ -2242,7 +2242,7 @@ textarea.form-control {
 
 .btn {
     display: inline-block;
-    font-weight: 400;
+    font-weight: 700;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
@@ -2367,14 +2367,14 @@ fieldset:disabled a.btn {
 
 .btn-success {
     color: #fff;
-    background-color: #38c172;
-    border-color: #38c172
+    background-color:#75CB63;
+    border: none;
 }
 
 .btn-success:hover {
     color: #fff;
-    background-color: #2fa360;
-    border-color: #2d995b
+    background-color: #75cb63b0;
+    border:none;
 }
 
 .btn-success.focus,
@@ -8657,7 +8657,7 @@ a.text-secondary:hover {
 }
 
 .text-success {
-    color: #38c172!important
+    color: #75CB63!important
 }
 
 a.text-success:focus,

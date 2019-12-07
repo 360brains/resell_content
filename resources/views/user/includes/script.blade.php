@@ -40,4 +40,21 @@
         $('#edit').addClass('disabled');
         $('#save').removeClass('d-none');
     }
+
+        $("#carousel").owlCarousel({
+            autoplay: true,
+            dots:false,
+            loop: true,
+            items: 1,
+            autoHeight: true,
+            autoplayTimeout: 3000,
+            smartSpeed: 800,
+
+        });
+
+        CKEDITOR.replace( 'messageArea',
+            {
+                customConfig : 'config.js',
+                toolbar : 'simple'
+            })
 </script>
