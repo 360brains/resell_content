@@ -3089,11 +3089,11 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     border-radius: 50%;
 }
 
-.dashborad-content, .projects-content, .my-projects, .transactions, .profile-content, .setting , .learn {
+.dashborad-content, .projects-content, .my-projects, .transactions, .profile-content, .setting , .learn, .learn-details {
     background-color: #F7FAFC;
 }
 
-.recent-projects, .profile, .account, .project-detail, .statictics, .my-jobs-table, .edit-profile, .linked-accounts, .earn-badges, .setting-card {
+.recent-projects, .profile, .account, .project-detail, .statictics, .my-jobs-table, .edit-profile, .linked-accounts, .earn-badges, .setting-card, .related-course, .course-syllabus {
     background-color: #fff;
     padding: 20px;
 }
