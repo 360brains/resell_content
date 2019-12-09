@@ -1,9 +1,6 @@
 @extends("user.layouts.master")
 
 @section("content")
-    <div class="browse-img" style="background-image:url({{ asset('assets/img/browse-projects.jpg') }});">
-        <h1>Browse Projects</h1>
-    </div>
     <section class="projects-content pt-5 pb-5">
         <div class="container">
             <div class="jobs-heading">
