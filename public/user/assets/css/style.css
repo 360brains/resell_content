@@ -62,7 +62,7 @@ h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:la
     margin-bottom: 0
 }
 h1,h2,h3,h4,h5,h6{
-    color: #303030;
+    color: #676565;
 }
 h1, .h1 {
     font-size: 1.37em
@@ -2849,6 +2849,68 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     }
 }
 
+.guttar-20px {
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+}
+.pay-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.pay-check {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    opacity: 0;
+}
+.pay-check-label {
+    position: relative;
+    padding: 50px 25px 5px;
+    border: 2px solid #d2dde9;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    transition: all .4s ease;
+}
+.pay-check-label:before {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    border: 2px solid #d2dde9;
+    content: '';
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .4s ease;
+}
+.pay-check-label img {
+    height: 60px;
+}.pay-check-label:after {
+     position: absolute;
+     height: 16px;
+     width: 16px;
+     border-radius: 50%;
+     background: #07b107;
+     content: '';
+     top: 26px;
+     left: 50%;
+     transform: translateX(-50%);
+     opacity: 0;
+     transition: all .4s ease;
+ }
+
+
+.guttar-20px>li, .guttar-20px>div {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+@media (min-width: 576px)
+    .pay-item {
+        width: auto;
+    }
 .popup-header {
     padding: 10px 18px 25px;
     border-bottom: 1px solid #e6effb
@@ -3030,7 +3092,6 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 
 .dashborad-content, .projects-content, .my-projects, .transactions, .profile-content, .setting , .learn {
     background-color: #F7FAFC;
-    margin-top: -5px;
 }
 
 .recent-projects, .profile, .account, .project-detail, .statictics, .my-jobs-table, .edit-profile, .linked-accounts, .earn-badges, .setting-card {
@@ -3076,15 +3137,17 @@ table th {
     left: unset;
     width: 460px;
     box-shadow: 0px 5px 7px -1px #c1c1c1;
-    padding-bottom: 0px;
     padding: 0px;
+    height: 352px;
+    overflow: auto;
 }
 
-.notification-menu:before {
+.notification-caret:before {
     content: "";
     position: absolute;
-    top: -9px;
-    right: 15px;
+    top: -8px;
+    right: 1px;
+    z-index: 111;
     height: 15px;
     width: 15px;
     transform: rotate(45deg);
@@ -3094,8 +3157,8 @@ table th {
 }
 
 .user-img-menu {
-    top: 64px;
-    right: -13px;
+    top: 51px;
+    right: -6px;
     left: unset;
     width: 215px;
     box-shadow: 0px 5px 7px -1px #c1c1c1;
@@ -3131,12 +3194,12 @@ table th {
     }
 }
 
-.head {
+.notification .head {
     padding: 5px 15px;
     border-radius: 3px 3px 0px 0px;
 }
 
-.footer {
+    .notification .footer {
     padding: 5px 15px;
     border-radius: 0px 0px 3px 3px;
 }
@@ -3611,6 +3674,9 @@ footer .footer-bottom{
 .refer .referal{
     padding: 28px 64px;
     border-radius: 6px;
+    position: absolute;
+    top: -49px;
+    background: #fff;
 }
 .refer .referal p{
     font-size: 21px;
@@ -3618,12 +3684,10 @@ footer .footer-bottom{
 .refer .steps{
     padding: 20px 0;
     background-color: #F5F5F5;
+    position: relative;
+    top: 170px;
+
 }
 .refer .steps p{
     font-size: 32px;
 }
-/*.copy-trigger:focus, .copy-trigger:hover {*/
-/*    color: #fff;*/
-/*    background: #07b107;*/
-/*    outline: none;*/
-/*}*/

@@ -11,7 +11,7 @@
                     <div class="edit-profile shadow rounded">
                         <div class="text-center">
                             <img class="rounded-circle pt-3" src="{{ url(auth()->user()->avatar) }}" alt="">
-                            <h2>{{ auth()->user()->name }}</h2>
+                            <h2 class="pt-2">{{ auth()->user()->name }}</h2>
                             <p class="mt-3 m-0"><strong>{{ auth()->user()->country }} 4:04pm</strong></p>
                             <p ><strong >Member since {{ auth()->user()->created_at }} </strong></p>
                             <button class="btn-success btn-sm mt-3 border-0 edit-profile-btn" onclick="disableEdit()" id="edit"><i class="far fa-edit"></i> Edit Profile</button>
@@ -49,25 +49,25 @@
                                     <input class="input-bordered" type="text" id="full-name" name="name" value="{{ auth()->user()->name }}">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 pt-2">
                                 <div class="input-item input-with-label">
                                     <label for="email-address" class="input-item-label">Email Address</label>
                                     <input class="input-bordered" type="text" id="email-address" name="email" value="{{ auth()->user()->email }}" disabled>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 pt-2">
                                 <div class="input-item input-with-label">
                                     <label for="country" class="input-item-label">State</label>
                                     <input class="input-bordered" type="text" id="country" value="{{ auth()->user()->country }}" name="country">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 pt-2">
                                 <div class="input-item input-with-label">
                                     <label for="mobile-number" class="input-item-label">City</label>
                                     <input class="input-bordered" type="text" id="mobile-number" name="contact" value="">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 pt-2">
                                 <div class="input-item input-with-label">
                                     <label for="email-address" class="input-item-label">Address</label>
                                     <input class="input-bordered" type="text" id="email-address" name="email" value="">

@@ -35,7 +35,10 @@
                                                     <tr>
                                                         <td>1</td>
                                                         <td>2</td>
-                                                        <td>3</td>
+                                                        <td>3  <button href="#" type="button" class="close d-none" id="close-btn" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -88,44 +91,44 @@
                                                 <div class="col-md-9">
                                                     <input type="password" class="form-control" id="confpswd"
                                                            placeholder="Enter password" name="pswd">
-                                                    <p>8 character or longer, Combine upper and lowercase letters and
+                                                    <p class="pt-2">8 character or longer, Combine upper and lowercase letters and
                                                         numbers.</p>
                                                     <button class="btn btn-sm btn-success float-right">Save Changes
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <hr>
+{{--                                        <hr>--}}
                                     </div>
-                                    <div class="col-md-12">
-                                        <div class="mt-4">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <p>Phone Verification</p>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <div class="clearfix">
-                                                        <div class="float-left">
-                                                            <p>Your phone is verified. Click edit to change your phone
-                                                                number.</p>
-                                                        </div>
-                                                        <div class="float-right">
-                                                            <button class="btn btn-sm btn-success float-right">Edit
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                    {{--                                                <div class="clearfix">--}}
-                                                    {{--                                                    <div class="float-left">--}}
-                                                    {{--                                                        <input type="text" class="form-control"  placeholder="Enter Phone Number">--}}
-                                                    {{--                                                    </div>--}}
-                                                    {{--                                                    <div class="float-right">--}}
-                                                    {{--                                                        <button class="btn btn-sm btn-success float-right">Verify</button>--}}
-                                                    {{--                                                    </div>--}}
-                                                    {{--                                                </div>--}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <div class="mt-4">--}}
+{{--                                            <div class="row">--}}
+{{--                                                <div class="col-md-3">--}}
+{{--                                                    <p>Phone Verification</p>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-md-9">--}}
+{{--                                                    <div class="clearfix">--}}
+{{--                                                        <div class="float-left">--}}
+{{--                                                            <p>Your phone is verified. Click edit to change your phone--}}
+{{--                                                                number.</p>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="float-right">--}}
+{{--                                                            <button class="btn btn-sm btn-success float-right">Edit--}}
+{{--                                                            </button>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    --}}{{--                                                <div class="clearfix">--}}
+{{--                                                    --}}{{--                                                    <div class="float-left">--}}
+{{--                                                    --}}{{--                                                        <input type="text" class="form-control"  placeholder="Enter Phone Number">--}}
+{{--                                                    --}}{{--                                                    </div>--}}
+{{--                                                    --}}{{--                                                    <div class="float-right">--}}
+{{--                                                    --}}{{--                                                        <button class="btn btn-sm btn-success float-right">Verify</button>--}}
+{{--                                                    --}}{{--                                                    </div>--}}
+{{--                                                    --}}{{--                                                </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </div>
                             </div>
 
@@ -220,7 +223,6 @@
                             </li>
                         </ul>
                     </form>
-
                     <div class="gaps-2x"></div>
                     <div class="gaps-1x d-none d-sm-block"></div>
                     <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>

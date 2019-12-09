@@ -1,7 +1,7 @@
 @extends('user.layouts.master')
 @section('content')
     <section class="refer pb-3">
-        <div class="refer-banner">
+        <div class="refer-banner position-relative">
             <img class="img-fluid" src="{{ asset('user/images/refer-banner.png') }}" alt="">
         </div>
         <div class="container">
@@ -20,15 +20,22 @@
             </div>
         </div>
 
-        <div class="steps text-center mt-4">
+        <div class="steps text-center">
             <h2>Three Simple Steps</h2>
-            <div class="container">
+            <div class="container pt-4">
                 <div class="row">
                     <div class="col-md-4">
+                        <img width="60px" class="pb-4" src="{{ asset('user/images/ic_link.svg') }}" alt="">
                         <p>Share the Link socially to get rewards</p>
                     </div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <img width="60px" class="pb-2" src="{{ asset('user/images/ic_profile.svg') }}" alt="">
+                        <p>Your friend signs up to greatContent</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img width="60px" class="pb-4" src="{{ asset('user/images/ic_rupees.svg') }}" alt="">
+                        <p>You get RS. 250 of their first amount</p>
+                    </div>
                 </div>
             </div>
         </div>
