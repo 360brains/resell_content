@@ -14,9 +14,16 @@
     //         $.get('/markAsRead');
     //     }
     // }
-        $('.training-name').click(function () {
-            $('source').attr('src', $(this).data('link'));
-        })
+        //     $('.training-name').click(function () {
+        //         $('source').attr('src', $(this).data('link'));
+        //         $('#myVideo').load();
+        //     })
+
+        function changeVideo(url) {
+            document.getElementById("myVideoSrc").src = url;
+            document.getElementById("myVideo").load();
+            document.getElementById("myVideo").play();
+        }
 
     var myDate = $('#count-down').val();console.log(myDate)
     $('#one').vTimer('start', {duration: Number(myDate)})
@@ -36,10 +43,6 @@
     // cancel the timer
     $('#el').vTimer('cancel');
 
-    function disableEdit() {
-        $('#edit').addClass('disabled');
-        $('#save').removeClass('d-none');
-    }
     function visible(){
         $('#save-btn').removeClass('d-none');
         $('#close-btn').removeClass('d-none');

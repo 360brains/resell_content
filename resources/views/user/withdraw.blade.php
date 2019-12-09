@@ -27,17 +27,22 @@
                                             <label for="amount" class="input-item-label">Amount</label>
                                             <input class="input-bordered" type="number" id="amount" name="amount" value="{{old('amount')}}"  placeholder="Enter amount to withdraw">
                                         </div>
-                                        <div class="input-item input-with-label">
-                                            <label for="account" class="input-item-label">Account (IBAN) Number</label>
-                                            <input class="input-bordered" type="text" id="iban" name="iban" value="{{old('iban')}}" placeholder="Enter account number">
-                                        </div>
                                             <div class="input-item input-with-label">
-                                                <label for="account" class="input-item-label">Account Holder</label>
-                                                <input class="input-bordered" type="text" id="holder" name="holder" value="{{old('holder')}}" placeholder="Enter Account Holder">
-                                            </div>
-                                            <div class="input-item input-with-label">
-                                                <label for="account" class="input-item-label">Bank Name</label>
-                                                <input class="input-bordered" type="text" id="bank" name="bank" value="{{old('bank')}}" placeholder="Enter Bank Name">
+                                                <label class="input-item-label">
+                                                    <h5 class="mgt-1-5x font-mid">Select payment method</h5>
+                                                </label>
+                                                <select class=" input-bordered" name="account">
+                                                    @forelse(auth()->user()->accounts as $account)
+                                                        <option value="{{ $account->id }}">
+                                                            <h6>{{ $account->bank }}</h6>&emsp;
+                                                            <h6>{{ $account->iban }} {{ $account->holder }}</h6>
+                                                        </option>
+                                                    @empty
+                                                        <option>
+                                                            <h5>No Accounts added. <a href="">Add Account</a></h5>
+                                                        </option>
+                                                    @endforelse
+                                                </select>
                                             </div>
                                         <div class="input-item input-with-label">
                                             <button class="btn btn-primary" type="submit">Submit</button>
