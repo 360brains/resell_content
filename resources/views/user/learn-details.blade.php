@@ -127,10 +127,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <video class="border w-100" height="400px" id="myVideo" controls>
-                        <source id="myVideoSrc" src="{{ asset('trainings/'.$training->id.'/grb_2.mp4') }}" type="video/mp4">
-                        Your browser does not support video.
-                    </video>
+                        <video class="border w-100" height="400px" id="myVideo" controls>
+                            <source id="myVideoSrc" src="{{ asset('trainings/'.$training->id.'/grb_2.mp4') }}" type="video/mp4">
+                            Your browser does not support video.
+                        </video>
                 </div>
                 <div class="col-md-4">
                     @if($trained == 0)
@@ -138,12 +138,10 @@
                         <ul>
                             <li><i class="fab fa-youtube"></i> <b>Videos:</b> {{ count($training->trainingLists) }}</li>
                             <hr>
-                            <li><i class="fas fa-tag"></i> <b>Fee:</b>
                                 @if(!is_null($training->fee))
-                                    Rs. {{ $training->fee }}</li>
-                                    <button class="btn btn-block btn-success mt-4" data-toggle="modal" data-target="#buy-training">Enroll Now</button>
+                                <li><i class="fas fa-tag"></i> <b>Fee:</b> Rs. {{ $training->fee }}</li>
                                 @else
-                                Free</li>
+                                <li><i class="fas fa-tag"></i> <b>Fee:</b> Free</li>
                                 @endif
 
                             <hr>
@@ -162,7 +160,7 @@
                         </strong>
                     @endif
                 @elseif($trained == 1)
-                        <div class="vedio-detail shadow-sm">
+                        <div class="p-4 course-syllabus shadow">
                             <ul>
                                 <li><i class="fab fa-youtube"></i> <b>Videos:</b> {{ count($training->trainingLists) }}</li>
                             </ul>
@@ -171,9 +169,18 @@
                                 <div class="course-list">
                                     <ul>
                                         @foreach($training->trainingLists as $list)
-                                            <li onclick="changeVideo( '{{ asset('trainings/'.$training->id.'/'.$list->name)}}' )" data-type="icon-lesson" class="training-name">
-                                                {{ $list->name }}
-                                            </li>
+                                            <div class="row pb-3">
+                                                <div class="col-md-3 pr-0">
+                                                    <img width="100%" height="40px" src="{{ asset($training->avatar) }}" alt="">
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div class="learn-dec">
+                                                        <li onclick="changeVideo( '{{ asset('trainings/'.$training->id.'/'.$list->name)}}' )" data-type="icon-lesson" class="training-name">
+                                                            {{ $list->name }}
+                                                        </li>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         @endforeach
                                     </ul>
                                 </div>

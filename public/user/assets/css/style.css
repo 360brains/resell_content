@@ -3707,4 +3707,11 @@ footer .footer-bottom{
 .learn-details .related-course .learn-dec p{
     font-size: 10px;
 }
+.learn-details .course-syllabus{
+    height: 400px;
+    overflow: auto;
+}
+.learn-details .course-syllabus .course-list li{
+    font-size: 13px;
+}
 
