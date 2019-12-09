@@ -148,37 +148,37 @@
 {{--        </div><!-- .container -->--}}
 {{--    </div>--}}
 
-{{--    <div class="modal fade" id="buy-training" tabindex="-1">--}}
-{{--        <div class="modal-dialog modal-dialog-md modal-dialog-centered">--}}
-{{--            <div class="modal-content pb-0">--}}
-{{--                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>--}}
-{{--                <div class="popup-body">--}}
-{{--                    <h4 class="popup-title">Pay For Training</h4>--}}
-{{--                    <p class="lead">To receive <strong>{{ $training->name }}</strong> require payment amount of <strong>{{ $training->fee }}</strong>.</p>--}}
-{{--                    <p>This amount will be deducted from your balance. Please make sure you have enough money in your balance or you can deposit funds.</p>--}}
-{{--                    <form action="{{ route('user.training.buy', $training->id) }}">--}}
-{{--                        <div class="pdb-2-5x pdt-1-5x">--}}
-{{--                            @csrf--}}
-{{--                            <input type="checkbox" name="check" class="input-checkbox input-checkbox-md" id="agree-term-3" >--}}
-{{--                            <label for="agree-term-3">I hereby agree to the--}}
-{{--                                <strong>Training purchase--}}
-{{--                                    aggrement</strong>.--}}
-{{--                            </label>--}}
-{{--                        </div>--}}
-{{--                        <ul class="d-flex flex-wrap align-items-center guttar-30px">--}}
-{{--                            <li><button id="buyMembership" class="btn btn-primary">Proceed</button></li>--}}
-{{--                        </ul>--}}
-{{--                    </form>--}}
+    <div class="modal fade" id="buy-training" tabindex="-1">
+        <div class="modal-dialog modal-dialog-md modal-dialog-centered">
+            <div class="modal-content pb-0">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="popup-body">
+                    <h4 class="popup-title">Pay For Training</h4>
+                    <p class="lead">To receive <strong>{{ $training->name }}</strong> require payment amount of <strong>{{ $training->fee }}</strong>.</p>
+                    <p>This amount will be deducted from your balance. Please make sure you have enough money in your balance or you can deposit funds.</p>
+                    <form action="{{ route('user.training.buy', $training->id) }}">
+                        <div class="pdb-2-5x pdt-1-5x">
+                            @csrf
+                            <input type="checkbox" name="check" class="input-checkbox input-checkbox-md" id="agree-term-3" >
+                            <label for="agree-term-3">I hereby agree to the
+                                <strong>Training purchase
+                                    aggrement</strong>.
+                            </label>
+                        </div>
+                        <ul class="d-flex flex-wrap align-items-center guttar-30px">
+                            <li><button id="buyMembership" class="btn btn-primary">Proceed</button></li>
+                        </ul>
+                    </form>
 
-{{--                    <div class="gaps-2x"></div>--}}
-{{--                    <div class="gaps-1x d-none d-sm-block"></div>--}}
-{{--                    <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>--}}
-{{--                        <p class="text-light">You will automatically be assigned training after clicking proceed.</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div><!-- .modal-content -->--}}
-{{--        </div><!-- .modal-dialog -->--}}
-{{--    </div>--}}
+                    <div class="gaps-2x"></div>
+                    <div class="gaps-1x d-none d-sm-block"></div>
+                    <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>
+                        <p class="text-light">You will automatically be assigned training after clicking proceed.</p>
+                    </div>
+                </div>
+            </div><!-- .modal-content -->
+        </div><!-- .modal-dialog -->
+    </div>
 
     <section class="learn-details pt-5">
         <div class="container">
@@ -203,10 +203,10 @@
                             <li><i class="far fa-file-video"></i> <b>Video Medium:</b> Urdu&Englosh</li>
                         </ul>
                     </div>
-                    <button class="btn btn-block btn-success mt-4">Enroll Now</button>
+                    <button class="btn btn-block btn-success mt-4" data-toggle="modal" data-target="#buy-training">Enroll Now</button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row pt-3">
                 <div class="col-md-8">
                     <div class="learn-about">
                         <h3>About</h3>
