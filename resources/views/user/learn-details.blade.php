@@ -123,7 +123,7 @@
 
 
 
-    <section class="learn-details pt-5">
+    <section class="learn-details pt-5 pb-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -187,10 +187,9 @@
                             </div>
                         </div>
                 @endif
-
                 </div>
             </div>
-            <div class="row pt-3">
+            <div class="row pt-3 pb-3">
                 <div class="col-md-8">
                     <div class="learn-about">
                         <h3>About</h3>
