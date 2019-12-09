@@ -199,39 +199,25 @@
                 <div class="col-md-4">
                     <div class="shadow related-course p-4">
                         <h3>Related Courses</h3>
-                        <div class="row">
-                            <div class="col-md-7 pr-0">
-                                <img width="100%" height="100px" src="{{ asset('user/images/learn-detail.jpg') }}" alt="">
-                            </div>
-                            <div class="col-md-5">
-                                <div class="learn-dec">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        @forelse($retatedTrainings as $training)
+                            <div class="row pb-3">
+                                <div class="col-md-7 pr-0">
+                                    <img width="100%" height="100px" src="{{ asset($training->avatar) }}" alt="{{ $training->name }}">
                                 </div>
-                                <button class="btn pr-4 pl-4 btn-xs btn-success">View</button>
-                            </div>
-                        </div>
-                        <div class="row pt-3">
-                            <div class="col-md-7 pr-0">
-                                <img width="100%" height="100px" src="{{ asset('user/images/learn-detail.jpg') }}" alt="">
-                            </div>
-                            <div class="col-md-5">
-                                <div class="learn-dec">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                <div class="col-md-5">
+                                    <div class="learn-dec">
+                                        <p>{{ $training->name }}</p>
+                                    </div>
+                                    <a href="{{ route('user.learn.details', $training->id) }}" class="btn pr-4 pl-4 btn-xs btn-success">View</a>
                                 </div>
-                                <button class="btn pr-4 pl-4 btn-xs btn-success">View</button>
                             </div>
-                        </div>
-                        <div class="row pt-3">
-                            <div class="col-md-7 pr-0">
-                                <img width="100%" height="100px" src="{{ asset('user/images/learn-detail.jpg') }}" alt="">
-                            </div>
-                            <div class="col-md-5">
-                                <div class="learn-dec">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        @empty
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>No related trainings found.</h3>
                                 </div>
-                                <button class="btn pr-4 pl-4 btn-xs btn-success">View</button>
                             </div>
-                        </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
