@@ -16,7 +16,8 @@ class TrainingController extends Controller
 
             if (auth()->user()->balance >= $training->fee){
 
-                auth()->user()->trainings()->attach($training->id, ['status' => 'started', 'started_at' => now()]);
+                auth()->user()->trainings()->attach($training->id, ['status' => 'started']);
+//                auth()->user()->trainings()->attach($training->id, ['status' => 'started', 'started_at' => now()]);
 
                 $newBalance = [
                     'balance'           => auth()->user()->balance - $training->fee,
