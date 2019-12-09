@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use App\Models\Transaction;
 use App\Models\Withdraw;
 use App\Notifications\EmailUser;
@@ -47,15 +48,17 @@ class WithdrawController extends Controller
         }
         else{
             $request->validate([
-                'iban'         => 'required',
                 'amount'       => 'required',
-                'holder'       => 'required',
-                'bank'         => 'required',
+                'account'       => 'required',
+
             ]);
+
+            $account = Account::find($request->account);
+
             $data = [
-                'holder'          =>$request->holder,
-                'iban'            => $request->iban,
-                'bank'            => $request->bank,
+                'holder'          =>$account->holder,
+                'iban'            => $account->iban,
+                'bank'            => $account->bank,
                 'amount'          => $request->amount,
                 'status'          => "Pending",
                 'user_id'         => Auth()->user()->id,
