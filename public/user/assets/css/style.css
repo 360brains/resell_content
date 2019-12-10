@@ -3592,9 +3592,12 @@ footer .footer-bottom{
     background: #fff;
     border-radius: 5px;
 }
-.learn .learn-content .learn-boxes .box img{
+.learn .learn-content .learn-boxes .box .traning-img{
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .learn .learn-content .learn-boxes .box p .rating{
     color: #FFB33E;
