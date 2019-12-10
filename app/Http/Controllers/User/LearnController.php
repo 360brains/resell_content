@@ -21,6 +21,7 @@ class LearnController extends Controller
         }
         $data['trained'] = $trained;
         $data['training']      = Training::with('trainingLists')->find($id);
+        $data['retatedTrainings'] = Training::where('type_id', $data['training']->type_id)->limit(3)->get();
         return view('user.learn-details', $data);
     }
 }
