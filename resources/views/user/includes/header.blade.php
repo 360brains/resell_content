@@ -68,32 +68,34 @@
                                     <!-- <i class="fa fa-bell"></i> -->
                                 </a>
 
-                                <ul class="dropdown-menu notification-menu">
+                                <div class="dropdown-menu">
                                     <div class="notification-caret">
-                                        <li class="head">
-                                            <div class="clearfix">
-                                                <h5 class="float-left"><strong>Notifications</strong></h5>
-                                                <a href="" class="float-right p-0">Mark all as read</a>
-                                            </div>
-                                        </li>
-                                        <ul>
-                                            @forelse(auth()->user()->unreadNotifications as $notification)
-                                                <a href="{{route('user.notifications')}}">
-                                                    <li class="pt-0 pb-0 pl-4 pr-4" data-toggle="tooltip"
-                                                        title="Click for details!"
-                                                        data-placement="bottom">{{ $notification->data['message'] }}</li>
-                                                    <hr class="m-0">
-                                                </a>
-                                            @empty
-                                                <li class="pt-0 pb-0 pl-4 pr-4">No unread notification</li>
-                                                <hr>
-                                            @endforelse
+                                        <ul class="notification-menu">
+                                            <li class="head">
+                                                <div class="clearfix">
+                                                    <h5 class="float-left"><strong>Notifications</strong></h5>
+                                                    <a href="" class="float-right p-0">Mark all as read</a>
+                                                </div>
+                                            </li>
+                                            <ul>
+                                                @forelse(auth()->user()->unreadNotifications as $notification)
+                                                    <a href="{{route('user.notifications')}}">
+                                                        <li class="pt-0 pb-0 pl-4 pr-4" data-toggle="tooltip"
+                                                            title="Click for details!"
+                                                            data-placement="bottom">{{ $notification->data['message'] }}</li>
+                                                        <hr class="m-0">
+                                                    </a>
+                                                @empty
+                                                    <li class="pt-0 pb-0 pl-4 pr-4">No unread notification</li>
+                                                    <hr>
+                                                @endforelse
+                                            </ul>
+                                            <li class="footer text-center">
+                                                <a href="">View All</a>
+                                            </li>
                                         </ul>
-                                        <li class="footer text-center">
-                                            <a href="">View All</a>
-                                        </li>
                                     </div>
-                                </ul>
+                                </div>
                             </li>
                         </ul>
                     </div>

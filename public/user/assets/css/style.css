@@ -3146,7 +3146,7 @@ table th {
     content: "";
     position: absolute;
     top: -8px;
-    right: 1px;
+    right: 16px;
     z-index: 111;
     height: 15px;
     width: 15px;
@@ -3157,7 +3157,7 @@ table th {
 }
 
 .user-img-menu {
-    top: 51px;
+    top: 46px;
     right: -6px;
     left: unset;
     width: 215px;
@@ -3173,7 +3173,7 @@ table th {
 .user-img-menu:before {
     content: "";
     position: absolute;
-    top: -9px;
+    top: -8px;
     right: 15px;
     height: 15px;
     width: 15px;
@@ -3717,5 +3717,9 @@ footer .footer-bottom{
 }
 .learn-details .course-syllabus .course-list li{
     font-size: 13px;
+}
+.notification .dropdown-menu{
+    right: -15px;
+    left: unset;
 }
 
