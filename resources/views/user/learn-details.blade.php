@@ -202,7 +202,9 @@
                         @forelse($retatedTrainings as $training)
                             <div class="row pb-3">
                                 <div class="col-md-7 pr-0">
-                                    <img width="100%" height="100px" src="{{ asset($training->avatar) }}" alt="{{ $training->name }}">
+                                    <div style="width: 100%; height: 100px">
+                                        <img style="object-fit: cover; width: 100%; height: 100%" src="{{ asset($training->avatar) }}" alt="{{ $training->name }}">
+                                    </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="learn-dec">
