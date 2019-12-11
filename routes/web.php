@@ -75,6 +75,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('user/tasks', 'User\TasksController@index')->name('user.tasks');
     Route::get('user/projects', 'User\TasksController@projects')->name('user.projects');
     Route::get('user/refer', 'User\ReferController@index')->name('user.refer');
+    Route::get('user/help', 'User\HelpController@index')->name('user.help');
     Route::get('user/tasks/take/{id}', 'User\TasksController@taskTake')->name('user.tasks.take');
     Route::get('user/tasks/work', 'User\TasksController@work')->name('user.tasks.work');
     Route::get('user/tests/writing-test', 'User\TestController@writingTest')->name('user.tests.writing.test');
