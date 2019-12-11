@@ -98,9 +98,9 @@ class TransactionController extends Controller
         $withdraw = Withdraw::where('id', $id)->first();
 
         $data = [
-            'type'            =>'Debit',
+            'type'            =>'Credit',
             'amount'          => $withdraw->amount,
-            'description'     =>'Withdraw by user',
+            'description'     =>'Withdrawn Money',
             'withdraw_id'     => $withdraw->id,
             'status'          => "Received",
             'user_id'         => $withdraw->user->id,

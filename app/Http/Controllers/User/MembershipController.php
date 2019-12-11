@@ -37,16 +37,16 @@ class MembershipController extends Controller
 
                 auth()->user()->update($newBalance);
 
-//                $data = [
-//                    'type'            =>'Debit',
-//                    'amount'          => $membership->price,
-//                    'description'     =>'Purchased Membership',
-//                    'membership_id'   => $membership->id,
-//                    'status'          => "Paid",
-//                    'user_id'         => auth()->user()->id,
-//                ];
-//
-//                $response = Transaction::create($data);
+                $data = [
+                    'type'            =>'Debit',
+                    'amount'          => $membership->price,
+                    'description'     =>'Purchased Membership',
+                    'membership_id'   => $membership->id,
+                    'status'          => "Paid",
+                    'user_id'         => auth()->user()->id,
+                ];
+
+                $response = Transaction::create($data);
 
                 $details = [
                     'taskName'      => 'Membership',
