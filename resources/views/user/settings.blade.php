@@ -225,8 +225,8 @@
                     </form>
                     <div class="gaps-2x"></div>
                     <div class="gaps-1x d-none d-sm-block"></div>
-                    <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>
-                        <p class="text-light">You will automatically redirect for process  to add account after you click on process to pay.</p>
+                    <div class="note note-plane note-light mgb-1x pt-3">
+                        <p><em class="fas fa-info-circle"></em> You will automatically redirect for process  to add account after you click on process to pay.</p>
                     </div>
                 </div>
             </div><!-- .modal-content -->

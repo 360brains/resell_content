@@ -47,7 +47,7 @@
                     </li> -->
             </ul>
             <form action="">
-                <div class="input-group">
+                <div class="input-group nav-search">
                     <input class="form-control border-right-0  search-input" placeholder="Search">
                     <span class="input-group-append">
                             <button class="btn search-button" type="button">
@@ -61,16 +61,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent"
                          style="display: unset !important;">
                         <ul class="nav">
-                            <li class="nav-item dropdown">
+                            <li  class="nav-item dropdown" id="notification-bell">
                                 <a class="nav-link text-light" href="#" id="navbarDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="{{ asset('user/images/notification_icon.png') }}" width="20px" alt="">
-                                    <!-- <i class="fa fa-bell"></i> -->
+{{--                                    <img src="{{ asset('user/images/notification_icon.png') }}" width="20px" alt="">--}}
+                                    <i onclick="changeColor()" class="fa fa-bell notification-icon" id="notification-icon"></i>
                                 </a>
 
-                                <div class="dropdown-menu">
-                                    <div class="notification-caret">
-                                        <ul class="notification-menu">
+                                <div class="dropdown-menu" id = "notification">
+                                    <div class="notification-caret" id="notification1">
+                                        <ul class="notification-menu" >
                                             <li class="head">
                                                 <div class="clearfix">
                                                     <h5 class="float-left"><strong>Notifications</strong></h5>
@@ -87,7 +87,7 @@
                                                     </a>
                                                 @empty
                                                     <li class="pt-0 pb-0 pl-4 pr-4">No unread notification</li>
-                                                    <hr>
+                                                    <hr class="m-0">
                                                 @endforelse
                                             </ul>
                                             <li class="footer text-center">
@@ -100,7 +100,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="user-img pl-3">
+                <div class="user-img pl-3 float-sm-right">
                     <div class=" collapse navbar-collapse" id="navbarSupportedContent"
                          style="display: unset !important;">
                         <ul class="nav">

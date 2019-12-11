@@ -171,7 +171,9 @@
                                         @foreach($training->trainingLists as $list)
                                             <div class="row pb-3">
                                                 <div class="col-md-3 pr-0">
-                                                    <img width="100%" height="40px" src="{{ asset($training->avatar) }}" alt="">
+                                                    <div style="width: 100%; height: 40px">
+                                                        <img style="object-fit: cover; width: 100%; height: 100%" src="{{ asset($training->avatar) }}" alt="">
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="learn-dec">

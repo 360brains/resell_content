@@ -33,8 +33,24 @@
         .on('complete', function () {
             $('#one').text('Time Out');
         });
+        // l
+         // start the timer
+        // $(document).on('click', function () {
+        //     let element1 =  window.document.getElementById('notification');
+        //     let element =  window.document.getElementById('notification-icon');
+        //     // if( element1.className === 'dropdown-menu'){
+        //     //     element.style.color = 'green'
+        //     // }else{
+        //         element.style.color = 'grey'
+        //     // }
+        // })
+        //#notification
+        //navbarDropdown
+        $('#notification-menu').on('hidden.bs.dropdown', function () {
+            alert("hello")
+            // do something…
+        })
 
-    // start the timer
     $('#el').vTimer('start');
 
     // stop the timer
@@ -43,11 +59,37 @@
     // cancel the timer
     $('#el').vTimer('cancel');
 
+
+        function disableEdit() {
+            $('#edit').addClass('disabled');
+            $('#save').removeClass('d-none');
+        }
+
     function visible(){
         $('#save-btn').removeClass('d-none');
         $('#close-btn').removeClass('d-none');
         $('#manage-btn').addClass('d-none');
     }
+
+    function changeColor() {
+        let element1 =  window.document.getElementById('notification');
+        let element =  window.document.getElementById('notification-icon');
+        if( element1.className === 'dropdown-menu'){
+            element.style.color = 'green'
+        }else{
+            element.style.color = 'grey'
+        }
+    }
+        $(document).on('click' , function () {
+            let element1 =  window.document.getElementById('notification');
+            let element =  window.document.getElementById('notification-icon');
+            if( element1.className === 'dropdown-menu'){
+                element.style.color = 'grey'
+            }else{
+                element.style.color = 'green'
+            }
+        });
+
     function redo(){
         $('#save-btn').addClass('d-none');
         $('#close-btn').addClass('d-none');

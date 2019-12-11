@@ -5,48 +5,48 @@
         <div class="owl-slider owl-theme">
             <div id="carousel" class="owl-carousel">
                 <div class="item info">
-                    <img class="" src="{{ asset('assets/img/nav-bg.png')  }}" alt="">
-                    <div class="slider-content">
-                        <h1>
-                            <i class="fas fa-quote-left"></i>
-                            Start writing, no metter what. The water does not flow until the faucet is turned on.
-                            <i class="fas fa-quote-right"></i>
-                        </h1>
-                        <p>&minus;Louis L'Amour</p>
-                    </div>
+                    <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
+{{--                    <div class="slider-content">--}}
+{{--                        <h1>--}}
+{{--                            <i class="fas fa-quote-left"></i>--}}
+{{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
+{{--                            <i class="fas fa-quote-right"></i>--}}
+{{--                        </h1>--}}
+{{--                        <p>&minus;Louis L'Amour</p>--}}
+{{--                    </div>--}}
                 </div>
                 <div class="item info">
-                    <img class="" src="{{ asset('assets/img/nav-bg.png')  }}" alt="">
-                    <div class="slider-content">
-                        <h1>
-                            <i class="fas fa-quote-left"></i>
-                            Start writing, no metter what. The water does not flow until the faucet is turned on.
-                            <i class="fas fa-quote-right"></i>
-                        </h1>
-                        <p>&minus;Louis L'Amour</p>
-                    </div>
+                    <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
+{{--                    <div class="slider-content">--}}
+{{--                        <h1>--}}
+{{--                            <i class="fas fa-quote-left"></i>--}}
+{{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
+{{--                            <i class="fas fa-quote-right"></i>--}}
+{{--                        </h1>--}}
+{{--                        <p>&minus;Louis L'Amour</p>--}}
+{{--                    </div>--}}
                 </div>
                 <div class="item info">
-                    <img class="" src="{{ asset('assets/img/nav-bg.png')  }}" alt="">
-                    <div class="slider-content">
-                        <h1>
-                            <i class="fas fa-quote-left"></i>
-                            Start writing, no metter what. The water does not flow until the faucet is turned on.
-                            <i class="fas fa-quote-right"></i>
-                        </h1>
-                        <p>&minus;Louis L'Amour</p>
-                    </div>
+                    <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
+{{--                    <div class="slider-content">--}}
+{{--                        <h1>--}}
+{{--                            <i class="fas fa-quote-left"></i>--}}
+{{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
+{{--                            <i class="fas fa-quote-right"></i>--}}
+{{--                        </h1>--}}
+{{--                        <p>&minus;Louis L'Amour</p>--}}
+{{--                    </div>--}}
                 </div>
                 <div class="item info">
-                    <img class="" src="{{ asset('assets/img/nav-bg.png')  }}" alt="">
-                    <div class="slider-content">
-                        <h1>
-                            <i class="fas fa-quote-left"></i>
-                            Start writing, no metter what. The water does not flow until the faucet is turned on.
-                            <i class="fas fa-quote-right"></i>
-                        </h1>
-                        <p>&minus;Louis L'Amour</p>
-                    </div>
+                    <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
+{{--                    <div class="slider-content">--}}
+{{--                        <h1>--}}
+{{--                            <i class="fas fa-quote-left"></i>--}}
+{{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
+{{--                            <i class="fas fa-quote-right"></i>--}}
+{{--                        </h1>--}}
+{{--                        <p>&minus;Louis L'Amour</p>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
@@ -85,69 +85,23 @@
         </div>
         <div class="container">
             <div class="row pt-5" >
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Educational</p>
-                </div>
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Trending Topics</p>
-                </div>
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Insightful Lists</p>
-                </div>
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Life Hacks</p>
-                </div>
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Trending Topics</p>
-                </div>
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Insightful Lists</p>
-                </div>
-            </div>
-
-            <div class="row pt-5">
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Promotional Content</p>
-                </div>
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Industry News</p>
-                </div>
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Common Problems</p>
-                </div>
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Provocative Material</p>
-                </div>
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Industry News</p>
-                </div>
-                <div class="col-md-2">
-                    <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
-                    <div class="about-border"></div>
-                    <p>Common Problems</p>
-                </div>
+                @forelse($categories as $category)
+                    <a href="{{ route('pages.projects.category', $category->id) }}">
+                        <div class="col-md-2 col-sm-6">
+                            <div class="category-box" data-aos="fade-up">
+                                <div class="category-desc">
+                                    <div class="category-icon"><i class="icon-bargraph" aria-hidden="true"></i><img src="{{ asset('assets/img/market-place-img.png') }} " alt=""></div>
+                                    <div class="category-detail category-desc-text">
+                                        <div class="about-border"></div>
+                                        <h4> <a href="browse-jobs-grid.html">{{ $category->name }}</a></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                @empty
+                    <h1>No categories Found.</h1>
+                @endforelse
             </div>
         </div>
     </section>
@@ -211,4 +165,15 @@
 
     <div class="clearfix"></div>
 
+    <div class="how-it-work" id="works">
+        <img src="{{ asset('assets/img/works.svg') }}" alt="">
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="learn">
+        <a href="{{ route('user.learn') }}">
+        <img src="{{ asset('assets/img/learn.svg') }}" alt="">
+        </a>
+    </div>
 @endsection

@@ -70,7 +70,7 @@
                             <i class="fas custom-arrow fa-chevron-down"></i>
                             <label for="exampleFormControlSelect1"><h5>Money</h5></label>
                             <select name="price" class="form-control custom-inp" id="exampleFormControlSelect1">
-                                <option value="">price range</option>
+                                <option value="">Price range</option>
                                 <option value="0-100">Rs.0-100</option>
                                 <option value="101-200">Rs.101-200</option>
                                 <option value="201-500">Rs.201-500</option>
@@ -123,8 +123,8 @@
                                     <div class="col-md-4  pl-4">
                                         <h6 class="m-0 font-weight-bold">LEVEL</h6>
                                         <span class="text-success">{{$project->level->name}}</span>
-                                        <h6 class="m-0 font-weight-bold pt-4">TIME AWARDED <small>Hours</small></h6>
-                                        <span class="text-danger">{{ $project->deadline }}</span>
+                                        <h6 class="m-0 font-weight-bold pt-4">TIME AWARDED</h6>
+                                        <span class="text-danger">{{ $project->deadline }} <small>Hours</small></span>
                                     </div>
                                     <div class="col-md-4 pl-4">
                                         <h6 class="m-0 font-weight-bold">CATEGORY</h6>
@@ -135,6 +135,8 @@
                                     <div class="col-md-4 pl-5">
                                         <h6 class="m-0 font-weight-bold">POINTS</h6>
                                         <span class="text-success">+{{ $project->points }}</span>
+                                        <h6 class="m-0 font-weight-bold pt-4">Available</h6>
+                                        <span class="text-success">{{ $project->available }}</span>
                                     </div>
                                 </div>
                             </div>
