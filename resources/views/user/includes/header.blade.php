@@ -116,7 +116,7 @@
                                             250</a></li>
                                     <div class="dropdown-divider"></div>
                                     <li><a class="dropdown-item" href="{{ route('user.settings') }}">Settings</a></li>
-                                    <li><a class="dropdown-item" href="#">Help and Support</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('user.help') }}">Help and Support</a></li>
                                     <div class="dropdown-divider"></div>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}

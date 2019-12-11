@@ -122,15 +122,15 @@
                                     aggrement</strong>.
                             </label>
                         </div>
-                        <ul class="d-flex flex-wrap align-items-center guttar-30px">
+                        <ul class="d-flex flex-wrap align-items-center guttar-30px pt-3 pb-3">
                             <li><button id="buyMembership" class="btn btn-primary">Proceed</button></li>
                         </ul>
                     </form>
 
                     <div class="gaps-2x"></div>
                     <div class="gaps-1x d-none d-sm-block"></div>
-                    <div class="note note-plane note-light mgb-1x"><em class="fas fa-info-circle"></em>
-                        <p class="text-light">You will automatically be assigned training after clicking proceed.</p>
+                    <div class="note note-plane note-light mgb-1x">
+                        <p><em class="fas fa-info-circle"></em> You will automatically be assigned training after clicking proceed.</p>
                     </div>
                 </div>
             </div><!-- .modal-content -->
