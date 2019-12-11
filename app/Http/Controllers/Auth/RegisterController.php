@@ -68,7 +68,9 @@ class RegisterController extends Controller
         if (isset($data['referer'])){
             $referer = User::find($data['referer']);
 
-            $referer->balance = $referer->balance + 250;
+            $referer->balance   = $referer->balance + 250;
+            $referer->income    = $referer->income + 250;
+
             $referer->update();
 
             $details = [

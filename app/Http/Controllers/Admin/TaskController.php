@@ -122,7 +122,7 @@ class TaskController extends Controller
 
             //Updating user balance by adding amount of task.
             $userData['balance'] = $task->user->balance + $task->project->price;
-
+            $userData['income'] = $task->user->income + $task->project->price;
 
             //updating user writing level and points if the project type is writing.
                 if ($task->project->type->name == 'Content Writing'){
