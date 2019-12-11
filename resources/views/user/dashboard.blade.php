@@ -8,14 +8,13 @@
                     <div class="slider position-relative pb-2">
                         <div class="owl-slider owl-theme">
                             <div id="carousel" class="owl-carousel">
-                                @if(is_null($currentMembership) && $currentMembership->name != 'premium')
-                                    <div class="item info">
-                                        <a href="#" data-toggle="modal" data-target="#pay-online">
-                                            <img class="" src="{{ asset('user/images/1111.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                @else
-                                @endif
+                            @if(is_null($currentMembership))
+                                <div class="item info">
+                                    <a href="#" data-toggle="modal" data-target="#pay-online">
+                                        <img class="" src="{{ asset('user/images/1111.png') }}" alt="">
+                                    </a>
+                                </div>
+                            @endif
                                 <div class="item info">
                                     <a href="#">
                                         <img class="" src="{{ asset('user/images/WEB-BANNER-1-3.jpg') }}" alt="">
