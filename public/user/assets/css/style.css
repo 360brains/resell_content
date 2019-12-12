@@ -3161,6 +3161,21 @@ table th {
     color: #07b107;
 }
 
+
+.notification .fa-bell .badge {
+    padding: 0px 0px;
+    font-size: 10px;
+    line-height: 15px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 500;
+    color: #fff;
+    border: 1px solid;
+    min-width: 17px;
+    min-height: 17px;
+    margin: 4px -2px 0px 0px;
+    left: 10px;
+}
 .notification .notification-icon {
     font-size: 20px;
     vertical-align: middle;
@@ -3237,6 +3252,27 @@ table th {
     }
     .user-img{
         padding: 10px 0;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .notification .dropdown-menu {
+        left: -30px !important;
+        right: unset !important;
+    }
+    .notification{
+        display: inline-block;
+    }
+    .notification-caret:before {
+        left: 30px;
+    }
+    .user-img{
+        padding: 10px 0;
+        float: right;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .profile{
+        margin-top: 1.5em;
     }
 }
 
@@ -3317,6 +3353,58 @@ select {
 
 .statictics h3 {
     color: #2E9C07
+}
+
+.edit-profile .camera-icon{
+    position: absolute;
+    right: 44%;
+    top: 50%;
+    font-size: 40px;
+}
+/*.image {*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*}*/
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: .3s ease;
+    background-color:  rgba(0, 0, 0, 0.5);
+}
+.overlay a{
+    color: white;
+}
+.overlay a i:hover{
+    font-size: 45px;
+    transition: .5s ease-in-out;
+}
+
+.qwerty{
+    width: 121px;
+    margin: auto;
+}
+
+
+.icon-cam {
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.fa-user:hover {
+    color: #eee;
 }
 
 .edit-profile .edit-profile-btn {
@@ -3502,7 +3590,13 @@ select {
     padding: 16px 0;
 }
 .earn-badges img{
-    padding-top: 21px;
+    padding-top: 29px;
+}
+.earn-badges .earn-dec{
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 footer{
     background: #161E2C;
@@ -3734,7 +3828,7 @@ footer .footer-bottom{
     padding: 20px 0;
     background-color: #F5F5F5;
     position: relative;
-    top: 170px;
+    top: 230px;
 
 }
 .refer .steps p{
@@ -3835,6 +3929,18 @@ footer .footer-bottom{
 }
 .funds .funds-heading{
     background-color: white;
+}
+.funds .funds-heading .active{
+    color: green;
+    font-weight: bold;
+}
+.funds .hvrcenter:hover:before, .funds .hvrcenter:focus:before, .funds .hvrcenter:active:before {
+    left: 0;
+    right: 0;
+}
+.funds .active:before {
+    width: 100%;
+    left: 0%;
 }
 .funds .funds-heading a{
     color: #676565;

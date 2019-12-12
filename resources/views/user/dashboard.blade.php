@@ -190,15 +190,15 @@
                             <ul class="pay-list guttar-20px">
                                 <li class="pay-item">
                                     <input type="radio" class="pay-check" name="option" value="easypaisa" id="easypaisa">
-                                    <label class="pay-check-label" for="easypaisa"><img src="images/telenor-pakistan-easypaisa-logo.png" alt="pay-logo"></label>
+                                    <label class="pay-check-label" for="easypaisa"><img src="{{ asset('user/images/telenor-pakistan-easypaisa-logo.png') }}" alt="pay-logo"></label>
                                 </li>
                                 <li class="pay-item">
                                     <input type="radio" class="pay-check" name="option" value="jazzcash" id="jazzcash">
-                                    <label class="pay-check-label" for="jazzcash"><img src="images/JazzCash_logo.png" alt="pay-logo"></label>
+                                    <label class="pay-check-label" for="jazzcash"><img src="{{ asset('user/images/JazzCash_logo.png') }}" alt="pay-logo"></label>
                                 </li>
                                 <li class="pay-item">
                                     <input type="radio" class="pay-check" name="option" value="bank" id="bank">
-                                    <label class="pay-check-label" for="bank"><img src="images//Bank-Free-Download-PNG.png" alt="pay-logo"></label>
+                                    <label class="pay-check-label" for="bank"><img src="{{ asset('user/images/Bank-Free-Download-PNG.png') }}" alt="pay-logo"></label>
                                 </li>
                             </ul>
                             {{--                    <div class="pdb-2-5x pdt-1-5x">--}}

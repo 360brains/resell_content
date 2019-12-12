@@ -6,11 +6,11 @@
                     <h1>great Content</h1>
                     <ul>
                         <li><a href=""><i class="fas fa-globe"></i>&nbsp; US (International)/English </a></li>
-                        <li><a href=""><i class="fas fa-question-circle"></i>&nbsp; Help & Support </a></li>
+                        <li><a href="{{ route('user.help') }}"><i class="fas fa-question-circle"></i>&nbsp; Help & Support </a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 col-sm-6 col-xs-6">
                 <div class="freelancer">
                     <h4>Freelancer</h4>
                     <ul>
@@ -24,7 +24,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 col-sm-6 col-xs-6">
                 <div class="freelancer">
                     <h4>About</h4>
                     <ul>
@@ -38,7 +38,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 col-sm-6 col-xs-6">
                 <div class="freelancer">
                     <h4>Terms</h4>
                     <ul>
@@ -50,7 +50,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 col-sm-6 col-xs-6">
                 <div class="freelancer">
                     <h4>Apps</h4>
                     <ul>

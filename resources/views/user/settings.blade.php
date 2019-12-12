@@ -32,14 +32,19 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>2</td>
-                                                        <td>3  <button href="#" type="button" class="close d-none" id="close-btn" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
+                                                @forelse(auth()->user()->accounts as $account)
+                                                <tr>
+                                                    <td>{{ $account->bank }}</td>
+                                                    <td>{{ $account->holder }}</td>
+                                                    <td>{{ $account->iban }}
+
+                                                        <a class="close d-none float-right" id="close-btn" aria-label="Close" href="{{ route('user.remove.account', $account->id) }}"><i class="far fa-times-circle"></i></a>
+                                                        <a class="d-none float-right" id="edit-btn" href="{{ route('user.edit.account', $account->id) }}"><i class="far fa-edit"></i></a>
+                                                    </td>
+                                                </tr>
+                                                @empty
+                                                    <h6>No Accounts</h6>
+                                                @endforelse
                                                 </tbody>
                                             </table>
                                                 <button class="btn btn-success float-right" id="manage-btn" onclick="visible()">Manage Accounts</button>
@@ -50,6 +55,8 @@
                             </div>
 
                             <div id="security" class="security p-4 tab-pane fade">
+                                <form action="{{ route('user.profile.edit.password' ) }}" method="post">
+                                    @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h5>Change Password</h5>
@@ -64,7 +71,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <input type="password" class="form-control" id="pswd"
-                                                       placeholder="Enter password" name="pswd">
+                                                       placeholder="Enter password" name="old_password">
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +83,7 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <input type="password" class="form-control" id="newpswd"
-                                                           placeholder="Enter password" name="pswd">
+                                                           placeholder="Enter password"name="new_password">
                                                 </div>
                                             </div>
                                         </div>
@@ -90,7 +97,7 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <input type="password" class="form-control" id="confpswd"
-                                                           placeholder="Enter password" name="pswd">
+                                                           placeholder="Enter password" name="confirm_password">
                                                     <p class="pt-2">8 character or longer, Combine upper and lowercase letters and
                                                         numbers.</p>
                                                     <button class="btn btn-sm btn-success float-right">Save Changes
@@ -130,6 +137,7 @@
 {{--                                        </div>--}}
 {{--                                    </div>--}}
                                 </div>
+                                </form>
                             </div>
 
                             <div id="notifications" class="notification p-4 pb-5 tab-pane fade">

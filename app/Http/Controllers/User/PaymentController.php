@@ -50,7 +50,7 @@ class PaymentController extends Controller
             $response = Account::create($data);
 
             if ($response){
-                return redirect()->route('user.profile')->with("success", "Completed successfully.");
+                return redirect()->route('user.settings')->with("success", "Completed successfully.");
             }else{
                 return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
             }
@@ -73,7 +73,7 @@ class PaymentController extends Controller
             $response = Account::create($data);
 
             if ($response){
-                return redirect()->route('user.profile')->with("success", "Completed successfully.");
+                return redirect()->route('user.settings')->with("success", "Completed successfully.");
             }else{
                 return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
             }
@@ -96,7 +96,7 @@ class PaymentController extends Controller
             $response = Account::create($data);
 
             if ($response){
-                return redirect()->route('user.profile')->with("success", "Completed successfully.");
+                return redirect()->route('user.settings')->with("success", "Completed successfully.");
             }else{
                 return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
             }
@@ -125,7 +125,7 @@ class PaymentController extends Controller
             $response = $account->update($data);
 
             if ($response){
-                return redirect()->route('user.profile')->with("success", "Completed successfully.");
+                return redirect()->route('user.settings')->with("success", "Completed successfully.");
             }else{
                 return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
             }
@@ -146,7 +146,7 @@ class PaymentController extends Controller
 
 
             if ($response){
-                return redirect()->route('user.profile')->with("success", "Completed successfully.");
+                return redirect()->route('user.settings')->with("success", "Completed successfully.");
             }else{
                 return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
             }
@@ -166,7 +166,7 @@ class PaymentController extends Controller
             $response = $account->update($data);
 
             if ($response){
-                return redirect()->route('user.profile')->with("success", "Completed successfully.");
+                return redirect()->route('user.settings')->with("success", "Completed successfully.");
             }else{
                 return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
             }
@@ -195,7 +195,7 @@ class PaymentController extends Controller
         ];
         $response = $account->update($data);
         if ($response){
-            return redirect()->route('user.profile')->with("success", "Completed successfully.");
+            return redirect()->route('user.settings')->with("success", "Completed successfully.");
         }else{
             return redirect()->back()->with("error", "Something went wrong. Please try again.");
         }
@@ -271,7 +271,7 @@ class PaymentController extends Controller
         }
 
         if ($response){
-            return redirect()->route('user.profile')->with("success", "Completed successfully.");
+            return redirect()->route('user.dashboard')->with("success", "Completed successfully.");
         }else{
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }

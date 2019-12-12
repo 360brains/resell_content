@@ -65,7 +65,9 @@
                                 <a class="nav-link text-light" href="#" id="navbarDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 {{--                                    <img src="{{ asset('user/images/notification_icon.png') }}" width="20px" alt="">--}}
-                                    <i onclick="changeColor()" class="fa fa-bell notification-icon" id="notification-icon"></i>
+                                    <i onclick="changeColor()" class="fa fa-bell notification-icon" id="notification-icon">
+                                        <span class="badge badge-success position-absolute btn-absolute-right">{{ count(auth()->user()->unreadNotifications) }}</span>
+                                    </i>
                                 </a>
 
                                 <div class="dropdown-menu" id = "notification">
