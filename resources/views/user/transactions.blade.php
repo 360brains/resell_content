@@ -4,7 +4,7 @@
     <section class="transactions pt-5 pb-5">
         <div class="container">
             <div class="clearfix pb-2">
-                <h4 class="float-left">Earnings</h4>
+                <h4 class="float-left m-0">Earnings</h4>
                 <a href="{{ route('withdraw.create') }}" class="btn btn-sm btn-outline-success float-right">Withdraw </a>
             </div>
             <div class="statictics text-center">
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="clearfix pt-3 pb-2">
-                <h4 class="pt-3 float-left">Transaction History</h4>
+                <h4 class="pt-3 pb-2 float-left">Transaction History</h4>
 {{--                <div class="dropdown float-right">--}}
 {{--                    Shown by:--}}
 {{--                    <button class="btn btn-sm btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}

@@ -75,7 +75,7 @@
         let element1 =  window.document.getElementById('notification');
         let element =  window.document.getElementById('notification-icon');
         if( element1.className === 'dropdown-menu'){
-            element.style.color = 'green'
+            element.style.color = '#75CB63'
         }else{
             element.style.color = 'grey'
         }
@@ -86,7 +86,7 @@
             if( element1.className === 'dropdown-menu'){
                 element.style.color = 'grey'
             }else{
-                element.style.color = 'green'
+                element.style.color = '#75CB63'
             }
         });
 

@@ -9,7 +9,7 @@
                         <ul class="nav d-block nav-pills" role="tablist">
                             <li><a class="nav-link active" data-toggle="pill" href="#account">Account</a></li>
                             <li><a class="nav-link" data-toggle="pill" href="#security">Security</a></li>
-                            <li><a class="nav-link" data-toggle="pill" href="#notification">Notifications</a></li>
+                            <li><a class="nav-link" data-toggle="pill" href="#notifications">Notifications</a></li>
                         </ul>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                                 </div>
                             </div>
 
-                            <div id="notification" class="notification p-4 pb-5 tab-pane fade">
+                            <div id="notifications" class="notification p-4 pb-5 tab-pane fade">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h5>Notifications</h5>

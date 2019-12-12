@@ -71,6 +71,7 @@ h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:la
 }
 h1,h2,h3,h4,h5,h6{
     color: #676565;
+    font-weight: 600;
 }
 h1, .h1 {
     font-size: 1.37em
@@ -2879,6 +2880,12 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     width: 1px;
     opacity: 0;
 }
+.pay-check:checked ~ label {
+    border-color: #07b107;
+}
+.pay-check:checked ~ label:after {
+    opacity: 1;
+}
 .pay-check-label {
     position: relative;
     padding: 50px 25px 5px;
@@ -3113,7 +3120,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     border-radius: 50%;
 }
 
-.dashborad-content, .projects-content, .my-projects, .transactions, .profile-content, .setting , .learn, .learn-details,.help-content {
+.dashborad-content, .projects-content, .my-projects, .transactions, .profile-content, .setting , .learn, .learn-details,.help-content, .funds {
     background-color: #F7FAFC;
 }
 
@@ -3190,14 +3197,18 @@ table th {
     top: 46px;
     right: -6px;
     left: unset;
-    width: 215px;
+    width: 230px;
     box-shadow: 0px 5px 7px -1px #c1c1c1;
-    padding-bottom: 0px;
     padding: 0px;
 }
 
 .user-img-menu a {
     padding: .25rem 1.5rem !important;
+}
+
+.user-img-menu .dropdown-item.active, .dropdown-item:active {
+     color: #212529;
+    background-color: transparent;
 }
 
 .user-img-menu:before {
@@ -3213,14 +3224,19 @@ table th {
     border-color: rgba(0, 0, 0, .15) transparent transparent rgba(0, 0, 0, .15);
 }
 
-@media only screen and (max-width: 600px) {
-    .notificationn-menu {
-        top: 50px;
-        right: -318px;
-        width: 360px;
+@media only screen and (max-width: 990px) {
+    .notification .dropdown-menu {
+        left: -30px !important;
+        right: unset !important;
     }
-    .notification-menu:before {
-        left: 23px;
+    .notification{
+        display: inline-block;
+    }
+    .notification-caret:before {
+        left: 30px;
+    }
+    .user-img{
+        padding: 10px 0;
     }
 }
 
@@ -3251,7 +3267,7 @@ a {
 }
 
 .custom-inp {
-    height: 34px;
+    height: 35px;
 }
 
 select {
@@ -3795,10 +3811,16 @@ footer .footer-bottom{
 }
 .help-content .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #fff;
+    font-weight: bold;
     background-color: #75CB63;
 }
 .help-content .nav-pills .nav-link {
     border-radius: unset;
+}
+.help-content .nav-pills .nav-link:hover{
+    color: #fff;
+    font-weight: bold;
+    background-color: #75CB63;
 }
 
 .help-content [data-toggle="collapse"] .fa:before {
@@ -3810,4 +3832,38 @@ footer .footer-bottom{
 }
 .help-content .card-header {
     background-color: white;
+}
+.funds .funds-heading{
+    background-color: white;
+}
+.funds .funds-heading a{
+    color: #676565;
+    padding: 13px 0;
+}
+.funds .funds-card{
+    background-color: white;
+    padding: 24px;
+    border: 1px solid #75CB63;
+}
+.funds .funds-card .withdraw-blnc{
+    background-color: #75CB63;
+    padding: 52px 0;
+    border-radius: 5px;
+
+}
+.funds .funds-card .withdraw-blnc h1{
+    color: white;
+    border: 1px solid white;
+    display: inline;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: lighter;
+    font-size: 40px;
+}
+.funds .funds-card .withdraw-blnc h4{
+    color: white;
+    font-weight: lighter;
+}
+.funds .funds-card h5{
+    font-weight: bold;
 }
