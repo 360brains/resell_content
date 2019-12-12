@@ -44,20 +44,26 @@
 
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="name" value="{{ $project->name }}" class="form-control" id="form_control_1" placeholder="Enter Project Name">
-                                        <label for="form_control_1">Project Name</label>
+                                        <label>Project Name</label>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <input type="number" name="deadline" value="{{ $project->deadline }}" class="form-control datetime" id="form_control_1" placeholder="Time Awarded for task in hours">
+                                        <label>Task Deadline <small>(in hours)</small></label>
                                     </div>
 
                                     <div class="row margin-bottom-25">
                                         <div class="col-sm-6">
                                             <div class="form-group form-md-line-input">
                                                 <input type="number" name="quantity" value="{{ $project->quantity }}" class="form-control" id="mask_number form_control_1" placeholder="Enter Number of Tasks">
-                                                <label for="form_control_1">Number of Tasks</label>
+                                                <label>Number of Tasks</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
+
                                             <div class="form-group form-md-line-input">
-                                                <input type="number" name="deadline" value="{{ $project->deadline }}" class="form-control datetime" id="form_control_1" placeholder="Time Awarded for task in hours">
-                                                <label for="form_control_1">Task Deadline <small>(in hours)</small></label>
+                                                <input type="number" name="words" value="{{ $project->words }}" class="form-control" id="form_control_1" placeholder="Enter Number of words for a Task" value="{{old('words')}}">
+                                                <label>Total words</label>
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +92,7 @@
                                                         <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : ''}}>{{ $type->name }}</option>
                                                     @endforeach
                                                 </select>
-                                                <label for="form_control_1">Project Type</label>
+                                                <label>Project Type</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -97,7 +103,7 @@
                                                         <option value="{{ $level->id }}" {{ $project->level_id == $level->id ? 'selected' : ''}}>{{ $level->name }}</option>
                                                     @endforeach
                                                 </select>
-                                                <label for="form_control_1">Project Level</label>
+                                                <label>Project Level</label>
                                             </div>
                                         </div>
                                     </div>
@@ -111,7 +117,7 @@
                                                         <option value="{{ $category->id }}" {{ $project->category_id == $category->id ? 'selected' : ''}}>{{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
-                                                <label for="form_control_1">Project Category</label>
+                                                <label>Project Category</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -121,7 +127,7 @@
                                                     <option value="1" {{ $project->active = 1 ? 'selected' : ''}}>Active</option>
                                                     <option value="0" {{ $project->active = 0 ? 'selected' : ''}}>Inactive</option>
                                                 </select>
-                                                <label for="form_control_1">Project Status</label>
+                                                <label>Project Status</label>
                                             </div>
                                         </div>
                                     </div>

@@ -45,10 +45,11 @@ class TaskResult extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->greeting($this->details['greeting'])
-            ->line($this->details['body'])
-            ->action($this->details['actionText'], $this->details['actionURL'])
-            ->line($this->details['thanks']);
+            ->greeting("Hello")
+            ->line($this->details['message'])
+            ->line($this->details['link'])
+            ->action("click", $this->details['url'])
+            ->line($this->details['tooltip']);
     }
 
     public function toDatabase($notifiable)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Membership;
 use App\Models\Membership_user;
 use App\Models\Transaction;
+use App\Notifications\EmailUser;
 use App\Notifications\TaskResult;
 use Bitfumes\Multiauth\Model\Admin;
 use Illuminate\Http\Request;
@@ -36,16 +37,16 @@ class MembershipController extends Controller
 
                 auth()->user()->update($newBalance);
 
-//                $data = [
-//                    'type'            =>'Debit',
-//                    'amount'          => $membership->price,
-//                    'description'     =>'Purchased Membership',
-//                    'membership_id'   => $membership->id,
-//                    'status'          => "Paid",
-//                    'user_id'         => auth()->user()->id,
-//                ];
-//
-//                $response = Transaction::create($data);
+                $data = [
+                    'type'            =>'Debit',
+                    'amount'          => $membership->price,
+                    'description'     =>'Purchased Membership',
+                    'membership_id'   => $membership->id,
+                    'status'          => "Paid",
+                    'user_id'         => auth()->user()->id,
+                ];
+
+                $response = Transaction::create($data);
 
                 $details = [
                     'taskName'      => 'Membership',
@@ -54,8 +55,14 @@ class MembershipController extends Controller
                     'tooltip'       => 'This Membership is valid for 1 month. You can take tasks of any level now.',
                     'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take Tasks</a>",
                 ];
+                $emailDetails = [
+                    'message'       => 'Congratulations! You are a premium member now. This Membership is valid for 1 month. You can take tasks of any level now.',
+                    'url'          => route("pages.projects"),
+                    'urlText'      => 'Take Tasks',
+                ];
 
                 auth()->user()->notify(new TaskResult($details));
+                auth()->user()->notify(new EmailUser($emailDetails));
 
                 $adminDetails = [
                     'taskName'      => 'Premium Membership',
@@ -63,6 +70,7 @@ class MembershipController extends Controller
                     'message'       => "<a href=".route("admin.users.show", auth()->user()->id)." class='d-inline'>". auth()->user()->name . "</a><a href='#' class='d-inline'> is now Premium.</a>",
                     'tooltip'       => 'membership',
                     'link'          => "",
+
 
                 ];
                 $admins = Admin::all();

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('user/assets/css/vendor.bundle49f7.css') }}">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}" id="layoutstyle">
+    <link rel="stylesheet" href="{{ asset('user/assets/css/owl.carousel.min.css') }}" id="layoutstyle">
+    <link rel="stylesheet" href="{{ asset('user/assets/css/owl.theme.default.min.css') }}" id="layoutstyle">
 
 
 

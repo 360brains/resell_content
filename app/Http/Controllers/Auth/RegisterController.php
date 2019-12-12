@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Notifications\EmailUser;
+use App\Notifications\TaskResult;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -63,6 +65,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if (isset($data['referer'])){
+            $referer = User::find($data['referer']);
+
+            $referer->balance   = $referer->balance + 250;
+            $referer->income    = $referer->income + 250;
+
+            $referer->update();
+
+            $details = [
+                'taskName'      => 'Referred User',
+                'date'          => now(),
+                'message'       => 'Congratulations!' . $data['name']. ' Registered via your referral link.',
+                'tooltip'       => 'Your balance is updated with addition of 250PKR as a reward.',
+                'link'          => "",
+            ];
+            $emailDetails = [
+                'message'       => 'Congratulations!' . $data['name']. ' Registered via your referral link. Your balance is updated with addition of 250PKR as a reward.',
+                'url'          => route("user.dashboard"),
+                'urlText'      => 'Dashboard',
+            ];
+
+            $referer->notify(new TaskResult($details));
+            $referer->notify(new EmailUser($emailDetails));
+    }
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

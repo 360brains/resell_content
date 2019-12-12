@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use App\Models\Transaction;
 use App\Models\Withdraw;
+use App\Notifications\EmailUser;
 use App\Notifications\TaskResult;
 use App\User;
 use Bitfumes\Multiauth\Model\Admin;
@@ -46,15 +48,17 @@ class WithdrawController extends Controller
         }
         else{
             $request->validate([
-                'iban'         => 'required',
                 'amount'       => 'required',
-                'holder'       => 'required',
-                'bank'         => 'required',
+                'account'       => 'required',
+
             ]);
+
+            $account = Account::find($request->account);
+
             $data = [
-                'holder'          =>$request->holder,
-                'iban'            => $request->iban,
-                'bank'            => $request->bank,
+                'holder'          =>$account->holder,
+                'iban'            => $account->iban,
+                'bank'            => $account->bank,
                 'amount'          => $request->amount,
                 'status'          => "Pending",
                 'user_id'         => Auth()->user()->id,
@@ -73,8 +77,8 @@ class WithdrawController extends Controller
                 'taskName'      => 'Withdraw Funds',
                 'date'          => now(),
                 'message'       => 'Your fund withdraw request is waiting approval.',
-                'tooltip'       => ' You will be notified when admin approves your withdraw.',
-                'link'          => "<a href=".route("withdraw.create")." class='d-inline'>View withdraw</a>",
+                'tooltip'       => 'You will be notified when admin approves your withdraw.',
+                'link'          => "<a href=".route("withdraw.create")." class='d-inline'>View Withdraw</a>",
             ];
 
             auth()->user()->notify(new TaskResult($details));

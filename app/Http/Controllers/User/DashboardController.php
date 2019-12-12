@@ -15,8 +15,23 @@ class DashboardController extends Controller
     public function index(){
         $user_id = auth()->user()->id;
         $data['totalEarned'] = 0;
+        $totalVideoTasks = 0;
+        $totalWritingTasks = 0;
         $tasks    = Task::where('user_id', $user_id)->where('status', 'approved')->get();
+        $data['tasks']    = Task::where('user_id', Auth()->user()->id)->orderBy('created_at', 'desc')->limit(6)->get();
         $data['membership'] = Membership::where('name', 'Premium')->first();
+        $approvedTasks    = Task::where('user_id', Auth()->user()->id)->where('status', 'approved')->get();
+        foreach ($approvedTasks as $task){
+            if ($task->project->type_id == 2){
+                $totalVideoTasks = $totalVideoTasks + 1 ;
+            }
+            if ($task->project->type_id == 1){
+                $totalWritingTasks = $totalWritingTasks + 1 ;
+            }
+        }
+        $data['totalVideoTasks'] = $totalVideoTasks ;
+        $data['totalWritingTasks'] = $totalWritingTasks ;
+
 
         foreach ($tasks as $task){
         $data['totalEarned'] = $data['totalEarned'] + $task->project->price;

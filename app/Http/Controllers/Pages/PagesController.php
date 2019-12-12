@@ -7,6 +7,7 @@ use App\Models\Level;
 use App\Models\Project;
 use App\Models\Task;
 use App\Models\Type;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
@@ -14,9 +15,10 @@ use App\Http\Controllers\Controller;
 class PagesController extends Controller
 {
     public function home(){
-        //$data['NumProjects'] = Project::orderBy('category_id', 'desc')->take(8)->get();
-        //$data['categories'] = Category::orderBy('name', 'desc')->take(8)->get();
-
+        $data['categories']     = Category::orderBy('name', 'desc')->take(8)->get();
+        $data['totalJobs']      = Project::sum('quantity');
+        $data['totalWriters']   = User::count();
+        $data['totalWork']      = Task::where('status', 'approved')->count();
         $data['categories'] = Category::with('projects')->get();
         $data['projects']   = Project::where('active', 1)->paginate(3);
         $data['types']      = Type::where('active', 1)->get();
@@ -29,7 +31,12 @@ class PagesController extends Controller
         $level              = $request->level;
         $category           = $request->category;
         $type               = $request->type;
-        $data['projects']   = Project::where('active', 1)->where('special', 0)->whereNotNull('id');
+        $price              = $request->price;
+//        $account            = $request->account;
+        $data['projects']   = Project::where('active', 1)->where('special', 0)->where('available', '>', 0)->whereNotNull('id');
+        $data['categories'] = Category::with('projects')->get();
+        $data['types']      = Type::where('active', 1)->get();
+        $data['levels']     = Level::where('active', 1)->get();
 
         if (!is_null($level)){
             $data['projects']   = $data['projects']->where('level_id', $level);
@@ -40,14 +47,43 @@ class PagesController extends Controller
         if (!is_null($type)){
             $data['projects']   = $data['projects']->where('type_id', $type);
         }
+//        if (!is_null($account)){
+//            if ($account == 'Free'){
+//                $data['projects']   = $data['projects']->where('premium', 1);
+//            }elseif($account == 'Premium'){
+//                $data['projects']   = $data['projects']->where('premium', 0);
+//            }
+//            $data['projects']   = $data['projects']->where('type_id', $type);
+//        }
+        if (!is_null($price)){
+            switch ($price) {
+                case '0-100':
+
+                    $data['projects']   = $data['projects']->whereBetween('price', [0, 100]);
+                    break;
+                case '101-200':
+
+                    $data['projects']   = $data['projects']->whereBetween('price', [101, 200]);
+                    break;
+                case '201-500':
+
+                    $data['projects']   = $data['projects']->whereBetween('price', [201, 500]);
+                    break;
+                case '501-1000':
+
+                    $data['projects']   = $data['projects']->whereBetween('price', [501, 1000]);
+                    break;
+                case '1000-more':
+
+                    $data['projects']   = $data['projects']->where('price', '>', 1000);
+                    break;
+                default:
+
+                    $data['projects']   = $data['projects']->where('price', '>=', 0);
+            }
+        }
 
         $data['projects']   = $data['projects']->orderBy('created_at', 'desc')->paginate(9);
-
-        return view('pages.projects', $data);
-    }
-
-    public function projectsByCategories($id){
-        $data['projects'] = Project::where('category_id', $id)->orderBy('created_at', 'desc')->paginate(9);
 
         return view('pages.projects', $data);
     }

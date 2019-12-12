@@ -30,9 +30,4 @@ class Task extends Model
     function trainings(){
         return $this->belongsToMany(Training::class);
     }
-
-    public function getDeadlineAttribute($date)
-    {
-        return date('d-M-Y', strtotime($date));
-    }
 }

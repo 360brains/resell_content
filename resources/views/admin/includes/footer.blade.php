@@ -50,6 +50,11 @@
 <script src="{{ asset('admin/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('admin/assets/global/plugins/jquery.sparkline.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('admin/assets/global/scripts/datatable.js') }}" type="text/javascript"></script>
+<script src="{{ asset('admin/assets/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('admin/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
+
 <script src="{{ asset('admin/assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js') }}" type="text/javascript"></script>
 <script src="{{ asset('admin/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js') }}" type="text/javascript"></script>
 <script src="{{ asset('admin/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js') }}" type="text/javascript"></script>

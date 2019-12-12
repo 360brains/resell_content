@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Transaction;
 use App\Models\Withdraw;
+use App\Notifications\EmailUser;
 use App\Notifications\TaskResult;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -97,9 +98,9 @@ class TransactionController extends Controller
         $withdraw = Withdraw::where('id', $id)->first();
 
         $data = [
-            'type'            =>'Debit',
+            'type'            =>'Credit',
             'amount'          => $withdraw->amount,
-            'description'     =>'Withdraw by user',
+            'description'     =>'Withdrawn Money',
             'withdraw_id'     => $withdraw->id,
             'status'          => "Received",
             'user_id'         => $withdraw->user->id,
@@ -119,8 +120,14 @@ class TransactionController extends Controller
             'tooltip'       => ' You have been sent requested amount. In case of any issue feel free to contact us.',
             'link'          => "",
         ];
+        $emailDetails = [
+            'message'       => 'Your withdraw request is approved. You have been sent requested amount. In case of any issue feel free to contact us.',
+            'url'          => route("user.dashboard"),
+            'urlText'      => 'Dashboard',
+        ];
 
         $withdraw->user->notify(new TaskResult($details));
+        $withdraw->user->notify(new EmailUser($emailDetails));
 
         foreach (auth()->user()->unreadNotifications as $notification)
         {

@@ -56,7 +56,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     function trainings(){
-        return $this->belongsToMany(Training::class);
+        return $this->belongsToMany(Training::class)->withPivot('status', 'created_at', 'completed_at')->withTimestamps();
     }
 
     function accounts(){
@@ -82,6 +82,7 @@ class User extends Authenticatable implements MustVerifyEmail
     function videoTest(){
         return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video', 'deadline')->whereTypeId(2);
     }
+
     function lastVideoTest(){
         return $this->belongsToMany(Test::class, 'user_tests')->withPivot('id', 'status', 'body', 'video', 'deadline')->whereTypeId(2)->orderBy('created_at', 'desc')->limit(1);
     }

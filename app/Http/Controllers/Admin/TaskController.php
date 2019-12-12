@@ -7,6 +7,7 @@ use App\Models\Level;
 use App\Models\Project;
 use App\Models\Type;
 use App\Models\Task;
+use App\Notifications\EmailUser;
 use App\Notifications\TaskResult;
 use App\User;
 use Illuminate\Http\Request;
@@ -121,7 +122,7 @@ class TaskController extends Controller
 
             //Updating user balance by adding amount of task.
             $userData['balance'] = $task->user->balance + $task->project->price;
-
+            $userData['income'] = $task->user->income + $task->project->price;
 
             //updating user writing level and points if the project type is writing.
                 if ($task->project->type->name == 'Content Writing'){
@@ -157,6 +158,11 @@ class TaskController extends Controller
                 'tooltip'       => 'Your points and balance is updated',
                 'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take More</a>",
             ];
+            $emailDetails = [
+                'message'       => 'Congratulations! Your task is approved. Your points and balance is updated.',
+                'url'          => route("pages.projects"),
+                'urlText'      => 'Take More',
+            ];
 
         }
         //Checking if the admin has rejected the task and changing the task status.
@@ -176,6 +182,11 @@ class TaskController extends Controller
                 'tooltip'       => 'Try harder next time.',
                 'link'          => "<a href=".route("user.tasks")." class=\'d-inline\'>Details</a>",
             ];
+            $emailDetails = [
+                'message'       => 'Your task is rejected. Try harder next time.',
+                'url'          => route("user.tasks"),
+                'urlText'      => 'Details',
+            ];
 
         }
         elseif($request->action == 'reworking'){
@@ -192,9 +203,15 @@ class TaskController extends Controller
                 'tooltip'       => '',
                 'link'          => "<a href=".route("user.tasks")." class=\'d-inline\'>Details</a>",
             ];
+            $emailDetails = [
+                'message'       => 'Your task is opened for rework due to some deficiencies. Please check the highlighted details and submit after reworking.',
+                'url'          => route("user.tasks"),
+                'urlText'      => 'Details',
+            ];
         }
 
         $task->user->notify(new TaskResult($details));
+        $task->user->notify(new EmailUser($emailDetails));
 
         if ($response){
             return redirect()->route('admin.projects.show', $task->project->id)->with("success", "Completed Successfully.");

@@ -32,8 +32,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
     Route::resource('categories', 'CategoryController');
     Route::resource('trainings', 'TrainingController');
     Route::resource('projects', 'ProjectController');
+    Route::post('get-projects', 'ProjectController@getProjects')->name('get.projects');
     Route::resource('levels', 'LevelController');
     Route::resource('users',  'UserController');
+    Route::post('get-users', 'UserController@getUsers')->name('get.users');
     Route::resource('tasks', 'TaskController');
     Route::resource('test', 'TestController');
     Route::resource('templates', 'TemplateController');
@@ -44,7 +46,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Route::get('/home', 'HomeController@index')->name('home');
 // ['auth', 'verified']
 // Use when email setup is complete
 Route::group(['middleware' => ['auth']], function() {
@@ -53,6 +58,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('user/learn', 'User\LearnController@index')->name('user.learn');
     Route::get('user/memberships', 'User\MembershipController@index')->name('user.memberships');
     Route::get('user/memberships/buy/{id}', 'User\MembershipController@buy')->name('user.memberships.buy');
+    Route::get('user/training/buy/{id}', 'User\TrainingController@buy')->name('user.training.buy');
     Route::get('user/voucher', 'User\VoucherController@index')->name('user.voucher');
     Route::get('user/payment', 'User\PaymentController@index')->name('user.payment');
     Route::get('user/add/account', 'User\PaymentController@addAccount')->name('user.add.account');
@@ -64,8 +70,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('user/store-funds', 'User\PaymentController@storeFunds')->name('user.store.funds');
     Route::get('user/learn-details/{id}', 'User\LearnController@learnDetails')->name('user.learn.details');
     Route::get('user/transactions', 'User\TransactionController@index')->name('user.transactions');
+    Route::get('user/settings', 'User\SettingController@index')->name('user.settings');
     Route::get('user/notifications', 'User\NotificationController@index')->name('user.notifications');
     Route::get('user/tasks', 'User\TasksController@index')->name('user.tasks');
+    Route::get('user/projects', 'User\TasksController@projects')->name('user.projects');
+    Route::get('user/refer', 'User\ReferController@index')->name('user.refer');
+    Route::get('user/help', 'User\HelpController@index')->name('user.help');
     Route::get('user/tasks/take/{id}', 'User\TasksController@taskTake')->name('user.tasks.take');
     Route::get('user/tasks/work', 'User\TasksController@work')->name('user.tasks.work');
     Route::get('user/tests/writing-test', 'User\TestController@writingTest')->name('user.tests.writing.test');
@@ -81,7 +91,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 
-Route::get('/', 'Pages\PagesController@home')->name('pages.home');
+Route::get('/', 'Pages\PagesController@home')->name('pages.home')->middleware('user');
 Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');
 Route::get('/howItWorks', 'Pages\PagesController@howItWorks')->name('pages.howItWorks');
 Route::get('/project-details/{id}', 'Pages\PagesController@projectDetails')->name('pages.project.details');

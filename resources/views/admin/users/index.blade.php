@@ -28,7 +28,7 @@
             <div class="portlet light portlet-fit bordered">
 
                 <div class="portlet-body flip-scroll">
-                    <table class="table table-bordered table-striped flip-content">
+                    <table class="table table-bordered table-striped flip-content" id="users">
                         <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>
@@ -41,46 +41,36 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @php
-                        $i = 0;
-                        @endphp
-                            @forelse($users as $user)
-                                <tr class="table-row-clickable" onclick="window.location = '{{route('admin.users.show', $user->id)}}'">
-
-                                    <td> {{ ++$i }} </td>
-                                    <td> {{ $user->name }} </td>
-                                    <td> {{ $user->gender }} </td>
-                                    <td> {{ $user->email }} </td>
-                                    <td> {{ $user->name }} </td>
-                                    <td> {{ $user->active == 0 ? 'Deactive':'Active' }} </td>
-                                    <td>
-                                        <form action="{{ route('admin.users.destroy',$user->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <a class="btn btn-primary" href="{{ route('admin.users.edit', $user->id) }}">Edit</a>
-                                            @if($user->active == 0)
-                                                <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>
-                                            @else
-                                                <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Inactive</button>
-                                            @endif
-
-                                        </form>
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="7">
-                                        Data Not Found
-                                    </td>
-                                </tr>
-                            @endforelse
                         </tbody>
                     </table>
-                    <div class="text-center">
-                    {{$users->links()}}
-                    </div>
             </div>
         </div>
     </div>
+    </div>
 @endsection
+    @push('scripts')
+        <script>
+            $(document).ready(function () {
+                $('#users').DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "ajax":{
+                        "url": "{{ route('admin.get.users') }}",
+                        "dataType": "json",
+                        "type": "POST",
+                        "data":{ _token: "{{csrf_token()}}"}
+                    },
+                    "columns": [
+                        { "data": "sr" },
+                        { "data": "name" },
+                        { "data": "gender" },
+                        { "data": "email" },
+                        { "data": "tasks" },
+                        { "data": "active" },
+                        { "data": "options" }
+                    ]
 
+                });
+            });
+        </script>
+@endpush
