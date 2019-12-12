@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Training;
+use App\Models\Transaction;
 use App\Notifications\TaskResult;
 use Bitfumes\Multiauth\Model\Admin;
 use Illuminate\Http\Request;
@@ -24,6 +25,17 @@ class TrainingController extends Controller
                 ];
 
                 $responce = auth()->user()->update($newBalance);
+
+                $data = [
+                    'type'            =>'Credit',
+                    'amount'          => $training->fee,
+                    'description'     =>'Purchased training',
+                    'training_id'     => $training->id,
+                    'status'          => "Paid",
+                    'user_id'         => auth()->user()->id,
+                ];
+
+                $response = Transaction::create($data);
 
                 $details = [
                     'taskName'      => $training->name,
