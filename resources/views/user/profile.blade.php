@@ -39,14 +39,18 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="input-item input-with-label">
-                                    <label for="full-name" class="input-item-label">First Name</label>
+                                    <label for="full-name" class="input-item-label">Full Name</label>
                                     <input class="input-bordered" type="text" id="full-name" name="name" value="{{ auth()->user()->name }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-item input-with-label">
-                                    <label for="full-name" class="input-item-label">Last Name</label>
-                                    <input class="input-bordered" type="text" id="full-name" name="name" value="{{ auth()->user()->name }}">
+                                    <label for="full-name" class="input-item-label">Gender</label>
+                                    <select class="input-bordered" name="gender" id="gender">
+                                        <option value="">Select Gender</option>
+                                        <option value="Male" {{ auth()->user()->gender == 'Male' ? 'selected' : ''}}>Male</option>
+                                        <option value="Female" {{ auth()->user()->gender == 'Female' ? 'selected' : ''}}>Female</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-12 pt-2">
@@ -63,15 +67,15 @@
                             </div>
                             <div class="col-md-6 pt-2">
                                 <div class="input-item input-with-label">
-                                    <label for="mobile-number" class="input-item-label">City</label>
-                                    <input class="input-bordered" type="text" id="mobile-number" name="contact" value="">
+                                    <label for="mobile-number" class="input-item-label">Mobile Number</label>
+                                    <input class="input-bordered" type="text" id="mobile-number" name="contact" value="{{ auth()->user()->contact }}">
                                 </div>
                             </div>
                             <div class="col-md-12 pt-2">
-                                <div class="input-item input-with-label">
-                                    <label for="email-address" class="input-item-label">Address</label>
-                                    <input class="input-bordered" type="text" id="email-address" name="email" value="">
-                                </div>
+{{--                                <div class="input-item input-with-label">--}}
+{{--                                    <label for="email-address" class="input-item-label">Address</label>--}}
+{{--                                    <input class="input-bordered" type="text" id="address" name="email" value="">--}}
+{{--                                </div>--}}
                                 <button class="btn-success btn-sm mt-3 border-0 float-right d-none" id="save">Save Changes</button>
                             </div>
                         </div>
@@ -79,38 +83,21 @@
                     </div>
 
                     <div class="earn-badges mt-4 shadow rounded">
-                        <h5 class="m-0 pb-2">Earn Badges</h5>
+                        <h5 class="m-0 pb-2">Earned Badges</h5>
                         <div class="pt-2">
+                            @forelse(auth()->user()->trainings as $training)
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <h6 class="m-0">Adobe Certified <small><span>2019</span></small></h6>
-                                    <p>Adobe Certified Associate. An Adobe Certified Associate (ACA).</p>
+                                    <h6 class="m-0">{{ $training->name }} <small><span>{{ date('Y', strtotime($training->created_at)) }}</span></small></h6>
+                                    <p>{!! $training->description !!} </p>
                                 </div>
                                 <div class="float-right">
-                                    <img src="{{ asset('user/images/badge.png') }}" alt="">
+                                    <img src="{{ asset($training->badge) }}" alt="">
                                 </div>
                             </div>
                             <hr>
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <h6 class="m-0">Microsoft Certified <small><span>2016</span></small></h6>
-                                    <p>Adobe Certified Associate. An Adobe Certified Associate (ACA).</p>
-                                </div>
-                                <div class="float-right">
-                                    <img src="{{ asset('user/images/badge.png') }}" alt="">
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <h6 class="m-0">GreatContent Certified <small><span>2014</span></small></h6>
-                                    <p>Adobe Certified Associate. An Adobe Certified Associate (ACA).</p>
-                                </div>
-                                <div class="float-right">
-                                    <img src="{{ asset('user/images/badge.png') }}" alt="">
-                                </div>
-                            </div>
-                            <hr>
+                            @empty
+                            @endforelse
                         </div>
                     </div>
                 </div>
