@@ -23,6 +23,9 @@ class Project extends Model
     function trainings(){
         return $this->belongsToMany(Training::class);
     }
+    function tasks(){
+        return $this->hasMany(Task::class);
+    }
     public function getCreatedAtAttribute($date)
     {
         return date('d-M-Y', strtotime($date));
