@@ -21,22 +21,22 @@
                                                placeholder="Enter amount to withdraw">
                                     </div>
 
-                                    <div class="input-item input-with-label">
+                                    <div class="input-item input-with-label pt-2">
                                         <label for="balance" class="input-item-label">Account Number
                                             <small>(IBAN)</small></label>
                                         <input class="input-bordered" type="text" id="iban" name="iban"
                                                value="{{old('iban')}}"
                                                placeholder="Enter IBAN Number">
                                     </div>
-cvf
-                                    <div class="input-item input-with-label">
+
+                                    <div class="input-item input-with-label pt-2">
                                         <lable>Account Holder</lable>
                                         <input class="input-bordered" type="text" id="holder" name="holder"
                                                value="{{old('holder')}}"
                                                placeholder="Enter Account Holder Name">
                                     </div>
 
-                                    <div class="input-item input-with-label pt-2">
+                                    <div class="input-item input-with-label pt-4">
                                         <button class="btn btn-success btn-block" name="action" value="bank" type="submit">
                                             Submit
                                         </button>

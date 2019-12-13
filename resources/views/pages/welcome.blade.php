@@ -79,7 +79,7 @@
 
     <div class="clearfix"></div>
 
-    <section class="market-place pt-3 pb-3 text-center">
+    <section class="market-place pt-3 pb-5 text-center">
         <div class="main-heading">
             <h3>Explore The <span>Marketplace</span></h3>
         </div>

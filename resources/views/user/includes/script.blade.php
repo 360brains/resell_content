@@ -74,13 +74,13 @@
         $('#save-btn').removeClass('d-none');
         $('#close-btn').removeClass('d-none');
         $('#manage-btn').addClass('d-none');
-        $('#edit-btn').removeClass('d-none');
+        $('.remove-d-none').removeClass('d-none');
     }
         function redo(){
             $('#save-btn').addClass('d-none');
             $('#close-btn').addClass('d-none');
             $('#manage-btn').removeClass('d-none');
-            $('#edit-btn').addClass('d-none');
+            $('.remove-d-none').addClass('d-none');
         }
 
     function changeColor() {

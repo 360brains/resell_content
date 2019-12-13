@@ -2485,85 +2485,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     align-items: center
 }
 
-.input-checkbox, .input-radio {
-    position: absolute;
-    opacity: 0;
-    height: 1px;
-    width: 1px
-}
 
-.input-checkbox~label:not(.error), .input-radio~label:not(.error) {
-    font-size: 14px;
-    line-height: 30px;
-    margin-bottom: 0;
-    color: #495463;
-    padding-left: 42px;
-    position: relative;
-    cursor: pointer;
-    transition: all .4s;
-    text-transform: capitalize;
-    display: block
-}
-
-.input-checkbox~label:not(.error):before, .input-checkbox~label:not(.error):after, .input-radio~label:not(.error):before, .input-radio~label:not(.error):after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    border-radius: 3px;
-    transition: all .4s
-}
-
-.input-checkbox~label:not(.error):before, .input-radio~label:not(.error):before {
-    content: '';
-    border: 2px solid #d2dde9
-}
-
-.input-checkbox~label:not(.error):after, .input-radio~label:not(.error):after {
-    line-height: 30px;
-    text-align: center;
-    font-family: themify;
-    content: '\e64c';
-    font-size: 14px;
-    font-weight: 900;
-    color: #fff;
-    background: #07b107;
-    opacity: 0
-}
-
-.input-checkbox:disabled~label:not(.error), .input-radio:disabled~label:not(.error) {
-    opacity: .5
-}
-
-.input-checkbox:checked~label:not(.error):after, .input-radio:checked~label:not(.error):after {
-    opacity: 1
-}
-
-.input-checkbox~.error, .input-radio~.error {
-    position: absolute;
-    left: 1px;
-    color: #fff;
-    font-size: 12px;
-    bottom: 100%;
-    background: #ff6868;
-    padding: 5px 10px;
-    z-index: 1;
-    border-radius: 2px;
-    white-space: nowrap
-}
-
-.input-checkbox~.error:before, .input-radio~.error:before {
-    position: absolute;
-    content: '';
-    height: 0;
-    width: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid #ff6868;
-    bottom: -6px;
-    left: 8px
-}
 
 .validate-modern .input-checkbox~.error, .validate-modern .input-radio~.error {
     position: absolute;
@@ -2595,95 +2517,9 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     display: none
 }
 
-.input-checkbox-sm~label:not(.error), .input-radio-sm~label:not(.error) {
-    font-size: 12px;
-    line-height: 20px;
-    padding-left: 30px
-}
 
-.input-checkbox-sm~label:not(.error):before, .input-checkbox-sm~label:not(.error):after, .input-radio-sm~label:not(.error):before, .input-radio-sm~label:not(.error):after {
-    height: 20px;
-    width: 20px
-}
 
-.input-checkbox-sm~label:not(.error):after, .input-radio-sm~label:not(.error):after {
-    line-height: 20px;
-    font-size: 10px
-}
 
-.input-checkbox-sm~.error, .input-radio-sm~.error {
-    left: -3px
-}
-
-.input-checkbox-md~label:not(.error), .input-radio-md~label:not(.error) {
-    font-size: 14px;
-    line-height: 24px;
-    padding-left: 36px
-}
-
-.input-checkbox-md~label:not(.error):before, .input-checkbox-md~label:not(.error):after, .input-radio-md~label:not(.error):before, .input-radio-md~label:not(.error):after {
-    height: 24px;
-    width: 24px
-}
-
-.input-checkbox-md~label:not(.error):after, .input-radio-md~label:not(.error):after {
-    line-height: 24px;
-    font-size: 10px
-}
-
-.input-checkbox-md~.error, .input-radio-md~.error {
-    left: -2px
-}
-
-.input-radio~label:not(.error):before, .input-radio~label:not(.error):after {
-    border-radius: 50%
-}
-
-.input-radio~label:not(.error):after {
-    content: '';
-    height: 16px;
-    width: 16px;
-    top: 7px;
-    left: 7px
-}
-
-.input-radio:checked~label:not(.error):before {
-    border-color: #07b107
-}
-
-.input-radio-md~label:not(.error):after {
-    height: 14px;
-    width: 14px;
-    top: 5px;
-    left: 5px
-}
-
-.input-radio-sm~label:not(.error):after {
-    height: 12px;
-    width: 12px;
-    top: 4px;
-    left: 4px
-}
-
-.input-with-hint {
-    padding-right: 75px
-}
-
-.input-hint {
-    position: absolute;
-    right: 2px;
-    top: 9px;
-    color: #758698;
-    font-size: 13px;
-    font-weight: 500;
-    z-index: 1;
-    padding: 0 10px;
-    background: #fff
-}
-
-.input-hint span {
-    color: #07b107
-}
 
 .input-hint-lg {
     font-size: 18px
@@ -3176,6 +3012,9 @@ table th {
     margin: 4px -2px 0px 0px;
     left: 10px;
 }
+.notification .dropdown-menu{
+    padding: .5rem 0 0 0;
+}
 .notification .notification-icon {
     font-size: 20px;
     vertical-align: middle;
@@ -3190,7 +3029,7 @@ table th {
     box-shadow: 0px 5px 7px -1px #c1c1c1;
     padding: 0px;
     height: 350px;
-    overflow: scroll;
+    overflow: auto;
     overflow-x: hidden;
 }
 
@@ -3538,7 +3377,7 @@ select {
     background-image: url("/assets/img/counter-img.png") ;
 }
 .parallax-text-container-1 .parallax-text-item {
-    padding: 65px 0;
+    padding: 85px 0;
 }
 
 .today-on-iwriter h2 {
@@ -3573,20 +3412,24 @@ select {
 }
 
 .counter-item h5 {
-    font-size: 20px;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    line-height: 14px;
     margin-top: -12px;
+    font-weight: 500;
 }
 
 .stat-number {
-    font-size: 35px;
+    font-size: 45px;
     font-weight: bold;
     color: white;
+    line-height: 50px;
+    padding-bottom: 15px;
 }
 .table-row-clickable{
     cursor: pointer;
 }
 .counter .counter-bg{
-    background: rgba(34, 23, 22, 0.6);
     padding: 16px 0;
 }
 .earn-badges img{
@@ -3829,6 +3672,7 @@ footer .footer-bottom{
     background-color: #F5F5F5;
     position: relative;
     top: 230px;
+    margin-bottom: 245px;
 
 }
 .refer .steps p{

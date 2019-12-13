@@ -38,7 +38,7 @@ class PaymentController extends Controller
             $account = Account::where('bank', $request->bank)->where('iban', $request->iban)->where('active', 0)->first();
 
 
-            if (count($account) > 0)
+            if (is_null($account))
             $data = [
                 'type'      => 'bank',
                 'user_id'   => auth()->user()->id,

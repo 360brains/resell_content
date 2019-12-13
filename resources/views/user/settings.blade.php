@@ -38,8 +38,8 @@
                                                     <td>{{ $account->holder }}</td>
                                                     <td>{{ $account->iban }}
 
-                                                        <a class="close d-none float-right" id="close-btn" aria-label="Close" href="{{ route('user.remove.account', $account->id) }}"><i class="far fa-times-circle"></i></a>
-                                                        <a class="d-none float-right" id="edit-btn" href="{{ route('user.edit.account', $account->id) }}"><i class="far fa-edit"></i></a>
+                                                        <a class="close d-none float-right remove-d-none"  aria-label="Close" href="{{ route('user.remove.account', $account->id) }}"><i class="far fa-times-circle"></i></a>
+                                                        <a class="d-none float-right remove-d-none" href="{{ route('user.edit.account', $account->id) }}"><i class="far fa-edit"></i></a>
                                                     </td>
                                                 </tr>
                                                 @empty
