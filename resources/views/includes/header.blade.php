@@ -22,8 +22,8 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link hvrcenter
-                     {{strpos((request()->path()),"#") == 'true' ? 'nav-active' : ''}}"
-                               href="#works">How it works</a>
+                     {{strpos((request()->path()),"howItWorks") == 'true' ? 'nav-active' : ''}}"
+                               href="{{ route('pages.howItWorks') }}">How it works</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link hvrcenter
