@@ -27,7 +27,6 @@ class PagesController extends Controller
         return view('pages.welcome', $data);
     }
     public function projects(Request $request){
-
         $level              = $request->level;
         $category           = $request->category;
         $type               = $request->type;

@@ -86,19 +86,24 @@
         <div class="container">
             <div class="row pt-5" >
                 @forelse($categories as $category)
-                    <a href="{{ route('pages.projects.category', $category->id) }}">
-                        <div class="col-md-2 col-sm-6">
+                    <form action="{{ route('pages.projects', $category->id) }}" method="get">
+                        @csrf
+                        <div class="col-md-3 col-sm-6">
                             <div class="category-box" data-aos="fade-up">
                                 <div class="category-desc">
-                                    <div class="category-icon"><i class="icon-bargraph" aria-hidden="true"></i><img src="{{ asset('assets/img/market-place-img.png') }} " alt=""></div>
+                                    <div class="category-icon">
+                                        <i class="icon-bargraph" aria-hidden="true"></i>
+                                        <img src="{{ asset('assets/img/market-place-img.png') }} " alt="">
+                                    </div>
                                     <div class="category-detail category-desc-text">
                                         <div class="about-border"></div>
-                                        <h4> <a href="browse-jobs-grid.html">{{ $category->name }}</a></h4>
+                                        <h4> <button type="submit">{{ $category->name }}</button></h4>
+                                        <input type="hidden" name="category" value="{{ $category->id }}">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </form>
                 @empty
                     <h1>No categories Found.</h1>
                 @endforelse
