@@ -288,11 +288,20 @@ class ProjectController extends Controller
                     elseif($project->active == 0){
                         $status =  'ACTIVE';
                         $btn = 'btn-success';
-
                     }
 
+                    $i= 0;
+                    foreach(auth()->user()->unreadNotifications as $notification){
+                        if(strpos($notification->data['link'], "" . $project->id)) {
+                            if (strpos($notification->data['link'], "" . $project->id)){
+                                $i++;
+                            }
+                        }
+                    }
+
+
                     $nestedData['sr']       = $counter++;
-                    $nestedData['name']     = $project->name;
+                    $nestedData['name']     = $project->name . "&nbsp<span class='badge badge-info'>$i</span>";
                     $nestedData['quantity'] = $project->quantity;
                     $nestedData['type']     = $project->type->name;
                     $nestedData['deadline'] = $project->deadline;
