@@ -170,7 +170,7 @@
 
     <div class="clearfix"></div>
 
-    <div class="how-it-work" id="works">
+    <div class="how-it-work">
         <img src="{{ asset('assets/img/works.svg') }}" alt="">
     </div>
 

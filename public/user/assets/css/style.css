@@ -9,9 +9,6 @@ Updated	 :	03.13.2019
     font-family: 'new';
     src: url("../fonts/GOTHIC.TTF");
 }
-html{
-    scroll-behavior: smooth;
-}
 /*@font-face {*/
 /*    font-family: 'Roboto';*/
 /*    src: url("../fonts/Roboto-Light.eot");*/
@@ -2956,7 +2953,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     border-radius: 50%;
 }
 
-.dashborad-content, .projects-content, .my-projects, .transactions, .profile-content, .setting , .learn, .learn-details,.help-content, .funds {
+.dashborad-content, .projects-content, .my-projects, .transactions, .profile-content, .setting , .learn, .learn-details,.help-content, .funds, .task-work {
     background-color: #F7FAFC;
 }
 
@@ -3463,7 +3460,7 @@ footer .freelancer ul li a{
 }
 footer .footer-line{
     border-top: 1px solid #29313E;
-    margin-top: 120px;
+    margin-top: 80px;
 }
 footer .footer-social ul li a{
     padding: 0 5px;
@@ -3816,4 +3813,64 @@ footer .footer-bottom{
 }
 .funds .funds-card h5{
     font-weight: bold;
+}
+.task-work .task-title, .task-work .upload{
+    background-color: white;
+    padding: 20px;
+}
+.task-work .upload{
+
+}
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.btn1 {
+    border: 1px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 15px
+}
+
+/*.upload-btn-wrapper input[type=file] {*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*    opacity: 0;*/
+/*}*/
+::-webkit-file-upload-button {
+    background: white;
+    border: 1px solid #6c757d;
+    color: #6c757d;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+.work-process-caption h4:before {
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 80px;
+    display: block;
+    position: absolute;
+    background: #11b719;
+}
+.work-process-caption h4 {
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 16px;
+    position: relative;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    color: #202020;
+}
+.work-process-caption p {
+    color: #707c88;
+    line-height: 1.8;
+    font-weight: 400;
 }

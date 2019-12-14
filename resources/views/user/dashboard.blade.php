@@ -105,7 +105,7 @@
                             @endif
                                 <div class="item info">
                                     <a href="#">
-                                        <img class="" src="{{ asset('user/images/WEB-BANNER-1-3.jpg') }}" alt="">
+                                        <img class="" src="{{ asset('user/images/WEB-BANNER-1-3.png') }}" alt="">
                                     </a>
                                 </div>
                             </div>
