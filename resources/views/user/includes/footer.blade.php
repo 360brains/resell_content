@@ -1,3 +1,89 @@
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="footer-logo">
+                    <h1>great Content</h1>
+                    <ul>
+                        <li><a href=""><i class="fas fa-globe"></i>&nbsp; US (International)/English </a></li>
+                        <li><a href="{{ route('user.help') }}"><i class="fas fa-question-circle"></i>&nbsp; Help & Support </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-6">
+                <div class="freelancer">
+                    <h4>Freelancer</h4>
+                    <ul>
+                        <li><a href="">categories</a></li>
+                        <li><a href="">projects</a></li>
+                        <li><a href="">contests</a></li>
+                        <li><a href="">freelancers</a></li>
+                        <li><a href="">enterprise</a></li>
+                        <li><a href="">preferred freelancer</a></li>
+                        <li><a href="">program</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-6">
+                <div class="freelancer">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="">about us</a></li>
+                        <li><a href="">how it works</a></li>
+                        <li><a href="">security</a></li>
+                        <li><a href="">investors</a></li>
+                        <li><a href="">Sitemap</a></li>
+                        <li><a href="">quotes</a></li>
+                        <li><a href="">news</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-6">
+                <div class="freelancer">
+                    <h4>Terms</h4>
+                    <ul>
+                        <li><a href="">privacy policy</a></li>
+                        <li><a href="">terms and conditions</a></li>
+                        <li><a href="">copyright policy</a></li>
+                        <li><a href="">code of conduct</a></li>
+                        <li><a href="">fees and charges</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-6">
+                <div class="freelancer">
+                    <h4>Apps</h4>
+                    <ul>
+                        <li class="pb-2"><a href=""><img src="{{ asset('assets/img/google-play.svg') }}" alt=""></a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                    <div class="footer-social">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href=""><i class="fab fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href=""><i class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href=""><i class="fab fa-youtube"></i></a></li>
+                            <li class="list-inline-item"><a href=""><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="footer-line">
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-md-3">
+                    <strong>39,838,645</strong>
+                    <p>Registered Users</p>
+                </div>
+                <div class="col-md-4">
+                    <strong>39,838,645</strong>
+                    <p>Total Jobs Posted</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
 <script src="{{ asset('user/assets/js/jquery.bundle49f7.js') }}"></script>
 <script src="{{ asset('user/assets/js/script49f7.js') }}"></script>
 <script src="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.js') }}" type="text/javascript"></script>

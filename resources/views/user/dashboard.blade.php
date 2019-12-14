@@ -3,6 +3,94 @@
 @section('content')
     <section class="dashborad-content pt-5 pb-5 ">
         <div class="container">
+
+
+            {{--            test portion testing start--}}
+            <div class="row">
+                @if(auth()->user()->writing_points == 0)
+                    <div class="col-md-12">
+                        <div class="content-area card">
+                            <div class="card-innr video-making-card">
+                                @forelse(auth()->user()->currentWritingTest as $test)
+                                    <div class="card-head d-inline">
+                                        <h6 class="d-inline card-title"><srtong>Raise your Level:</srtong></h6>
+                                        <small><p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
+                                    </div>
+                                    @if($test->pivot->status == 'completed')
+                                    <!-- Button trigger modal -->
+                                        <button disabled class=" btn btn-sm btn-info float-right">
+                                            Writing Test
+                                        </button>
+                                    @elseif($test->pivot->status == 'started')
+                                    <!-- Button trigger modal -->
+                                        <a  href="{{ route('user.tests.writing.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
+                                            Writing Test
+                                        </a>
+                                    @else
+                                    <!-- Button trigger modal -->
+                                        <a  href="{{ route('user.tests.writing.test') }}" class="video-making-btn btn btn-sm btn-info float-right">
+                                            Writing Test
+                                        </a>
+                                    @endif
+                                @empty
+                                    <div class="card-head d-inline">
+                                        <h6 class="d-inline card-title"><srtong>Raise your Level:</srtong></h6>
+                                        <small> <p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
+                                    </div>
+                                    <!-- Button trigger modal -->
+                                    <a  href="{{ route('user.tests.writing.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
+                                        Writing Test
+                                    </a>
+                                    <!-- Modal -->
+                                @endforelse
+                            </div><!-- .card-innr -->
+                        </div><!-- .card -->
+                    </div>
+                @endif
+
+                @if(auth()->user()->video_points == 0)
+                    <div class="col-md-12">
+                        <div class="content-area card ">
+                            <div class="card-innr video-making-card">
+                                @forelse(auth()->user()->currentVideoTest as $test)
+                                    <div class="card-head d-inline">
+                                        <h6 class="d-inline card-title"><srtong>Raise your Level:</srtong></h6>
+                                        <small><p class="d-inline">Your current Video Making Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
+                                    </div>
+                                    @if($test->pivot->status == 'completed')
+                                    <!-- Button trigger modal -->
+                                        <button disabled class=" video-making-btn btn btn-sm btn-info float-right">
+                                            Video Making Test
+                                        </button>
+                                    @elseif($test->pivot->status == 'started')
+                                    <!-- Button trigger modal -->
+                                        <a  href="{{ route('user.tests.video.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
+                                            Video Making Test
+                                        </a>
+                                    @else
+                                    <!-- Button trigger modal -->
+                                        <a  href="{{ route('user.tests.video.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
+                                            Video Making Test
+                                        </a>
+                                    @endif
+                                @empty
+                                    <div class="card-head d-inline">
+                                        <h6 class="d-inline card-title"><srtong>Raise your Level:</srtong></h6>
+                                        <small> <p class="d-inline">Your current Video Making Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
+                                    </div>
+                                    <!-- Button trigger modal -->
+                                    <a  href="{{ route('user.tests.video.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
+                                        Video Making Test
+                                    </a>
+                                    <!-- Modal -->
+                                @endforelse
+                            </div><!-- .card-innr -->
+                        </div><!-- .card -->
+                    </div>
+                @endif
+            </div>
+            {{--            test portion testing end--}}
+
             <div class="row">
                 <div class="col-md-8">
                     <div class="slider position-relative pb-2">
@@ -127,13 +215,12 @@
                     <div class="account mt-4 shadow rounded">
                         <h5>Account Balance</h5>
                         <h1 class="acc-blnc">Rs.{{ floor(auth()->user()->balance) }}</h1>
-                        <p>This Month: <span><b>Rs.5400</b></span> This Year: <span><b>Rs.5400</b></span></p>
+                        <p>This Month: <span><b>{{ $earnedLastMonth }}</b></span> This Year: <span><b>{{ $earnedLastYear }}</b></span></p>
                         <div class="pt-4">
                             <div class="clearfix">
                                 <a href="{{ route('withdraw.create') }}" class="btn float-left btn-outline-success">Withdraw </a>
                                 <a href="#" data-toggle="modal" data-target="#deposit" class="btn float-right btn-outline-success">Deposit</a>
                             </div>
-
                         </div>
                     </div>
                 </div>

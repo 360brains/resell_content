@@ -4,3 +4,93 @@
     height: 765px;
     background-position: -30px -30px;
 }
+.input-checkbox,
+.input-radio {
+    position: absolute;
+    opacity: 0;
+    height: 1px;
+    width: 1px
+}
+
+.input-checkbox ~ label:not(.error),
+.input-radio ~ label:not(.error) {
+    font-size: 14px;
+    line-height: 30px;
+    margin-bottom: 0;
+    color: #495463;
+    padding-left: 42px;
+    position: relative;
+    cursor: pointer;
+    transition: all .4s;
+    text-transform: capitalize;
+    display: block
+}
+
+.input-checkbox ~ label:not(.error):before,
+.input-checkbox ~ label:not(.error):after,
+.input-radio ~ label:not(.error):before,
+.input-radio ~ label:not(.error):after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 3px;
+    transition: all .4s
+}
+
+.input-checkbox ~ label:not(.error):before,
+.input-radio ~ label:not(.error):before {
+    content: '';
+    border: 2px solid #d2dde9
+}
+
+.input-checkbox ~ label:not(.error):after,
+.input-radio ~ label:not(.error):after {
+    line-height: 30px;
+    text-align: center;
+    font-family: themify;
+    content: '\e64c';
+    font-size: 14px;
+    font-weight: 900;
+    color: #fff;
+    background: #2c80ff;
+    opacity: 0
+}
+
+.input-checkbox:disabled ~ label:not(.error),
+.input-radio:disabled ~ label:not(.error) {
+    opacity: .5
+}
+
+.input-checkbox:checked ~ label:not(.error):after,
+.input-radio:checked ~ label:not(.error):after {
+    opacity: 1
+}
+
+.input-checkbox ~ .error,
+.input-radio ~ .error {
+    position: absolute;
+    left: 1px;
+    color: #fff;
+    font-size: 12px;
+    bottom: 100%;
+    background: #ff6868;
+    padding: 5px 10px;
+    z-index: 1;
+    border-radius: 2px;
+    white-space: nowrap
+}
+
+.input-checkbox ~ .error:before,
+.input-radio ~ .error:before {
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #ff6868;
+    bottom: -6px;
+    left: 8px
+}
