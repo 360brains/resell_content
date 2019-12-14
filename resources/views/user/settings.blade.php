@@ -21,7 +21,7 @@
                                     <div class="col-md-12">
                                         <h5>Payment & Financials</h5>
                                         <hr>
-                                        <h6>Payment Methods <a href="#"  data-toggle="modal" data-target="#pay-online"><i class="fas fa-plus-circle"></i></a></h6>
+                                        <h6>Payment Methods <a href="#"  data-toggle="modal" data-target="#pay-online"><i class="fas fa-plus-circle payment-model"></i></a></h6>
                                         <div class=" table-responsive">
                                             <table class="table table-bordered table-sm">
                                                 <thead>
@@ -38,8 +38,8 @@
                                                     <td>{{ $account->holder }}</td>
                                                     <td>{{ $account->iban }}
 
-                                                        <a class="close d-none float-right remove-d-none"  aria-label="Close" href="{{ route('user.remove.account', $account->id) }}"><i class="far fa-times-circle"></i></a>
-                                                        <a class="d-none float-right remove-d-none" href="{{ route('user.edit.account', $account->id) }}"><i class="far fa-edit"></i></a>
+                                                        <a title="Remove Account" class="d-none float-right remove-d-none pl-2"  aria-label="Close" href="{{ route('user.remove.account', $account->id) }}"><i class="far fa-times-circle"></i></a>
+                                                        <a title="Edit Account" class="d-none float-right remove-d-none" href="{{ route('user.edit.account', $account->id) }}"><i class="far fa-edit"></i></a>
                                                     </td>
                                                 </tr>
                                                 @empty

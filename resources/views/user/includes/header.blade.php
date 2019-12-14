@@ -75,8 +75,8 @@
                                         <ul class="notification-menu" >
                                             <li class="head">
                                                 <div class="clearfix">
-                                                    <h5 class="float-left"><strong>Notifications</strong></h5>
-                                                    <a href="" class="float-right p-0">Mark all as read</a>
+                                                    <h5 class="float-left mb-0"><strong>Notifications</strong></h5>
+                                                    <a href="#" class="float-right p-0 text-info">Mark all as read</a>
                                                 </div>
                                             </li>
                                             <ul>
@@ -93,7 +93,7 @@
                                                 @endforelse
                                             </ul>
                                             <li class="footer text-center">
-                                                <a href="">View All</a>
+                                                <a href="{{route('user.notifications')}}">View All</a>
                                             </li>
                                         </ul>
                                     </div>
