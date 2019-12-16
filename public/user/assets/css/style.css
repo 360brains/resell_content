@@ -3875,3 +3875,13 @@ footer .footer-bottom{
     line-height: 1.8;
     font-weight: 400;
 }
+.category-desc button{
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+}
+.category-desc button:hover{
+    color: green;
+}
