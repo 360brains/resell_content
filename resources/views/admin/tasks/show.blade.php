@@ -90,7 +90,7 @@
                                         @csrf
                                         {{ method_field('PATCH') }}
                                         <button type="submit" name="action" value="approved" class="btn btn-success">Approve</button>
-                                        <button type="submit" name="action" value="reworking" class="btn btn-primary">Rework</button>
+                                        <button type="button" data-toggle="modal" href="#basic" class="btn btn-primary">Rework</button>
                                         <button type="submit" name="action" value="rejected" class="btn btn-danger">Reject</button>
                                     </form>
                                 </td>
@@ -132,5 +132,29 @@
                 </div>
             </div>
         @endif
+    </div>
+    <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Details for rework</h4>
+                </div>
+                <div class="modal-footer">
+                    <form action="{{ route('admin.tasks.update', $task->id) }}" method="post">
+                        @csrf
+                        {{ method_field('PATCH') }}
+                        <div class="form-group form-md-line-input">
+                            <input type="number" name="deadline" class="form-control" id="form_control_1" placeholder="Time Awarded for task in hours" value="{{ $task->project->deadline }}">
+                            <label class="text-left">Task Deadline <small>(in hours)</small></label>
+                        </div>
+                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                        <button type="submit" name="action" value="reworking" class="btn green">Save changes</button>
+                    </form>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
     </div>
 @endsection
