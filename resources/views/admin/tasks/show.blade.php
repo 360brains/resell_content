@@ -118,7 +118,7 @@
                         </div>
                     @elseif($task->project->type->name == 'Content Writing')
                         <div class="portlet-body">
-                            <form action="{{ route('user.tasks.save.progress', $task->id) }}" method="post">
+                            <form action="{{ route('admin.task.save.progress', $task->id) }}" method="post">
                                 @csrf
                                 <textarea id="messageArea" name="body" rows="7" class="form-control summernote" placeholder="Write your message..">{!! $task->body !!}</textarea>
                                 <div class="gaps-2-5x"></div>
