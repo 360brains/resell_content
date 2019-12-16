@@ -9,7 +9,7 @@
             <div class="row">
                 @if(auth()->user()->writing_points == 0)
                     <div class="col-md-12">
-                        <div class="content-area card">
+                        <div class="content-area card p-2">
                             <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentWritingTest as $test)
                                     <div class="card-head d-inline">
@@ -49,8 +49,8 @@
                 @endif
 
                 @if(auth()->user()->video_points == 0)
-                    <div class="col-md-12">
-                        <div class="content-area card ">
+                    <div class="col-md-12 pt-2 pb-2">
+                        <div class="content-area card p-2">
                             <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentVideoTest as $test)
                                     <div class="card-head d-inline">
@@ -105,7 +105,7 @@
                             @endif
                                 <div class="item info">
                                     <a href="#">
-                                        <img class="" src="{{ asset('user/images/WEB-BANNER-1-3.jpg') }}" alt="">
+                                        <img class="" src="{{ asset('user/images/WEB-BANNER-1-3.png') }}" alt="">
                                     </a>
                                 </div>
                             </div>
