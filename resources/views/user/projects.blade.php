@@ -26,7 +26,7 @@
                     <div class="col-lg col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group position-relative">
                             <i class="fas custom-arrow fa-chevron-down"></i>
-                            <label for="exampleFormControlSelect1"><h5>Points</h5></label>
+                            <label for="exampleFormControlSelect1"><h5>Category</h5></label>
                             <select name="category" class="form-control custom-inp" id="exampleFormControlSelect1">
                                 <option value="">Choose Category</option>
                                 @forelse($categories as $category)
@@ -37,17 +37,7 @@
                             </select>
                         </div>
                     </div>
-{{--                    <div class="col-md-2">--}}
-{{--                        <div class="form-group position-relative">--}}
-{{--                            <i class="fas custom-arrow fa-chevron-down"></i>--}}
-{{--                            <label for="exampleFormControlSelect1"><h5>Account Type</h5></label>--}}
-{{--                            <select name="account" class="form-control custom-inp" id="exampleFormControlSelect1">--}}
-{{--                                <option>Choose Account</option>--}}
-{{--                                <option value="free">Free</option>--}}
-{{--                                <option value="premium">Premium</option>--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+
                     <div class="col-lg col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group position-relative">
                             <i class="fas custom-arrow fa-chevron-down"></i>
@@ -107,32 +97,41 @@
                                 <div class="dec">
                                     <p>{!! $project->description !!}</p>
                                 </div>
-                                <h6 class="font-weight-bold">REQUIRED TRANING</h6>
+                                @if(count($project->trainings) >= 1)
+                                    <h6 class="font-weight-bold">REQUIRED TRANING</h6>
+                                @endif
                                 <ul class="d-flex">
-                                    <li><a href=""><img src="{{ asset('user/images/asset 1.png') }}" alt=""></a></li>
-                                    <li><a href=""><img src="{{ asset('user/images/asset 2.png') }}" alt=""></a></li>
-                                    <li><a href=""><img src="{{ asset('user/images/asset 3.png') }}" alt=""></a></li>
-                                    <li><a href=""><img src="{{ asset('user/images/asset 4.png') }}" alt=""></a></li>
+                                    @foreach( $project->trainings as $training)
+                                        <li><a href=""><img src="{{ asset($training->badge) }}" alt=""></a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div class="col-md-5">
                                 <div class="row">
-                                    <div class="col-md-4  pl-4">
+                                    <div class="col-md-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">LEVEL</h6>
                                         <span class="text-success">{{$project->level->name}}</span>
-                                        <h6 class="m-0 font-weight-bold pt-4">TIME AWARDED</h6>
+                                    </div>
+                                    <div class="col-md-4  pl-4 pb-4">
+                                        <h6 class="m-0 font-weight-bold">TIME AWARDED</h6>
                                         <span class="text-danger">{{ $project->deadline }} <small>Hours</small></span>
                                     </div>
-                                    <div class="col-md-4 pl-4">
+                                    <div class="col-md-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">CATEGORY</h6>
                                         <span class="text-success">{{ $project->category->name }}</span>
-                                        <h6 class="m-0 font-weight-bold pt-4">NO. OF WORDS</h6>
-                                        <span class="text-success">{{ $project->words }}</span>
                                     </div>
-                                    <div class="col-md-4 pl-5">
+                                    @if($project->type->name == 'Content Writing')
+                                        <div class="col-md-4 pl-4 pb-4">
+                                            <h6 class="m-0 font-weight-bold">NO. OF WORDS</h6>
+                                            <span class="text-success">{{ $project->words }}</span>
+                                        </div>
+                                    @endif
+                                    <div class="col-md-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">POINTS</h6>
                                         <span class="text-success">+{{ $project->points }}</span>
-                                        <h6 class="m-0 font-weight-bold pt-4">Available</h6>
+                                    </div>
+                                    <div class="col-md-4  pl-4 pb-4">
+                                        <h6 class="m-0 font-weight-bold">Available</h6>
                                         <span class="text-success">{{ $project->available }}</span>
                                     </div>
                                 </div>
