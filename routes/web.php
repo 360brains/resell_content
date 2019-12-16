@@ -52,7 +52,7 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 // ['auth', 'verified']
 // Use when email setup is complete
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth', 'active']], function() {
     Route::get('user/dashboard', 'User\DashboardController@index')->name('user.dashboard');
     Route::get('user/profile', 'User\ProfileController@index')->name('user.profile');
     Route::get('user/learn', 'User\LearnController@index')->name('user.learn');
@@ -92,6 +92,7 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::get('/', 'Pages\PagesController@home')->name('pages.home')->middleware('user');
+Route::get('/inactive', 'Pages\PagesController@inactive')->name('pages.inactive');
 Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');
 Route::get('/howItWorks', 'Pages\PagesController@howItWorks')->name('pages.howItWorks');
 Route::get('/project-details/{id}', 'Pages\PagesController@projectDetails')->name('pages.project.details');

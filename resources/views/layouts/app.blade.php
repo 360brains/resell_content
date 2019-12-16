@@ -68,5 +68,7 @@
         </main>
     </div>
     @include("includes.footer")
+    @include('includes.notifications')
+    @include('includes.script')
 </body>
 </html>

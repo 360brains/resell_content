@@ -15,21 +15,21 @@ class Transaction extends Model
         return $this->belongsTo(User::class);
     }
 
-//    function task(){
-//        return $this->belongsTo(Task::class);
-//    }
-//
-//    function test(){
-//        return $this->belongsTo(Test::class);
-//    }
-//
-//    function training(){
-//    return $this->belongsTo(Training::class);
-//    }
-//
-//    function membership(){
-//        return $this->belongsTo(Membership::class);
-//    }
+    function task(){
+        return $this->belongsTo(Task::class);
+    }
+
+    function test(){
+        return $this->belongsTo(Test::class);
+    }
+
+    function training(){
+    return $this->belongsTo(Training::class);
+    }
+
+    function membership(){
+        return $this->belongsTo(Membership::class);
+    }
 
     function withdraw(){
         return $this->belongsTo(Withdraw::class);
