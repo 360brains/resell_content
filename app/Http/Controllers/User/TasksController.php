@@ -169,7 +169,6 @@ class TasksController extends Controller
                 'message'       => 'Your task is delivered and awaiting result.',
                 'tooltip'       => ' You will get result notification soon',
                 'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take More</a>",
-
             ];
             $task->user->notify(new TaskResult($details));
 
@@ -179,25 +178,12 @@ class TasksController extends Controller
                 'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . "</a><a href=".route("admin.tasks.show", $task->id)." class='d-inline'> delivered a task.</a>",
                 'tooltip'       => 'Task',
                 'link'          => "<a href=".route("admin.tasks.show", $task->id)." class='d-inline'>View task</a>",
-
             ];
             $admins = Admin::all();
             foreach ($admins as $admin) {
                 $admin->notify(new TaskResult($adminDetails));
             }
-
         }
-
-//        elseif ($request->action == 'admin-save'){
-//            $task->body     = $request->body;
-//            $response       = $task->save();
-//
-//            if ($response){
-//                return redirect()->back()->with("success", "Completed Successfully.");
-//            }else{
-//                return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
-//            }
-//        }
 
         elseif ($request->action == 'video'){
 
