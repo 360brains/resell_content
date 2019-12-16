@@ -190,8 +190,12 @@ class TaskController extends Controller
 
         }
         elseif($request->action == 'reworking'){
+            $request->validate([
+                'deadline'          => 'required',
+            ]);
+
             $task->status       = 'reworking';
-            $task->deadline     = now()->addHours($task->project->deadline);
+            $task->deadline     = now()->addHours($request->deadline);
             $response           = $task->save();
 
             $taskData = ['name' => 'reworking',];
