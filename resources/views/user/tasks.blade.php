@@ -41,7 +41,7 @@
                             <th>DUE ON</th>
                             <th>START DATE</th>
                             <th>STATUS</th>
-                            <th>ACTION</th>
+                            <th colspan="2">ACTION</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -64,7 +64,7 @@
                                             </span>
                                     @endif
                                 </td>
-                                <td class="data-col text-right"><a href="#" data-toggle="modal" data-target="#transaction-details{{$task->id}}" class="btn btn-light-alt btn-xs btn-icon"><em class="ti ti-eye"></em></a></td>
+                                <td class="data-col pl-0"><a href="#" data-toggle="modal" data-target="#transaction-details{{$task->id}}" class="btn btn-light-alt btn-xs btn-icon"><em class="ti ti-eye"></em></a></td>
                                 <div class="modal fade" id="transaction-details{{$task->id}}" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-lg modal-dialog-centered">
                                         <div class="modal-content"><a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>

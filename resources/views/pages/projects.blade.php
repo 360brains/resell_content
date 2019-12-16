@@ -29,7 +29,7 @@
                     <div class="col-lg col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group position-relative">
                             <i class="fas custom-arrow fa-chevron-down"></i>
-                            <label for="exampleFormControlSelect1"><h5>Points</h5></label>
+                            <label for="exampleFormControlSelect1"><h5>Category</h5></label>
                             <select name="category" class="form-control custom-inp" id="exampleFormControlSelect1">
                                 <option value="">Choose Category</option>
                                 @forelse($categories as $category)
