@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Task;
+use App\Notifications\TaskResult;
+use Bitfumes\Multiauth\Model\Admin;
 use PhpOffice\PhpWord\IOFactory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -46,6 +48,19 @@ class OfficeController extends Controller
         $task->body         = $body;
         $task->status       = 'delivered';
         $response           = $task->save();
+
+        $details = [
+            'taskName'      => $task->project->id,
+            'date'          => now(),
+            'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . "</a><a href=".route("admin.tasks.show", $task->id)." class='d-inline'> delivered a task.</a>",
+            'tooltip'       => 'Task',
+            'link'          => "<a href=".route("admin.tasks.show", $task->id)." class='d-inline'>View task</a>",
+
+        ];
+        $admins = Admin::all();
+        foreach ($admins as $admin) {
+            $admin->notify(new TaskResult($details));
+        }
 
         if ($response){
             return redirect()->route('user.tasks')->with("success", "Completed Successfully.");

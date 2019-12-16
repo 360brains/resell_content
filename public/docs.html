@@ -4,46 +4,51 @@
 <head>
 <meta charset="UTF-8" />
 <title>PHPWord</title>
+<meta name="author" content="pasha khan" />
 <style>
 * {font-family: Arial; font-size: 11pt;}
 a.NoteRef {text-decoration: none;}
 hr {height: 1px; padding: 0; margin: 1em 0; border: 0; border-top: 1px solid #CCC;}
 table {border: 1px solid black; border-spacing: 0px; width : 100%;}
 td {border: 1px solid black;}
-.Normal {margin-bottom: 4pt;}
-h1 {color: #7B230B; font-weight: bold; text-transform: uppercase;}
-h2 {color: #A5300F;}
-h3 {color: #A5300F;}
-.Placeholder Text {color: #808080;}
-.Table space {font-size: 4pt;}
-.Heading 3 Char {color: #A5300F;}
-.Amount {margin-top: 0; margin-bottom: 0;}
-.No Spacing {margin-bottom: 0pt;}
-.Balloon Text {font-family: 'Segoe UI'; font-size: 9pt;}
-.Balloon Text Char {font-family: 'Segoe UI'; font-size: 9pt;}
+.Normal {margin-bottom: 8pt;}
 </style>
 </head>
 <body>
-<table class="TableGridLight">
-<tr>
-<td>
+<p style="text-align: center; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 14pt; font-weight: bold;">BC190412338</span></p>
+<p style="text-align: center; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 14pt; font-weight: bold;">Assignment No. 2</span></p>
+<p style="text-align: center; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 14pt; font-weight: bold;">CS502</span></p>
 <p>&nbsp;</p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt; font-weight: bold;">Question No 01:</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">You are required to determine (write down the name) the algorithm being used while sorting the above given array.</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt; font-weight: bold;">Answer</span><span style="font-family: 'Times New Roman'; font-size: 12pt; font-weight: bold;">:</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">Selection </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">sort</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> is the</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> algorithm</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> used in the scenario because if </span><span style="font-family: 'Arial';">sorts an array by repeated</span><span style="font-family: 'Arial';">ly finding the minimum element </span><span style="font-family: 'Arial';">from unsorted part and putting it at the beginning</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">.</span></p>
 <p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt; font-weight: bold;">Question No 02: </span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">You are required to design (write) the algorithm (Only Pseudo code) determined in Question 1.</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt; font-weight: bold;">Answer</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">:</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">SelectionSort</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">(</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">array</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> , n)</span></p>
+<p style="margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">{</span></p>
+<p style="margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">for j ← 1 to n-1</span></p>
+<p style="margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">      </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">smallest ← j</span>			<span style="font-family: 'Times New Roman'; font-size: 12pt;">A</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">  </span></p>
+<p style="margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">for </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">i</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> ← j + 1 to n</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">                                                                                    </span></p>
+<p style="margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">if </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">array</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">[</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">i</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">] &lt; </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">array</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">[smallest]</span></p>
+<p style="margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">    </span>	<span style="font-family: 'Times New Roman'; font-size: 12pt;">    smallest ← </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">I</span>		<span style="font-family: 'Times New Roman'; font-size: 12pt;">B</span></p>
+<p style="margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">temp = </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">array</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">[</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">i</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">]</span></p>
+<p style="margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">array</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">[</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">i</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">] = </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">array</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">[min]</span>			<span style="font-family: 'Times New Roman'; font-size: 12pt;">C</span></p>
+<p style="margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">array</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">[min] = temp</span>		</p>
+<p style="margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">}</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt; font-weight: bold;">Question No 03: </span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">You are required to calculate (Step by Step) the </span><span style="font-family: 'Times New Roman'; font-size: 12pt; font-weight: bold;">worst case</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> time complexity </span><span style="font-family: 'Times New Roman'; font-size: 12pt; font-weight: bold;">T(n)</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> of the algorithm designed in Question No. 02.</span></p>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-</td>
-</tr>
-</table>
-<p>&nbsp;</p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt; font-weight: bold;">Answer</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">:</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">  A =</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> (n-1)</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">B</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> = (n-1)</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">+(n-2)</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">+…+</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">1</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">      = </span><span style="font-family: 'Times New Roman'; font-size: 12pt; color: #000000;">&lt;Object: word/embeddings/oleObject1.bin></span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">C</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> = (n-1)</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">T(n) = (n-1) A</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> + </span><span style="font-family: 'Times New Roman'; font-size: 12pt; color: #000000;">&lt;Object: word/embeddings/oleObject2.bin></span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> B + </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">(n-1)</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> C</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">T(n) = an</span><span style="font-family: 'Times New Roman'; font-size: 12pt; vertical-align: super;">2 </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">+ </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">bn</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> + c</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">Here a,</span><span style="font-family: 'Times New Roman'; font-size: 12pt;"> </span><span style="font-family: 'Times New Roman'; font-size: 12pt;">b a</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">nd c are constants in term of A, B and C</span></p>
+<p style="text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="font-family: 'Times New Roman'; font-size: 12pt;">T(n) = O(n</span><span style="font-family: 'Times New Roman'; font-size: 12pt; vertical-align: super;">2</span><span style="font-family: 'Times New Roman'; font-size: 12pt;">)</span></p>
 </body>
 </html>
