@@ -66,10 +66,12 @@
                             <td>{{$project->quantity}}</td>
                         </tr>
 
-                        <tr>
-                            <th>Number of words</th>
-                            <td>{{$project->words}}</td>
-                        </tr>
+                        @if($project->type->name == 'Content Writing')
+                            <tr>
+                                <th>Number of words</th>
+                                <td>{{$project->words}}</td>
+                            </tr>
+                        @endif
 
                         <tr>
                             <th>Available Tasks</th>

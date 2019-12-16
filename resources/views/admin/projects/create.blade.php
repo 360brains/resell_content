@@ -97,7 +97,6 @@
                                                     @foreach($levels as $level)
                                                         <option value="{{ $level->id }}" {{old('level')==$level->id?'selected':''}}>{{ $level->name }}</option>
                                                     @endforeach
-
                                                 </select>
                                                 <label>Project Level</label>
                                             </div>
@@ -138,19 +137,9 @@
                                         <label>Project Template</label>
                                     </div>
 
-
-{{--                                    <div class="form-group form-md-line-input">--}}
-{{--                                        <select class="form-control" name="trainings[]" multiple="multiple">--}}
-{{--                                            @foreach($trainings as $training)--}}
-{{--                                                <option value="{{ $training->id }}" {{old('trainings[]')==$training->id?'selected':''}}>{{$training->name }}</option>--}}
-{{--                                            @endforeach--}}
-{{--                                        </select>--}}
-{{--                                        <label>Trainings Required  <small>(Can Select Multiple Trainings)</small></label>--}}
-{{--                                    </div>--}}
-
-
                                     <div class="row">
                                         <div class="form-group form-md-line-input">
+                                            <h4 class="margin-bottom-20">Trainings required for this project</h4>
                                             @foreach($trainings as $training)
                                                 <div class="col-sm-6">
                                                     <div class="md-checkbox">
