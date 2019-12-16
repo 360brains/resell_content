@@ -292,10 +292,8 @@ class ProjectController extends Controller
 
                     $i= 0;
                     foreach(auth()->user()->unreadNotifications as $notification){
-                        if(strpos($notification->data['link'], "" . $project->id)) {
-                            if (strpos($notification->data['link'], "" . $project->id)){
-                                $i++;
-                            }
+                        if($notification->data['taskName'] == $project->id){
+                            $i++;
                         }
                     }
 

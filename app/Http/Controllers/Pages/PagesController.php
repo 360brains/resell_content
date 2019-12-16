@@ -112,7 +112,10 @@ class PagesController extends Controller
     }
 
     public function howItWorks(){
+        return view('pages.how-it-works');
+    }
+    public function inactive(){
 
-    return view('pages.how-it-works');
-}
+        return view('user.inactive');
+    }
 }
