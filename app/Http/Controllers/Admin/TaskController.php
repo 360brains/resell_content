@@ -178,20 +178,25 @@ class TaskController extends Controller
             $details = [
                 'taskName'      => $task->project->name,
                 'date'          => now(),
-                'message'        => 'Your task is rejected',
+                'message'       => 'Your task is rejected',
                 'tooltip'       => 'Try harder next time.',
                 'link'          => "<a href=".route("user.tasks")." class=\'d-inline\'>Details</a>",
             ];
             $emailDetails = [
-                'message'       => 'Your task is rejected. Try harder next time.',
+                'message'      => 'Your task is rejected. Try harder next time.',
                 'url'          => route("user.tasks"),
                 'urlText'      => 'Details',
             ];
 
         }
         elseif($request->action == 'reworking'){
-            $task->status   = 'reworking';
-            $response       = $task->save();
+            $request->validate([
+                'deadline'          => 'required',
+            ]);
+
+            $task->status       = 'reworking';
+            $task->deadline     = now()->addHours($request->deadline);
+            $response           = $task->save();
 
             $taskData = ['name' => 'reworking',];
             $task->statuses()->create($taskData);
@@ -235,6 +240,18 @@ class TaskController extends Controller
             return redirect()->route('admin.tasks.index')->with("success", "Completed Successfully.");
         }else{
             return redirect()->back()->with("error", "Something went wrong. Please try again.");
+        }
+    }
+
+    public function saveProgress(Request $request, $id){
+        $task = Task::find($id);
+        $task->body     = $request->body;
+        $response       = $task->save();
+
+        if ($response){
+            return redirect()->back()->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
     }
 }
