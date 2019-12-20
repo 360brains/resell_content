@@ -299,4 +299,10 @@ class TasksController extends Controller
         return view('user.projects', $data);
     }
 
+    public function extendTime($id){
+
+        dd($id);
+        return view('user.work');
+    }
+
 }

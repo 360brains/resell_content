@@ -111,7 +111,7 @@ class TrainingController extends Controller
      */
     public function show(Training $training)
     {
-        $data['trainings'] = $training;
+        $data['trainings'] = Training::with('trainingLists')->find($training->id);
         return view('admin.trainings.show', $data);
     }
 
