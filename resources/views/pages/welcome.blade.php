@@ -6,47 +6,47 @@
             <div id="carousel" class="owl-carousel">
                 <div class="item info">
                     <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
-{{--                    <div class="slider-content">--}}
-{{--                        <h1>--}}
-{{--                            <i class="fas fa-quote-left"></i>--}}
-{{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
-{{--                            <i class="fas fa-quote-right"></i>--}}
-{{--                        </h1>--}}
-{{--                        <p>&minus;Louis L'Amour</p>--}}
-{{--                    </div>--}}
+                    {{--                    <div class="slider-content">--}}
+                    {{--                        <h1>--}}
+                    {{--                            <i class="fas fa-quote-left"></i>--}}
+                    {{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
+                    {{--                            <i class="fas fa-quote-right"></i>--}}
+                    {{--                        </h1>--}}
+                    {{--                        <p>&minus;Louis L'Amour</p>--}}
+                    {{--                    </div>--}}
                 </div>
                 <div class="item info">
                     <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
-{{--                    <div class="slider-content">--}}
-{{--                        <h1>--}}
-{{--                            <i class="fas fa-quote-left"></i>--}}
-{{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
-{{--                            <i class="fas fa-quote-right"></i>--}}
-{{--                        </h1>--}}
-{{--                        <p>&minus;Louis L'Amour</p>--}}
-{{--                    </div>--}}
+                    {{--                    <div class="slider-content">--}}
+                    {{--                        <h1>--}}
+                    {{--                            <i class="fas fa-quote-left"></i>--}}
+                    {{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
+                    {{--                            <i class="fas fa-quote-right"></i>--}}
+                    {{--                        </h1>--}}
+                    {{--                        <p>&minus;Louis L'Amour</p>--}}
+                    {{--                    </div>--}}
                 </div>
                 <div class="item info">
                     <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
-{{--                    <div class="slider-content">--}}
-{{--                        <h1>--}}
-{{--                            <i class="fas fa-quote-left"></i>--}}
-{{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
-{{--                            <i class="fas fa-quote-right"></i>--}}
-{{--                        </h1>--}}
-{{--                        <p>&minus;Louis L'Amour</p>--}}
-{{--                    </div>--}}
+                    {{--                    <div class="slider-content">--}}
+                    {{--                        <h1>--}}
+                    {{--                            <i class="fas fa-quote-left"></i>--}}
+                    {{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
+                    {{--                            <i class="fas fa-quote-right"></i>--}}
+                    {{--                        </h1>--}}
+                    {{--                        <p>&minus;Louis L'Amour</p>--}}
+                    {{--                    </div>--}}
                 </div>
                 <div class="item info">
                     <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
-{{--                    <div class="slider-content">--}}
-{{--                        <h1>--}}
-{{--                            <i class="fas fa-quote-left"></i>--}}
-{{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
-{{--                            <i class="fas fa-quote-right"></i>--}}
-{{--                        </h1>--}}
-{{--                        <p>&minus;Louis L'Amour</p>--}}
-{{--                    </div>--}}
+                    {{--                    <div class="slider-content">--}}
+                    {{--                        <h1>--}}
+                    {{--                            <i class="fas fa-quote-left"></i>--}}
+                    {{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
+                    {{--                            <i class="fas fa-quote-right"></i>--}}
+                    {{--                        </h1>--}}
+                    {{--                        <p>&minus;Louis L'Amour</p>--}}
+                    {{--                    </div>--}}
                 </div>
             </div>
         </div>
@@ -63,9 +63,11 @@
                         <h4><i class="fas fa-tasks"></i>&nbsp; Payment Protection, Guranteed</h4>
                         <p>Payment is released to the writer once the work get approved.</p>
                         <h4><i class="fas fa-tasks"></i>&nbsp; Know The Price Upfront</h4>
-                        <p>Find task within minutes and know exactly what you'll pay. No hourly rates, just a fixed price</p>
+                        <p>Find task within minutes and know exactly what you'll pay. No hourly rates, just a fixed
+                            price</p>
                         <h4><i class="fas fa-tasks"></i>&nbsp; We're Here For You 24/7</h4>
-                        <p>GreatContent is here for you, anything from answering any questions to resolving any issue, at any time.</p>
+                        <p>GreatContent is here for you, anything from answering any questions to resolving any issue,
+                            at any time.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -84,11 +86,11 @@
             <h3>Explore The <span>Marketplace</span></h3>
         </div>
         <div class="container">
-            <div class="row pt-5" >
+            <div class="row pt-4">
                 @forelse($categories as $category)
-                    <form action="{{ route('pages.projects', $category->id) }}" method="get">
-                        @csrf
-                        <div class="col-md-3 col-sm-6">
+                <div class="col-md-3">
+                        <form action="{{ route('pages.projects', $category->id) }}" method="get">
+                            @csrf
                             <div class="category-box" data-aos="fade-up">
                                 <div class="category-desc">
                                     <div class="category-icon">
@@ -97,13 +99,15 @@
                                     </div>
                                     <div class="category-detail category-desc-text">
                                         <div class="about-border"></div>
-                                        <h4> <button type="submit">{{ $category->name }}</button></h4>
+                                        <h4>
+                                            <button type="submit">{{ $category->name }}</button>
+                                        </h4>
                                         <input type="hidden" name="category" value="{{ $category->id }}">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                </div>
                 @empty
                     <h1>No categories Found.</h1>
                 @endforelse
@@ -117,43 +121,53 @@
         <div class="parallax today-on-iwriter" id="parallax-one">
             <div class="parallax-text-container-1">
                 <div class="parallax-text-item">
-                                <h2 class="text-center">Today On <span>GreatContent</span></h2>
-                            <div class="d-flex counter-bg">
-                                <div class="container">
-                                    <div class="row">
+                    <h2 class="text-center">Today On <span>GreatContent</span></h2>
+                    <div class="d-flex counter-bg">
+                        <div class="container">
+                            <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="parallax-content-wrapper">
                                         <div class="clearfix">
-                                            <div class="today-icon float-left"><img src="{{ asset('assets/img/counter-img-1.png') }}"></div>
+                                            <div class="today-icon float-left"><img
+                                                    src="{{ asset('assets/img/counter-img-1.png') }}"></div>
                                             <div class="counter-item">
                                                 <div>
-                                                    <div class="stat-number" style="display: inline-block">{{ $totalJobs }}</div><br>
+                                                    <div class="stat-number"
+                                                         style="display: inline-block">{{ $totalJobs }}</div>
+                                                    <br>
                                                 </div>
                                                 <h5><span>jobs posted</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                        <div class="col-xs-12 col-sm-12 col-md-4">
-                                            <div class="parallax-content-wrapper">
-                                                <div class="clearfix">
-                                                    <div class="today-icon float-left"><img src="{{ asset('assets/img/counter-img-3.png') }}"></div>
-                                                    <div class="counter-item">
-                                                        <div>
-                                                            <div class="stat-number" style="display: inline-block">{{ $totalWriters }}</div><br>
-                                                        </div>
-                                                        <h5><span>writers</span></h5>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="parallax-content-wrapper">
                                         <div class="clearfix">
-                                            <div class="today-icon float-left"><img class="pt-2 pr-2" src="{{ asset('assets/img/counter-img-2.png') }}"></div>
+                                            <div class="today-icon float-left"><img
+                                                    src="{{ asset('assets/img/counter-img-3.png') }}"></div>
                                             <div class="counter-item">
                                                 <div>
-                                                    <div class="stat-number" style="display: inline-block">{{ $totalWork }}</div><br>
+                                                    <div class="stat-number"
+                                                         style="display: inline-block">{{ $totalWriters }}</div>
+                                                    <br>
+                                                </div>
+                                                <h5><span>writers</span></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                    <div class="parallax-content-wrapper">
+                                        <div class="clearfix">
+                                            <div class="today-icon float-left"><img class="pt-2 pr-2"
+                                                                                    src="{{ asset('assets/img/counter-img-2.png') }}">
+                                            </div>
+                                            <div class="counter-item">
+                                                <div>
+                                                    <div class="stat-number"
+                                                         style="display: inline-block">{{ $totalWork }}</div>
+                                                    <br>
                                                 </div>
                                                 <h5><span>articles written (till now)</span></h5>
                                             </div>
@@ -178,7 +192,7 @@
 
     <div class="learn">
         <a href="{{ route('user.learn') }}">
-        <img src="{{ asset('assets/img/learn.svg') }}" alt="">
+            <img src="{{ asset('assets/img/learn.svg') }}" alt="">
         </a>
     </div>
 @endsection

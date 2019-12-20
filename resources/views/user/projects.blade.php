@@ -102,7 +102,7 @@
                                 @endif
                                 <ul class="d-flex">
                                     @foreach( $project->trainings as $training)
-                                        <li><a href=""><img src="{{ asset($training->badge) }}" alt=""></a></li>
+                                        <li class="pr-2"><a href=""><img width="24px" src="{{ asset($training->badge) }}" alt=""></a></li>
                                     @endforeach
                                 </ul>
                             </div>

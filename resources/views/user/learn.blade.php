@@ -8,7 +8,7 @@
         <div class="learn-content pt-3">
             <div class="main-heading">
                 <h3 class="m-0">Content <span>Course</span></h3>
-                <p class="pt-1">Achieve your career goal with recognized learings paths</p>
+                <p class="pt-1">Achieve your career goal with recognized learning paths</p>
             </div>
             <div class="learn-boxes pt-5">
                 <div class="container">
