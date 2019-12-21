@@ -2706,7 +2706,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 .pay-list {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 .pay-check {
     position: absolute;
