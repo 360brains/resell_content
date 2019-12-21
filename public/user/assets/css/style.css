@@ -1198,11 +1198,11 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     color: #758698
 }
 
-.data-details-des span, .data-details-des strong {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis
-}
+/*.data-details-des span, .data-details-des strong {*/
+/*    white-space: nowrap;*/
+/*    overflow: hidden;*/
+/*    text-overflow: ellipsis*/
+/*}*/
 
 .data-details-docs {
     border-top: 1px solid #d2dde9

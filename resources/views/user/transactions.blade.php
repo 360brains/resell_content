@@ -7,7 +7,7 @@
                 <h4 class="float-left m-0">Earnings</h4>
                 <a href="{{ route('withdraw.create') }}" class="btn btn-sm btn-outline-success float-right">Withdraw </a>
             </div>
-            <div class="statictics text-center">
+            <div class="statictics text-center shadow">
                 <div class="row">
                     <div class="col-md border-right pt-3 pb-3">
                         <h5>NET INCOME</h5>

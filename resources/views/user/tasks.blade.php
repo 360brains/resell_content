@@ -4,7 +4,7 @@
     <section class="my-projects pt-5 pb-5">
         <div class="container">
             <h4>Statictics</h4>
-            <div class="statictics text-center">
+            <div class="statictics text-center shadow">
                 <div class="row">
                     <div class="col-md border-right pt-3 pb-3">
                         <h5>TOTAL WRITING</h5>

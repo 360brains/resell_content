@@ -106,6 +106,7 @@
                                                     echo $interval->format("%a days, %h hours, %i minutes left");
                                                 @endphp
                                           </span>
+                                                <a href="{{ route('user.tasks.extend', $task->id) }}" class="btn btn-info btn-xs" >Request time extension</a>
                                             </div>
                                         </div>
                                         <div class="col-md-5 ">
