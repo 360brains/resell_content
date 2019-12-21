@@ -76,7 +76,7 @@
                                             <li class="head">
                                                 <div class="clearfix">
                                                     <h5 class="float-left mb-0"><strong>Notifications</strong></h5>
-                                                    <a href="#" class="float-right p-0 text-info">Mark all as read</a>
+                                                    <a href="{{ route('markRead') }}" class="float-right p-0 text-info">Mark all as read</a>
                                                 </div>
                                             </li>
                                             <ul>

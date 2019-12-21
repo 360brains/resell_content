@@ -5,7 +5,7 @@
     <section class="funds pt-3 pb-3">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 offset-3">
+                <div class="col-lg-6 offset-lg-3">
                     <div class="funds-card mt-3 mb-3">
                     <form action="{{ route('user.update.account', $account->id ) }}" method="post">
                         @csrf

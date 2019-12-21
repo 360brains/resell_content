@@ -48,47 +48,72 @@ class DemoCron extends Command
         $memberships    = Membership_user::where('status', 'Bought')->get();
 
     foreach ($tasks as $task){
-        $myDate = strtotime($task->deadline);
-        $now  = strtotime(date("y-m-d h:i:s"));
-        $diff = $myDate - $now;
-        if ($diff <= 0){
+            if (is_null($task->timeExtension)){
+                $myDate = strtotime($task->deadline);
+                $now  = strtotime(date("y-m-d h:i:s"));
+                $diff = $myDate - $now;
+                if ($diff <= 0){
 
-            $details = [
-                'taskName'      => $task->project->name,
-                'date'          => now(),
-                'message'        => 'You have not delivered a task.',
-                'tooltip'       => 'You will lose points for not delivering the task.',
-                'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take Task</a>",
-            ];
-            $emailDetails = [
-                'message'       => 'You have not delivered a task. You will lose points for not delivering the task.',
-                'url'          => route("pages.projects"),
-                'urlText'      => 'Take Task',
-            ];
+                    $details = [
+                        'taskName'      => $task->project->name,
+                        'date'          => now(),
+                        'message'        => 'You have not delivered a task.',
+                        'tooltip'       => 'You will lose points for not delivering the task.',
+                        'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take Task</a>",
+                    ];
+                    $adminDetails = [
+                        'taskName'      => $task->project->id,
+                        'date'          => now(),
+                        'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . "</a><a href=".route("admin.tasks.show", $task->id)." class='d-inline'> delivered a task.</a>",
+                        'tooltip'       => 'Task',
+                        'link'          => "<a href=".route("admin.tasks.show", $task->id)." class='d-inline'>View task</a>",
+                    ];
+                    $task->user->notify(new TaskResult($details));
 
-            $adminDetails = [
-                'taskName'      => $task->project->id,
-                'date'          => now(),
-                'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . "</a><a href=".route("admin.tasks.show", $task->id)." class='d-inline'> delivered a task.</a>",
-                'tooltip'       => 'Task',
-                'link'          => "<a href=".route("admin.tasks.show", $task->id)." class='d-inline'>View task</a>",
+                    $admins = Admin::all();
+                    foreach ($admins as $admin) {
+                        $admin->notify(new TaskResult($adminDetails));
+                    }
+                    $data = [
+                        'status' => 'undelivered',
+                    ];
+                    $task->update($data);
+                }
+            }elseif (!is_null($task->timeExtension)){
+                if($task->timeExtension->status != 'Requested'){
+                    $myDate = strtotime($task->deadline);
+                    $now  = strtotime(date("y-m-d h:i:s"));
+                    $diff = $myDate - $now;
+                    if ($diff <= 0){
 
-            ];
+                        $details = [
+                            'taskName'      => $task->project->name,
+                            'date'          => now(),
+                            'message'        => 'You have not delivered a task.',
+                            'tooltip'       => 'You will lose points for not delivering the task.',
+                            'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take Task</a>",
+                        ];
+                        $adminDetails = [
+                            'taskName'      => $task->project->id,
+                            'date'          => now(),
+                            'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . "</a><a href=".route("admin.tasks.show", $task->id)." class='d-inline'> delivered a task.</a>",
+                            'tooltip'       => 'Task',
+                            'link'          => "<a href=".route("admin.tasks.show", $task->id)." class='d-inline'>View task</a>",
+                        ];
+                        $task->user->notify(new TaskResult($details));
 
-            $task->user->notify(new TaskResult($details));
-            $task->user->notify(new EmailUser($emailDetails));
-
-            $admins = Admin::all();
-            foreach ($admins as $admin) {
-                $admin->notify(new TaskResult($adminDetails));
+                        $admins = Admin::all();
+                        foreach ($admins as $admin) {
+                            $admin->notify(new TaskResult($adminDetails));
+                        }
+                        $data = [
+                            'status' => 'undelivered',
+                        ];
+                        $task->update($data);
+                    }
+                }
             }
-
-            $data = [
-                'status' => 'undelivered',
-            ];
-            $task->update($data);
         }
-    }
 
         foreach ($tests as $test){
             $myDate = strtotime($test->deadline);

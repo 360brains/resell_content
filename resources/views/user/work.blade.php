@@ -22,6 +22,8 @@
                                                     $interval = $future_date->diff($now);
                                                     echo $interval->format("%a days, %h hours, %i minutes left");
                                                 @endphp
+                                                <a href="#" data-toggle="modal" data-target="#extend-time" class="btn btn-info btn-xs" >Request time extension</a>
+
                                           </span>
                                             </div>
                                         </div>
@@ -90,7 +92,7 @@
                                 <!-- .card -->
                             </div>
                         @elseif($task->project->type->name == 'Video Making')
-                            <div class="col-md-12">
+                            <div class="col-md-12 pt-3 pb-3">
                                 <div class="task-title shadow">
                                     <div class="row">
                                         <div class="col-md-7">
@@ -104,9 +106,16 @@
                                                     $future_date = new DateTime($task->deadline);
                                                     $interval = $future_date->diff($now);
                                                     echo $interval->format("%a days, %h hours, %i minutes left");
+                                                    $day = $interval->days;
+                                                    $hours = $interval->h;
+                                                    $minutes = $interval->i;
                                                 @endphp
                                           </span>
-                                                <a href="{{ route('user.tasks.extend', $task->id) }}" class="btn btn-info btn-xs" >Request time extension</a>
+                                            @if(is_null($task->timeExtension))
+                                                @if( $minutes <= 60 && $hours == 0 && $day == 0)
+                                                    <a href="#" data-toggle="modal" data-target="#extend-time" class="btn btn-info btn-xs" >Request time extension</a>
+                                                    @endif
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="col-md-5 ">
@@ -153,6 +162,38 @@
         </div>
         <!-- .container -->
     </section>
+
+    <div class="modal fade" id="extend-time" tabindex="-1">
+        <div class="modal-dialog modal-dialog-md modal-dialog-centered">
+            <div class="modal-content pb-0">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em
+                        class="ti ti-close"></em></a>
+                <div class="popup-body">
+                    <h4 class="popup-title">Request time extension.</h4>
+                    <p class="lead">To get time extesion, you must give a valid reason to convince the administrator to extend your time.</p>
+                    <p>You can also specify the time you need to complete the task.</p>
+                    <form action="{{ route('user.tasks.extend', $task->id) }}">
+                        <div class="input-item input-with-label pdb-2-5x pdt-1-5x pt-3 pb-3">
+                            @csrf
+                            <label class="input-item-label" for="reason">State the reason for time extension.</label>
+                            <textarea class="input-bordered w-100" name="reason" id="reason" rows="5"></textarea>
+                        </div>
+                        <div class="input-item input-with-label pdb-2-5x pdt-1-5x pt-3 pb-3">
+                            <label for="number" class="input-item-label">Time extension needed <small>(in hours B/W 1 - 48)</small>.</label>
+                                <input class="input-bordered" type="number" min="0" max="48" id="number" name="time" value="6">
+                        </div>
+
+                        <ul class="d-flex flex-wrap align-items-center guttar-30px mt-2 mb-2">
+                            <li>
+                                <button id="buyMembership" class="btn btn-primary">Proceed</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div><!-- .modal-content -->
+        </div><!-- .modal-dialog -->
+    </div>
+
 
 @endsection
 
