@@ -79,7 +79,7 @@
                         <h4 class="card-title pb-3">Pending Requests</h4>
                     </div>
                     <div class="table-responsive">
-                        <table class="data-table table table-bordered">
+                        <table class="table-sm table table-bordered">
                             <thead>
                             <tr class="data-item ">
                                 <th>Account (IBAN) Number</th>

@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('user/assets/css/vendor.bundle49f7.css') }}">
     <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}" id="layoutstyle">
     <link rel="stylesheet" href="{{ asset('user/assets/css/style49f7.css') }}" id="layoutstyle">
 
@@ -54,9 +55,16 @@
 
                     </ul>
                     @guest
-                        <a href="{{ asset('login') }}">
-                            <button class="btn btn-success ml-3">Log in</button>
-                        </a>
+                        @if(strpos((request()->path()),"login") == 'true')
+
+                            <a href="{{ asset('register') }}">
+                                <button class="btn btn-success ml-3">Sign up</button>
+                            </a>
+                        @elseif(strpos((request()->path()),"register") == 'true')
+                            <a href="{{ asset('login') }}">
+                                <button class="btn btn-success ml-3">Log in</button>
+                            </a>
+                        @endif
                     @else
                     @endguest
                 </div>

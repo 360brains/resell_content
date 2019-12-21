@@ -71,6 +71,7 @@
             <div class="row pt-3 pb-3">
                 <div class="col-md-8">
                     <div class="learn-about">
+                        <h2>{{ $training->name }}</h2>
                         <h3>About</h3>
                         {!! $training->description !!}
                     </div>

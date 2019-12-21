@@ -3104,7 +3104,9 @@ table th {
     .browse-img {
         display: none;
     }
-
+    .navbar-brand{
+        font-size: 1em;
+    }
 
 
 }
@@ -3112,6 +3114,10 @@ table th {
     .help-content ul li a{
         font-size: 10px;
     }
+    .navbar-nav{
+        padding-left: 15px;
+    }
+
 }
 
 @media only screen and (max-width: 575px) {
@@ -3144,6 +3150,7 @@ table th {
     .browse-img {
         display: none;
     }
+    
 
 }
 @media only screen and (max-width: 768px) {
