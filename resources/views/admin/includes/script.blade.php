@@ -5,6 +5,12 @@
         height: 300
     });
 
+    function changeVideo(url) {
+        document.getElementById("myVideoSrc").src = url;
+        document.getElementById("myVideo").load();
+        document.getElementById("myVideo").play();
+    }
+
     $(function() {
         $("#divid").hide();
         $('#typeselector').on('change', function() {
