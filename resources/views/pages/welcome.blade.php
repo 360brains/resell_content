@@ -184,13 +184,13 @@
 
     <div class="clearfix"></div>
 
-    <div class="how-it-work">
+    <div class="how-it-work pt-2">
         <img src="{{ asset('assets/img/works.svg') }}" alt="">
     </div>
 
     <div class="clearfix"></div>
 
-    <div class="learn">
+    <div class="learn pb-2">
         <a href="{{ route('user.learn') }}">
             <img src="{{ asset('assets/img/learn.svg') }}" alt="">
         </a>
