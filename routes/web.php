@@ -19,6 +19,7 @@ Auth::routes(['verify' => true]);
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'Admin', 'as' => 'admin.'], function (){
 
     Route::post('task/save-progress/{id}', 'TaskController@saveProgress')->name('task.save.progress');
+    Route::get('task/extend/{id}', 'TaskController@extendTime')->name('task.extend');
     Route::get('user-test/show/{id}', 'UserTestController@showTest')->name('user.test.show');
     Route::get('user-tests', 'UserTestController@userTests')->name('user.tests');
     Route::post('user-test/evaluate/{id}', 'UserTestController@evaluate')->name('user.test.evaluate');
@@ -110,9 +111,10 @@ Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
 Route::get('send', 'HomeController@sendNotification');
-//Route::get('/markAsRead',function(){
-//    auth()->user()->unreadNotifications->markAsRead();
-//});
+Route::get('/markAsRead',function(){
+    auth()->user()->unreadNotifications->markAsRead();
+    return redirect()->back();
+})->name('markRead');
 
 
 
