@@ -1,18 +1,25 @@
 <section>
-    <div class="row nav-top">
+    <div class="row nav-top ">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light p-0 d-flex">
+            <nav class="navbar  navbar-expand-lg navbar-light p-0 d-flex">
                 <a class="navbar-brand" href="{{ route('pages.home') }}">
                     great
                     <span
                         style="color: #07b107; font-weight: 500;">Content</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent1"
-                        aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
+                <div>
+                    @guest
+                        <a href="{{ asset('login') }}">
+                            <button class="btn btn-success mr-3 large-scn-btn">Log in</button>
+                        </a>
+                    @else
+                    @endguest
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent1"
+                            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
@@ -34,7 +41,7 @@
                     </ul>
                     @guest
                         <a href="{{ asset('login') }}">
-                            <button class="btn btn-success ml-3">Log in</button>
+                            <button class="btn btn-success ml-3 sm-scn-btn">Log in</button>
                         </a>
                     @else
                     @endguest

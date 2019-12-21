@@ -1,45 +1,52 @@
 @extends('user.layouts.master')
 
 @section('content')
-
-    <div class="page-content">
+    <section class="task-work pt-5 pb-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="referral-info card">
-                        <div class="card-innr">
-                            <h3 class="">{!! $test->description !!}</h3>
+                <div class="col-md-12 pt-3 pb-3">
+                    <div class="task-title shadow">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h1>{!! $test->description !!}</h1>
+                                <div class="clearfix">
+                                          <span class="text-danger countdown-time">
+                                                 @php
+                                                     $now = new DateTime();
+                                                       $future_date = new DateTime($test->pivot->deadline);
+
+                                                       $interval = $future_date->diff($now);
+
+                                                       echo $interval->format("%a days, %h hours, %i minutes left");
+                                                 @endphp
+                                              {{ $test->pivot->deadline }}
+                                          </span>
+                                </div>
+                            </div>
+                            <div class="col-md-5 ">
+                                <div class="card-innr">
+                                    <h6 class="card-title card-title-sm">Upload your video <small>(Form your
+                                            PC)</small></h6>
+                                    <div class="clearfix">
+                                        <form action="{{ route('user.tests.save.progress', $test->pivot->id) }}" method="post"--}}
+                                              enctype="multipart/form-data">
+                                            @csrf
+                                            <input class="" type="file" id="video" name="video">
+                                            <button type="submit" class="btn float-right btn-outline-success" name="action" value="video"><em
+                                                    class="fas fa-upload"></em> Upload
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- .copy-wrap -->
                     </div>
                 </div>
-                <div class="col-lg-12">
-                <div class="referral-info card">
-                    <div class="card-innr">
-                        <h6 class="card-title card-title-sm">Upload your video</h6>
-                        <form action="{{ route('user.tests.save.progress', $test->pivot->id) }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <input class="" type="file" id="video" name="video">
-                            <button type="submit" class="btn btn-auto btn-lg btn-danger" name="action" value="video"><em class="fas fa-upload"></em> Upload </button>
-                            <span class="float-right countdown-time">
-                                @php
-                                    $now = new DateTime();
-                                    $future_date = new DateTime($test->pivot->deadline);
-
-                                    $interval = $future_date->diff($now);
-
-                                    echo $interval->format("%a days, %h hours, %i minutes left");
-                                @endphp
-{{--                                {{ $test->pivot->deadline }}--}}
-                            </span>
-                        </form>
-                    </div>
-                    <!-- .copy-wrap -->
-                </div>
             </div>
-            </div>
-
         </div>
-    </div>
+        <!-- .container -->
+    </section>
 
 @endsection
+
+

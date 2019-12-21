@@ -4,7 +4,6 @@
 <!-- BEGIN HEAD -->
 @include('user.includes.head')
 <!-- END HEAD -->
-
 <body>
 
 <div id="app">

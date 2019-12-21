@@ -88,7 +88,7 @@
         <div class="container">
             <div class="row pt-4">
                 @forelse($categories as $category)
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-3">
                         <form action="{{ route('pages.projects', $category->id) }}" method="get">
                             @csrf
                             <div class="category-box" data-aos="fade-up">
@@ -163,7 +163,7 @@
                                             <div class="today-icon float-left"><img class="pt-2 pr-2"
                                                                                     src="{{ asset('assets/img/counter-img-2.png') }}">
                                             </div>
-                                            <div class="counter-item">
+                                            <div class="counter-item float-none">
                                                 <div>
                                                     <div class="stat-number"
                                                          style="display: inline-block">{{ $totalWork }}</div>

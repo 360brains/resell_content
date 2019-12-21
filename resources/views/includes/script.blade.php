@@ -10,4 +10,10 @@ $('.stat-number').each(function () {
         }
       });
     });
+$(function () {
+    $(document).scroll(function () {
+        var $nav = $(".navbar-fixed-top");
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+    });
+});
 </script>

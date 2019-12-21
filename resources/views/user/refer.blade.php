@@ -6,7 +6,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="offset-2 col-md-8 offset-2">
+                <div class="col-lg-8 offset-lg-2">
                     <div class="referal text-center shadow">
                         <h1>Earn with Referal</h1>
                         <p>Invite your friends & family and Get Rs.1000 for the current level</p>

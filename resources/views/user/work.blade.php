@@ -90,7 +90,7 @@
                                 <!-- .card -->
                             </div>
                         @elseif($task->project->type->name == 'Video Making')
-                            <div class="col-md-12">
+                            <div class="col-md-12 pt-3 pb-3">
                                 <div class="task-title shadow">
                                     <div class="row">
                                         <div class="col-md-7">

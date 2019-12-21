@@ -4,7 +4,7 @@
     <section class="funds pt-3 pb-3">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 offset-3">
+                <div class="col-lg-6 offset-lg-3 ">
                     <div class="funds-heading text-center">
                         <div class="row">
                             <div class="col-md-6 border-right">
@@ -78,30 +78,32 @@
                     <div class="card-head">
                         <h4 class="card-title pb-3">Pending Requests</h4>
                     </div>
-                    <table class="data-table table table-bordered">
-                        <thead>
-                        <tr class="data-item ">
-                            <th>Account (IBAN) Number</th>
-                            <th>Account Holder</th>
-                            <th>Bank Name</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                            <th>Date</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($withdrawRequests as $withdrawRequest)
-                            <tr>
-                                <td>{{$withdrawRequest->iban}}</td>
-                                <td>{{$withdrawRequest->holder}}</td>
-                                <td>{{$withdrawRequest->bank}}</td>
-                                <td>{{$withdrawRequest->amount}}</td>
-                                <td>{{$withdrawRequest->status}}</td>
-                                <td>{{date('d-M-y h:i',strtotime($withdrawRequest->created_at))}}</td>
+                    <div class="table-responsive">
+                        <table class="data-table table table-bordered">
+                            <thead>
+                            <tr class="data-item ">
+                                <th>Account (IBAN) Number</th>
+                                <th>Account Holder</th>
+                                <th>Bank Name</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            @foreach($withdrawRequests as $withdrawRequest)
+                                <tr>
+                                    <td>{{$withdrawRequest->iban}}</td>
+                                    <td>{{$withdrawRequest->holder}}</td>
+                                    <td>{{$withdrawRequest->bank}}</td>
+                                    <td>{{$withdrawRequest->amount}}</td>
+                                    <td>{{$withdrawRequest->status}}</td>
+                                    <td>{{date('d-M-y h:i',strtotime($withdrawRequest->created_at))}}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
