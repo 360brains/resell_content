@@ -162,29 +162,24 @@
                 <div class="popup-body">
                     <h4 class="popup-title">Request time extension.</h4>
                     <p class="lead">To get time extesion, you must give a valid reason to convince the administrator to extend your time.</p>
-                    <p>Specify the time you need to complete the task.</p>
+                    <p>You can also specify the time you need to complete the task.</p>
                     <form action="{{ route('user.tasks.extend', $task->id) }}">
-                        <div class="pdb-2-5x pdt-1-5x pt-3 pb-3">
+                        <div class="input-item input-with-label pdb-2-5x pdt-1-5x pt-3 pb-3">
                             @csrf
-                            <label for="reason">state the reason for time extension.</label>
-                            <textarea class="w-100" name="reason" id="reason" rows="5"></textarea>
+                            <label class="input-item-label" for="reason">State the reason for time extension.</label>
+                            <textarea class="input-bordered w-100" name="reason" id="reason" rows="5"></textarea>
                         </div>
-                        <div class="pdb-2-5x pdt-1-5x pt-3 pb-3">
-                            <label for="number">state the reason for time extension.</label>
-                                <input type="number" id="number" name="time">
+                        <div class="input-item input-with-label pdb-2-5x pdt-1-5x pt-3 pb-3">
+                            <label for="number" class="input-item-label">Time extension needed <small>(in hours B/W 1 - 48)</small>.</label>
+                                <input class="input-bordered" type="number" min="0" max="48" id="number" name="time" value="6">
                         </div>
+
                         <ul class="d-flex flex-wrap align-items-center guttar-30px mt-2 mb-2">
                             <li>
                                 <button id="buyMembership" class="btn btn-primary">Proceed</button>
                             </li>
                         </ul>
                     </form>
-
-                    <div class="gaps-2x"></div>
-                    <div class="gaps-1x d-none d-sm-block"></div>
-                    <div class="note note-plane note-light mgb-1x pt-3"><em class="fas fa-info-circle"></em>
-                        <p class="d-inline">You will automatically get membership after clicking process to pay.</p>
-                    </div>
                 </div>
             </div><!-- .modal-content -->
         </div><!-- .modal-dialog -->

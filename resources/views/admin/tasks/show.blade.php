@@ -96,6 +96,16 @@
                                 </td>
                             </tr>
                         @endif
+                        @if(isset($task->timeExtension))
+                            @if($task->timeExtension->status == 'Requested')
+                                <tr>
+                                    <th>Time extension request</th>
+                                    <td>
+                                        <button type="button" data-toggle="modal" href="#time-extension" class="btn btn-primary">View</button>
+                                    </td>
+                                </tr>
+                            @endif
+                        @endif
 
                     </table>
 
@@ -155,6 +165,36 @@
             </div>
             <!-- /.modal-content -->
         </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" id="time-extension" tabindex="-1" role="basic" aria-hidden="true">
+        @if(isset($task->timeExtension))
+            @if($task->timeExtension->status == 'Requested')
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                            <h4 class="modal-title">Request for time extension.</h4>
+                        </div>
+                        <div class="modal-header">
+                            <h5>{{ $task->user->name }} requested {{ $task->timeExtension->time }} hours time extension for the task.</h5>
+                            <h3>Reason: <br>
+                                <small>{{ $task->timeExtension->reason }}</small>
+                            </h3>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="{{ route('admin.task.extend', $task->id) }}" method="get">
+                                @csrf
+                                <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                <button type="submit" name="action" value="approve" class="btn green">Approve</button>
+                                <button type="submit" name="action" value="reject" class="btn btn-danger">Reject</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+            @endif
+        @endif
         <!-- /.modal-dialog -->
     </div>
 @endsection

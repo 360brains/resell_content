@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Category;
 use App\Models\Level;
 use App\Models\Project;
+use App\Models\TimeExtend;
 use App\Models\Type;
 use App\Models\Task;
 use App\Notifications\EmailUser;
@@ -253,5 +254,51 @@ class TaskController extends Controller
         }else{
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
+    }
+
+    public function extendTime(Request $request, $id){
+        $task = Task::find($id);
+        $extend = $task->timeExtension;
+
+        if ($request->action == "approve"){
+            $task->deadline = now()->addHours($extend->time);
+            $extend->status == 'Approved';
+            $extend->save();
+
+            $details = [
+                'taskName'      => $task->project->name,
+                'date'          => now(),
+                'message'        => 'You have not delivered a task.',
+                'tooltip'       => 'You will lose points for not delivering the task.',
+                'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take Task</a>",
+            ];
+            $emailDetails = [
+                'message'       => 'You have not delivered a task. You will lose points for not delivering the task.',
+                'url'          => route("pages.projects"),
+                'urlText'      => 'Take Task',
+            ];
+
+        }elseif ($request->action == "reject"){
+            $extend->status == 'Rejected';
+            $extend->save();
+
+            $details = [
+                'taskName'      => $task->project->name,
+                'date'          => now(),
+                'message'        => 'You have not delivered a task.',
+                'tooltip'       => 'You will lose points for not delivering the task.',
+                'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take Task</a>",
+            ];
+            $emailDetails = [
+                'message'       => 'You have not delivered a task. You will lose points for not delivering the task.',
+                'url'          => route("pages.projects"),
+                'urlText'      => 'Take Task',
+            ];
+
+        }
+
+        $task->user->notify(new TaskResult($details));
+        $task->user->notify(new EmailUser($emailDetails));
+
     }
 }

@@ -6,7 +6,9 @@ use App\Models\Category;
 use App\Models\Level;
 use App\Models\Project;
 use App\Models\Task;
+use App\Models\TimeExtend;
 use App\Models\Type;
+use App\Notifications\EmailUser;
 use App\Notifications\TaskResult;
 use App\User;
 use Bitfumes\Multiauth\Model\Admin;
@@ -299,10 +301,49 @@ class TasksController extends Controller
         return view('user.projects', $data);
     }
 
-    public function extendTime($id){
+    public function extendTime(Request $request, $id){
+        if ($request->time > 0 && $request->time < 48){
+            $task = Task::find($id);
+            $data = [
+                'reason'  => $request->reason,
+                'time'    => $request->time,
+                'status'  => 'Requested',
+                'task_id' => $task->id,
+            ];
 
-        dd($id);
-        return view('user.work');
+            $response = TimeExtend::create($data);
+
+            $details = [
+                'taskName'      => $task->project->name,
+                'date'          => now(),
+                'message'        => 'Your time extension request is waiting approval.',
+                'tooltip'       => 'You will get notified when the request is approved.',
+                'link'          => "<a href=".route("user.tasks")." class=\'d-inline\'>My tasks</a>",
+            ];
+
+            $adminDetails = [
+                'taskName'      => $task->project->id,
+                'date'          => now(),
+                'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . "</a><a href=".route("admin.tasks.show", $task->id)." class='d-inline'> requested time extension.</a>",
+                'tooltip'       => 'Time Extension',
+                'link'          => "<a href=".route("admin.tasks.show", $task->id)." class='d-inline'>View request</a>",
+            ];
+
+            $task->user->notify(new TaskResult($details));
+
+            $admins = Admin::all();
+            foreach ($admins as $admin) {
+                $admin->notify(new TaskResult($adminDetails));
+            }
+
+            if ($response){
+                return redirect()->route('user.tasks')->with("success", "Completed Successfully.");
+            }else{
+                return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+            }
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Requested time must be between 1 to 48 hours.");
+        }
     }
 
 }

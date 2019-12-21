@@ -30,4 +30,8 @@ class Task extends Model
     function trainings(){
         return $this->belongsToMany(Training::class);
     }
+    function timeExtension(){
+        return $this->hasOne(TimeExtend::class);
+    }
+
 }
