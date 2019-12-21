@@ -262,43 +262,49 @@ class TaskController extends Controller
 
         if ($request->action == "approve"){
             $task->deadline = now()->addHours($extend->time);
-            $extend->status == 'Approved';
+            $extend->status = 'Approved';
+            $response = $task->save();
             $extend->save();
 
             $details = [
                 'taskName'      => $task->project->name,
                 'date'          => now(),
-                'message'        => 'You have not delivered a task.',
-                'tooltip'       => 'You will lose points for not delivering the task.',
-                'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take Task</a>",
+                'message'       => 'Your time extension request is approved.',
+                'tooltip'       => 'You can now continue working on the task.',
+                'link'          => "<a href=".route("user.tasks")." class=\'d-inline\'>My tasks</a>",
             ];
             $emailDetails = [
-                'message'       => 'You have not delivered a task. You will lose points for not delivering the task.',
-                'url'          => route("pages.projects"),
-                'urlText'      => 'Take Task',
+                'message'      => 'Your time extension request is approved. You can now continue working on the task.',
+                'url'          => route("user.tasks"),
+                'urlText'      => 'My tasks',
             ];
 
         }elseif ($request->action == "reject"){
             $extend->status == 'Rejected';
-            $extend->save();
+            $response = $extend->save();
 
             $details = [
                 'taskName'      => $task->project->name,
                 'date'          => now(),
-                'message'        => 'You have not delivered a task.',
-                'tooltip'       => 'You will lose points for not delivering the task.',
-                'link'          => "<a href=".route("pages.projects")." class=\'d-inline\'>Take Task</a>",
+                'message'       => 'Your time extension request is rejected.',
+                'tooltip'       => 'You can take other tasks and start working.',
+                'link'          => "<a href=".route("user.tasks")." class=\'d-inline\'>My tasks</a>",
             ];
             $emailDetails = [
-                'message'       => 'You have not delivered a task. You will lose points for not delivering the task.',
-                'url'          => route("pages.projects"),
-                'urlText'      => 'Take Task',
+                'message'       => 'Your time extension request is rejected. You can take other tasks and start working.',
+                'url'          => route("user.projects"),
+                'urlText'      => 'Take tasks',
             ];
-
         }
 
         $task->user->notify(new TaskResult($details));
         $task->user->notify(new EmailUser($emailDetails));
+
+        if ($response){
+            return redirect()->route('admin.projects.index')->with("success", "Completed Successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
 
     }
 }
