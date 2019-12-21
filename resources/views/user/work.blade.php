@@ -22,9 +22,12 @@
                                                     $interval = $future_date->diff($now);
                                                     echo $interval->format("%a days, %h hours, %i minutes left");
                                                 @endphp
-                                                <a href="#" data-toggle="modal" data-target="#extend-time" class="btn btn-info btn-xs" >Request time extension</a>
-
                                           </span>
+                                                @if(is_null($task->timeExtension))
+                                                    @if( $minutes <= 60 && $hours == 0 && $day == 0)
+                                                        <a href="#" data-toggle="modal" data-target="#extend-time" class="btn btn-info btn-xs" >Request time extension</a>
+                                                    @endif
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="col-md-5 ">
