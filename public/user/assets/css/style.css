@@ -2706,7 +2706,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 .pay-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 .pay-check {
     position: absolute;
@@ -3090,9 +3090,7 @@ table th {
     .dropdown-menu .notification-menu .footer {
         font-size: 12px;
     }
-    .refer .referal {
-        padding: 13px 10px !important;
-    }
+
     .help-content ul li a{
         font-size: 10px;
     }
@@ -3107,7 +3105,12 @@ table th {
     .navbar-brand{
         font-size: 1em;
     }
-
+    .navbar{
+        margin: 6px 0;
+    }
+    .works-banner{
+        padding: 15px 0;
+    }
 
 }
 @media only screen and (max-width: 375px){
@@ -3118,6 +3121,18 @@ table th {
         padding-left: 15px;
     }
 
+    .learn .learn-content .main-heading p:after{
+        height: 0 !important;
+    }
+    .refer .referal {
+        padding: 13px 10px !important;
+        position: unset !important;
+        margin: 20px 0
+    }
+    .refer .steps {
+        top: unset !important;
+        margin-bottom: 0px !important;
+    }
 }
 
 @media only screen and (max-width: 575px) {

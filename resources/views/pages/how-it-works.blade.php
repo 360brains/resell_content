@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 hidden-sm text-center"><a href="{{ route('login') }}"><img src="{{ asset('assets/img/how-it-works.png') }}" class="img-responsive" alt="" /></a></div>
+            <div class="col-md-4 hidden-sm text-center"><a href="{{ route('login') }}"><img src="{{ asset('assets/img/how-it-works.png') }}" class="works-banner" alt="" /></a></div>
             <div class="col-md-4 col-sm-6">
                 <div class="work-process">
                     <div class="work-process-icon"><span class="icon-layers"><img src="{{asset('assets/img/work-4.svg')}}" alt=""></span></div>

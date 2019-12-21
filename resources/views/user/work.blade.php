@@ -21,6 +21,9 @@
                                                     $future_date = new DateTime($task->deadline);
                                                     $interval = $future_date->diff($now);
                                                     echo $interval->format("%a days, %h hours, %i minutes left");
+                                                    $day = $interval->days;
+                                                    $hours = $interval->h;
+                                                    $minutes = $interval->i;
                                                 @endphp
                                           </span>
                                                 @if(is_null($task->timeExtension))
