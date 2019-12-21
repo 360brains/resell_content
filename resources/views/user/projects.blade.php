@@ -97,40 +97,42 @@
                                 <div class="dec">
                                     <p>{!! $project->description !!}</p>
                                 </div>
-                                @if(count($project->trainings) >= 1)
-                                    <h6 class="font-weight-bold">REQUIRED TRANING</h6>
-                                @endif
-                                <ul class="d-flex">
-                                    @foreach( $project->trainings as $training)
-                                        <li class="pr-2"><a href=""><img width="24px" src="{{ asset($training->badge) }}" alt=""></a></li>
-                                    @endforeach
-                                </ul>
+                                <div class="req-tra">
+                                    @if(count($project->trainings) >= 1)
+                                        <h6 class="font-weight-bold">REQUIRED TRANING</h6>
+                                    @endif
+                                    <ul class="d-flex">
+                                        @foreach( $project->trainings as $training)
+                                            <li class="pr-2"><a href=""><img width="24px" src="{{ asset($training->badge) }}" alt=""></a></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="row">
-                                    <div class="col-md-4 pl-4 pb-4">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">LEVEL</h6>
                                         <span class="text-success">{{$project->level->name}}</span>
                                     </div>
-                                    <div class="col-md-4  pl-4 pb-4">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">TIME AWARDED</h6>
                                         <span class="text-danger">{{ $project->deadline }} <small>Hours</small></span>
                                     </div>
-                                    <div class="col-md-4 pl-4 pb-4">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">CATEGORY</h6>
                                         <span class="text-success">{{ $project->category->name }}</span>
                                     </div>
                                     @if($project->type->name == 'Content Writing')
-                                        <div class="col-md-4 pl-4 pb-4">
+                                        <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
                                             <h6 class="m-0 font-weight-bold">NO. OF WORDS</h6>
                                             <span class="text-success">{{ $project->words }}</span>
                                         </div>
                                     @endif
-                                    <div class="col-md-4 pl-4 pb-4">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">POINTS</h6>
                                         <span class="text-success">+{{ $project->points }}</span>
                                     </div>
-                                    <div class="col-md-4  pl-4 pb-4">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">Available</h6>
                                         <span class="text-success">{{ $project->available }}</span>
                                     </div>
@@ -142,7 +144,7 @@
 
                 <div class="modal fade" id="start-job-{{$project->id}}" tabindex="-1">
                     <div class="modal-dialog modal-dialog-lg modal-dialog-centered">
-                        <div class="modal-content"><a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                        <div class="modal-content modal-w"><a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
                             <div class="popup-body popup-body-lg">
                                 <div class="content-area">
                                     <div class="card-head d-flex justify-content-between align-items-center">

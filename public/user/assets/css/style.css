@@ -1208,6 +1208,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     border-top: 1px solid #d2dde9
 }
 
+
 .data-details-docs-title {
     color: #495463;
     display: block;
@@ -3075,21 +3076,44 @@ table th {
     border-color: rgba(0, 0, 0, .15) transparent transparent rgba(0, 0, 0, .15);
 }
 
-@media only screen and (max-width: 990px) {
-    .notification .dropdown-menu {
-        left: -30px !important;
-        right: unset !important;
+@media only screen and (max-width: 320px){
+    .dropdown-menu .notification-menu{
+        width: 302px;
+        height: 260px;
     }
-    .notification{
-        display: inline-block;
+    .dropdown-menu .notification-menu ul li{
+        font-size: 12px;
     }
-    .notification-caret:before {
-        left: 30px;
+    .dropdown-menu .notification-menu .head {
+        font-size: 12px;
     }
-    .user-img{
-        padding: 10px 0;
+    .dropdown-menu .notification-menu .footer {
+        font-size: 12px;
+    }
+    .refer .referal {
+        padding: 13px 10px !important;
+    }
+    .help-content ul li a{
+        font-size: 10px;
+    }
+    .slider .owl-theme .owl-dots .owl-dot span {
+        width: 10px !important;
+        height: 10px !important;
+        margin: 0px 5px !important;
+    }
+    .browse-img {
+        display: none;
+    }
+
+
+
+}
+@media only screen and (max-width: 375px){
+    .help-content ul li a{
+        font-size: 10px;
     }
 }
+
 @media only screen and (max-width: 575px) {
     .notification .dropdown-menu {
         left: -30px !important;
@@ -3105,21 +3129,91 @@ table th {
         padding: 10px 0;
         float: right;
     }
+    .slider .owl-theme .owl-dots, .owl-theme .owl-nav {
+        left: 40% !important;
+    }
+    .slider .owl-theme .owl-dots .owl-dot span {
+        width: 10px !important;
+        height: 10px !important;
+        margin: 0px 5px !important;
+    }
+    .login-bg{
+        background-image: unset !important;
+        height: unset !important;
+    }
+    .browse-img {
+        display: none;
+    }
+
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
     .profile{
         margin-top: 1.5em;
     }
+    .apply-btn{
+        margin-bottom: 10px;
+    }
+    .req-tra{
+        padding-bottom: 15px;
+    }
+    .funds .funds-card .withdraw-blnc h1{
+        font-size: xx-large !important;
+    }
+    .funds-heading{
+        border-right: none;
+    }
+    .modal-w{
+        width: 93%;
+    }
+
 }
+
+@media only screen and (max-width: 991px) {
+    .notification .dropdown-menu {
+        left: -30px !important;
+        right: unset !important;
+    }
+    .notification{
+        display: inline-block;
+    }
+    .notification-caret:before {
+        left: 30px;
+    }
+    .user-img{
+        padding: 10px 0;
+    }
+    .nav-top {
+        position: relative !important;
+    }
+
+}
+@media only screen and (max-width: 991px) {
+    .large-scn-btn{
+        visibility: visible;
+    }
+    .sm-scn-btn{
+        visibility: hidden;
+    }
+}
+
+
+@media only screen and (min-width: 992px){
+    .nav-top ul li a{
+        color: white !important;
+    }
+    .large-scn-btn{
+        visibility: hidden;
+    }
+    .sm-scn-btn{
+        visibility: visible;
+    }
+}
+
 
 .notification .head {
     padding: 0px 15px;
 }
 
-.notification .footer a {
-    bottom: 0;
-    position: absolute;
-}
 
 .notification-box {
     padding: 10px 10px;
@@ -3337,16 +3431,13 @@ select {
 .nav-top{
     position: absolute;
     z-index: 111;
-    width: 100%;
+    min-width: 100%;
 }
 .main-heading{
     text-align: center;
 }
 .main-heading h3{
     font-weight: 600;
-}
-.nav-top ul li a{
-    color: white !important;
 }
 
 .work-done i{
@@ -3403,9 +3494,7 @@ select {
     color: #ffffff;
 }
 
-.counter-item{
-    float: left;
-}
+
 
 .counter-item h5 {
     font-size: 1.3rem;
@@ -3416,7 +3505,7 @@ select {
 }
 
 .stat-number {
-    font-size: 45px;
+    font-size: 3em;
     font-weight: bold;
     color: white;
     line-height: 50px;
@@ -3658,7 +3747,7 @@ footer .footer-bottom{
     background: #fff;
 }
 .refer .referal p{
-    font-size: 21px;
+    font-size: 1.4em;
 }
 .refer .steps{
     padding: 20px 0;
@@ -3669,7 +3758,7 @@ footer .footer-bottom{
 
 }
 .refer .steps p{
-    font-size: 32px;
+    font-size: 2em;
 }
 .learn-details .vedio-detail{
     background-color: #F5F5F5;
@@ -3884,4 +3973,8 @@ footer .footer-bottom{
 }
 .category-desc button:hover{
     color: green;
+}
+.how-it-works .work-process-icon img{
+    width: 40px;
+    padding-bottom: 10px;
 }
