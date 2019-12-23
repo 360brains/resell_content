@@ -19,6 +19,7 @@
         //         $('#myVideo').load();
         //     })
 
+
         function changeVideo(url) {
             document.getElementById("myVideoSrc").src = url;
             document.getElementById("myVideo").load();
@@ -126,14 +127,14 @@
         });
 
 
-        var input = document.querySelector('input[type=file]'); // see Example 4
-
-        input.onchange = function () {
-            var file = input.files[0];
-
-            drawOnCanvas(file);   // see Example 6
-            displayAsImage(file); // see Example 7
-        };
+        // var input = document.querySelector('input[type=file]'); // see Example 4
+        //
+        // input.onchange = function () {
+        //     var file = input.files[0];
+        //
+        //     drawOnCanvas(file);   // see Example 6
+        //     displayAsImage(file); // see Example 7
+        // };
 
         function drawOnCanvas(file) {
             var reader = new FileReader();
