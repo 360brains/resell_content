@@ -10,7 +10,7 @@
                 <h3 class="avil-jobs">Available Jobs</h3>
                 <hr>
             </div>
-            <form class="form-horizontal" action="{{ route('pages.projects') }}" method="get">
+            <form class="form-horizontal" action="{{ route('user.projects') }}" method="get">
                 <div class="row">
                     <div class="col-lg col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group position-relative">
@@ -40,17 +40,7 @@
                             </select>
                         </div>
                     </div>
-                    {{--                    <div class="col-md-2">--}}
-                    {{--                        <div class="form-group position-relative">--}}
-                    {{--                            <i class="fas custom-arrow fa-chevron-down"></i>--}}
-                    {{--                            <label for="exampleFormControlSelect1"><h5>Account Type</h5></label>--}}
-                    {{--                            <select name="account" class="form-control custom-inp" id="exampleFormControlSelect1">--}}
-                    {{--                                <option>Choose Account</option>--}}
-                    {{--                                <option value="free">Free</option>--}}
-                    {{--                                <option value="premium">Premium</option>--}}
-                    {{--                            </select>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
+
                     <div class="col-lg col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group position-relative">
                             <i class="fas custom-arrow fa-chevron-down"></i>
@@ -110,32 +100,43 @@
                                 <div class="dec">
                                     <p>{!! $project->description !!}</p>
                                 </div>
-                                <h6 class="font-weight-bold">REQUIRED TRANING</h6>
-                                <ul class="d-flex">
-                                    <li><a href=""><img src="{{ asset('user/images/asset 1.png') }}" alt=""></a></li>
-                                    <li><a href=""><img src="{{ asset('user/images/asset 2.png') }}" alt=""></a></li>
-                                    <li><a href=""><img src="{{ asset('user/images/asset 3.png') }}" alt=""></a></li>
-                                    <li><a href=""><img src="{{ asset('user/images/asset 4.png') }}" alt=""></a></li>
-                                </ul>
+                                <div class="req-tra">
+                                    @if(count($project->trainings) >= 1)
+                                        <h6 class="font-weight-bold">REQUIRED TRANING</h6>
+                                    @endif
+                                    <ul class="d-flex">
+                                        @foreach( $project->trainings as $training)
+                                            <li class="pr-2"><a href=""><img width="24px" src="{{ asset($training->badge) }}" alt=""></a></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="row">
-                                    <div class="col-md-4  pl-4">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">LEVEL</h6>
                                         <span class="text-success">{{$project->level->name}}</span>
-                                        <h6 class="m-0 font-weight-bold pt-4">TIME AWARDED</h6>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
+                                        <h6 class="m-0 font-weight-bold">TIME AWARDED</h6>
                                         <span class="text-danger">{{ $project->deadline }} <small>Hours</small></span>
                                     </div>
-                                    <div class="col-md-4 pl-4">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">CATEGORY</h6>
                                         <span class="text-success">{{ $project->category->name }}</span>
-                                        <h6 class="m-0 font-weight-bold pt-4">NO. OF WORDS</h6>
-                                        <span class="text-success">{{ $project->words }}</span>
                                     </div>
-                                    <div class="col-md-4 pl-5">
+                                    @if($project->type->name == 'Content Writing')
+                                        <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
+                                            <h6 class="m-0 font-weight-bold">NO. OF WORDS</h6>
+                                            <span class="text-success">{{ $project->words }}</span>
+                                        </div>
+                                    @endif
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">POINTS</h6>
                                         <span class="text-success">+{{ $project->points }}</span>
-                                        <h6 class="m-0 font-weight-bold pt-4">Available</h6>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
+                                        <h6 class="m-0 font-weight-bold">Available</h6>
                                         <span class="text-success">{{ $project->available }}</span>
                                     </div>
                                 </div>
@@ -146,7 +147,7 @@
 
                 <div class="modal fade" id="start-job-{{$project->id}}" tabindex="-1">
                     <div class="modal-dialog modal-dialog-lg modal-dialog-centered">
-                        <div class="modal-content"><a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                        <div class="modal-content modal-w"><a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
                             <div class="popup-body popup-body-lg">
                                 <div class="content-area">
                                     <div class="card-head d-flex justify-content-between align-items-center">
