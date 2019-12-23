@@ -6,19 +6,19 @@
             <h4>Statictics</h4>
             <div class="statictics text-center shadow">
                 <div class="row">
-                    <div class="col-md border-right pt-3 pb-3">
+                    <div class="col-md border-right border-sm-0 pt-3 pb-3">
                         <h5>TOTAL WRITING</h5>
                         <h3>{{ $totalWritings }}</h3>
                     </div>
-                    <div class="col-md border-right pt-3 pb-3">
+                    <div class="col-md border-right border-sm-0 pt-3 pb-3">
                         <h5>TOTAL VIDEOS</h5>
                         <h3>{{ $totalVideos }}</h3>
                     </div>
-                    <div class="col-md border-right pt-3 pb-3">
+                    <div class="col-md border-right border-sm-0 pt-3 pb-3">
                         <h5>IN REVISION</h5>
                         <h3>{{ $reworking }}</h3>
                     </div>
-                    <div class="col-md border-right pt-3 pb-3">
+                    <div class="col-md border-right border-sm-0 pt-3 pb-3">
                         <h5>PENDING</h5>
                         <h3>{{ $delivered }}</h3>
                     </div>

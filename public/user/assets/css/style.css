@@ -3165,7 +3165,9 @@ table th {
     .browse-img {
         display: none;
     }
-
+    .border-sm-0{
+        border: hidden !important;
+    }
 
 }
 @media only screen and (max-width: 768px) {

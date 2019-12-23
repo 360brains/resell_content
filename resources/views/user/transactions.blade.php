@@ -9,19 +9,19 @@
             </div>
             <div class="statictics text-center shadow">
                 <div class="row">
-                    <div class="col-md border-right pt-3 pb-3">
+                    <div class="col-md border-right border-sm-0 pt-3 pb-3">
                         <h5>NET INCOME</h5>
                         <h3>{{ auth()->user()->income }}</h3>
                     </div>
-                    <div class="col-md border-right pt-3 pb-3">
+                    <div class="col-md border-right border-sm-0 pt-3 pb-3">
                         <h5>WITHDRAWN</h5>
                         <h3>{{ $withdrawn }}</h3>
                     </div>
-                    <div class="col-md border-right pt-3 pb-3">
+                    <div class="col-md border-right border-sm-0 pt-3 pb-3">
                         <h5>USED FOR PUCHASES</h5>
                         <h3>{{ $purchased }}</h3>
                     </div>
-                    <div class="col-md border-right pt-3 pb-3">
+                    <div class="col-md border-right border-sm-0 pt-3 pb-3">
                         <h5>PENDING CLEARANCE</h5>
                         <h3>{{ $pending }}</h3>
                     </div>
