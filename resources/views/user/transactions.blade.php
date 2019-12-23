@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-md pt-3 pb-3">
                         <h5>AVAILABLE</h5>
-                        <h3>{{ auth()->user()->balance }}</h3>
+                        <h3>{{ floor(auth()->user()->balance) }}</h3>
                     </div>
                 </div>
             </div>
