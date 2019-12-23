@@ -2,14 +2,14 @@
 
 @section('content')
 
-    <div class="page-content">
+    <section class="task-work pt-5 pb-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="referral-info card">
-                        <div class="card-innr">
+                <div class="col-md-12">
+                    <div class="task-title shadow">
                             <h3 class="d-inline">{!! $test->description !!}
-                                <span class="float-right countdown-time">
+                            </h3>
+                                <span class="text-danger countdown-time">
                                 @php
                                     $now = new DateTime();
                                     $future_date = new DateTime($test->pivot->deadline);
@@ -20,14 +20,11 @@
                                 @endphp
                                     {{--                                {{ $test->pivot->deadline }}--}}
                             </span>
-                            </h3>
-
-                        </div>
-                        <!-- .copy-wrap -->
                     </div>
+
                 </div>
-                <div class="col-lg-12 main-content">
-                    <div class="card content-area">
+                <div class="col-md-12 pt-3 main-content">
+                    <div class="card p-4 shadow">
                         <div class="card-innr">
                             <div class="card-head">
                                 <form action="{{ route('user.tests.save.progress', $test->pivot->id) }}" method="post">
@@ -38,15 +35,24 @@
                                     <div class="gaps-2-5x"></div>
                                     <small><strong>Remember!</strong> You will have to complete it in the time awarded. If you do not submit in time, you lose progress and might have to write on any other topic.</small><br>
                                     <small><strong>Beware!</strong> Do not copy your content from any resource. It will be rejected streight away if found plagiarized.</small>
-                                    <ul class="work-submit">
-                                        <li>
-                                            <button class="btn btn-auto btn-lg btn-success" type="submit" name="action" value="save"><em class="fas fa-download"></em>
-                                                Save Progress </button>
+                                    <ul class="clearfix pt-3">
+                                        <li class="float-left">
+                                            <button class="btn btn-lg float-left btn-success"
+                                                    type="submit"
+                                                    name="action" value="save"><em
+                                                    class="fas fa-download"></em>
+                                                Save Progress
+                                            </button>
                                         </li>
-                                        <div class="my-work-btn" >
-                                            <li><button class="btn btn-auto btn-lg btn-danger" name="action" value="submit"><em class="fas fa-upload"></em> Submit </button></li>
+                                        <div class="my-work-btn float-right">
+                                            <li>
+                                                <button class="btn btn-lg float-left btn-danger"
+                                                        name="action"
+                                                        value="submit"><em class="fas fa-upload"></em>
+                                                    Submit
+                                                </button>
+                                            </li>
                                         </div>
-
                                     </ul>
                                 </form>
                             </div>
@@ -59,6 +65,6 @@
             </div>
 
         </div>
-    </div>
+    </section>
 
 @endsection

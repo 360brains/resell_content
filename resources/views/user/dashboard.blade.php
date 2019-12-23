@@ -49,7 +49,7 @@
                 @endif
 
                 @if(auth()->user()->video_points == 0)
-                    <div class="col-md-12 pt-2 pb-3">
+                    <div class="col-md-12 pt-3 pb-3">
                         <div class="content-area card p-2 border-0 shadow">
                             <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentVideoTest as $test)
