@@ -43,8 +43,8 @@ class WithdrawController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->balance < $request->amount){
-            return redirect()->route('withdraw.create')->withInput($request->all())->with('error','Requested amount must be less than or equal to available balance.');
+        if (auth()->user()->balance < $request->amount or $request->amount < 500 ){
+            return redirect()->route('withdraw.create')->withInput($request->all())->with('error','Requested amount must be greater than 500 and less than or equal to available balance.');
         }
         else{
             $request->validate([
