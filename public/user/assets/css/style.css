@@ -3228,14 +3228,15 @@ table th {
 
 @media only screen and (max-width: 991px) {
     .notification .dropdown-menu {
-        left: -30px !important;
+        left: -151px !important;
         right: unset !important;
     }
     .notification{
         display: inline-block;
     }
     .notification-caret:before {
-        left: 30px;
+        right: 136px !important;
+        left: unset;
     }
     .user-img{
         padding: 10px 0;
