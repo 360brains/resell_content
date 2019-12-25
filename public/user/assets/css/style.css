@@ -3097,9 +3097,16 @@ table th {
 }
 
 @media only screen and (max-width: 320px){
+    .notification .dropdown-menu {
+        left: -151px !important;
+        right: unset !important;
+    }
     .dropdown-menu .notification-menu{
         width: 302px !important;
         height: 260px !important;
+    }
+    .notification-caret:before {
+        left: 151px;
     }
     .dropdown-menu .notification-menu ul li{
         font-size: 12px;
@@ -3110,6 +3117,7 @@ table th {
     .dropdown-menu .notification-menu .footer {
         font-size: 12px;
     }
+
 
     .help-content ul li a{
         font-size: 10px;
@@ -3161,14 +3169,14 @@ table th {
 
 @media only screen and (max-width: 575px) {
     .notification .dropdown-menu {
-        left: -30px !important;
+        left: -151px !important;
         right: unset !important;
     }
     .notification{
         display: inline-block;
     }
     .notification-caret:before {
-        left: 30px;
+        left: 150px;
     }
     .user-img{
         padding: 10px 0;
@@ -3205,6 +3213,14 @@ table th {
 
 }
 @media only screen and (max-width: 768px) {
+    .notification .dropdown-menu {
+        left: -170px;
+        right: unset;
+    }
+    .dropdown-menu .notification-menu{
+        max-width: 320px;
+        height: 300px;
+    }
     .profile{
         margin-top: 1.5em;
     }
@@ -3227,17 +3243,6 @@ table th {
 }
 
 @media only screen and (max-width: 991px) {
-    .notification .dropdown-menu {
-        left: -151px !important;
-        right: unset !important;
-    }
-    .notification{
-        display: inline-block;
-    }
-    .notification-caret:before {
-        right: 136px !important;
-        left: unset;
-    }
     .user-img{
         padding: 10px 0;
     }
