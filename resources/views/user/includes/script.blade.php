@@ -18,7 +18,13 @@
         //         $('source').attr('src', $(this).data('link'));
         //         $('#myVideo').load();
         //     })
-
+        (function($) {
+            "use strict";
+            $(window).on('load', function () {
+                $('.Loader').delay(350).fadeOut('slow');
+                $('body').delay(350).css({'overflow': 'visible'});
+            })
+        })
 
         function changeVideo(url) {
             document.getElementById("myVideoSrc").src = url;
@@ -121,6 +127,7 @@
                 toolbar : 'simple'
             })
         $(document).ready(function(e) {
+            $('.Loader').delay(350).css({'display': 'none'});
             $(".showonhover").click(function(){
                 $("#selectfile").trigger('click');
             });

@@ -25,6 +25,8 @@
 
 </head>
 <body>
+<div class="Loader"></div>
+
     <div id="app">
         <nav class="navbar navbar-fixed-top navbar-expand-md navbar-light bg-white shadow-sm p-0">
             <div class="container">

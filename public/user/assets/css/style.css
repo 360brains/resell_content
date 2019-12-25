@@ -3075,6 +3075,26 @@ table th {
     border: 1px solid black;
     border-color: rgba(0, 0, 0, .15) transparent transparent rgba(0, 0, 0, .15);
 }
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
+.Loader{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999;
+    background:url(/images/page-loader.gif) center no-repeat #ffffff;
+}
 
 @media only screen and (max-width: 320px){
     .dropdown-menu .notification-menu{
@@ -3110,6 +3130,10 @@ table th {
     }
     .works-banner{
         padding: 15px 0;
+    }
+    .setting-card .notification .notifiaction-area input[type=checkbox] + label {
+        display: inline !important;
+        padding: 10px 19px !important;
     }
 
 }
@@ -3167,6 +3191,16 @@ table th {
     }
     .border-sm-0{
         border: hidden !important;
+    }
+    .setting-card .notification .notifiaction-area input[type=checkbox] + label {
+        display: inline !important;
+        padding: 10px 19px !important;
+    }
+    .btn-lg{
+        padding: 7px 8px !important;
+        line-height: 18px !important;
+        font-size: .875rem !important;
+        border-radius: .2rem !important;
     }
 
 }

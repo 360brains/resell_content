@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zxx" class="js">
+@include('user.includes.head')
 
 <body class="page-user">
+<div class="Loader"></div>
 
-
-@include('user.includes.head')
 
 
 @include('user.includes.header')
