@@ -3196,6 +3196,12 @@ table th {
         display: inline !important;
         padding: 10px 19px !important;
     }
+    .btn-lg{
+        padding: 7px 8px !important;
+        line-height: 18px !important;
+        font-size: .875rem !important;
+        border-radius: .2rem !important;
+    }
 
 }
 @media only screen and (max-width: 768px) {
