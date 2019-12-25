@@ -3098,8 +3098,8 @@ table th {
 
 @media only screen and (max-width: 320px){
     .dropdown-menu .notification-menu{
-        width: 302px;
-        height: 260px;
+        width: 302px !important;
+        height: 260px !important;
     }
     .dropdown-menu .notification-menu ul li{
         font-size: 12px;
