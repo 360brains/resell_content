@@ -131,7 +131,7 @@ class CategoryController extends Controller
             }
         }
         if ($response){
-            return redirect()->route('admin.categories.index')->with("success", "Category deleted successfully.");
+            return redirect()->back()->with("success", "Completed Successfully.");
         }else{
             return redirect()->back()->with("error", "Something went wrong. Please try again.");
         }
