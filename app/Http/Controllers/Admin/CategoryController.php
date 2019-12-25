@@ -112,6 +112,7 @@ class CategoryController extends Controller
      */
 
     public function destroy(Request $request, Category $category){
+        $response = false;
         // Getting all children ids
         $array_of_ids = $this->getChildren($category);
         // Appending the parent category id
@@ -129,7 +130,6 @@ class CategoryController extends Controller
                 $response = Category::where('id', $array_of_ids[$i])->update($data);
             }
         }
-
         if ($response){
             return redirect()->route('admin.categories.index')->with("success", "Category deleted successfully.");
         }else{
