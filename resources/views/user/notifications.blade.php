@@ -1,21 +1,19 @@
 @extends('user.layouts.master')
 
 @section('content')
-<section class="notifi-sec pt-5 pb-5">
-    <div class="container">
-        <div class="card content-area p-3">
-            <div class="card-innr">
-                <div class="card-head">
-                    <h4 class="card-title">Notifications</h4></div>
+    <section class="notifi-sec pt-5 pb-5">
+        <div class="container">
+            <div class="card p-4 shadow">
+                <h4 class="card-title">Notifications</h4>
                 <div class="table-responsive">
-                    <table class="data-table dt-init user-tnx">
+                    <table class="table table-borderless">
                         <thead>
-                        <tr class="data-item data-head">
-                            <th class="data-col dt-tnxno">Sr No.</th>
-                            <th class="data-col dt-amount">Name</th>
-                            <th class="data-col dt-usd-amount">Message</th>
-                            <th class="data-col dt-account">Date</th>
-                            <th class="data-col dt-account">Action</th>
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>Name</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                            <th>Action</th>
                             {{--                            <th class="data-col dt-type">--}}
                             {{--                                <div class="dt-type-text">Type</div>--}}
                             {{--                            </th>--}}
@@ -27,36 +25,33 @@
                             {{ $notification->markAsRead() }}
                         @endforeach
                         @php($i = 1)
-                        @forelse(auth()->user()->notifications()->paginate(10) as $notification)
-                            <tr class="data-item">
-                                <td class="data-col dt-tnxno">
+                        @forelse(auth()->user()->notifications()->paginate() as $notification)
+                            <tr>
+                                <td>
                                     <div class="d-flex align-items-center">
-                                        <div class="data-state data-state-approved"><span class="d-none">Approved</span></div>
-                                        <div class="fake-class"><span class="lead tnx-id">{{ $i++ }}</span></div>
+                                        <div class="data-state data-state-approved"><span
+                                                class="d-none">Approved</span></div>
+                                        <div ><span>{{ $i++ }}</span></div>
                                     </div>
                                 </td>
-                                <td class="data-col dt-amount"><span class="lead amount-pay">{{ $notification->data['taskName'] }}</span></td>
-                                <td class="data-col dt-usd-amount"><span class="lead amount-pay">{{ $notification->data['message']}}</span></td>
-                                <td class="data-col dt-account"><span class="lead user-info">{{ date('d-M-Y h:i', strtotime($notification->data['date'])) }}</span></td>
-                                <td class="data-col dt-account"><span class="lead user-info">{!! $notification->data['link'] ?? 'None' !!}</span></td>
+                                <td><span>{{ $notification->data['taskName'] }}</span></td>
+                                <td><span>{{ $notification->data['message']}}</span></td>
+                                <td><span>{{ date('d-M-Y h:i', strtotime($notification->data['date'])) }}</span></td>
+                                <td ><span>{!! $notification->data['link'] ?? 'None' !!}</span></td>
                                 {{--                                <td class="data-col dt-type"><span class="dt-type-md badge badge-outline badge-success badge-md">{{ $transaction->status }}</span><span class="dt-type-sm badge badge-sq badge-outline badge-success badge-md">P</span></td>--}}
                                 {{--                                <td class="data-col text-right"><a href="#" data-toggle="modal" data-target="#transaction-details{{$transaction->id}}" class="btn btn-light-alt btn-xs btn-icon"><em class="ti ti-eye"></em></a></td>--}}
 
                             </tr>
                         @empty
-                            <tr><td colspan="5">No Notifications Found</td></tr>
+                            <tr>
+                                <td colspan="5">No Notifications Found</td>
+                            </tr>
                         @endforelse
                         <!-- .data-item -->
                         </tbody>
                     </table>
                 </div>
-                <div>
-                </div>
             </div>
-            <!-- .card-innr -->
         </div>
-        <!-- .card -->
-    </div>
-    <!-- .container -->
-</section>
+    </section>
 @endsection
