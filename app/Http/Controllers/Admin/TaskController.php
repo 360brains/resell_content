@@ -259,7 +259,6 @@ class TaskController extends Controller
     public function extendTime(Request $request, $id){
         $task = Task::find($id);
         $extend = $task->timeExtension;
-
         if ($request->action == "approve"){
             $task->deadline = now()->addHours($extend->time);
             $extend->status = 'Approved';
@@ -280,7 +279,8 @@ class TaskController extends Controller
             ];
 
         }elseif ($request->action == "reject"){
-            $extend->status == 'Rejected';
+
+            $extend->status = 'Rejected';
             $response = $extend->save();
 
             $details = [

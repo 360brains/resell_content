@@ -19,7 +19,9 @@
                             <select name="level" class="form-control custom-inp" id="exampleFormControlSelect1">
                                 <option value="">Choose Level</option>
                                 @forelse($levels as $level)
-                                    <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                    @if($level->name != "Zero")
+                                        <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                    @endif
                                 @empty
                                     <option>No Levels found</option>
                                 @endforelse
