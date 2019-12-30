@@ -64,7 +64,7 @@ class DemoCron extends Command
                     $adminDetails = [
                         'taskName'      => $task->project->id,
                         'date'          => now(),
-                        'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . "</a><a href=".route("admin.tasks.show", $task->id)." class='d-inline'> delivered a task.</a>",
+                        'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . "</a><a href=".route("admin.tasks.show", $task->id)." class='d-inline'> undelivered a task.</a>",
                         'tooltip'       => 'Task',
                         'link'          => "<a href=".route("admin.tasks.show", $task->id)." class='d-inline'>View task</a>",
                     ];
@@ -96,7 +96,7 @@ class DemoCron extends Command
                         $adminDetails = [
                             'taskName'      => $task->project->id,
                             'date'          => now(),
-                            'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . "</a><a href=".route("admin.tasks.show", $task->id)." class='d-inline'> delivered a task.</a>",
+                            'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . "</a><a href=".route("admin.tasks.show", $task->id)." class='d-inline'> undelivered a task.</a>",
                             'tooltip'       => 'Task',
                             'link'          => "<a href=".route("admin.tasks.show", $task->id)." class='d-inline'>View task</a>",
                         ];

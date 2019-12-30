@@ -97,7 +97,7 @@
                             </tr>
                         @endif
                         @if(isset($task->timeExtension))
-                            @if($task->timeExtension->status == 'Requested')
+                            @if($task->timeExtension->status == 'Requested'  && $task->status != "delivered")
                                 <tr>
                                     <th>Time extension request</th>
                                     <td>
@@ -170,6 +170,7 @@
     <div class="modal fade" id="time-extension" tabindex="-1" role="basic" aria-hidden="true">
         @if(isset($task->timeExtension))
             @if($task->timeExtension->status == 'Requested')
+
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
