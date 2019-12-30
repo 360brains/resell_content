@@ -55,7 +55,6 @@ class OfficeController extends Controller
             'message'       => "<a href=".route("admin.users.show", $task->user->id)." class='d-inline'>". $task->user->name . "</a><a href=".route("admin.tasks.show", $task->id)." class='d-inline'> delivered a task.</a>",
             'tooltip'       => 'Task',
             'link'          => "<a href=".route("admin.tasks.show", $task->id)." class='d-inline'>View task</a>",
-
         ];
         $admins = Admin::all();
         foreach ($admins as $admin) {

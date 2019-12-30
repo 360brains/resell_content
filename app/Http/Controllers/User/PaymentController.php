@@ -255,7 +255,14 @@ class PaymentController extends Controller
         ];
 
         auth()->user()->notify(new TaskResult($details));
-        auth()->user()->notify(new EmailUser($emailDetails));
+
+        if (!is_null(auth()->user()->setting)) {
+            if (auth()->user()->setting->support_notifications == 0) {
+                auth()->user()->notify(new EmailUser($emailDetails));
+            }
+        }else{
+            auth()->user()->notify(new EmailUser($emailDetails));
+        }
 
 
         $adminDetails = [

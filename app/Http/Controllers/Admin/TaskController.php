@@ -217,7 +217,14 @@ class TaskController extends Controller
         }
 
         $task->user->notify(new TaskResult($details));
-        $task->user->notify(new EmailUser($emailDetails));
+
+        if (!is_null($task->user->setting)) {
+            if ($task->user->setting->task_updates == 0) {
+                $task->user->notify(new EmailUser($emailDetails));
+            }
+        }else{
+            $task->user->notify(new EmailUser($emailDetails));
+        }
 
         if ($response){
             return redirect()->route('admin.projects.show', $task->project->id)->with("success", "Completed Successfully.");
@@ -298,7 +305,14 @@ class TaskController extends Controller
         }
 
         $task->user->notify(new TaskResult($details));
-        $task->user->notify(new EmailUser($emailDetails));
+
+        if (!is_null($task->user->setting)) {
+            if ($task->user->setting->task_updates == 0) {
+                $task->user->notify(new EmailUser($emailDetails));
+            }
+        }else{
+            $task->user->notify(new EmailUser($emailDetails));
+        }
 
         if ($response){
             return redirect()->route('admin.projects.index')->with("success", "Completed Successfully.");

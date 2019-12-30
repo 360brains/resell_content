@@ -87,7 +87,14 @@ class RegisterController extends Controller
             ];
 
             $referer->notify(new TaskResult($details));
-            $referer->notify(new EmailUser($emailDetails));
+
+            if (!is_null($referer->setting)) {
+                if ($referer->setting->support_notifications == 0) {
+                    $referer->notify(new EmailUser($emailDetails));
+                }
+            }else{
+                $referer->notify(new EmailUser($emailDetails));
+            }
     }
         return User::create([
             'name' => $data['name'],
