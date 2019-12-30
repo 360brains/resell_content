@@ -18,6 +18,7 @@ Auth::routes(['verify' => true]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin', 'namespace' => 'Admin', 'as' => 'admin.'], function (){
 
+    Route::get('/markAsRead','NotificationController@markRead')->name('markRead');
     Route::post('task/save-progress/{id}', 'TaskController@saveProgress')->name('task.save.progress');
     Route::get('task/extend/{id}', 'TaskController@extendTime')->name('task.extend');
     Route::get('user-test/show/{id}', 'UserTestController@showTest')->name('user.test.show');
