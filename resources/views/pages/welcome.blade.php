@@ -52,9 +52,9 @@
         </div>
     </section>
 
-    <div class="clearfix position-relative"></div>
+    <div class="clearfix"></div>
 
-    <section class="work-done pt-5 pb-5">
+    <section class="work-done pt-5 pb-5" style="width: 100%; float: left">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
