@@ -73,6 +73,7 @@ Route::group(['middleware' => ['auth', 'active']], function() {
     Route::get('user/learn-details/{id}', 'User\LearnController@learnDetails')->name('user.learn.details');
     Route::get('user/transactions', 'User\TransactionController@index')->name('user.transactions');
     Route::get('user/settings', 'User\SettingController@index')->name('user.settings');
+    Route::get('user/settings/update', 'User\SettingController@update')->name('user.settings.update');
     Route::get('user/notifications', 'User\NotificationController@index')->name('user.notifications');
     Route::get('user/tasks', 'User\TasksController@index')->name('user.tasks');
     Route::get('user/projects', 'User\TasksController@projects')->name('user.projects');
