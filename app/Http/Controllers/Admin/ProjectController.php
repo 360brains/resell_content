@@ -88,7 +88,14 @@ class ProjectController extends Controller
             $users = User::where('special', 1)->get();
             foreach ($users as $user){
                 $user->notify(new TaskResult($details));
-                $user->notify(new EmailUser($emailDetails));
+
+                if (!is_null($user->setting)) {
+                    if ($user->setting->task_updates == 0) {
+                        $user->notify(new EmailUser($emailDetails));
+                    }
+                }else{
+                    $user->notify(new EmailUser($emailDetails));
+                }
             }
         }else{
             $response          = $project->save();
@@ -181,7 +188,14 @@ class ProjectController extends Controller
             $users = User::where('special', 1)->get();
             foreach ($users as $user){
                 $user->notify(new TaskResult($details));
-                $user->notify(new EmailUser($emailDetails));
+
+                if (!is_null($user->setting)) {
+                    if ($user->setting->task_updates == 0) {
+                        $user->notify(new EmailUser($emailDetails));
+                    }
+                }else{
+                    $user->notify(new EmailUser($emailDetails));
+                }
             }
         }else{
             $project->special = 0;

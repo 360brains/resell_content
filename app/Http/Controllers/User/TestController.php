@@ -57,7 +57,14 @@ class TestController extends Controller
             'urlText'      => 'Dashboard',
         ];
         auth()->user()->notify(new TaskResult($details));
-        auth()->user()->notify(new EmailUser($emailDetails));
+
+        if (!is_null(auth()->user()->setting)) {
+            if (auth()->user()->setting->task_updates == 0) {
+                auth()->user()->notify(new EmailUser($emailDetails));
+            }
+        }else{
+            auth()->user()->notify(new EmailUser($emailDetails));
+        }
 
 //        return view('user.video-test', $data);
         return redirect()->route('user.tests.video.test');
@@ -109,7 +116,14 @@ class TestController extends Controller
             'urlText'      => 'Dashboard',
         ];
         auth()->user()->notify(new TaskResult($details));
-        auth()->user()->notify(new EmailUser($emailDetails));
+
+        if (!is_null(auth()->user()->setting)) {
+            if (auth()->user()->setting->task_updates == 0) {
+                auth()->user()->notify(new EmailUser($emailDetails));
+            }
+        }else{
+            auth()->user()->notify(new EmailUser($emailDetails));
+        }
 
         return redirect()->route('user.tests.writing.test');
 //        return view('user.writing-test', $data);
@@ -156,7 +170,14 @@ class TestController extends Controller
                 'urlText'      => 'Dashboard',
             ];
             auth()->user()->notify(new TaskResult($details));
-            auth()->user()->notify(new EmailUser($emailDetails));
+
+            if (!is_null(auth()->user()->setting)) {
+                if (auth()->user()->setting->task_updates == 0) {
+                    auth()->user()->notify(new EmailUser($emailDetails));
+                }
+            }else{
+                auth()->user()->notify(new EmailUser($emailDetails));
+            }
 
             $adminDetails = [
                 'taskName'      => Test::where('id', $id)->select('name')->first(),

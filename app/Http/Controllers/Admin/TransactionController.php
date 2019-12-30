@@ -93,41 +93,49 @@ class TransactionController extends Controller
         return view('admin.withdraws.index', $data);
     }
 
-    public function withdrawApprove($id){
+    public function withdrawApprove($id)
+    {
 
         $withdraw = Withdraw::where('id', $id)->first();
 
         $data = [
-            'type'            =>'Credit',
-            'amount'          => $withdraw->amount,
-            'description'     =>'Withdrawn Money',
-            'withdraw_id'     => $withdraw->id,
-            'status'          => "Received",
-            'user_id'         => $withdraw->user->id,
+            'type' => 'Credit',
+            'amount' => $withdraw->amount,
+            'description' => 'Withdrawn Money',
+            'withdraw_id' => $withdraw->id,
+            'status' => "Received",
+            'user_id' => $withdraw->user->id,
         ];
 
         $response = Transaction::create($data);
 
         $data = [
-            'status'          => "Approved",
+            'status' => "Approved",
         ];
 
         $response = $withdraw->update($data);
         $details = [
-            'taskName'      => 'Withdraw Funds',
-            'date'          => now(),
-            'message'       => 'Your withdraw request is approved.',
-            'tooltip'       => ' You have been sent requested amount. In case of any issue feel free to contact us.',
-            'link'          => "",
+            'taskName' => 'Withdraw Funds',
+            'date' => now(),
+            'message' => 'Your withdraw request is approved.',
+            'tooltip' => ' You have been sent requested amount. In case of any issue feel free to contact us.',
+            'link' => "",
         ];
         $emailDetails = [
-            'message'       => 'Your withdraw request is approved. You have been sent requested amount. In case of any issue feel free to contact us.',
-            'url'          => route("user.dashboard"),
-            'urlText'      => 'Dashboard',
+            'message' => 'Your withdraw request is approved. You have been sent requested amount. In case of any issue feel free to contact us.',
+            'url' => route("user.dashboard"),
+            'urlText' => 'Dashboard',
         ];
 
+        if (!is_null($withdraw->user->setting)) {
+            if ($withdraw->user->setting->withdraw_notifications == 0) {
+                $withdraw->user->notify(new EmailUser($emailDetails));
+            }
+        }else{
+            $withdraw->user->notify(new EmailUser($emailDetails));
+        }
+
         $withdraw->user->notify(new TaskResult($details));
-        $withdraw->user->notify(new EmailUser($emailDetails));
 
         foreach (auth()->user()->unreadNotifications as $notification)
         {

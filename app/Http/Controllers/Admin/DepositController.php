@@ -136,8 +136,14 @@ class DepositController extends Controller
         }
     }
 
-        $deposit->user->notify(new TaskResult($details));
-        $deposit->user->notify(new EmailUser($emailDetails));
+        if (!is_null($deposit->user->setting)) {
+            if ($deposit->user->setting->task_updates == 0) {
+                $deposit->user->notify(new EmailUser($emailDetails));
+            }
+        }else{
+            $deposit->user->notify(new EmailUser($emailDetails));
+        }
+    $deposit->user->notify(new TaskResult($details));
 
 
         if ($response){

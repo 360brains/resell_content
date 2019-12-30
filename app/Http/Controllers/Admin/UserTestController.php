@@ -58,7 +58,14 @@ class UserTestController extends Controller
                 'urlText'      => 'Projects',
             ];
             $user->notify(new TaskResult($details));
-            $user->notify(new EmailUser($emailDetails));
+
+            if (!is_null($user->setting)) {
+                if ($user->setting->task_updates == 0) {
+                    $user->notify(new EmailUser($emailDetails));
+                }
+            }else{
+                $user->notify(new EmailUser($emailDetails));
+            }
         }
 
         elseif ($request->action == 'rejected'){
@@ -82,7 +89,14 @@ class UserTestController extends Controller
                 'urlText'      => 'Dashboard',
             ];
             $user->notify(new TaskResult($details));
-            $user->notify(new EmailUser($emailDetails));
+
+            if (!is_null($user->setting)) {
+                if ($user->setting->task_updates == 0) {
+                    $user->notify(new EmailUser($emailDetails));
+                }
+            }else{
+                $user->notify(new EmailUser($emailDetails));
+            }
 
         }
 
