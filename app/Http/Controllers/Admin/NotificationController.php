@@ -11,4 +11,10 @@ class NotificationController extends Controller
     {
         return view('admin.notifications');
     }
+    public function markRead()
+    {
+        auth()->user()->unreadNotifications->markAsRead();
+        return redirect()->back()->with("success", "Completed Successfully.");
+    }
+
 }

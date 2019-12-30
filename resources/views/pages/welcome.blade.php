@@ -52,7 +52,7 @@
         </div>
     </section>
 
-    <div class="clearfix"></div>
+    <div class="clearfix position-relative"></div>
 
     <section class="work-done pt-5 pb-5">
         <div class="container">

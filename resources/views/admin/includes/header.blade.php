@@ -14,7 +14,6 @@
         <!-- BEGIN TOP NAVIGATION MENU -->
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
-
                 <!-- BEGIN NOTIFICATION DROPDOWN -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                 <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
@@ -25,8 +24,8 @@
                     <ul class="dropdown-menu">
                         <li class="external">
                             <h3>
-                                <span class="bold">{{ count(auth()->user()->unreadNotifications) }} pending</span> notifications</h3>
-                            <a href="page_user_profile_1.html">view all</a>
+                                <span class="bold">{{ count(auth()->user()->unreadNotifications) }} Pending</span> notifications</h3>
+                            <a href="{{ route('admin.markRead') }}" class="float-right p-0 text-info">Mark as read</a>
                         </li>
                         <li>
                             <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
@@ -49,6 +48,9 @@
                                         </a>
                                     </li>
                                 @endforelse
+                                <li>
+                                    <a class="text-center" href="{{ route('admin.notifications') }}">View all</a>
+                                </li>
 
 {{--                                <li>--}}
 {{--                                    <a href="javascript:;">--}}

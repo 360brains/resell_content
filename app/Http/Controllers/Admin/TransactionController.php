@@ -89,7 +89,7 @@ class TransactionController extends Controller
         //
     }
     public function withdrawIndex(){
-        $data['withdrawRequests']   = Withdraw::with('user')->orderBy('status', 'desc')->paginate(10);
+        $data['withdrawRequests']   = Withdraw::with('user')->orderBy('status', 'asc')->paginate(10);
         return view('admin.withdraws.index', $data);
     }
 
