@@ -152,7 +152,7 @@
                                         <div class="col-md-4">
                                             <p class="pt-4">For important updates certain notifications cannot be disabled</p>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 w-70">
                                             <h6>Type</h6>
                                             <ul>
                                                 <li>Task Update</li>
@@ -160,7 +160,7 @@
                                                 <li>Withdraw</li>
                                             </ul>
                                         </div>
-                                        <div class="col-md-4 ">
+                                        <div class="col-md-4 w-30">
                                             <h6>Email</h6>
                                             <form>
                                                 <input type="checkbox" id="fruit1">

@@ -73,7 +73,7 @@
                         @foreach($task->statuses as $status)
                             <tr>
                                 <th>{{ $status->name }}</th>
-                                <td>{{$task->created_at}}</td>
+                                <td>{{$status->created_at}}</td>
                             </tr>
                         @endforeach
 

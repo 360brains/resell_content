@@ -7,7 +7,7 @@
                 <div class="col-lg-6 offset-lg-3 ">
                     <div class="funds-heading text-center">
                         <div class="row">
-                            <div class="col-md-6 border-right">
+                            <div class="col-md-6 border-right border-sm-0">
                                 <h5><a class="hvrcenter active" href="{{ route('withdraw.create') }}">Withdraw</a></h5>
                             </div>
                             <div class="col-md-6">
@@ -18,7 +18,7 @@
                     </div>
                     <div class="funds-card mt-3 mb-3">
                         <div class="withdraw-blnc text-center">
-                            <h1>Rs. {{Auth::user()->balance}}</h1>
+                            <h1>Rs. {{ floor(Auth::user()->balance) }}</h1>
                             <h4 class="pt-3">Available Balance</h4>
                         </div>
                         <form action="{{ route('withdraw.store' ) }}" method="post" enctype="multipart/form-data">
@@ -86,7 +86,6 @@
                                 <th>Account Holder</th>
                                 <th>Bank Name</th>
                                 <th>Amount</th>
-                                <th>Status</th>
                                 <th>Date</th>
                             </tr>
                             </thead>
@@ -97,7 +96,6 @@
                                     <td>{{$withdrawRequest->holder}}</td>
                                     <td>{{$withdrawRequest->bank}}</td>
                                     <td>{{$withdrawRequest->amount}}</td>
-                                    <td>{{$withdrawRequest->status}}</td>
                                     <td>{{date('d-M-y h:i',strtotime($withdrawRequest->created_at))}}</td>
                                 </tr>
                             @endforeach

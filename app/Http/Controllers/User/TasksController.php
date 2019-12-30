@@ -247,7 +247,7 @@ class TasksController extends Controller
         $price              = $request->price;
 //        $account            = $request->account;
         $data['projects']   = Project::where('active', 1)->where('special', 0)->where('available', '>', 0)->whereNotNull('id');
-        $data['categories'] = Category::with('projects')->get();
+        $data['categories'] = Category::where('active', 1)->with('projects')->get();
         $data['types']      = Type::where('active', 1)->get();
         $data['levels']     = Level::where('active', 1)->get();
 

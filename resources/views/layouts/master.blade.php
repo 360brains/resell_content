@@ -5,6 +5,7 @@
 @include('user.includes.head')
 <!-- END HEAD -->
 <body>
+<div class="Loader"></div>
 
 <div id="app">
     <!-- BEGIN HEADER -->

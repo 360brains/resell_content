@@ -7,7 +7,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="funds-heading text-center">
                         <div class="row">
-                            <div class="col-md-6 border-right">
+                            <div class="col-md-6 border-right border-sm-0">
                                 <h5><a class="hvrcenter" href="{{ route('withdraw.create') }}">Withdraw</a></h5>
                             </div>
                             <div class="col-md-6">

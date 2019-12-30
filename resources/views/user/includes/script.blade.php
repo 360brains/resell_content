@@ -18,6 +18,13 @@
         //         $('source').attr('src', $(this).data('link'));
         //         $('#myVideo').load();
         //     })
+        (function($) {
+            "use strict";
+            $(window).on('load', function () {
+                $('.Loader').delay(350).fadeOut('slow');
+                $('body').delay(350).css({'overflow': 'visible'});
+            })
+        })
 
         function changeVideo(url) {
             document.getElementById("myVideoSrc").src = url;
@@ -120,20 +127,21 @@
                 toolbar : 'simple'
             })
         $(document).ready(function(e) {
+            $('.Loader').delay(350).css({'display': 'none'});
             $(".showonhover").click(function(){
                 $("#selectfile").trigger('click');
             });
         });
 
 
-        var input = document.querySelector('input[type=file]'); // see Example 4
-
-        input.onchange = function () {
-            var file = input.files[0];
-
-            drawOnCanvas(file);   // see Example 6
-            displayAsImage(file); // see Example 7
-        };
+        // var input = document.querySelector('input[type=file]'); // see Example 4
+        //
+        // input.onchange = function () {
+        //     var file = input.files[0];
+        //
+        //     drawOnCanvas(file);   // see Example 6
+        //     displayAsImage(file); // see Example 7
+        // };
 
         function drawOnCanvas(file) {
             var reader = new FileReader();
