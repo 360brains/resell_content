@@ -154,6 +154,7 @@
                                         </div>
                                         <div class="col-md-4 w-70">
                                             <h6>Type</h6>
+
                                             <ul>
                                                 <li>Task Update</li>
                                                 <li>Support Notification</li>
@@ -162,35 +163,44 @@
                                         </div>
                                         <div class="col-md-4 w-30">
                                             <h6>Email</h6>
-                                            <form>
-                                                <input type="checkbox" id="fruit1">
-                                                <label for="fruit1"></label>
-                                                <input type="checkbox" id="fruit2">
-                                                <label for="fruit2"></label>
-                                                <input type="checkbox" id="fruit3">
-                                                <label for="fruit3"></label>
+                                            <form action="{{ route('user.settings.update') }}">
+                                                @csrf
+                                                @if(auth()->user()->setting != null)
+                                                    <input type="checkbox" id="fruit1" name="task_updates" {{ auth()->user()->setting->task_updates == 1 ? "checked" : ""  }}>
+                                                    <label for="fruit1"></label>
+                                                    <input type="checkbox" id="fruit2" name="support_notifications" {{ auth()->user()->setting->support_notifications == 1 ? "checked" : ""  }}>
+                                                    <label for="fruit2"></label>
+                                                    <input type="checkbox" id="fruit3" name="withdraw_notifications" {{ auth()->user()->setting->withdraw_notifications == 1 ? "checked" : ""  }}>
+                                                    <label for="fruit3"></label>
+                                                @else
+                                                    <input type="checkbox" id="fruit1" name="task_updates">
+                                                    <label for="fruit1"></label>
+                                                    <input type="checkbox" id="fruit2" name="support_notifications">
+                                                    <label for="fruit2"></label>
+                                                    <input type="checkbox" id="fruit3" name="withdraw_notifications">
+                                                    <label for="fruit3"></label>
+                                                @endif
+                                                    <button class="btn btn btn-success float-right">Save Changes</button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
 
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h5>Enable/Disable Sound</h5>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="switch">
-                                            <div class="d-inline-flex ">
-                                                <input type="checkbox" class="input-switch input-switch-sm" id="CheckBox_13">
-                                                <label for="CheckBox_13"></label>
-                                                <i class="fas fa-volume-up"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="btn btn btn-success float-right">Save Changes</button>
-
+{{--                                <hr>--}}
+{{--                                <div class="row">--}}
+{{--                                    <div class="col-md-4">--}}
+{{--                                        <h5>Enable/Disable Sound</h5>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-md-4">--}}
+{{--                                        <div class="switch">--}}
+{{--                                            <div class="d-inline-flex ">--}}
+{{--                                                <input type="checkbox" class="input-switch input-switch-sm" id="CheckBox_13">--}}
+{{--                                                <label for="CheckBox_13"></label>--}}
+{{--                                                <i class="fas fa-volume-up"></i>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     </div>

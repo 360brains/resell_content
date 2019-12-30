@@ -6,6 +6,7 @@ use App\Models\Account;
 use App\Models\Deposit;
 use App\Models\Membership;
 use App\Models\Level;
+use App\Models\Setting;
 use App\Models\Task;
 use App\Models\Test;
 use App\Models\Training;
@@ -111,6 +112,9 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function withdraws(){
         return $this->hasMany(Withdraw::class);
+    }
+    function setting(){
+        return $this->hasOne(Setting::class);
     }
 
     public function getCreatedAtAttribute($date)

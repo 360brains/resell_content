@@ -56,7 +56,7 @@
                                         @if($membership->active == 0)
                                             <button type="submit" class="btn btn-success btn-outline sbold uppercase">Active</button>
                                         @else
-                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase">Inactive</button>
+                                            <button type="submit" class="btn btn-danger btn-outline sbold uppercase" disabled>Inactive</button>
                                         @endif
                                     </form>
                                 </td>
