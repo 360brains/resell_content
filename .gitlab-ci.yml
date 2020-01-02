@@ -1,0 +1,17 @@
+deploy_cvf:
+  stage: deploy
+  environment:
+    name: CVF
+    url: https://cvf.sunztech.com
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - echo "Deploying to development site"
+    - ssh-add <(echo "$SSH_KEY")
+    - rm -rf .git
+    - ssh -o StrictHostKeyChecking=no root@206.189.217.230 "cd /var/www/html/php73/cvf.sunztech.com; git pull -u origin master; chmod +x purge.sh; ./purge.sh; chown -R nginx:nginx *; exit"
+  only:
+    - master
