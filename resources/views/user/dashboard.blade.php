@@ -115,7 +115,7 @@
                     <div class="recent-projects mt-4 shadow rounded">
                         <div class="clearfix">
                             <strong><h5 class="float-left">RECENT PROJECTS</h5></strong>
-                            <div class="dropdown float-right">
+                            {{--<div class="dropdown float-right">
                                 <button class="btn btn-sm btn-outline-success dropdown-toggle" type="button"
                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
@@ -125,12 +125,12 @@
                                     <a class="dropdown-item" href="#">Action</a>
                                     <a class="dropdown-item" href="#">Another action</a>
                                     <a class="dropdown-item" href="#">Something else here</a>
-{{--                                    <a class="dropdown-item" href="#">Newest</a>--}}
-{{--                                    <a class="dropdown-item" href="#">Completed</a>--}}
-{{--                                    <a class="dropdown-item" href="#">Delivered</a>--}}
-{{--                                    <a class="dropdown-item" href="#">Undelivered</a>--}}
+                                    <a class="dropdown-item" href="#">Newest</a>
+                                    <a class="dropdown-item" href="#">Completed</a>
+                                    <a class="dropdown-item" href="#">Delivered</a>
+                                    <a class="dropdown-item" href="#">Undelivered</a>
                                 </div>
-                            </div>
+                            </div>--}}
                         </div>
                         <div class=" table-responsive">
                             <table class="table table-borderless">

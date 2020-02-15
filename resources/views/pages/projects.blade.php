@@ -10,7 +10,7 @@
                 <h3 class="avil-jobs">Available Jobs</h3>
                 <hr>
             </div>
-            <form class="form-horizontal" action="{{ route('user.projects') }}" method="get">
+            <form class="form-horizontal" action="{{ route('pages.projects') }}" method="get">
                 <div class="row">
                     <div class="col-lg col-md-4 col-sm-6 col-xs-12">
                         <div class="form-group position-relative">

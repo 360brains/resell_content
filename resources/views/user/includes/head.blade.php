@@ -5,7 +5,7 @@
     <!-- Fav Icon -->
     <link rel="shortcut icon" href="{{ asset('user/images/favicon.png') }}">
     <!-- Site Title  -->
-    <title>TokenWiz - ICO User Dashboard Admin Template</title>
+    <title>{{ config('app.name', 'GreatContent') }}</title>
     <!-- Vendor Bundle CSS -->
     <link href="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('user/assets/css/vendor.bundle49f7.css') }}">
