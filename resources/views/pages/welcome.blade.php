@@ -5,7 +5,7 @@
         <div class="owl-slider owl-theme">
             <div id="carousel" class="owl-carousel">
                 <div class="item info">
-                    <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
+                    <img class="" src="{{ asset('assets/img/nav-bg.png')  }}" alt="">
                     {{--                    <div class="slider-content">--}}
                     {{--                        <h1>--}}
                     {{--                            <i class="fas fa-quote-left"></i>--}}
@@ -16,7 +16,7 @@
                     {{--                    </div>--}}
                 </div>
                 <div class="item info">
-                    <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
+                    <img class="" src="{{ asset('assets/img/nav-bg-2.png')  }}" alt="">
                     {{--                    <div class="slider-content">--}}
                     {{--                        <h1>--}}
                     {{--                            <i class="fas fa-quote-left"></i>--}}
@@ -27,18 +27,7 @@
                     {{--                    </div>--}}
                 </div>
                 <div class="item info">
-                    <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
-                    {{--                    <div class="slider-content">--}}
-                    {{--                        <h1>--}}
-                    {{--                            <i class="fas fa-quote-left"></i>--}}
-                    {{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
-                    {{--                            <i class="fas fa-quote-right"></i>--}}
-                    {{--                        </h1>--}}
-                    {{--                        <p>&minus;Louis L'Amour</p>--}}
-                    {{--                    </div>--}}
-                </div>
-                <div class="item info">
-                    <img class="" src="{{ asset('assets/img/nav-bg.svg')  }}" alt="">
+                    <img class="" src="{{ asset('assets/img/nav-bg-3.png')  }}" alt="">
                     {{--                    <div class="slider-content">--}}
                     {{--                        <h1>--}}
                     {{--                            <i class="fas fa-quote-left"></i>--}}
@@ -72,7 +61,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="work-done-img">
-                        <img class="img-fluid" src="{{ asset('assets/img/work-done.png') }}" alt="">
+                        <img class="img-fluid w-100" src="{{ asset('assets/img/work-done.png') }}" alt="">
                     </div>
                 </div>
             </div>
