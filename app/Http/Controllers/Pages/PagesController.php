@@ -26,6 +26,7 @@ class PagesController extends Controller
 
         return view('pages.welcome', $data);
     }
+
     public function projects(Request $request){
         $level              = $request->level;
         $category           = $request->category;
@@ -94,11 +95,14 @@ class PagesController extends Controller
         return view('pages.project-details', $data);
     }
 
-
     public function pricing(){
 
         $data['levels']   = Level::get();
         return view('pages.pricing', $data);
+    }
+
+    public function aboutUs(){
+        return view('pages.about');
     }
 
     public function tutorials(){
@@ -114,6 +118,7 @@ class PagesController extends Controller
     public function howItWorks(){
         return view('pages.how-it-works');
     }
+
     public function inactive(){
 
         return view('user.inactive');

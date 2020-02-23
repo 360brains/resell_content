@@ -99,6 +99,7 @@ Route::group(['middleware' => ['auth', 'active']], function() {
 Route::get('/', 'Pages\PagesController@home')->name('pages.home')->middleware('user');
 Route::get('/inactive', 'Pages\PagesController@inactive')->name('pages.inactive');
 Route::get('/projects', 'Pages\PagesController@projects')->name('pages.projects');
+Route::get('/about-us', 'Pages\PagesController@aboutUs')->name('pages.about');
 Route::get('/howItWorks', 'Pages\PagesController@howItWorks')->name('pages.howItWorks');
 Route::get('/project-details/{id}', 'Pages\PagesController@projectDetails')->name('pages.project.details');
 Route::get('/projects-category/{id}', 'Pages\PagesController@projectsByCategories')->name('pages.projects.category');

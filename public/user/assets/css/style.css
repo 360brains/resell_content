@@ -4056,3 +4056,42 @@ footer .footer-bottom{
     width: 40px;
     padding-bottom: 10px;
 }
+.about-us h2{
+    color: black;
+}
+
+.about-us .our-progress {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about-us .our-progress .prog-area,
+.about-us .our-progress .prog-img{
+    width: 50%;
+}
+.about-us .our-progress .prog-area{
+    background-color: #F7F7F7;
+    padding: 20px;
+}
+.about-us .our-progress .progress span{
+    right: 16px;
+    top: 0;
+    position: absolute;
+    color: black;
+    font-size: 18px;
+}
+.about-us .our-progress .prog-prec{
+    padding-bottom: 20px;
+    position: relative;
+}
+@media (max-width: 966px){
+    .about-us .our-progress .prog-area,
+    .about-us .our-progress .prog-img{
+        width: 100%;
+    }
+}
+.about-end img{
+    width: 70px;
+    padding-bottom: 25px;
+}
+
