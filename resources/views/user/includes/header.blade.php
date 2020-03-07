@@ -29,7 +29,8 @@
                                             <a href="{{route('user.notifications')}}">
                                                 <li class="pt-0 pb-0 pl-4 pr-4" data-toggle="tooltip"
                                                     title="Click for details!"
-                                                    data-placement="bottom">{{ $notification->data['message'] }}</li>
+                                                    data-placement="bottom">
+                                                    {{ $notification->data['message'] }}</li>
                                                 <hr class="m-0">
                                             </a>
                                         @empty
@@ -158,7 +159,9 @@
                                                     <a href="{{route('user.notifications')}}">
                                                         <li class="pt-0 pb-0 pl-4 pr-4" data-toggle="tooltip"
                                                             title="Click for details!"
-                                                            data-placement="bottom">{{ $notification->data['message'] }}</li>
+                                                            data-placement="bottom">
+                                                            <i class="far fa-envelope pr-2"></i>
+                                                            {{ $notification->data['message'] }}</li>
                                                         <hr class="m-0">
                                                     </a>
                                                 @empty

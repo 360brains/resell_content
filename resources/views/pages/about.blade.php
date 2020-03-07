@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("content")
-    <div class="browse-img" style="background-image:url({{ asset('assets/img/about-us.png') }});">
+    <div class="browse-img" style="background-image:url({{ asset('assets/img/about-us.png') }});background-size: 100% 100%;">
         <h1>About Us</h1>
     </div>
     <section class="about-us pt-5 pb-5">

@@ -227,7 +227,9 @@ p a:hover, p a:focus {
     border: 1px solid #b1becc;
     min-width: 250px
 }
-
+.fw-800{
+    font-weight: 800;
+}
 .datepicker.dropdown-menu td {
     padding: 5px;
     min-width: 32px;
@@ -1784,7 +1786,10 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 .btn-between .ti {
     margin-left: 20px
 }
-
+.btn-outline-success{
+    border-width: 2px;
+    font-weight: 800;
+}
 .btn-progress:after {
     position: absolute;
     top: 50%;
@@ -3220,7 +3225,10 @@ table th {
     .w-30{
         width: 30%;
     }
-
+    .about-us .about-content h2{
+        text-align: center;
+        padding-top: 10px;
+    }
 }
 @media only screen and (max-width: 768px) {
     .notification .dropdown-menu {
@@ -3981,6 +3989,13 @@ footer .footer-bottom{
 }
 .funds .funds-card h5{
     font-weight: bold;
+}
+.funds .funds-card .withdraw-acc{
+    text-align: center;
+    margin: 55px 0;
+}
+.funds .funds-card .withdraw-acc h6{
+    color: white;
 }
 .task-work .task-title, .task-work .upload{
     background-color: white;

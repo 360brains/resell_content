@@ -12,7 +12,7 @@
                         <div class="content-area card p-2 border-0 shadow">
                             <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentWritingTest as $test)
-                                    <div class="card-head d-inline">
+                                    <div class="card-head d-inline" style="font-size: 19px">
                                         <h6 class="d-inline card-title"><srtong>Raise your Level:</srtong></h6>
                                         <small><p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>
@@ -33,7 +33,7 @@
                                         </a>
                                     @endif
                                 @empty
-                                    <div class="card-head d-inline">
+                                    <div class="card-head d-inline" style="font-size: 19px">
                                         <h6 class="d-inline card-title"><srtong>Raise your Level:</srtong></h6>
                                         <small> <p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>
@@ -53,7 +53,7 @@
                         <div class="content-area card p-2 border-0 shadow">
                             <div class="card-innr video-making-card">
                                 @forelse(auth()->user()->currentVideoTest as $test)
-                                    <div class="card-head d-inline">
+                                    <div class="card-head d-inline" style="font-size: 19px">
                                         <h6 class="d-inline card-title"><srtong>Raise your Level:</srtong></h6>
                                         <small><p class="d-inline">Your current Video Making Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>
@@ -74,7 +74,7 @@
                                         </a>
                                     @endif
                                 @empty
-                                    <div class="card-head d-inline">
+                                    <div class="card-head d-inline" style="font-size: 19px">
                                         <h6 class="d-inline card-title"><srtong>Raise your Level:</srtong></h6>
                                         <small> <p class="d-inline">Your current Video Making Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>

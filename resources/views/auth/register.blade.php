@@ -9,6 +9,7 @@
                 <p>Enter your information below to create a free account.</p>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
+                    <input type="hidden" name="referer" value="{{ app('request')->input('id') }}">
 
                     <div class="input-item">
                         <input type="text" placeholder="Enter Name" class="form-control input-bordered @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>

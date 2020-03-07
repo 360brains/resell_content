@@ -45,9 +45,19 @@
                                         <label>Project Name</label>
                                     </div>
 
-                                    <div class="form-group form-md-line-input">
-                                        <input type="number" name="deadline" class="form-control" id="form_control_1" placeholder="Time Awarded for task in hours" value="{{old('deadline')}}">
-                                        <label>Task Deadline <small>(in hours)</small></label>
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="points" class="form-control" id="form_control_1" placeholder="Enter Points for a Task" value="{{old('points')}}">
+                                                <label>Points</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-md-line-input">
+                                                <input type="number" name="deadline" class="form-control" id="form_control_1" placeholder="Time Awarded for task in hours" value="{{old('deadline')}}">
+                                                <label>Task Deadline <small>(in hours)</small></label>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row margin-bottom-25">
@@ -59,22 +69,8 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group form-md-line-input">
-                                                <input type="number" name="words" class="form-control" id="form_control_1" placeholder="Enter Number of words for a Task" value="{{old('words')}}">
-                                                <label>Total words</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row margin-bottom-25">
-                                        <div class="col-sm-6">
-                                            <div class="form-group form-md-line-input">
                                                 <input type="number" name="price" class="form-control" id="form_control_1" placeholder="Enter Price for a Task" value="{{old('price')}}">
                                                 <label>Price</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group form-md-line-input">
-                                                <input type="number" name="points" class="form-control" id="form_control_1" placeholder="Enter Points for a Task" value="{{old('points')}}">
-                                                <label>Points</label>
                                             </div>
                                         </div>
                                     </div>
@@ -127,14 +123,28 @@
                                         </div>
                                     </div>
 
-                                    <div id="divid" class="form-group form-md-line-input">
-                                        <select class="form-control" name="template">
-                                            <option value="">Select Template for project</option>
-                                            @foreach($templates as $template)
-                                                <option value="{{ $template->id }}" {{old('template')==$template->id?'selected':''}}>{{ $template->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Project Template</label>
+
+
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div id="divid" class="form-group form-md-line-input">
+                                                <select class="form-control" name="template">
+                                                    <option value="">Select Template for project</option>
+                                                    @foreach($templates as $template)
+                                                        <option value="{{ $template->id }}" {{old('template')==$template->id?'selected':''}}>{{ $template->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <label>Project Template</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div id="divid2">
+                                                <div class="form-group form-md-line-input">
+                                                    <input type="number" name="words" class="form-control" id="form_control_1" placeholder="Enter Number of words for a Task" value="{{old('words')}}">
+                                                    <label>Total words</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row">
