@@ -37,6 +37,18 @@
             }
         });
     });
+    $(function() {
+        $("#divid3").hide();
+        $('#typeselector').on('change', function() {
+            if ( this.value == 1)
+            {
+                $("#divid3").hide();
+            }
+            else{
+                $("#divid3").show();
+            }
+        });
+    });
 
 
     $(".date-picker").datepicker({

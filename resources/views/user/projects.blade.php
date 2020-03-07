@@ -129,6 +129,11 @@
                                             <h6 class="m-0 font-weight-bold">NO. OF WORDS</h6>
                                             <span class="text-success">{{ $project->words }}</span>
                                         </div>
+                                        @elseif($project->type->name == 'Video Making')
+                                        <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
+                                            <h6 class="m-0 font-weight-bold">DURATION</h6>
+                                            <span class="text-success">{{ $project->duration }}</span>
+                                        </div>
                                     @endif
                                     <div class="col-md-4 col-sm-4 col-xs-4 pl-4 pb-4">
                                         <h6 class="m-0 font-weight-bold">POINTS</h6>

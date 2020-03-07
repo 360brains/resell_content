@@ -5,7 +5,7 @@
     <!-- Fav Icon -->
     <link rel="shortcut icon" href="{{ asset('user/images/favicon.png') }}">
     <!-- Site Title  -->
-    <title>{{ config('app.name', 'GreatContent') }}</title>
+    <title>{{ config('app.name', 'ResellContent') }} | Sell Your Content Online</title>
     <!-- Vendor Bundle CSS -->
     <link href="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('user/assets/css/vendor.bundle49f7.css') }}">

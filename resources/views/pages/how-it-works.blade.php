@@ -14,21 +14,21 @@
                 <div class="work-process">
                     <div class="work-process-icon"><span class="icon-presentation"><img src="{{asset('assets/img/work-1.svg')}}" alt=""></span></div>
                     <div class="work-process-caption">
-                        <h4>Take Free Test</h4>
-                        <p>Pass An Easy Test Of Type You Would Like To Take For Free And Gain Level 1</p>
+                        <h4>Sign Up:</h4>
+                        <p>Register and join our free online writer's community</p>
                     </div>
                 </div>
                 <div class="work-process pt-4">
                     <div class="work-process-icon"><span class="icon-search"><img src="{{asset('assets/img/work-2.svg')}}" alt=""></span></div>
                     <div class="work-process-caption">
-                        <h4>Browse Projects</h4>
-                        <p>Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. Vestibulum congue posuere lacus</p>
+                        <h4>Pass a free test:</h4>
+                        <p>Take an easy test free of cost and start working with great content</p>
                     </div>
                     <div class="work-process pt-4">
                         <div class="work-process-icon"><span class="icon-mobile"><img src="{{asset('assets/img/work-3.svg')}}" alt=""></span></div>
                         <div class="work-process-caption">
-                            <h4>Get Task</h4>
-                            <p>Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. Vestibulum congue posuere lacus</p>
+                            <h4>Browse Projects:</h4>
+                            <p>Browse and claim writing jobs that match your interests, expertise and rate.</p>
                         </div>
                     </div>
                 </div>
@@ -38,22 +38,22 @@
                 <div class="work-process">
                     <div class="work-process-icon"><span class="icon-layers"><img src="{{asset('assets/img/work-4.svg')}}" alt=""></span></div>
                     <div class="work-process-caption">
-                        <h4>Start Work</h4>
-                        <p>Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. Vestibulum congue posuere lacus</p>
+                        <h4>Get tasks:</h4>
+                        <p>Get a job with just a single click</p>
                     </div>
                 </div>
                 <div class="work-process pt-4">
                     <div class="work-process-icon"><span class="icon-wallet"><img src="{{asset('assets/img/work-5.svg')}}" alt=""></span></div>
                     <div class="work-process-caption">
-                        <h4>Get Paid</h4>
-                        <p>Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. Vestibulum congue posuere lacus</p>
+                        <h4>Start work:</h4>
+                        <p>Submit original content for editor review, and without waiting for the response, you can start a new task</p>
                     </div>
                 </div>
                 <div class="work-process pt-4">
                     <div class="work-process-icon"><span class="icon-happy"><img src="{{asset('assets/img/work-6.svg')}}" alt=""></span></div>
                     <div class="work-process-caption">
-                        <h4>Happy</h4>
-                        <p>Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. Vestibulum congue posuere lacus</p>
+                        <h4>Get paid:</h4>
+                        <p>Timely payments and rewards for your hard work! Improve your writer level and increase your earnings.</p>
                     </div>
                 </div>
             </div>

@@ -146,6 +146,16 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div id="divid3">
+                                                <div class="form-group form-md-line-input">
+                                                    <input type="number" name="duration" class="form-control" id="form_control_1" placeholder="Enter Video Duration" value="{{old('duration')}}">
+                                                    <label>Total duration</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="form-group form-md-line-input">
