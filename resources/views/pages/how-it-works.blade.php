@@ -8,7 +8,7 @@
         <div class="container">
             <div class="main-heading">
                 <h5>How It Work</h5>
-{{--                <h2>Our Work <span>Process</span></h2></div>--}}
+                <h2>Our Work <span>Process</span></h2></div>
             <div class="row">
             <div class="col-md-4 col-sm-6">
                 <div class="work-process">

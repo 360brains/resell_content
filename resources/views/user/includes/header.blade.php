@@ -1,6 +1,6 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light p-0 d-flex">
-        <a class="navbar-brand" href="{{ route('pages.home') }}">great<span style="color: #07b107; font-weight: 500;">Content</span>
+        <a class="navbar-brand" href="{{ route('pages.home') }}"><img src="{{ asset('user/images/logo.png') }}" alt="">
         </a>
         <div class="large-scn-btn notification pl-4">
             <div class="collapse navbar-collapse" id="navbarSupportedContent"

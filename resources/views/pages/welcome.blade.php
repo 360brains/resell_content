@@ -1,45 +1,46 @@
 @extends("layouts.master")
 
 @section("content")
-    <section class="slider position-relative">
-        <div class="owl-slider owl-theme">
-            <div id="carousel" class="owl-carousel">
-                <div class="item info">
-                    <img class="" src="{{ asset('assets/img/nav-bg.png')  }}" alt="">
-                    {{--                    <div class="slider-content">--}}
-                    {{--                        <h1>--}}
-                    {{--                            <i class="fas fa-quote-left"></i>--}}
-                    {{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
-                    {{--                            <i class="fas fa-quote-right"></i>--}}
-                    {{--                        </h1>--}}
-                    {{--                        <p>&minus;Louis L'Amour</p>--}}
-                    {{--                    </div>--}}
-                </div>
-                <div class="item info">
-                    <img class="" src="{{ asset('assets/img/nav-bg-2.png')  }}" alt="">
-                    {{--                    <div class="slider-content">--}}
-                    {{--                        <h1>--}}
-                    {{--                            <i class="fas fa-quote-left"></i>--}}
-                    {{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
-                    {{--                            <i class="fas fa-quote-right"></i>--}}
-                    {{--                        </h1>--}}
-                    {{--                        <p>&minus;Louis L'Amour</p>--}}
-                    {{--                    </div>--}}
-                </div>
-                <div class="item info">
-                    <img class="" src="{{ asset('assets/img/nav-bg-3.png')  }}" alt="">
-                    {{--                    <div class="slider-content">--}}
-                    {{--                        <h1>--}}
-                    {{--                            <i class="fas fa-quote-left"></i>--}}
-                    {{--                            Start writing, no metter what. The water does not flow until the faucet is turned on.--}}
-                    {{--                            <i class="fas fa-quote-right"></i>--}}
-                    {{--                        </h1>--}}
-                    {{--                        <p>&minus;Louis L'Amour</p>--}}
-                    {{--                    </div>--}}
+    <section  class="slider position-relative">
+            <div class="owl-slider owl-theme">
+                <div id="carousel" class="owl-carousel">
+                    <div class="item info">
+                                            <div class="slider-content">
+                                                <h1>
+                                                    <i class="fas fa-quote-left"></i>
+                                                    Start writing, no metter what. The water does not flow until the faucet is turned on.
+                                                    <i class="fas fa-quote-right"></i>
+                                                </h1>
+                                                <p>&minus;Louis L'Amour</p>
+                                            </div>
+                    </div>
+                    <div class="item info">
+                                            <div class="slider-content">
+                                                <h1>
+                                                    <i class="fas fa-quote-left"></i>
+                                                    Start writing, no metter what. The water does not flow until the faucet is turned on.
+                                                    <i class="fas fa-quote-right"></i>
+                                                </h1>
+                                                <p>&minus;Louis L'Amour</p>
+                                            </div>
+                    </div>
+                    <div class="item info">
+                                            <div class="slider-content">
+                                                <h1>
+                                                    <i class="fas fa-quote-left"></i>
+                                                    Start writing, no metter what. The water does not flow until the faucet is turned on.
+                                                    <i class="fas fa-quote-right"></i>
+                                                </h1>
+                                                <p>&minus;Louis L'Amour</p>
+                                            </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
+
+    <div style="background-image: url('{{ asset('assets/img/front-banner.png') }}');background-size: cover">
+        <h1 style="padding: 240px 0">This is welcome page</h1>
+    </div>
 
     <div class="clearfix"></div>
 
@@ -70,7 +71,7 @@
 
     <div class="clearfix"></div>
 
-    <section class="market-place pt-3 pb-5 text-center">
+    <section  class="market-place pt-3 pb-5 text-center">
         <div class="main-heading">
             <h3>Explore The <span>Marketplace</span></h3>
         </div>
@@ -181,7 +182,7 @@
 
     <div class="learn pb-2">
         <a href="{{ route('user.learn') }}">
-            <img src="{{ asset('assets/img/learn.svg') }}" alt="">
+            <img src="{{ asset('assets/img/learn.png') }}" alt="">
         </a>
     </div>
 @endsection
