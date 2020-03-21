@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $data['categories'] = Category::orderBy('name', 'asc')->get();
+        $data['categories'] = Category::whereNull('parent_id')->orderBy('name', 'asc')->get();
         return view("admin.categories.create", $data);
     }
 
@@ -40,14 +40,24 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'avatar' => 'required',
         ]);
+        $category           = new Category();
+        $category->name          = $request->name;
+        if ($request->hasFile("avatar") && $request->file('avatar')->isValid()) {
+            $filename           = $request->file('avatar')->getClientOriginalName();
+            $filename           = time()."-".$filename;
+            $destinationPath    = public_path('/images');
+            $category->avatar  = "images/".$filename;
+            $request->file('avatar')->move($destinationPath, $filename);
+        }
 
 //        $category           = new Category;
 //        $category->name       = $request->name;
 //
-//        $response = $category->save();
+        $response = $category->save();
 
-        $response = Category::create($request->all());
+//        $response = Category::create($request->all());
 
         if ($response){
             return redirect()->route('admin.categories.index')->with("success", "Category created successfully.");
@@ -77,7 +87,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        $data['categories'] = Category::orderBy('name', 'asc')->get();
+        $data['categories'] = Category::whereNull('parent_id')->orderBy('name', 'asc')->get();
         $data['category'] = $category;
         return view('admin.categories.edit', $data);
     }
@@ -93,9 +103,19 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'avatar' => 'required',
         ]);
-
-        $response = $category->update($request->all());
+        $category           = new Category;
+        $category->avatar          = $request->avatar;
+        $category->name          = $request->name;
+        if ($request->hasFile("avatar") && $request->file('avatar')->isValid()) {
+            $filename           = $request->file('avatar')->getClientOriginalName();
+            $filename           = time()."-".$filename;
+            $destinationPath    = public_path('/images');
+            $category->avatar  = "images/".$filename;
+            $request->file('avatar')->move($destinationPath, $filename);
+        }
+        $response = $category->save();
 
         if ($response){
             return redirect()->route('admin.categories.index')->with("success", "Category updated successfully.");
