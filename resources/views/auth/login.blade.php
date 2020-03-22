@@ -1,18 +1,20 @@
-@extends('layouts.app')
-
-@section('content')
-
+@extends("user.n-layouts.master")
+@section("content")
+    <style>
+        .form-wrap + * {
+            margin-top: 10px;
+        }
+    </style>
 <div class="login-bg">
     <div class="container">
         <div class="row">
             <div class="col-md-4 pt-5 offset-md-8">
-                <h2 class="page-ath-heading">Login</h2>
-                <p>Enter your information below to create a free account.</p>
+                <h3 class="page-ath-heading text-uppercase">Login</h3>
+                <p>Enter your information Below.</p>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <div class="input-item">
-                        <input type="email"
-                               class="form-control input-bordered @error('email') is-invalid @enderror" name="email"
+                    <div class="form-wrap">
+                        <input type="email" class="form-input form-control-has-validation form-control-last-child @error('email') is-invalid @enderror" name="email"
                                value="{{ old('email') }}" required autocomplete="email" autofocus
                                placeholder="Enter Email Address">
                         @error('email')
@@ -22,9 +24,8 @@
                         @enderror
                     </div>
 
-                    <div class="input-item pt-2">
-                        <input type="password"
-                               class="form-control input-bordered @error('password') is-invalid @enderror" name="password"
+                    <div class="form-wrap">
+                        <input type="password" class="form-input form-control-has-validation form-control-last-child @error('password') is-invalid @enderror" name="password"
                                required autocomplete="current-password" placeholder="Enter Password">
                         @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -32,23 +33,15 @@
                     </span>
                         @enderror
                     </div>
-
                     <div class="d-flex justify-content-between align-items-center pt-2">
-                        <div class="input-item text-left">
-                            <input class="input-checkbox input-checkbox-md" type="checkbox" name="remember"
-                                   id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label class="form-check-label" for="remember">
-                                {{ __('Remember Me') }}
+                            <label class="checkbox-inline checkbox_info">
+                                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} class="checkbox-custom"><span class="checkbox-custom-dummy"></span>{{ __('Remember Me') }}
                             </label>
-                        </div>
-                        <div>
                             @if (Route::has('password.request'))
                                 <a class="text-success" href="{{ route('password.request') }}">Forgot password?</a>
                             @endif
-                        </div>
-
                     </div>
-                    <button type="submit" class="btn btn-success btn-block mt-2 mb-2"> Login</button>
+                    <button type="submit" class="button button-lg button-primary-outline button-anorak mb-2" style="width: 100%;margin-top: 10px"> Login</button>
                 </form>
                 <div class="form-note text-center">Don’t Have an Account Yet?
                     <a href="{{ route('register') }}"> <strong class="text-success">Signup</strong></a>

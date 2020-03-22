@@ -136,7 +136,7 @@ p.large {
 }
 
 h1 span, h2 span, h3 span, h4 span, h5 span, h6 span, p span {
-    color: #75CB63;
+    color: #1087eb;
 }
 
 ul, ol {
@@ -183,7 +183,7 @@ a:link, a:visited {
 
 a:hover, a:focus, a:active {
     outline: 0;
-    color: #07b107
+    color: #1087eb
 }
 
 p a {
@@ -191,7 +191,7 @@ p a {
 }
 
 p a:hover, p a:focus {
-    color: #07b107;
+    color: #1087eb;
     box-shadow: 0 1px 0 currentColor
 }
 
@@ -325,7 +325,7 @@ p a:hover, p a:focus {
 }
 
 .datepicker table tr td.today:hover:hover, .datepicker table tr td.today.range:hover:hover, .datepicker table tr td.range:hover, .datepicker table tr td.selected, .datepicker table tr td.selected.disabled, .datepicker table tr td.selected.disabled:hover, .datepicker table tr td.selected:hover, .datepicker table tr td.selected:hover:hover, .datepicker table tr td.active.active, .datepicker table tr td.active.active:hover:hover, .datepicker table tr td span.active.active, .datepicker table tr td span.active.active:hover:hover {
-    background: #07b107;
+    background: #1087eb;
     color: #fff
 }
 
@@ -735,7 +735,7 @@ p a:hover, p a:focus {
 }
 
 .swal-title {
-    color: #07b107;
+    color: #1087eb;
     font-size: 24px
 }
 
@@ -780,7 +780,7 @@ p a:hover, p a:focus {
     line-height: 24px;
     padding: 9px 24px;
     transition: all .4s ease;
-    background: #07b107
+    background: #1087eb
 }
 
 .swal-button:not([disabled]):hover {
@@ -1035,7 +1035,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     line-height: 20px;
     font-weight: 700;
     letter-spacing: 0.1em;
-    color: #07b107;
+    color: #1087eb;
     text-transform: uppercase;
     border-bottom: none
 }
@@ -1051,7 +1051,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 .data-state:after {
     display: block;
     font-family: 'themify';
-    color: #07b107;
+    color: #1087eb;
     height: 100%;
     width: 100%;
     font-size: 14px;
@@ -1188,7 +1188,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 
 .data-details-des .ti:not([data-toggle="tooltip"]), .data-details-des [class*=fa]:not([data-toggle="tooltip"]) {
-    color: #07b107
+    color: #1087eb
 }
 
 .data-details-des span:last-child:not(:first-child) {
@@ -1468,13 +1468,13 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 
 .pagination li a:hover, .pagination li a:focus {
     color: #fff;
-    background: #07b107;
+    background: #1087eb;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07)
 }
 
 .pagination li.active span {
     color: #fff;
-    background: #07b107
+    background: #1087eb
 }
 
 .user-list .dt-email, .user-list .dt-verify, .user-list .dt-login {
@@ -1736,7 +1736,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     top: -12px
 }
 .btn-success{
-    background-color: #75CB63;
+    background-color: #1087eb;
     border: none;
 }
 .btn-success.disabled, .btn-success:disabled {
@@ -2000,8 +2000,8 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 
 .btn-primary {
-    background: #07b107;
-    border-color: #07b107
+    background: #1087eb;
+    border-color: #1087eb
 }
 
 .btn-primary:disabled, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
@@ -2018,13 +2018,13 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 
 .btn-primary-alt:disabled, .btn-primary-alt:hover, .btn-primary-alt:focus, .btn-primary-alt:active, .btn-primary-alt.active {
     color: #fff;
-    background: #07b107;
-    border-color: #07b107
+    background: #1087eb;
+    border-color: #1087eb
 }
 
 .btn-secondary {
-    background: #07b107;
-    border-color: #07b107
+    background: #1087eb;
+    border-color: #1087eb
 }
 
 .btn-secondary:disabled, .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
@@ -2041,8 +2041,8 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 
 .btn-secondary-alt:disabled, .btn-secondary-alt:hover, .btn-secondary-alt:focus, .btn-secondary-alt:active, .btn-secondary-alt.active {
     color: #fff;
-    background: #07b107;
-    border-color: #07b107
+    background: #1087eb;
+    border-color: #1087eb
 }
 
 .btn-info {
@@ -2105,7 +2105,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 
 .link-primary {
-    color: #07b107
+    color: #1087eb
 }
 
 .link-primary:hover, .link-primary:focus, .link-primary:active {
@@ -2381,7 +2381,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 
 .input-switch:checked~label:before {
-    background: #07b107
+    background: #1087eb
 }
 
 .input-switch:checked~label:after {
@@ -2542,7 +2542,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 
 .input-note span {
-    color: #07b107
+    color: #1087eb
 }
 
 .input-note-icon {
@@ -2720,7 +2720,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     opacity: 0;
 }
 .pay-check:checked ~ label {
-    border-color: #07b107;
+    border-color: #1087eb;
 }
 .pay-check:checked ~ label:after {
     opacity: 1;
@@ -2755,7 +2755,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
      height: 16px;
      width: 16px;
      border-radius: 50%;
-     background: #07b107;
+     background: #1087eb;
      content: '';
      top: 26px;
      left: 50%;
@@ -2808,7 +2808,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 
 .popup-title {
-    color: #07b107;
+    color: #1087eb;
     font-weight: 500;
     padding-right: 40px;
     margin-bottom: 8px;
@@ -2914,7 +2914,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     left: 50%;
     right: 50%;
     bottom: 0;
-    background: #07b107;
+    background: #1087eb;
     height: 2px;
     -webkit-transition-property: left, right;
     transition-property: left, right;
@@ -2930,7 +2930,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 
 .nav-active {
-    color: #07b107 !important;
+    color: #1087eb !important;
     font-weight: 600;
 }
 
@@ -2974,7 +2974,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 
 .acc-blnc {
-    color: #07b107;
+    color: #1087eb;
     font-size: 50px;
 }
 
@@ -2997,7 +2997,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 
 table th {
-    color: #07b107;
+    color: #1087eb;
 }
 
 
@@ -3258,7 +3258,7 @@ table th {
         width: 93%;
     }
     .acc-blnc {
-        color: #07b107;
+        color: #1087eb;
         font-size: 36px;
     }
 
@@ -3306,7 +3306,7 @@ table th {
 }
 
 a {
-    color: #07b107;
+    color: #1087eb;
 }
 
 .apply-btn {
@@ -3502,7 +3502,7 @@ select {
     left: 46%;
 }
 .slider .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
-    background: #75CB63 !important;
+    background: #1087eb !important;
 }
 .slider .owl-theme .owl-dots .owl-dot span {
     width: 17px;
@@ -3659,7 +3659,7 @@ footer .footer-bottom{
     color: #8B8C8C;
 }
 .setting-card .account .payment-model{
-    color: #75CB63;
+    color: #1087eb;
     font-size: 17px;
     vertical-align: bottom;
 }
@@ -3735,7 +3735,7 @@ footer .footer-bottom{
     position: absolute;
     content: "";
     height: 2px;
-    background-color: #75CB63;
+    background-color: #1087eb;
     width: 53px;
     top: 38px;
     left: 47%;
@@ -3764,8 +3764,8 @@ footer .footer-bottom{
 .learn .learn-content .learn-boxes .see-btn{
     border-radius: 25px;
     width: 113px;
-    background-color: #8BD27D;
-    border-color: #8BD27D;
+    background-color: #1087eb;
+    border-color: #1087eb;
     font-weight: 500;
 }
 .copy-wrap {
@@ -3788,7 +3788,7 @@ footer .footer-bottom{
     background: rgba(255, 255, 255, 0.9);
     border-radius: 4px;
     border: 1px solid rgba(211, 224, 243, 0.5);
-    color: #07b107;
+    color: #1087eb;
 }
 .copy-wrap .link {
     position: absolute;
@@ -3876,7 +3876,7 @@ footer .footer-bottom{
 }
 .help-support .help-banner{
     padding: 60px 0;
-    background-color: #75CB63;
+    background-color: #1087eb;
     text-align: center;
 }
 .help-support .help-banner h2{
@@ -3900,7 +3900,7 @@ footer .footer-bottom{
     border-radius: 0 10px 10px 0;
 }
 .help-support .help-banner .help-form button i{
-    color: #75CB63;
+    color: #1087eb;
 }
 .help-support .help-banner p{
     color: #fff;
@@ -3923,7 +3923,7 @@ footer .footer-bottom{
 .help-content .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #fff;
     font-weight: bold;
-    background-color: #75CB63;
+    background-color: #1087eb;
 }
 .help-content .nav-pills .nav-link {
     border-radius: unset;
@@ -3931,7 +3931,7 @@ footer .footer-bottom{
 .help-content .nav-pills .nav-link:hover{
     color: #fff;
     font-weight: bold;
-    background-color: #75CB63;
+    background-color: #1087eb;
 }
 
 .help-content [data-toggle="collapse"] .fa:before {
@@ -3966,10 +3966,10 @@ footer .footer-bottom{
 .funds .funds-card{
     background-color: white;
     padding: 24px;
-    border: 1px solid #75CB63;
+    border: 1px solid #1087eb;
 }
 .funds .funds-card .withdraw-blnc{
-    background-color: #75CB63;
+    background-color: #1087eb;
     padding: 52px 0;
     border-radius: 5px;
 
