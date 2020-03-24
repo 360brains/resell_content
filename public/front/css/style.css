@@ -12109,7 +12109,22 @@ html.rd-navbar-fixed-linked .page {
 .bg-primary .rd-navbar-static.rd-navbar-classic .rd-navbar-submenu-toggle {
 	color: #ffffff;
 }
-
+.rd-navbar--is-stuck .rd-nav-link{
+    color:#151515!important; ;
+}
+.rd-navbar--is-stuck .rd-nav-link:hover{
+    color:#1087eb!important; ;
+}
+.rd-navbar--is-stuck .button-primary-outline:not(:hover){
+    color:#1087eb!important;
+    border-color: #1087eb!important;
+}
+.rd-navbar--is-stuck .mdi-account{
+    color: #1087eb!important;
+}
+.rd-navbar--is-stuck .button-primary-outline:hover .mdi-account {
+    color:#FFFFFF!important;
+}
 .context-dark .rd-navbar-static.rd-navbar-classic .rd-nav-link:hover ~ .rd-navbar-submenu-toggle, .bg-gray-700 .rd-navbar-static.rd-navbar-classic .rd-nav-link:hover ~ .rd-navbar-submenu-toggle, .bg-blue-13 .rd-navbar-static.rd-navbar-classic .rd-nav-link:hover ~ .rd-navbar-submenu-toggle, .bg-blue-15 .rd-navbar-static.rd-navbar-classic .rd-nav-link:hover ~ .rd-navbar-submenu-toggle, .bg-primary .rd-navbar-static.rd-navbar-classic .rd-nav-link:hover ~ .rd-navbar-submenu-toggle,
 .context-dark .rd-navbar-static.rd-navbar-classic .rd-nav-link:hover,
 .bg-gray-700 .rd-navbar-static.rd-navbar-classic .rd-nav-link:hover,
@@ -12164,7 +12179,7 @@ html.rd-navbar-fixed-linked .page {
 
 .jumbotron-creative .rd-navbar-classic.rd-navbar--is-stuck,
 .jumbotron-creative .rd-navbar-fixed .rd-navbar-panel {
-	background: #34495e;
+	background: #ffffff;
 }
 
 /*
