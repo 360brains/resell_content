@@ -5,7 +5,7 @@
         <div class="container">
             <div class="clearfix pb-2">
                 <h4 class="float-left m-0">Earnings</h4>
-                <a href="{{ route('withdraw.create') }}" class="btn btn-sm btn-outline-success float-right">Withdraw </a>
+                <a href="{{ route('withdraw.create') }}" class="button button-xs button-primary-outline button-anorak float-right">Withdraw </a>
             </div>
             <div class="statictics text-center shadow">
                 <div class="row">

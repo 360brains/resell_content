@@ -1,7 +1,7 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light p-0 d-flex">
         <a class="navbar-brand" href="{{ route('pages.home') }}">
-            <img src="{{ asset('user/images/logo.png') }}" alt="" width="120px">
+            <img src="{{ asset('front/images/logo_mini.png') }}" alt="" width="120px">
         </a>
         <div class="large-scn-btn notification pl-4">
             <div class="collapse navbar-collapse" id="navbarSupportedContent"

@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="col-lg col-md-4 col-sm-12 col-xs-12">
-                        <button type="submit" class="btn apply-btn btn-sm btn-outline-success">
+                        <button type="submit" class="button button-sm mt-4 button-primary" style="width: 100%">
                             Apply
                         </button>
                     </div>
@@ -86,7 +86,7 @@
                         <div class="project-price float-right d-flex">
                             <h1 class="m-0 pt-2 font-weight-bold">Rs.{{ floor($project->price) }}</h1>
                             <a data-toggle="modal" data-target="#start-job-{{$project->id}}" href="#">
-                                <button class="btn start-job btn-lg btn-success ml-2">
+                                <button class="button button-xs button-primary-outline button-anorak ml-2 mt-1">
                                     Start This Job
                                 </button>
                             </a>
@@ -160,7 +160,7 @@
                                     <div class="data-details d-md-flex">
                                         <div class="fake-class"><span class="data-details-title">Project Name</span><span class="data-details-info">{{ $project->name }}</span></div>
                                         <div class="ur-detail-btn">
-                                            <a href="{{ route('user.tasks.take', $project->id) }}" class="btn btn-info full-width"><i class="ti-thumb-up mrg-r-5"></i>Take a task</a><br>
+                                            <a href="{{ route('user.tasks.take', $project->id) }}" class="button button-sm button-primary float-right"><i class="ti-thumb-up mrg-r-5"></i>Take a task</a><br>
                                         </div>
                                     </div>
                                     <div class="gaps-3x"></div>

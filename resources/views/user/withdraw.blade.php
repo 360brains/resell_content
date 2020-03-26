@@ -64,8 +64,8 @@
                                         <p class="float-left">Transaction Fee</p>
                                         <p class="float-right">Rs. 0</p>
                                     </div>
-                                    <div class="input-item input-with-label">
-                                        <button class="btn btn-success btn-block" type="submit">Continue</button>
+                                    <div class="input-item input-with-label text-center">
+                                        <button class="button button-sm button-primary" type="submit">Continue</button>
                                     </div>
                                     @else
                                     <div class="withdraw-acc">
@@ -143,7 +143,7 @@
                             {{--                        <label for="agree-term-3">I hereby agree to the <strong>Membership purchase aggrement</strong>.</label>--}}
                             {{--                    </div>--}}
                             <ul class="d-flex flex-wrap align-items-center guttar-30px">
-                                <li><button class="btn btn-primary"> Process to add account <em class="ti ti-arrow-right mgl-2x"></em></button>
+                                <li><button class="button button-sm button-primary"> Process to add account <em class="ti ti-arrow-right mgl-2x"></em></button>
                                 </li>
                             </ul>
                         </form>
@@ -185,7 +185,7 @@
                             {{--                        <label for="agree-term-3">I hereby agree to the <strong>Membership purchase aggrement</strong>.</label>--}}
                             {{--                    </div>--}}
                             <ul class="d-flex flex-wrap align-items-center guttar-30px">
-                                <li><button class="btn btn-primary"> Process to Pay <em class="ti ti-arrow-right mgl-2x"></em></button>
+                                <li><button class="button button-xs button-primary"> Process to Pay <em class="ti ti-arrow-right mgl-2x"></em></button>
                                 </li>
                                 <li class="pdt-1x pdb-1x pl-2"><a href="{{ route('user.voucher') }}" class="link link-primary">Make Manual Payment</a></li>
                             </ul>

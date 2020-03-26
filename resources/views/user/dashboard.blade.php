@@ -23,7 +23,7 @@
                                         </button>
                                     @elseif($test->pivot->status == 'started')
                                     <!-- Button trigger modal -->
-                                        <a  href="{{ route('user.tests.writing.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
+                                        <a  href="{{ route('user.tests.writing.test') }}" class="button button-xs button-primary float-right">
                                             Writing Test
                                         </a>
                                     @else
@@ -38,7 +38,7 @@
                                         <small> <p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>
                                     <!-- Button trigger modal -->
-                                    <a  href="{{ route('user.tests.writing.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
+                                    <a  href="{{ route('user.tests.writing.test') }}" class="button button-xs button-primary float-right">
                                         Writing Test
                                     </a>
                                     <!-- Modal -->
@@ -59,17 +59,17 @@
                                     </div>
                                     @if($test->pivot->status == 'completed')
                                     <!-- Button trigger modal -->
-                                        <button disabled class=" video-making-btn btn btn-sm btn-info float-right">
+                                        <button disabled class="button button-xs button-primary float-right">
                                             Video Making Test
                                         </button>
                                     @elseif($test->pivot->status == 'started')
                                     <!-- Button trigger modal -->
-                                        <a  href="{{ route('user.tests.video.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
+                                        <a  href="{{ route('user.tests.video.test') }}" class="button button-xs button-primary float-right">
                                             Video Making Test
                                         </a>
                                     @else
                                     <!-- Button trigger modal -->
-                                        <a  href="{{ route('user.tests.video.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
+                                        <a  href="{{ route('user.tests.video.test') }}" class="button button-xs button-primary float-right">
                                             Video Making Test
                                         </a>
                                     @endif
@@ -79,7 +79,7 @@
                                         <small> <p class="d-inline">Your current Video Making Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p></small>
                                     </div>
                                     <!-- Button trigger modal -->
-                                    <a  href="{{ route('user.tests.video.test') }}" class=" video-making-btn btn btn-sm btn-info float-right">
+                                    <a  href="{{ route('user.tests.video.test') }}" class="button button-xs button-primary float-right">
                                         Video Making Test
                                     </a>
                                     <!-- Modal -->
@@ -179,7 +179,7 @@
                         </div>
                         <div class="profile-dec pt-3">
                             <h6>CONTENT WRITING <span
-                                    class="badge badge-success">{{ auth()->user()->writing_level }}</span></h6>
+                                    class="badge">{{ auth()->user()->writing_level }}</span></h6>
                             <div class="clearfix">
                                 <p class="float-left m-0">Total Writings</p>
                                 <h6 class="float-right">{{ $totalWritingTasks }}</h6>
@@ -195,7 +195,7 @@
                                 <h6 class="float-right">{{ auth()->user()->writing_points }}</h6>
                             </div>
                             <h6 class="pt-2">VIDEO CONTENT <span
-                                    class="badge badge-success">{{ auth()->user()->video_level }}</span></h6>
+                                    class="badge">{{ auth()->user()->video_level }}</span></h6>
                             <div class="clearfix">
                                 <p class="float-left m-0">Total Videos</p>
                                 <h6 class="float-right">{{ $totalVideoTasks }}</h6>
@@ -218,8 +218,8 @@
                         <p>This Month: <span><b>{{ $earnedLastMonth }}</b></span> This Year: <span><b>{{ $earnedLastYear }}</b></span></p>
                         <div class="pt-4">
                             <div class="clearfix">
-                                <a href="{{ route('withdraw.create') }}" class="btn float-left btn-outline-success">Withdraw </a>
-                                <a href="#" data-toggle="modal" data-target="#deposit" class="btn float-right btn-outline-success">Deposit</a>
+                                <a href="{{ route('withdraw.create') }}" class="button button-xs button-primary-outline button-anorak">Withdraw </a>
+                                <a href="#" data-toggle="modal" data-target="#deposit" class="button button-xs float-right button-primary-outline button-anorak">Deposit</a>
                             </div>
                         </div>
                     </div>

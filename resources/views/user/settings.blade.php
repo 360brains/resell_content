@@ -47,8 +47,8 @@
                                                 @endforelse
                                                 </tbody>
                                             </table>
-                                                <button class="btn btn-success float-right" id="manage-btn" onclick="visible()">Manage Accounts</button>
-                                            <button class="btn btn-success float-right d-none" id="save-btn" onclick="redo()">Save Changes</button>
+                                                <button class="button button-sm button-primary float-right" id="manage-btn" onclick="visible()">Manage Accounts</button>
+                                            <button class="button button-sm button-primary float-right d-none" id="save-btn" onclick="redo()">Save Changes</button>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                                            placeholder="Enter password" name="confirm_password">
                                                     <p class="pt-2">8 character or longer, Combine upper and lowercase letters and
                                                         numbers.</p>
-                                                    <button class="btn btn-sm btn-success float-right">Save Changes
+                                                    <button class="button button-sm button-primary float-right">Save Changes
                                                     </button>
                                                 </div>
                                             </div>
@@ -180,7 +180,7 @@
                                                     <input type="checkbox" id="fruit3" name="withdraw_notifications">
                                                     <label for="fruit3"></label>
                                                 @endif
-                                                    <button class="btn btn btn-success float-right">Save Changes</button>
+                                                    <button class="button button-sm button-primary float-right">Save Changes</button>
                                             </form>
                                         </div>
                                     </div>
