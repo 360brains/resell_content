@@ -106,11 +106,11 @@
                         {{strpos((request()->path()),"user/projects") == 'true' ? 'nav-active' : ''}}"
                        href="{{ route('user.projects') }}">Browse Projects</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link hvrcenter
-                     {{strpos((request()->path()),"user/learn") == 'true' ? 'nav-active' : ''}}"
-                       href="{{ route('user.learn') }}">Learn</a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link hvrcenter--}}
+{{--                     {{strpos((request()->path()),"user/learn") == 'true' ? 'nav-active' : ''}}"--}}
+{{--                       href="{{ route('user.learn') }}">Learn</a>--}}
+{{--                </li>--}}
                 <!-- <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown

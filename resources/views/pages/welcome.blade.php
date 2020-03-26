@@ -404,7 +404,7 @@
                         <img src="{{ asset('front/images/document-1.jpg') }}" alt="Article 1" class="image img-responsive">
                         <div class="overlay">
                             <a href="{{ asset('front/pdf/article_format.pdf') }}" class="icon-img" title="Download PDF" download>
-                                <img src="{{ asset('images/pdf.svg') }}" alt="Download PDF" />
+                                <img src="{{ asset('front/images/pdf.svg') }}" alt="Download PDF" />
                             </a>
                         </div>
                     </div>
@@ -414,7 +414,7 @@
                     <img src="{{ asset('front/images/ArticleFormat 4-1.jpg') }}" class="img-responsive image" alt="Article 2" />
                         <div class="overlay">
                             <a href="{{ asset('front/pdf/article_format_1.pdf') }}" class="icon-img" title="Download PDF" download>
-                                <img src="{{ asset('images/pdf.svg') }}" alt="Download PDF" />
+                                <img src="{{ asset('front/images/pdf.svg') }}" alt="Download PDF" />
                             </a>
                         </div>
                     </div>
@@ -424,7 +424,7 @@
                     <img src="{{ asset('front/images/2-req.jpg') }}" class="img-responsive image" alt="Article 3" />
                     <div class="overlay">
                         <a href="{{ asset('front/pdf/article_format_2.pdf') }}" class="icon-img" title="Download PDF" download>
-                            <img src="{{ asset('images/pdf.svg') }}" alt="Download PDF" />
+                            <img src="{{ asset('front/images/pdf.svg') }}" alt="Download PDF" />
                         </a>
                     </div>
                 </div>
