@@ -70,8 +70,7 @@
 
 <script src="{{ asset('front/js/core.min.js') }}"></script>
 <script src="{{ asset('front/js/script.js') }}"></script>
-
-
+<script src="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.js') }}" type="text/javascript"></script>
 
 
 

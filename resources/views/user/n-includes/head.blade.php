@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('front/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/style.css') }}" id="main-styles-link">
+    <link href="{{ asset('admin/assets/global/plugins/bootstrap-toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
 
 
 
