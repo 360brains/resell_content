@@ -1013,7 +1013,10 @@ p .link-press {
 	align-items: center;
 	justify-content: center;
 }
-
+.box-creative-inner .category-avatar img{
+    width: 59.36px;
+    height: 64px;
+}
 .box-creative-dummy {
 	opacity: 0;
 	visibility: hidden;
@@ -1036,6 +1039,46 @@ p .link-press {
 	font-size: 14px;
 	line-height: 1.4;
 	color: #151515;
+}
+.container-img {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: #0000005e;
+}
+
+.container-img:hover .overlay {
+    opacity: 1;
+}
+
+.icon-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+.icon-img img{
+    width: 50px;
 }
 
 * + .box-creative-title {
@@ -1471,6 +1514,7 @@ html .list-inline-md > * {
 .list-marked-2 > li {
 	text-indent: -28px;
 	padding-left: 40px;
+    text-transform: capitalize;
 }
 
 .list-marked-2 > li::before {
@@ -1723,6 +1767,14 @@ html .list-inline-md > * {
 
 .bg-gray-100 .lp-item {
 	box-shadow: none;
+    min-height: 223px;
+}
+
+.st-btn{
+    display: flex!important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 * + .lp-item-title {
@@ -1745,6 +1797,7 @@ html .list-inline-md > * {
 	}
 	* + .lp-item-title {
 		margin-top: 5px;
+        text-transform: capitalize;
 	}
 }
 
@@ -5366,7 +5419,7 @@ textarea.form-input {
 .quote-mary-position {
 	line-height: 1.2;
 	letter-spacing: .025em;
-	color: #1087eb;
+	color: rgba(255, 255, 255, 0.55);
 }
 
 .context-dark .quote-mary-mark, .bg-gray-700 .quote-mary-mark, .bg-blue-13 .quote-mary-mark, .bg-blue-15 .quote-mary-mark, .bg-primary .quote-mary-mark {
@@ -17252,9 +17305,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 .select2-container--default .select2-results__option[aria-selected=true] {
 	color: #ffffff;
-	background-color: #77cc8f;
+	background-color: #1087eb;
 }
-
+.quote-mary-mark{
+    fill: #ffffff!important;
+}
 .select2-container--default .select2-results__option .select2-results__option {
 	padding-left: 1em;
 }
@@ -18216,7 +18271,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	height: 0;
 	border-style: solid;
 	border-width: 0 6px 10px 6px;
-	border-color: transparent transparent #1087eb transparent;
+	border-color: transparent transparent #fdfdfd transparent;
 	opacity: 0;
 	transform: translateY(5px);
 	transition: .22s;
