@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.welcome');
+        $data['projects']   = Project::where('active', 1)->where('special', 0)->where('available', '>', 0)->whereNotNull('id');
+        $data['categories'] = Category::where('active', 1)->get();
+        return view('pages.welcome' , $data);
     }
 }

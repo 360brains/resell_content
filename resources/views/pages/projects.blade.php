@@ -74,6 +74,7 @@
         <div class="container">
             <div class="table-job-offers-outer pb-5">
                 <table class="table-job-offers table-responsive">
+                    @if($projects->count() > 0)
                     <thead>
                     <tr class="custom-th">
                         <th>TIME AWARDED</th>
@@ -83,6 +84,7 @@
                         <th>CATEGORY</th>
                     </tr>
                     </thead>
+                    @endif
                     @forelse($projects as $project)
                         <tr>
                             <td class="table-job-offers-date">
@@ -109,7 +111,9 @@
                             <td class="table-job-offers-badge"><span class="badge">{{ $project->category->name }}</span></td>
                         </tr>
                     @empty
-                        <h1>No projects found.</h1>
+                        <div class="alert text-center">
+                            No project found.
+                        </div>
                     @endforelse
                 </table>
             </div>

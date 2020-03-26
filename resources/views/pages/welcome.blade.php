@@ -33,7 +33,7 @@
             <p>Get Work Done Faster On Resell Content, With Confidence</p>
             <div class="row row-50 justify-content-center align-items-center text-left">
                 <div class="col-md-10 col-lg-6">
-                    <figure class="figure-responsive block-5"><img src="{{ asset('front/images/about-us-1-540x413.jpg') }}" alt=""/>
+                    <figure class="figure-responsive block-5"><img src="{{ asset('front/images/ic-min.png') }}" alt=""/>
                     </figure>
                 </div>
                 <div class="col-md-10 col-lg-6">
@@ -154,55 +154,19 @@
         <div class="container container-fullwidth">
             <h3>Popular Categories</h3>
             <!-- Owl Carousel-->
-            <div class="owl-carousel owl-carousel-stretch" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="3" data-xl-items="5" data-xxl-items="6" data-dots="true" data-nav="false" data-stage-padding="1" data-loop="true" data-margin="26" data-md-margin="20" data-lg-margin="26" data-autoplay="true" data-autoplay-timeout="3500" data-mouse-drag="false"><a class="box-creative" href="job-listing-full.html">
+            <div class="owl-carousel owl-carousel-stretch" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="3" data-xl-items="5" data-xxl-items="6" data-dots="true" data-nav="false" data-stage-padding="1" data-loop="true" data-margin="26" data-md-margin="20" data-lg-margin="26" data-autoplay="true" data-autoplay-timeout="3500" data-mouse-drag="false">
+                @foreach($categories as $category)
+                <div class="box-creative">
                     <div class="box-creative-inner">
-                        <div class="icon box-creative-icon mercury-icon-calc"></div>
-                        <p class="box-creative-title">Accounting & Finance</p>
-                        <p>2590 open positions</p>
+                        <div class="category-avatar">
+                            <img src="{{ asset($category->avatar) }}" alt="{{ $category->name }}" />
+                        </div>
+                        <p class="box-creative-title">{{ $category->name }}</p>
                     </div>
-                    <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
-                    <div class="box-creative-inner">
-                        <div class="icon box-creative-icon mercury-icon-partners"></div>
-                        <p class="box-creative-title">Sales & Marketing</p>
-                        <p>1214 open positions</p>
-                    </div>
-                    <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
-                    <div class="box-creative-inner">
-                        <div class="icon box-creative-icon mercury-icon-globe"></div>
-                        <p class="box-creative-title">Information Technology </p>
-                        <p>3213 open positions</p>
-                    </div>
-                    <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
-                    <div class="box-creative-inner">
-                        <div class="icon box-creative-icon mercury-icon-cup"></div>
-                        <p class="box-creative-title">Food Service</p>
-                        <p>3213 open positions</p>
-                    </div>
-                    <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
-                    <div class="box-creative-inner">
-                        <div class="icon box-creative-icon mercury-icon-presentation-2"></div>
-                        <p class="box-creative-title">Design & Art </p>
-                        <p>3213 open positions</p>
-                    </div>
-                    <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
-                    <div class="box-creative-inner">
-                        <div class="icon box-creative-icon thin-icon-love"></div>
-                        <p class="box-creative-title">Healthcare</p>
-                        <p>3213 open positions</p>
-                    </div>
-                    <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
-                    <div class="box-creative-inner">
-                        <div class="icon box-creative-icon thin-icon-car"></div>
-                        <p class="box-creative-title">Automotive</p>
-                        <p>3813 open positions</p>
-                    </div>
-                    <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
-                    <div class="box-creative-inner">
-                        <div class="icon box-creative-icon mercury-icon-house"></div>
-                        <p class="box-creative-title">Construction</p>
-                        <p>1215 open positions</p>
-                    </div>
-                    <div class="box-creative-dummy"></div></a></div>
+                    <div class="box-creative-dummy"></div>
+                </div>
+                    @endforeach
+            </div>
         </div>
     </section>
     <!-- Recent Jobs-->
@@ -215,115 +179,39 @@
                 <div class="col-12">
                     <div class="table-job-offers-outer">
                         <table class="table-job-offers table-responsive">
-                            <tr>
-                                <td class="table-job-offers-date"><span>1 hour ago</span></td>
-                                <td class="table-job-offers-main">
-                                    <!-- Company Light-->
-                                    <article class="company-light">
-                                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-1-52x52.png" alt=""/>
-                                        </figure>
-                                        <div class="company-light-main">
-                                            <h5 class="company-light-title"><a href="job-details.html">Senior UX Designer</a></h5>
-                                            <p class="text-color-default">StarArt</p>
-                                        </div>
-                                    </article>
-                                </td>
-                                <td class="table-job-offers-meta">
-                                    <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$25–$35 \ hour</span></div>
-                                </td>
-                                <td class="table-job-offers-meta">
-                                    <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>New York, NY, USA</span></div>
-                                </td>
-                                <td class="table-job-offers-badge"><span class="badge">Full Time</span></td>
-                            </tr>
-                            <tr>
-                                <td class="table-job-offers-date"><span>1 day ago</span></td>
-                                <td class="table-job-offers-main">
-                                    <!-- Company Light-->
-                                    <article class="company-light">
-                                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-2-53x46.png" alt=""/>
-                                        </figure>
-                                        <div class="company-light-main">
-                                            <h5 class="company-light-title"><a href="job-details.html">Marketing Director</a></h5>
-                                            <p class="text-color-default">UpBook</p>
-                                        </div>
-                                    </article>
-                                </td>
-                                <td class="table-job-offers-meta">
-                                    <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$45–$53 \ hour</span></div>
-                                </td>
-                                <td class="table-job-offers-meta">
-                                    <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Saint-Etienne, France</span></div>
-                                </td>
-                                <td class="table-job-offers-badge"><span class="badge badge-secondary">Part Time</span></td>
-                            </tr>
-                            <tr>
-                                <td class="table-job-offers-date"><span>1 day ago</span></td>
-                                <td class="table-job-offers-main">
-                                    <!-- Company Light-->
-                                    <article class="company-light">
-                                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-3-42x42.png" alt=""/>
-                                        </figure>
-                                        <div class="company-light-main">
-                                            <h5 class="company-light-title"><a href="job-details.html">Front End Developer</a></h5>
-                                            <p class="text-color-default">MediaLab</p>
-                                        </div>
-                                    </article>
-                                </td>
-                                <td class="table-job-offers-meta">
-                                    <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$25–$43 \ hour</span></div>
-                                </td>
-                                <td class="table-job-offers-meta">
-                                    <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Derry, United Kingdom</span></div>
-                                </td>
-                                <td class="table-job-offers-badge"><span class="badge badge-tertiary">Freelance</span></td>
-                            </tr>
-                            <tr>
-                                <td class="table-job-offers-date"><span>1 day ago</span></td>
-                                <td class="table-job-offers-main">
-                                    <!-- Company Light-->
-                                    <article class="company-light">
-                                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-4-40x43.png" alt=""/>
-                                        </figure>
-                                        <div class="company-light-main">
-                                            <h5 class="company-light-title"><a href="job-details.html">Website Designer</a></h5>
-                                            <p class="text-color-default">Creator</p>
-                                        </div>
-                                    </article>
-                                </td>
-                                <td class="table-job-offers-meta">
-                                    <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$15–$43 \ hour</span></div>
-                                </td>
-                                <td class="table-job-offers-meta">
-                                    <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Los Angeles, CA, USA</span></div>
-                                </td>
-                                <td class="table-job-offers-badge"><span class="badge">Full Time</span></td>
-                            </tr>
-                            <tr>
-                                <td class="table-job-offers-date"><span>1 day ago</span></td>
-                                <td class="table-job-offers-main">
-                                    <!-- Company Light-->
-                                    <article class="company-light">
-                                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-5-52x52.png" alt=""/>
-                                        </figure>
-                                        <div class="company-light-main">
-                                            <h5 class="company-light-title"><a href="job-details.html">Restaurant Dishwasher</a></h5>
-                                            <p class="text-color-default">Camping</p>
-                                        </div>
-                                    </article>
-                                </td>
-                                <td class="table-job-offers-meta">
-                                    <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$10–$20 \ hour</span></div>
-                                </td>
-                                <td class="table-job-offers-meta">
-                                    <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Stockholm, Sweden</span></div>
-                                </td>
-                                <td class="table-job-offers-badge"><span class="badge badge-secondary">Part Time</span></td>
-                            </tr>
+                            @forelse($projects as $project)
+                                <tr>
+                                    <td class="table-job-offers-date">
+                                        <span>{{ $project->deadline }} Hour</span></td>
+                                    <td class="table-job-offers-main">
+                                        <!-- Company Light-->
+                                        <article class="company-light">
+                                            <figure class="company-light-figure">
+                                            </figure>
+                                            <div class="company-light-main">
+                                                <h5 class="company-light-title"><a href=" {{ route('pages.project.details' , $project->id) }}">{{ $project->name }}</a></h5>
+                                                <p>{{ $project->type->name }}</p>
+                                            </div>
+                                        </article>
+                                    </td>
+                                    <td class="table-job-offers-meta">
+                                        <div class="object-inline">
+                                            <span class="icon icon-sm text-primary mercury-icon-money"></span><span>Rs.{{ floor($project->price) }}</span></div>
+                                    </td>
+                                    <td class="table-job-offers-meta">
+                                        <div class="object-inline">
+                                            <span class="icon icon-1 text-primary mercury-icon-jobs"></span><span>{{ $project->available }}</span></div>
+                                    </td>
+                                    <td class="table-job-offers-badge"><span class="badge">{{ $project->category->name }}</span></td>
+                                </tr>
+                            @empty
+                                <h1>No projects found.</h1>
+                            @endforelse
                         </table>
                     </div>
                 </div>
-                <div class="col-12 text-center"><a class="button button-lg button-primary-outline button-anorak" href="job-listing-full.html">Show More Jobs</a></div>
+                <div class="col-12 text-center">
+                    <a class="button button-lg button-primary-outline button-anorak" href="{{ route('pages.projects') }}">Show More Jobs</a></div>
             </div>
         </div>
     </section>
@@ -375,12 +263,12 @@
         </div>
     </section>
     <!-- Success Stories-->
-    <section class="section jumbotron-modern bg-blue-15" style="background-image: url({{ asset('front/images/bg-blue-15-noise.jpg') }}); background-repeat: repeat;">
+    <section class="section jumbotron-modern bg-blue-15" style="background-image: url({{ asset('front/images/success-bg.png') }}); background-repeat: repeat;">
         <div class="jumbotron-modern-inner">
-            <div class="jumbotron-modern-image-left"><img class="wow slideInLeft" src="{{ asset('front/images/custom-slide-left-423x576.png') }}" alt=""/>
-            </div>
-            <div class="jumbotron-modern-image-right"><img class="wow slideInRight" src="{{ asset('front/images/custom-slide-right-423x576.png') }}" alt=""/>
-            </div>
+{{--            <div class="jumbotron-modern-image-left"><img class="wow slideInLeft" src="{{ asset('front/images/custom-slide-left-423x576.png') }}" alt=""/>--}}
+{{--            </div>--}}
+{{--            <div class="jumbotron-modern-image-right"><img class="wow slideInRight" src="{{ asset('front/images/custom-slide-right-423x576.png') }}" alt=""/>--}}
+{{--            </div>--}}
             <div class="container">
                 <h3>Success Stories </h3>
                 <div class="slick-slider-3">
@@ -507,18 +395,39 @@
     {{--        </div>--}}
     {{--    </section>--}}
     <!-- Latest Posts-->
-    <section class="section section-md bg-gray-100">
+    <section class="section pdf-section section-md bg-gray-100">
         <div class="container">
             <h3 class="text-center">Sample Articles</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="{{ asset('front/images/document-1.jpg') }}" class="img-responsive" />
+                    <div class="container-img">
+                        <img src="{{ asset('front/images/document-1.jpg') }}" alt="Article 1" class="image img-responsive">
+                        <div class="overlay">
+                            <a href="{{ asset('front/pdf/article_format.pdf') }}" class="icon-img" title="Download PDF" download>
+                                <img src="{{ asset('front/images/pdf.svg') }}" alt="Download PDF" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="{{ asset('front/images/ArticleFormat 4-1.jpg') }}" class="img-responsive" />
+                    <div class="container-img">
+                    <img src="{{ asset('front/images/ArticleFormat 4-1.jpg') }}" class="img-responsive image" alt="Article 2" />
+                        <div class="overlay">
+                            <a href="{{ asset('front/pdf/article_format_1.pdf') }}" class="icon-img" title="Download PDF" download>
+                                <img src="{{ asset('front/images/pdf.svg') }}" alt="Download PDF" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="{{ asset('front/images/2-req.jpg') }}" class="img-responsive" />
+                    <div class="container-img">
+                    <img src="{{ asset('front/images/2-req.jpg') }}" class="img-responsive image" alt="Article 3" />
+                    <div class="overlay">
+                        <a href="{{ asset('front/pdf/article_format_2.pdf') }}" class="icon-img" title="Download PDF" download>
+                            <img src="{{ asset('front/images/pdf.svg') }}" alt="Download PDF" />
+                        </a>
+                    </div>
+                </div>
                 </div>
             </div>
             <div class="row">
