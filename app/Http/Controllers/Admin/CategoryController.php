@@ -103,10 +103,8 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'avatar' => 'required',
         ]);
-        $category           = new Category;
-        $category->avatar          = $request->avatar;
+//        $category           = new Category;
         $category->name          = $request->name;
         if ($request->hasFile("avatar") && $request->file('avatar')->isValid()) {
             $filename           = $request->file('avatar')->getClientOriginalName();

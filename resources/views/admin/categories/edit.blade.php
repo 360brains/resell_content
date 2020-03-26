@@ -34,7 +34,7 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route('admin.categories.update', $category->id) }}" method="post">
+                    <form action="{{ route('admin.categories.update', $category->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         {{ method_field('PATCH') }}
 
@@ -47,7 +47,7 @@
                                     </div>
 
                                     <div class="form-group form-md-line-input">
-                                        <input type="file" name="avatar" value="{{ $category->avatar }}" class="form-control" placeholder="Upload Category Image">
+                                        <input type="file" name="avatar" class="form-control" placeholder="Upload Category Image">
                                         <label>Category Image</label>
                                     </div>
 
