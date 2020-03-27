@@ -43,25 +43,28 @@
                                 <h5 class="company-light-title">{{ $project->name }}</h5>
                                 <div class="company-light-info">
                                     <div class="row row-15 row-bordered">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-6 col-md-4">
                                             <ul class="list list-xs">
                                                 <li>
-                                                    <p class="object-inline object-inline_sm"><span class="icon icon-1 text-primary mercury-icon-clock"></span><span>Available Before {{ $project->deadline }}</span></p>
+                                                    <p class="object-inline object-inline_sm"><span class="icon icon-1 text-primary mercury-icon-clock"></span><span>Time Awarded {{ $project->deadline }} Hours</span></p>
                                                 </li>
                                                 <li>
                                                     <p class="object-inline object-inline_sm"><span class="icon icon-default text-primary fl-bigmug-line-attach8"></span><span>{{ $project->category->name }}</span></p>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-6 col-md-4">
                                             <ul class="list list-xs">
                                                 <li>
                                                     <p class="object-inline object-inline_sm"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>Rs {{ $project->price }}</span></p>
                                                 </li>
                                                 <li>
-                                                    <p class="object-inline object-inline_sm"><span class="icon icon-1 text-primary mdi mdi-web"></span><span><a href="{{ route('user.tasks.take', $project->id) }}">Take a task</a></span></p>
-                                                </li>
+                                                    <p class="object-inline object-inline_sm"><span class="icon icon-sm text-primary mdi mdi-star-half"></span><span>+ {{ $project->points }}</span></p>                                                </li>
                                             </ul>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4 text-center">
+                                            <a class="button button-sm button-primary button-icon button-icon-left button-anorak rd-navbar-popup-toggle" href="{{ route('user.tasks.take', $project->id) }}">
+                                                <span class="icon thin-icon-thumb-up"></span>Take a task</a>
                                         </div>
                                     </div>
                                 </div>
@@ -69,15 +72,11 @@
                         </article>
                     </div>
                     <p class="text-style-1">{!! $project->description !!}
-                        <br>
-                        This task requires user Level {{$project->level->name}}, and the following trainings
-                        <br>
                     <ul class="detail-list">
                         @forelse($project->trainings as $training)
 
                             <li> {{ $training->name }}</li>
                         @empty
-                            <h6>No training required.</h6>
                         @endforelse
                     </ul>
                     </p>
