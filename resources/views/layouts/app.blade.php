@@ -25,7 +25,6 @@
 
 </head>
 <body>
-<div class="Loader"></div>
 
     <div id="app">
         <nav class="navbar navbar-fixed-top navbar-expand-md navbar-light bg-white shadow-sm p-0">
@@ -42,17 +41,17 @@
                         <li class="nav-item">
                             <a class="nav-link hvrcenter
                         {{strpos((request()->path()),"projects") == 'true' ? 'nav-active' : ''}}"
-                               href="{{ route('pages.projects') }}">Browser Projects</a>
+                               href="{{ route('pages.projects') }}">Browser Jobs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link hvrcenter
-                     {{strpos((request()->path()),"#") == 'true' ? 'nav-active' : ''}}"
-                               href="#">How it works</a>
+                     {{strpos((request()->path()),"howItWorks") == 'true' ? 'nav-active' : ''}}"
+                               href="{{ route('pages.howItWorks') }}">How it works</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link hvrcenter
-                     {{strpos((request()->path()),"#") == 'true' ? 'nav-active' : ''}}"
-                               href="#">About Us</a>
+                     {{strpos((request()->path()),"about-us") == 'true' ? 'nav-active' : ''}}"
+                               href="{{ route('pages.about') }}">About Us</a>
                         </li>
 
                     </ul>

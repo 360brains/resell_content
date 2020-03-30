@@ -4,10 +4,9 @@
             <div class="position-relative w-100">
                 <div class="nav-top ">
                     <nav class="navbar  navbar-expand-lg navbar-light p-0 d-flex">
-                        <a class="navbar-brand" href="{{ route('pages.home') }}">
-                            great
-                            <span
-                                style="color: #07b107; font-weight: 500;">Content</span>
+                        <a class="navbar-brand d-flex" href="{{ route('pages.home') }}">
+                            <img src="{{ asset('user/images/logo.png') }}" alt="">
+{{--                            <h3 class="pt-2 pl-2">Resell Content</h3>--}}
                         </a>
                         <div>
                             @guest

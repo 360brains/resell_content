@@ -11,8 +11,8 @@
                         <h1>Earn with Referal</h1>
                         <p>Invite your friends & family and Get Rs.1000 for the current level</p>
                         <div class="copy-wrap mgb-0-5x"><span class="copy-feedback"></span><img class="link" width="24px" src="{{ asset('user/images/refer-2.png') }}" alt="">
-                            <input type="text" class="copy-address shadow-sm" value="http://cvf.sunztech.com/login?id={{auth()->user()->id}}" disabled>
-                            <button class="copy-trigger copy-clipboard" data-clipboard-text="{{ route('pages.home') }}"><img width="24px" src="{{ asset('user/images/refer-1.png') }}" alt="">
+                            <input type="text" class="copy-address shadow-sm" value="http://resellcontent.com/register?id={{auth()->user()->id}}" disabled>
+                            <button class="copy-trigger copy-clipboard" data-clipboard-text="http://resellcontent.com/register?id={{auth()->user()->id}}"><img width="24px" src="{{ asset('user/images/refer-1.png') }}" alt="">
                             </button>
                         </div>
                     </div>

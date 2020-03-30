@@ -46,10 +46,19 @@ class ProjectController extends Controller
             'level'         => 'required',
             'price'         => 'required',
             'points'        => 'required',
-            'words'         => 'required',
             'quantity'      => 'required',
 
         ]);
+        if ($request->type == 1){
+            $request->validate([
+                'words'         => 'required',
+            ]);
+        }
+        if ($request->type == 2){
+            $request->validate([
+                'duration'         => 'required',
+            ]);
+        }
 
         $project = new Project();
         $project->name          = $request->name;
@@ -65,6 +74,7 @@ class ProjectController extends Controller
         $project->active        = $request->active;
         $project->price         = $request->price;
         $project->points        = $request->points;
+        $project->duration        = $request->duration;
 
         if ($request->special == 'on') {
             $project->special = 1;

@@ -71,6 +71,11 @@
                                 <th>Number of words</th>
                                 <td>{{$project->words}}</td>
                             </tr>
+                            @elseif($project->type->name == 'Video Making')
+                            <tr>
+                                <th>Duration</th>
+                                <td>{{$project->duration}} Minutes</td>
+                            </tr>
                         @endif
 
                         <tr>

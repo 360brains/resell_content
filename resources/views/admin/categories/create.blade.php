@@ -34,7 +34,7 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="{{ route('admin.categories.store') }}" method="post">
+                    <form action="{{ route('admin.categories.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-body">
                             <div class="row">
@@ -42,6 +42,11 @@
                                     <div class="form-group form-md-line-input">
                                         <input type="text" name="name" class="form-control" placeholder="Enter Category Name" value="{{old('name')}}">
                                         <label>Category Name</label>
+                                    </div>
+
+                                    <div class="form-group form-md-line-input">
+                                        <input type="file" name="avatar" class="form-control" value="{{old('avatar')}}">
+                                        <label>Category Image</label>
                                     </div>
 
                                     <div class="form-group form-md-line-input">

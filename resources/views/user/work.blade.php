@@ -28,7 +28,7 @@
                                           </span>
                                                 @if(is_null($task->timeExtension))
                                                     @if( $minutes <= 60 && $hours == 0 && $day == 0)
-                                                        <a href="#" data-toggle="modal" data-target="#extend-time" class="btn btn-info btn-xs" >Request time extension</a>
+                                                        <a href="#" data-toggle="modal" data-target="#extend-time" class="badge btn btn-info btn-xs" >Request time extension</a>
                                                     @endif
                                                 @endif
                                             </div>
@@ -50,7 +50,7 @@
                                                     <form action="{{ route('user.tasks.upload.doc', $task->id) }}" method="post" enctype="multipart/form-data">
                                                         @csrf
                                                         <input type="file" name="file" accept=".doc, .docx"/>
-                                                        <button type="submit" class="btn float-right btn-outline-success"><em class="fas fa-upload"></em> Submit</button>
+                                                        <button type="submit" class="button button-sm button-primary button-icon button-icon-left button-anorak rd-navbar-popup-toggle float-right"><em class="fas fa-upload"></em> Submit</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -72,7 +72,7 @@
                                                           placeholder="Write your message..">{{ $task->body }}</textarea>
                                                 <ul class="clearfix pt-3">
                                                     <li class="float-left">
-                                                        <button class="btn btn-lg float-left btn-success"
+                                                        <button class="button button-primary button-icon button-icon-left button-anorak rd-navbar-popup-toggle"
                                                                 type="submit"
                                                                 name="action" value="save"><em
                                                                 class="fas fa-download"></em>
@@ -81,7 +81,7 @@
                                                     </li>
                                                     <div class="my-work-btn float-right">
                                                         <li>
-                                                            <button class="btn btn-lg float-left btn-danger"
+                                                            <button class="button button-primary-outline button-icon button-icon-left button-anorak "
                                                                     name="action"
                                                                     value="submit"><em class="fas fa-upload"></em>
                                                                 Submit
@@ -191,7 +191,7 @@
 
                         <ul class="d-flex flex-wrap align-items-center guttar-30px mt-2 mb-2">
                             <li>
-                                <button id="buyMembership" class="btn btn-primary">Proceed</button>
+                                <button id="buyMembership" class="button button-lg button-primary">Proceed</button>
                             </li>
                         </ul>
                     </form>

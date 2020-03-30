@@ -25,7 +25,7 @@
                                 <h2 class="pt-2">{{ auth()->user()->name }}</h2>
                                 <p class="mt-3 m-0"><strong>{{ auth()->user()->country }} 4:04pm</strong></p>
                                 <p><strong>Member since {{ auth()->user()->created_at }} </strong></p>
-                                <button type="button" class="btn-success btn-sm mt-3 border-0 edit-profile-btn"
+                                <button type="button" class="button button-sm button-primary mt-3 border-0 edit-profile-btn"
                                    onclick="disableEdit()" id="edit"><i class="far fa-edit"></i> Edit Profile</button>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                                     {{--                                    <label for="email-address" class="input-item-label">Address</label>--}}
                                     {{--                                    <input class="input-bordered" type="text" id="address" name="email" value="">--}}
                                     {{--                                </div>--}}
-                                    <button class="btn-success btn-sm mt-3 border-0 float-right d-none" id="save">Save
+                                    <button class="button button-sm button-primary mt-3 border-0 float-right d-none" id="save">Save
                                         Changes
                                     </button>
                                 </div>

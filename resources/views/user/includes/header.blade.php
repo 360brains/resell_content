@@ -1,6 +1,7 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light p-0 d-flex">
-        <a class="navbar-brand" href="{{ route('pages.home') }}">great<span style="color: #07b107; font-weight: 500;">Content</span>
+        <a class="navbar-brand" href="{{ route('pages.home') }}">
+            <img src="{{ asset('front/images/logo_mini.png') }}" alt="" width="120px">
         </a>
         <div class="large-scn-btn notification pl-4">
             <div class="collapse navbar-collapse" id="navbarSupportedContent"
@@ -29,7 +30,8 @@
                                             <a href="{{route('user.notifications')}}">
                                                 <li class="pt-0 pb-0 pl-4 pr-4" data-toggle="tooltip"
                                                     title="Click for details!"
-                                                    data-placement="bottom">{{ $notification->data['message'] }}</li>
+                                                    data-placement="bottom">
+                                                    {{ $notification->data['message'] }}</li>
                                                 <hr class="m-0">
                                             </a>
                                         @empty
@@ -104,11 +106,11 @@
                         {{strpos((request()->path()),"user/projects") == 'true' ? 'nav-active' : ''}}"
                        href="{{ route('user.projects') }}">Browse Projects</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link hvrcenter
-                     {{strpos((request()->path()),"user/learn") == 'true' ? 'nav-active' : ''}}"
-                       href="{{ route('user.learn') }}">Learn</a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link hvrcenter--}}
+{{--                     {{strpos((request()->path()),"user/learn") == 'true' ? 'nav-active' : ''}}"--}}
+{{--                       href="{{ route('user.learn') }}">Learn</a>--}}
+{{--                </li>--}}
                 <!-- <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown
@@ -158,7 +160,9 @@
                                                     <a href="{{route('user.notifications')}}">
                                                         <li class="pt-0 pb-0 pl-4 pr-4" data-toggle="tooltip"
                                                             title="Click for details!"
-                                                            data-placement="bottom">{{ $notification->data['message'] }}</li>
+                                                            data-placement="bottom">
+                                                            <i class="far fa-envelope pr-2"></i>
+                                                            {{ $notification->data['message'] }}</li>
                                                         <hr class="m-0">
                                                     </a>
                                                 @empty

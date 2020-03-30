@@ -17,9 +17,35 @@
             if ( this.value == 1)
             {
                 $("#divid").show();
+
             }
             else{
                 $("#divid").hide();
+            }
+        });
+    });
+
+    $(function() {
+        $("#divid2").hide();
+        $('#typeselector').on('change', function() {
+            if ( this.value == 2)
+            {
+                $("#divid2").hide();
+            }
+            else{
+                $("#divid2").show();
+            }
+        });
+    });
+    $(function() {
+        $("#divid3").hide();
+        $('#typeselector').on('change', function() {
+            if ( this.value == 1)
+            {
+                $("#divid3").hide();
+            }
+            else{
+                $("#divid3").show();
             }
         });
     });

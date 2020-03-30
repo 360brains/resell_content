@@ -1,103 +1,67 @@
-@extends("layouts.master")
-
+@extends("user.n-layouts.master")
 @section("content")
-    <div class="browse-img" style="background-image:url({{ asset('assets/img/about-us.png') }});">
-        <h1>About Us</h1>
-    </div>
-    <section class="about-us pt-5 pb-5">
-        <div class="container">
-            <div class="about-content">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>Who We Are</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae congue purus, sit
-                            amet placerat mi. Etiam lacinia mauris eu leo pellentesque semper. Sed rhoncus quam et
-                            euismod volutpat. Fusce eget dui ex. In eu eros sed augue commodo aliquet. Sed dictum metus
-                            ut turpis viverra pretium. Aenean tincidunt enim ac risus ornare, sed auctor velit rhoncus.
-                            Fusce ut metus vel risus bibendum scelerisque. Quisque eu sapien lacus. Aliquam porttitor
-                            augue nec sollicitudin venenatis. Donec augue tellus, molestie in lacinia sed, facilisis at
-                            turpis. Praesent purus dui, iaculis ac condimentum ut, interdum id libero. Praesent id arcu
-                            pharetra, porta ligula at, tempor magna. Vestibulum ante ipsum primis in faucibus orci
-                            luctus et ultrices posuere cubilia Curae; Donec in purus porta orci gravida finibus et sed
-                            libero. Etiam tincidunt sapien vitae odio laoreet efficitur.
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <h2>Our Mission</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae congue purus, sit
-                            amet placerat mi. Etiam lacinia mauris eu leo pellentesque semper. Sed rhoncus quam et
-                            euismod volutpat. Fusce eget dui ex. In eu eros sed augue commodo aliquet. Sed dictum metus
-                            ut turpis viverra pretium. Aenean tincidunt enim ac risus ornare, sed auctor velit rhoncus.
-                            Fusce ut metus vel risus bibendum scelerisque. Quisque eu sapien lacus. Aliquam porttitor
-                            augue nec sollicitudin venenatis. Donec augue tellus, molestie in lacinia sed, facilisis at
-                            turpis. Praesent purus dui, iaculis ac condimentum ut, interdum id libero. Praesent id arcu
-                            pharetra, porta ligula at, tempor magna. Vestibulum ante ipsum primis in faucibus orci
-                            luctus et ultrices posuere cubilia Curae; Donec in purus porta orci gravida finibus et sed
-                            libero. Etiam tincidunt sapien vitae odio laoreet efficitur.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="our-progress pt-4">
-            <div class="prog-img">
-                <img class="img-fluid w-100" src="{{ asset('assets/img/about-us2.png') }}" alt="">
-            </div>
-            <div class="prog-area">
-                <div class="prog-prec">
-                    <h4>Writing Projects</h4>
-                    <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%;border-radius: 5px" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><span>50%</span></div>
-                    </div>
-                </div>
-                <div class="prog-prec">
-                    <h4>Video Projects</h4>
-                    <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%;border-radius: 5px" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><span>50%</span></div>
-                    </div>
-                </div>
-                <div class="prog-prec">
-                    <h4>Total Jobs Posted</h4>
-                    <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%;border-radius: 5px" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><span>50%</span></div>
-                    </div>
-                </div>
-                <div class="prog-prec">
-                    <h4>Total User</h4>
-                    <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%;border-radius: 5px" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><span>50%</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="about-end  text-center pt-5">
+    <section class="section breadcrumbs-custom breadcrumbs-custom-overlay-2">
+        <div class="breadcrumbs-custom-main bg-image bg-gray-700" style="background-image: url({{ asset('front/images/bg-image-9.jpg') }});">
             <div class="container">
-                <div class="row">
-                <div class="col-md-4">
-                    <img src="{{ asset('assets/img/about1.png') }}" alt="">
-                    <h2>Success Gurantee</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt eleifend risus a aliquet. Nam at condimentum dui, et consectetur lacus. Aliquam erat volutpat.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <img src="{{ asset('assets/img/about2.png') }}" alt="">
-                    <h2>No Hidden Charges</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt eleifend risus a aliquet. Nam at condimentum dui, et consectetur lacus. Aliquam erat volutpat.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <img src="{{ asset('assets/img/about3.png') }}" alt="">
-                    <h2>24/7 Availablity</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt eleifend risus a aliquet. Nam at condimentum dui, et consectetur lacus. Aliquam erat volutpat.
-                    </p>
-                </div>
+                <h3 class="breadcrumbs-custom-title">About Us</h3>
             </div>
+        </div>
+        <div class="breadcrumbs-custom-aside">
+            <div class="container">
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="{{ route('pages.home') }}">Home</a></li>
+                    <li class="active">About Us</li>
+                </ul>
             </div>
         </div>
     </section>
+    <!-- Welcome to WorkPlace-->
+    <section class="section section-md">
+        <div class="container">
+            <div class="row row-30">
+                <div class="col-lg-6 height-fill">
+                    <figure class="figure-responsive"><img src="{{ asset('user/images/about-1.png') }}" alt=""/>
+                    </figure>
+                </div>
+                <div class="col-lg-6 height-fill">
+                    <article class="box-info">
+                        <h3>Welcome to Resell Content</h3>
+                        <p>Do you want to make money by writing? Do you like to choose your writing assignments and to write on your very own time? Do you want to work conveniently from home or every other location within the world?</p>
+                        <p>At ResellContent, you can pick from hundreds of projects each day. Our authors are free to determine how a lot or little they would like to put in writing. Forget hunting through categorized ads, looking for the next patron, or awaiting payments. At ResellContent, payment is speedy and reliable.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="container offset-top-1 text-center">
+            <h3>Why Choose Us</h3>
+            <p>Get Work Done Faster On ResellContent, With Confidence</p>
+            <div class="row row-50 row-bordered justify-content-center">
+                <div class="col-sm-6 col-md-4">
+                    <!-- Box Line-->
+                    <article class="box-line">
+                        <div class="box-line-icon icon mercury-icon-money"></div>
+                        <div class="box-line-divider"></div>
+                        <h5 class="box-line-title">Payment Protection, Guaranteed</h5>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <!-- Box Line-->
+                    <article class="box-line">
+                        <div class="box-line-icon icon mercury-icon-partners"></div>
+                        <div class="box-line-divider"></div>
+                        <h5 class="box-line-title">Know The Price Upfront</h5>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <!-- Box Line-->
+                    <article class="box-line">
+                        <div class="box-line-icon icon mercury-icon-clock"></div>
+                        <div class="box-line-divider"></div>
+                        <h5 class="box-line-title">24\7 Dedicated and Free Support</h5>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Counters-->
 @endsection

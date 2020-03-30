@@ -32,6 +32,7 @@
                         <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>
+                            <th> Category Image </th>
                             <th> Category Name </th>
                             <th> Parent Category </th>
                             <th> Created </th>
@@ -46,7 +47,8 @@
                             @forelse($categories as $category)
                                 <tr class="table-row-clickable" onclick="window.location = '{{route('admin.categories.show', $category->id)}}'">
                                     <td> {{ ++$i }} </td>
-                                    <td> {{ $category->name }}</td>
+                                    <td><img src="{{asset($category->avatar)}}" height="50px" alt=""></td>
+                                    <td>{{ $category->name }}</td>
                                     <td>{{ $category->parentCategory->name ?? 'None' }}</td>
                                     <td> {{ $category->created_at }} </td>
                                     <td> {{ $category->updated_at }} </td>
