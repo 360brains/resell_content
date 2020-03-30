@@ -104,9 +104,10 @@
                                 </div>
                             @endif
                                 <div class="item info">
-                                    <a href="#">
-                                        <img class="" src="{{ asset('user/images/WEB-BANNER-1-3.png') }}" alt="">
-                                    </a>
+                                    <img class="" src="{{ asset('front/images/b-2.png') }}" alt="">
+                                </div>
+                                <div class="item info">
+                                    <img class="" src="{{ asset('front/images/Artboard.png') }}" alt="">
                                 </div>
                             </div>
                         </div>

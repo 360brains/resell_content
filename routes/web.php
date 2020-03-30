@@ -106,7 +106,7 @@ Route::get('/projects-category/{id}', 'Pages\PagesController@projectsByCategorie
 Route::get('/pricing', 'Pages\PagesController@pricing')->name('pages.pricing');
 Route::get('/tutorials', 'Pages\PagesController@tutorials')->name('pages.tutorials');
 Route::get('/trainings', 'Pages\PagesController@trainings')->name('pages.trainings');
-
+Route::get('/sample-articles', 'Pages\PagesController@sampleArticles')->name('pages.articles');
 Route::get('paypal', 'PayPalController@index')->name('paypal');
 
 Route::get('payment', 'PayPalController@payment')->name('payment');
