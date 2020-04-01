@@ -250,7 +250,7 @@
                             </div>
                             <ul class="d-flex flex-wrap align-items-center guttar-30px mt-2 mb-2">
                                 <li>
-                                    <button id="buyMembership" class="btn btn-primary">Proceed</button>
+                                    <button id="buyMembership" class="button button-lg button-primary">Proceed</button>
                                 </li>
                             </ul>
                         </form>
