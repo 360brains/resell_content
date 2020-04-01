@@ -185,9 +185,9 @@
                             {{--                        <label for="agree-term-3">I hereby agree to the <strong>Membership purchase aggrement</strong>.</label>--}}
                             {{--                    </div>--}}
                             <ul class="d-flex flex-wrap align-items-center guttar-30px">
-                                <li><button class="button button-xs button-primary"> Process to Pay <em class="ti ti-arrow-right mgl-2x"></em></button>
+                                <li><button class="button button-xs button-primary mb-3"> Process to Pay <em class="ti ti-arrow-right mgl-2x"></em></button>
                                 </li>
-                                <li class="pdt-1x pdb-1x pl-2"><a href="{{ route('user.voucher') }}" class="link link-primary">Make Manual Payment</a></li>
+{{--                                <li class="pdt-1x pdb-1x pl-2"><a href="{{ route('user.voucher') }}" class="link link-primary">Make Manual Payment</a></li>--}}
                             </ul>
                         </form>
 
