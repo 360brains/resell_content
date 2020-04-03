@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.8.37 on 2020-04-03 16:34:54.
+ * Generated for Laravel 5.8.37 on 2020-04-03 18:18:25.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -333,10 +333,10 @@ namespace Illuminate\Support\Facades {
          * @return string|bool 
          * @static 
          */ 
-        public static function environment(...$environments)
+        public static function environment($environments = null)
         {
                         /** @var \Illuminate\Foundation\Application $instance */
-                        return $instance->environment(...$environments);
+                        return $instance->environment($environments);
         }
         
         /**
@@ -2373,10 +2373,10 @@ namespace Illuminate\Support\Facades {
          * @return bool 
          * @static 
          */ 
-        public static function check($name, ...$parameters)
+        public static function check($name, $parameters = null)
         {
                         /** @var \Illuminate\View\Compilers\BladeCompiler $instance */
-                        return $instance->check($name, ...$parameters);
+                        return $instance->check($name, $parameters);
         }
         
         /**
@@ -3667,10 +3667,10 @@ namespace Illuminate\Support\Facades {
          * @return void 
          * @static 
          */ 
-        public static function queue(...$parameters)
+        public static function queue($parameters = null)
         {
                         /** @var \Illuminate\Cookie\CookieJar $instance */
-                        $instance->queue(...$parameters);
+                        $instance->queue($parameters);
         }
         
         /**
@@ -8354,10 +8354,10 @@ namespace Illuminate\Support\Facades {
          * @return bool 
          * @static 
          */ 
-        public static function is(...$patterns)
+        public static function is($patterns = null)
         {
                         /** @var \Illuminate\Http\Request $instance */
-                        return $instance->is(...$patterns);
+                        return $instance->is($patterns);
         }
         
         /**
@@ -8367,10 +8367,10 @@ namespace Illuminate\Support\Facades {
          * @return bool 
          * @static 
          */ 
-        public static function routeIs(...$patterns)
+        public static function routeIs($patterns = null)
         {
                         /** @var \Illuminate\Http\Request $instance */
-                        return $instance->routeIs(...$patterns);
+                        return $instance->routeIs($patterns);
         }
         
         /**
@@ -8380,10 +8380,10 @@ namespace Illuminate\Support\Facades {
          * @return bool 
          * @static 
          */ 
-        public static function fullUrlIs(...$patterns)
+        public static function fullUrlIs($patterns = null)
         {
                         /** @var \Illuminate\Http\Request $instance */
-                        return $instance->fullUrlIs(...$patterns);
+                        return $instance->fullUrlIs($patterns);
         }
         
         /**
@@ -10312,9 +10312,9 @@ namespace Illuminate\Support\Facades {
          *
          * @static 
          */ 
-        public static function validate($rules, ...$params)
+        public static function validate($rules, $params = null)
         {
-                        return \Illuminate\Http\Request::validate($rules, ...$params);
+                        return \Illuminate\Http\Request::validate($rules, $params);
         }
         
         /**
@@ -11296,10 +11296,10 @@ namespace Illuminate\Support\Facades {
          * @return bool 
          * @static 
          */ 
-        public static function is(...$patterns)
+        public static function is($patterns = null)
         {
                         /** @var \Illuminate\Routing\Router $instance */
-                        return $instance->is(...$patterns);
+                        return $instance->is($patterns);
         }
         
         /**
@@ -11309,10 +11309,10 @@ namespace Illuminate\Support\Facades {
          * @return bool 
          * @static 
          */ 
-        public static function currentRouteNamed(...$patterns)
+        public static function currentRouteNamed($patterns = null)
         {
                         /** @var \Illuminate\Routing\Router $instance */
-                        return $instance->currentRouteNamed(...$patterns);
+                        return $instance->currentRouteNamed($patterns);
         }
         
         /**
@@ -11334,10 +11334,10 @@ namespace Illuminate\Support\Facades {
          * @return bool 
          * @static 
          */ 
-        public static function uses(...$patterns)
+        public static function uses($patterns = null)
         {
                         /** @var \Illuminate\Routing\Router $instance */
-                        return $instance->uses(...$patterns);
+                        return $instance->uses($patterns);
         }
         
         /**
@@ -16967,10 +16967,10 @@ namespace  {
              * @return \Illuminate\Database\Query\Builder 
              * @static 
              */ 
-            public static function groupBy(...$groups)
+            public static function groupBy($groups = null)
             {
                                 /** @var \Illuminate\Database\Query\Builder $instance */
-                                return $instance->groupBy(...$groups);
+                                return $instance->groupBy($groups);
             }
          
             /**
