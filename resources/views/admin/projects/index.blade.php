@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN VALIDATION STATES-->
-            <div class="portlet light portlet-fit bordered">
+            <div class="light portlet-fit my_table">
 
                 <div class="portlet-body flip-scroll">
                     <table class="table table-bordered table-striped flip-content" id="projects">
