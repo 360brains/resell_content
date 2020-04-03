@@ -9,7 +9,7 @@
         <div class="breadcrumbs-custom-aside">
             <div class="container">
                 <ul class="breadcrumbs-custom-path">
-                    <li><a href="">Home</a></li>
+                    <li><a href="{{ route('pages.home') }}">Home</a></li>
                     <li class="active">How It Work</li>
                 </ul>
             </div>

@@ -4,55 +4,33 @@
         <div class="container">
             <div class="row row-50 justify-content-lg-between">
                 <div class="col-lg-5 col-xl-4">
+                    <p class="footer-creative-title">About Us</p>
+                    <div class="footer-creative-divider"></div>
+                 <p style="color: #ffffff;text-align: justify">At ResellContent, you can pick from hundreds of projects each day. Our authors are free to determine how a lot or little they would like to put in writing. Forget hunting through categorized ads, looking for the next patron, or awaiting payments. At ResellContent, payment is speedy and reliable.</p>
+                </div>
+                <div class="col-sm-6 col-lg-3">
                     <p class="footer-creative-title">Quick Links</p>
                     <div class="footer-creative-divider"></div>
                     <div class="row row-narrow row-15">
-                        <div class="col-6">
+                        <div class="col-12">
                             <ul class="list-marked-1">
-                                <li><a href="job-listing-full.html">Browse Jobs</a></li>
-                                <li><a href="job-listing.html">Browse Categories</a></li>
-                                <li><a href="submit-resume.html">Submit Resume</a></li>
-                                <li><a href="companies.html">Companies</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <ul class="list-marked-1">
-                                <li><a href="post-a-job.html">Post a Job</a></li>
-                                <li><a href="candidates-grid.html">Find a Candidate</a></li>
-                                <li><a href="#">Pricing Table</a></li>
-                                <li><a href="#">FAQ</a></li>
+                                <li><a href="{{ route('pages.projects') }}">Browse Jobs</a></li>
+                                <li><a href="{{ route('pages.howItWorks') }}">How it works</a></li>
+                                <li><a href="{{ route('pages.about') }}">About Us</a></li>
+                                <li><a href="{{ route('pages.articles') }}">Sample Articles</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4 col-xl-3">
-                    <p class="footer-creative-title">Recent News posts</p>
-                    <div class="footer-creative-divider"></div>
-                    <div class="post-line-group">
-                        <!-- Post Line--><a class="post-line" href="#">
-                            <time class="post-line-time" datetime="2018"><span class="post-line-time-day">25</span><span class="post-line-time-month">April</span></time>
-                            <p class="post-line-text">Canada adds 12,500 jobs in modest July rebound</p></a>
-                        <!-- Post Line--><a class="post-line" href="#">
-                            <time class="post-line-time" datetime="2018"><span class="post-line-time-day">14</span><span class="post-line-time-month">April</span></time>
-                            <p class="post-line-text">Outsourcing vs. In-House Digital Marketing</p></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <p class="footer-creative-title">Jobs in Popular cities</p>
+                    <p class="footer-creative-title">Contact Us</p>
                     <div class="footer-creative-divider"></div>
                     <div class="row row-narrow row-15">
-                        <div class="col-6">
+                        <div class="col-12">
                             <ul class="list list-1 list-icons">
-                                <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>San Francisco</span></a></li>
-                                <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Washington</span></a></li>
-                                <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Sacramento</span></a></li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <ul class="list list-1 list-icons">
-                                <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>New York</span></a></li>
-                                <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Ontario</span></a></li>
-                                <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Chicago</span></a></li>
+                                <li><a href="tel: +92 313 7270000 "><span class="icon icon-sm mdi mdi-phone"></span><span>+92 (313) 7270000</span></a></li>
+                                <li><a href="mailto:info@sunztech.com"><span class="icon icon-sm mdi mdi-email"></span><span>info@sunztech.com</span></a></li>
+                                <li><span class="icon icon-sm mdi mdi-map-marker"></span><span>House #958، St-12, Main bazar Muhammadabad, Faisalabad, Punjab</span></li>
                             </ul>
                         </div>
                     </div>
@@ -62,7 +40,7 @@
     </div>
     <div class="footer-creative-aside">
         <div class="container">
-            <p class="rights"><span>EmployCity</span><span>&nbsp;&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><a href="privacy-policy.html">Privacy Policy</a></p>
+            <p class="rights"><span>Resell Content</span><span>&nbsp;&copy;&nbsp;</span></p>
         </div>
     </div>
 </footer>

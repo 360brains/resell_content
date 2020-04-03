@@ -123,4 +123,7 @@ class PagesController extends Controller
 
         return view('user.inactive');
     }
+    public function sampleArticles(){
+        return view('pages.sample-articles');
+    }
 }

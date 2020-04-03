@@ -20,11 +20,11 @@ use Illuminate\Support\Facades\Auth;
 class TasksController extends Controller
 {
     public function index(){
-        $data['totalWritings'] = 0;
-        $data['totalVideos'] = 0;
-        $data['reworking'] = 0;
-        $data['delivered'] = 0;
-        $data['rejected'] = 0;
+        $data['totalWritings']  = 0;
+        $data['totalVideos']    = 0;
+        $data['reworking']      = 0;
+        $data['delivered']      = 0;
+        $data['rejected']       = 0;
 
         $data['tasks']    = Task::where('user_id', Auth()->user()->id)->orderBy('created_at', 'desc')->paginate(10);
 
