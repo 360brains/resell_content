@@ -1,80 +1,77 @@
 <footer>
     <div class="container">
-        <div class="row">
+        <div class="row p-custom">
             <div class="col-md-4">
                 <div class="footer-logo">
-                    <h1>great Content</h1>
-                    <ul>
-                        {{--                        <li><a href=""><i class="fas fa-globe"></i>&nbsp; US (International)/English </a></li>--}}
-                        <li><a href="{{ route('user.help') }}"><i class="fas fa-question-circle"></i>&nbsp; Help & Support </a></li>
-                    </ul>
+                    <p class="footer-creative-title">About Us</p>
+                    <div class="footer-creative-divider"></div>
+                    <div class="footer-detail">
+                    <p>At ResellContent, you can pick from hundreds of projects each day. Our authors are free to determine how a lot or little they would like to put in writing. Forget hunting through categorized ads, looking for the next patron, or awaiting payments. At ResellContent, payment is speedy and reliable.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
-                <div class="freelancer">
-                    <h4>Freelancer</h4>
-                    <ul>
-                        <li><a href="">categories</a></li>
-                        <li><a href="">projects</a></li>
-                        <li><a href="">contests</a></li>
-                        <li><a href="">freelancers</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
-                <div class="freelancer">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="">about us</a></li>
-                        <li><a href="">how it works</a></li>
-                        <li><a href="">security</a></li>
-                        <li><a href="">Sitemap</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
-                <div class="freelancer">
-                    <h4>Terms</h4>
-                    <ul>
-                        <li><a href="">privacy policy</a></li>
-                        <li><a href="">terms and conditions</a></li>
-                        <li><a href="">copyright policy</a></li>
-                        <li><a href="">code of conduct</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-6 col-xs-6">
-                <div class="freelancer">
-                    <h4>Apps</h4>
-                    <ul>
-                        <li class="pb-2"><a href=""><img src="{{ asset('assets/img/google-play.svg') }}" alt=""></a></li>
-                        <li><a href=""></a></li>
-                    </ul>
-                    <div class="footer-social">
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href=""><i class="fab fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href=""><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href=""><i class="fab fa-youtube"></i></a></li>
-                            <li class="list-inline-item"><a href=""><i class="fab fa-instagram"></i></a></li>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <div class="footer-logo">
+                    <p class="footer-creative-title">Quick Links</p>
+                    <div class="footer-creative-divider"></div>
+                    <div class="footer-detail">
+                        <ul class="list-marked-1">
+                            <li><i class="fas fa-caret-right"></i><a href="{{ route('user.tasks') }}">My Projects</a></li>
+                            <li><i class="fas fa-caret-right"></i><a href="{{ route('user.transactions') }}">Transactions</a></li>
+                            <li><i class="fas fa-caret-right"></i><a href="{{ route('user.projects') }}">Browse Projects</a></li>
+                            <li><i class="fas fa-caret-right"></i><a href="{{ route('user.help') }}">Help & Support </a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        <hr class="footer-line">
-        <div class="footer-bottom">
-            <div class="row">
-                <div class="col-md-3">
-                    <strong>{{ number_format($footerUserCount) }}</strong>
-                    <p>Registered Users</p>
-                </div>
-                <div class="col-md-4">
-                    <strong>{{ number_format($footerJobsPosted) }}</strong>
-                    <p>Total Jobs Posted</p>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <div class="footer-logo">
+                    <p class="footer-creative-title">CONTACT US</p>
+                    <div class="footer-creative-divider"></div>
+                    <div class="footer-detail contact-info">
+                        <ul class="list-marked-1 list-end">
+                            <li>
+                                <div>
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span class="detail"><a href="tel: +92 313 7270000 ">+92 (313) 7270000</a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <i class="far fa-envelope"></i>
+                                    <span class="detail"><a href="mailto:info@sunztech.com">info@sunztech.com</a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                <span class="detail">House #958، St-12, Main bazar Muhammadabad, Faisalabad, Punjab</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+        <div class="footer-bottom">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="data-bottom">
+                    <strong>{{ number_format($footerUserCount) }}</strong>
+                    <p>Registered Users</p>
+
+                    <strong>{{ number_format($footerJobsPosted) }}</strong>
+                    <p>Total Jobs Posted</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
 </footer>
 
 <script src="{{ asset('user/assets/js/jquery.bundle49f7.js') }}"></script>

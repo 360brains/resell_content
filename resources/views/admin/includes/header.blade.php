@@ -65,10 +65,6 @@
                         </li>
                     </ul>
                 </li>
-                <!-- END NOTIFICATION DROPDOWN -->
-
-                <!-- BEGIN USER LOGIN DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"  data-close-others="true">
                         <img alt="" class="img-circle" src="assets/layouts/layout/img/admin-icon.png" />
@@ -76,31 +72,25 @@
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
+{{--                        @admin('super')--}}
                         <li>
-                            <a href="page_user_profile_1.html">
-                                <i class="icon-user"></i> My Profile </a>
+                            <a href="{{ route('admin.password.change') }}">
+                                <i class="icon-user"></i> Change Password </a>
                         </li>
-                        {{--                        <li>--}}
-                        {{--                            <a href="app_calendar.html">--}}
-                        {{--                                <i class="icon-calendar"></i> My Calendar </a>--}}
-                        {{--                        </li>--}}
+{{--                        @permitToParent('Role')--}}
                         <li>
-                            <a href="app_inbox.html">
-                                <i class="icon-envelope-open"></i> My Inbox
-                                <span class="badge badge-danger"> 3 </span>
-                            </a>
+                            <a href="{{ route('admin.roles') }}">
+                                <i class="icon-user"></i> Roles</a>
                         </li>
-                        {{--                        <li>--}}
-                        {{--                            <a href="app_todo.html">--}}
-                        {{--                                <i class="icon-rocket"></i> My Tasks--}}
-                        {{--                                <span class="badge badge-success"> 7 </span>--}}
-                        {{--                            </a>--}}
-                        {{--                        </li>--}}
+{{--                        @endpermitToParent--}}
+{{--                        @endadmin--}}
+                        <li>
+                            <a href="{{ route('admin.password.change') }}">
+                                <i class="icon-user"></i> Change Password</a>
+                        </li>
+
                         <li class="divider"> </li>
-                        {{--                        <li>--}}
-                        {{--                            <a href="page_user_lock_1.html">--}}
-                        {{--                                <i class="icon-lock"></i> Lock Screen </a>--}}
-                        {{--                        </li>--}}
+
                         <li>
                             <a class="page_user_login_1.html" href="/admin/logout" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

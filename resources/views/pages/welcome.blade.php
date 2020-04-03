@@ -432,7 +432,7 @@
             </div>
             <div class="row">
                 <div class=" col-md-12 text-center">
-                    <a class="button button-lg button-primary-outline button-anorak" href="">Read More</a>
+                    <a class="button button-lg button-primary-outline button-anorak" href="{{ route('pages.articles') }}">Read More</a>
                 </div>
             </div>
         </div>
