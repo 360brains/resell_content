@@ -3381,6 +3381,12 @@ table th {
         color: #1087eb;
         font-size: 36px;
     }
+    .footer-logo{
+        margin-top: 10%;
+    }
+    .col-md-4 .footer-logo{
+        margin-top: unset;
+    }
 
 }
 
@@ -4307,9 +4313,12 @@ footer .footer-bottom{
 margin-right: 30px;
     margin-bottom: 0;
 }
-
-@media screen and (min-width: 768px){
 .p-custom{
-    padding: 70px 0 95px
+    padding: 60px 0 60px
 }
+@media screen and (min-width: 768px){
+
+    .navbar ul li a{
+        margin-right: 10px;
+    }
 }

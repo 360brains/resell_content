@@ -4,7 +4,7 @@
         <div class="help-content pt-5 pb-5">
             <div class="container">
                 <h2>Contact details</h2>
-                <p class="contact-p">You can contact us any way that is convenient for you. We are available 24/7 via email or telephone. You can also visit our office personally.</p>
+                <p class="we">You can contact us any way that is convenient for you. We are available 24/7 via email or telephone. You can also visit our office personally.</p>
                 <div class="row mt-5">
                     <div class="col-md-10 offset-md-1">
                         <div class="row">

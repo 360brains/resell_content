@@ -101,7 +101,7 @@
                             <div class="col-md-12 pt-3 pb-3">
                                 <div class="task-title shadow">
                                     <div class="row">
-                                        <div class="col-md-7">
+                                        <div class="col-md-6">
                                             <h1>{{ $task->project->name }}
                                                 <a data-toggle="modal" data-target="#task-dec" href="#"><i  class="far fa-question-circle"></i></a>
                                             </h1>
@@ -124,7 +124,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="col-md-5 ">
+                                        <div class="col-md-6">
                                             <div class="card-innr">
                                                 <h6 class="card-title card-title-sm">Upload your video <small>(Form your
                                                         PC)</small></h6>
@@ -132,7 +132,7 @@
                                                     <form action="{{ route('user.tasks.save.progress', $task->id) }}" method="post" enctype="multipart/form-data">
                                                         @csrf
                                                         <input type="file" name="video" accept=".mp4,.flv,.mkv,.3gp," id="video"/>
-                                                        <button type="submit" name="action" value="video" class="btn float-right btn-outline-success"><em class="fas fa-upload"></em> Submit</button>
+                                                        <button type="submit" name="action" value="video" class="button button-lg button-primary"><em class="fas fa-upload"></em> Submit</button>
                                                     </form>
                                                 </div>
                                             </div>
