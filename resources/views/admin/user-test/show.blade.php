@@ -45,7 +45,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="portlet light portlet-fit bordered">
+            <div class=" light portlet-fit my_table">
 
                 <div class="portlet-body">
                     <table class="table table-striped table-bordered table-hover">

@@ -1,16 +1,17 @@
-@extends('multiauth::layouts.app') 
+@extends('admin.layouts.master')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    {{ ucfirst(config('multiauth.prefix')) }} List
-                    <span class="float-right">
-                        <a href="{{route('admin.register')}}" class="btn btn-sm btn-success">New {{ ucfirst(config('multiauth.prefix')) }}</a>
-                    </span>
-                </div>
-                <div class="card-body">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-user font-dark"></i>
+                        <span class="caption-subject font-dark sbold uppercase">{{ ucfirst(config('multiauth.prefix')) }} List</span>
+                    </div>
+                    <div class="actions">
+                        <a href="{{route('admin.register')}}" class="btn btn-transparent dark btn-outline btn-circle btn-sm active">New {{ ucfirst(config('multiauth.prefix')) }}</a>
+                    </div>
+                    </div>
     @include('multiauth::message')
                     <ul class="list-group">
                         @foreach ($admins as $admin)
@@ -39,6 +40,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 @endsection

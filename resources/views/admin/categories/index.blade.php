@@ -25,9 +25,7 @@
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN VALIDATION STATES-->
-            <div class="portlet light portlet-fit bordered">
-
-                <div class="portlet-body flip-scroll">
+            <div class="light portlet-fit my_table">
                     <table class="table table-bordered table-striped flip-content">
                         <thead class="flip-content">
                         <tr>
@@ -89,7 +87,6 @@
                     <div class="text-center">
                     {{$categories->links()}}
                     </div>
-            </div>
         </div>
     </div>
 @endsection

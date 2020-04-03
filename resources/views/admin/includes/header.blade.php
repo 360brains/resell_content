@@ -75,7 +75,8 @@
 {{--                        @admin('super')--}}
                         <li>
                             <a href="{{ route('admin.show') }}">
-                                <i class="icon-user"></i>{{ucfirst(config('multiauth.prefix')) }}</a>
+                                <i class="icon-user"></i>{{
+                                    ucfirst(config('multiauth.prefix')) }}</a>
                         </li>
 {{--                        @permitToParent('Role')--}}
                         <li>

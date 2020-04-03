@@ -48,11 +48,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="shortcut icon" href="favicon.ico" /> </head>
 <!-- END HEAD -->
 
-<body class=" login">
+<body class="login" style="background-image: url( {{ asset('admin/assets/global/img/bg-2.jpg') }})">
 <!-- BEGIN LOGO -->
-<div class="logo">
-
-</div>
 <!-- END LOGO -->
 <!-- BEGIN LOGIN -->
 <div class="content">
