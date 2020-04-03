@@ -1,9 +1,24 @@
 @extends("user.n-layouts.master")
 @section("content")
+    <section class="section breadcrumbs-custom breadcrumbs-custom-overlay-2">
+        <div class="breadcrumbs-custom-main bg-image bg-gray-700" style="background-image: url({{ asset('front/images/bg-image-9.jpg') }});">
+            <div class="container">
+                <h3 class="breadcrumbs-custom-title">Forget Password</h3>
+            </div>
+        </div>
+        <div class="breadcrumbs-custom-aside">
+            <div class="container">
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="{{ route('pages.home') }}">Home</a></li>
+                    <li class="active">Forget Password</li>
+                </ul>
+            </div>
+        </div>
+    </section>
     <div class="animated" style="animation-duration: 500ms;">
-    <section class="section parallax-container section-md bg-gray-700 bg-overlay-5 text-center" data-parallax-img="images/parallax-3.jpg">
+    <section class="section parallax-container section-md text-center" data-parallax-img="images/parallax-3.jpg">
         <div class="material-parallax parallax">
-            <img src="{{ asset('front/images/parallax-3.jpg') }}" alt="" style="display: block; transform: translate3d(-50%, 335px, 0px) rotate(0.1deg);">
+            <img src="{{ asset('front/images/parallax-3.jpg') }}" alt="" style="display: none; transform: translate3d(-50%, 335px, 0px) rotate(0.1deg);">
         </div>
     <div class="parallax-content">
         <div class="container">
