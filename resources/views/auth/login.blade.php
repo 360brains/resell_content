@@ -1,4 +1,4 @@
-@extends("user.n-layouts.master")
+.@extends("user.n-layouts.master")
 @section("content")
     <style>
         .form-wrap + * {

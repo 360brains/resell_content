@@ -74,8 +74,8 @@
                     <ul class="dropdown-menu dropdown-menu-default">
 {{--                        @admin('super')--}}
                         <li>
-                            <a href="{{ route('admin.show') }}">
-                                <i class="icon-user"></i>{{ucfirst(config('multiauth.prefix')) }}</a>
+                            <a href="{{ route('admin.password.change') }}">
+                                <i class="icon-user"></i> Change Password </a>
                         </li>
 {{--                        @permitToParent('Role')--}}
                         <li>
