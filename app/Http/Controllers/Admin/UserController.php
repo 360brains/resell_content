@@ -55,9 +55,9 @@ class UserController extends Controller
 
         $response = User::create($data);
 
-        if ($response){
+        if ($response) {
             return redirect()->route('admin.users.index')->with("success", "Completed Successfully.");
-        }else{
+        } else {
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
     }
@@ -76,7 +76,7 @@ class UserController extends Controller
         $data['user']         = User::find($id);
         $totalEarned          = 0;
 
-        foreach ($tasks as $task){
+        foreach ($tasks as $task) {
             $totalEarned = $totalEarned + $task->project->price;
         }
         $data['totalEarned'] = $totalEarned;
@@ -117,15 +117,15 @@ class UserController extends Controller
             'contact'      => $request->contact,
             'active'       => $request->active,
         ];
-        if ($request->password){
+        if ($request->password) {
             $data['password']  = bcrypt($request->password);
-            }
+        }
 
         $response = User::find($id)->update($data);
 
-        if ($response){
+        if ($response) {
             return redirect()->route('admin.users.index')->with("success", "Completed Successfully.");
-        }else{
+        } else {
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
     }
@@ -142,9 +142,9 @@ class UserController extends Controller
         $user->active     = $user->active == 0 ? 1 : 0;
         $response       = $user->save();
 
-        if ($response){
+        if ($response) {
             return redirect()->route('admin.users.index')->with("success", "Completed Successfully.");
-        }else{
+        } else {
             return redirect()->back()->with("error", "Something went wrong. Please try again.");
         }
     }
@@ -153,26 +153,25 @@ class UserController extends Controller
     {
         $user           = User::find($id);
 
-        if ($request->action == 'special'){
+        if ($request->action == 'special') {
             $user->special  = 1;
             $response       = $user->save();
-        }
-        elseif ($request->action == 'non-special'){
+        } elseif ($request->action == 'non-special') {
             $user->special  = 0;
             $response       = $user->save();
         }
 
 
-        if ($response){
+        if ($response) {
             return redirect()->back()->with("success", "Completed Successfully.");
-        }else{
+        } else {
             return redirect()->back()->with("error", "Something went wrong. Please try again.");
         }
     }
 
     public function getUsers(Request $request)
     {
-        if ($request->ajax()){
+        if ($request->ajax()) {
             $columns = array(
                 0   => 'id',
                 1   => 'name',
@@ -193,50 +192,44 @@ class UserController extends Controller
             $order = $columns[$request->input('order.0.column')];
             $dir   = $request->input('order.0.dir');
 
-            if(empty($request->input('search.value')))
-            {
+            if (empty($request->input('search.value'))) {
                 $users = User::offset($start)
                     ->limit($limit)
-                    ->orderBy($order,$dir)
+                    ->orderBy($order, $dir)
                     ->get();
-            }
-            else {
+            } else {
                 $search = $request->input('search.value');
 
-                $users =  User::where('email','LIKE',"%{$search}%")
-                    ->orWhere('name', 'LIKE',"%{$search}%")
-                    ->orWhere('gender', 'LIKE',"%{$search}%")
+                $users =  User::where('email', 'LIKE', "%{$search}%")
+                    ->orWhere('name', 'LIKE', "%{$search}%")
+                    ->orWhere('gender', 'LIKE', "%{$search}%")
                     ->offset($start)
                     ->limit($limit)
-                    ->orderBy($order,$dir)
+                    ->orderBy($order, $dir)
                     ->get();
 
-                $totalFiltered = User::where('email','LIKE',"%{$search}%")
-                    ->orWhere('name', 'LIKE',"%{$search}%")
-                    ->orWhere('gender', 'LIKE',"%{$search}%")
+                $totalFiltered = User::where('email', 'LIKE', "%{$search}%")
+                    ->orWhere('name', 'LIKE', "%{$search}%")
+                    ->orWhere('gender', 'LIKE', "%{$search}%")
                     ->count();
             }
 
             $data = array();
-            if(!empty($users))
-            {
-                foreach ($users as $user)
-                {
-                    $show   =  route('admin.users.show',$user->id);
-                    $edit   =  route('admin.users.edit',$user->id);
-                    $delete =  route('admin.users.destroy',$user->id);
+            if (!empty($users)) {
+                foreach ($users as $user) {
+                    $show   =  route('admin.users.show', $user->id);
+                    $edit   =  route('admin.users.edit', $user->id);
+                    $delete =  route('admin.users.destroy', $user->id);
                     $btn = null;
                     $status = null;
                     $token = csrf_token();
 
-                    if ($user->active == 1){
+                    if ($user->active == 1) {
                         $status =  'DEACTIVE';
                         $btn = 'btn-danger';
-                    }
-                    elseif($user->active == 0){
+                    } elseif ($user->active == 0) {
                         $status =  'ACTIVE';
                         $btn = 'btn-success';
-
                     }
 
                     $nestedData['sr']       = $counter++;
@@ -245,15 +238,17 @@ class UserController extends Controller
                     $nestedData['email']    = $user->email;
                     $nestedData['tasks']    = count($user->tasks);
                     $nestedData['active']   = $user->active == 1 ? 'ACTIVE' : 'DEACTIVE';
-                    $nestedData['options']  = "<a href='{$show}' title='SHOW' class='btn btn-info btn-xs'>SHOW</a>
-                                               <a href='{$edit}' title='EDIT' class='btn btn-primary btn-xs'>EDIT</a>
-                                               <form action='{$delete}' method='post'>
-                                               <input type='hidden' name='_method' value='DELETE'>
-                                               <input type='hidden' name='_token' value='$token'>
-                                               <button type='submit' title='$status' class='btn $btn btn-outline btn-xs sbold uppercase'>$status</button>
-                                               </form>";
+                    $nestedData['options']  = "
+                                            <div class='disp_flex'>
+                                                <a href='{$show}' title='SHOW' class='btn btn-info '>SHOW</a>
+                                                <a href='{$edit}' title='EDIT' class='btn btn-primary '>EDIT</a>
+                                                <form action='{$delete}' method='post'>
+                                                <input type='hidden' name='_method' value='DELETE'>
+                                                <input type='hidden' name='_token' value='$token'>
+                                                <button type='submit' title='$status' class='btn $btn btn-outline  sbold uppercase'>$status</button>
+                                                </form>
+                                            </div>";
                     $data[] = $nestedData;
-
                 }
             }
 

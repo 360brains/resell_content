@@ -20,7 +20,7 @@ class ProjectController extends Controller
 {
     public function index(Request $request)
     {
-//        datatable code start
+        //        datatable code start
         return view('admin.projects.index');
     }
 
@@ -49,12 +49,12 @@ class ProjectController extends Controller
             'quantity'      => 'required',
 
         ]);
-        if ($request->type == 1){
+        if ($request->type == 1) {
             $request->validate([
                 'words'         => 'required',
             ]);
         }
-        if ($request->type == 2){
+        if ($request->type == 2) {
             $request->validate([
                 'duration'         => 'required',
             ]);
@@ -87,7 +87,7 @@ class ProjectController extends Controller
                 'date'          => now(),
                 'message'       => 'Congratulations! You have been assigned a special task.',
                 'tooltip'       => ' It is a project that is only available and visible to the special users that we have chosen.',
-                'link'          => "<a href=".route("pages.project.details", $lastInsertedId)." class='d-inline'>Details</a>",
+                'link'          => "<a href=" . route("pages.project.details", $lastInsertedId) . " class='d-inline'>Details</a>",
             ];
             $emailDetails = [
                 'message'       => 'Congratulations! You have been assigned a special task. It is a project that is only available and visible to the special users that we have chosen.',
@@ -96,27 +96,27 @@ class ProjectController extends Controller
             ];
 
             $users = User::where('special', 1)->get();
-            foreach ($users as $user){
+            foreach ($users as $user) {
                 $user->notify(new TaskResult($details));
 
                 if (!is_null($user->setting)) {
                     if ($user->setting->task_updates == 0) {
                         $user->notify(new EmailUser($emailDetails));
                     }
-                }else{
+                } else {
                     $user->notify(new EmailUser($emailDetails));
                 }
             }
-        }else{
+        } else {
             $response          = $project->save();
         }
 
-        if ($response){
+        if ($response) {
             $project->trainings()->sync($request->trainings);
         }
-        if ($response){
+        if ($response) {
             return redirect()->route('admin.projects.index')->with("success", "Completed Successfully.");
-        }else{
+        } else {
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
     }
@@ -140,8 +140,8 @@ class ProjectController extends Controller
         $data['project']    = $project;
         $projectTrainings   = [];
         $data['projectTrainings']  = $projectTrainings = [];
-        if(!is_null($project->trainings)){
-            foreach ($project->trainings as $training){
+        if (!is_null($project->trainings)) {
+            foreach ($project->trainings as $training) {
                 $projectTrainings[] = $training->name;
             }
             $data['projectTrainings']    = $projectTrainings;
@@ -186,7 +186,7 @@ class ProjectController extends Controller
                 'date'          => now(),
                 'message'       => 'Congratulations! You have been assigned a special task.',
                 'tooltip'       => ' It is a project that is only available and visible to the special users that we have chosen.',
-                'link'          => "<a href=".route("pages.project.details", $lastInsertedId)." class='d-inline'>Details</a>",
+                'link'          => "<a href=" . route("pages.project.details", $lastInsertedId) . " class='d-inline'>Details</a>",
             ];
 
             $emailDetails = [
@@ -196,29 +196,29 @@ class ProjectController extends Controller
             ];
 
             $users = User::where('special', 1)->get();
-            foreach ($users as $user){
+            foreach ($users as $user) {
                 $user->notify(new TaskResult($details));
 
                 if (!is_null($user->setting)) {
                     if ($user->setting->task_updates == 0) {
                         $user->notify(new EmailUser($emailDetails));
                     }
-                }else{
+                } else {
                     $user->notify(new EmailUser($emailDetails));
                 }
             }
-        }else{
+        } else {
             $project->special = 0;
             $response          = $project->save();
         }
 
-        if ($response){
+        if ($response) {
             $project->trainings()->sync($request->trainings);
         }
 
-        if ($response){
+        if ($response) {
             return redirect()->route('admin.projects.index')->with("success", "Completed Successfully.");
-        }else{
+        } else {
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
     }
@@ -229,16 +229,16 @@ class ProjectController extends Controller
         $project->active    = $project->active == 0 ? 1 : 0;
         $response           = $project->save();
 
-        if ($response){
+        if ($response) {
             return redirect()->back()->with("success", "Completed Successfully.");
-        }else{
+        } else {
             return redirect()->back()->with("error", "Something went wrong. Please try again.");
         }
     }
 
     public function getProjects(Request $request)
     {
-        if ($request->ajax()){
+        if ($request->ajax()) {
             $columns = array(
                 0   => 'id',
                 1   => 'name',
@@ -262,61 +262,55 @@ class ProjectController extends Controller
             $order = $columns[$request->input('order.0.column')];
             $dir   = $request->input('order.0.dir');
 
-            if(empty($request->input('search.value')))
-            {
+            if (empty($request->input('search.value'))) {
                 $projects = Project::offset($start)
                     ->limit($limit)
-                    ->orderBy($order,$dir)
+                    ->orderBy($order, $dir)
                     ->get();
-            }
-            else {
+            } else {
                 $search = $request->input('search.value');
 
-                $projects =  Project::where('price','LIKE',"%{$search}%")
-                    ->orWhereHas('type', function ($query) use ($search){
-                        $query->where('name', 'like', '%'.$search.'%');
-                    })->
-                    orWhereHas('level', function ($query) use ($search){
-                        $query->where('name', 'like', '%'.$search.'%');
+                $projects =  Project::where('price', 'LIKE', "%{$search}%")
+                    ->orWhereHas('type', function ($query) use ($search) {
+                        $query->where('name', 'like', '%' . $search . '%');
+                    })->orWhereHas('level', function ($query) use ($search) {
+                        $query->where('name', 'like', '%' . $search . '%');
                     })
-                    ->orWhere('name', 'LIKE',"%{$search}%")
-                    ->orWhere('quantity', 'LIKE',"%{$search}%")
-                    ->orWhere('deadline', 'LIKE',"%{$search}%")
+                    ->orWhere('name', 'LIKE', "%{$search}%")
+                    ->orWhere('quantity', 'LIKE', "%{$search}%")
+                    ->orWhere('deadline', 'LIKE', "%{$search}%")
                     ->offset($start)
                     ->limit($limit)
-                    ->orderBy($order,$dir)
+                    ->orderBy($order, $dir)
                     ->get();
 
-                $totalFiltered = Project::where('price','LIKE',"%{$search}%")
-                    ->orWhere('name', 'LIKE',"%{$search}%")
-                    ->orWhere('deadline', 'LIKE',"%{$search}%")
+                $totalFiltered = Project::where('price', 'LIKE', "%{$search}%")
+                    ->orWhere('name', 'LIKE', "%{$search}%")
+                    ->orWhere('deadline', 'LIKE', "%{$search}%")
                     ->count();
             }
 
             $data = array();
-            if(!empty($projects))
-            {
-                foreach ($projects as $project)
-                {
-                    $show   =  route('admin.projects.show',$project->id);
-                    $edit   =  route('admin.projects.edit',$project->id);
-                    $delete =  route('admin.projects.destroy',$project->id);
+            if (!empty($projects)) {
+                foreach ($projects as $project) {
+                    $show   =  route('admin.projects.show', $project->id);
+                    $edit   =  route('admin.projects.edit', $project->id);
+                    $delete =  route('admin.projects.destroy', $project->id);
                     $btn = null;
                     $status = null;
                     $token = csrf_token();
 
-                    if ($project->active == 1){
+                    if ($project->active == 1) {
                         $status =  'DEACTIVE';
                         $btn = 'btn-danger';
-                    }
-                    elseif($project->active == 0){
+                    } elseif ($project->active == 0) {
                         $status =  'ACTIVE';
                         $btn = 'btn-success';
                     }
 
-                    $i= 0;
-                    foreach(auth()->user()->unreadNotifications as $notification){
-                        if($notification->data['taskName'] == $project->id){
+                    $i = 0;
+                    foreach (auth()->user()->unreadNotifications as $notification) {
+                        if ($notification->data['taskName'] == $project->id) {
                             $i++;
                         }
                     }
@@ -330,15 +324,17 @@ class ProjectController extends Controller
                     $nestedData['level']    = $project->level->name;
                     $nestedData['price']    = $project->price;
                     $nestedData['active']   = $project->active == 1 ? 'ACTIVE' : 'DEACTIVE';
-                    $nestedData['options']  = "<a href='{$show}' title='SHOW' class='btn btn-info btn-xs'>SHOW</a>
-                                               <a href='{$edit}' title='EDIT' class='btn btn-primary btn-xs'>EDIT</a>
+                    $nestedData['options']  = "
+                                            <div class='disp_flex'>
+                                               <a href='{$show}' title='SHOW' class='btn btn-info '>SHOW</a>
+                                               <a href='{$edit}' title='EDIT' class='btn btn-primary '>EDIT</a>
                                                <form action='{$delete}' method='post'>
                                                <input type='hidden' name='_method' value='DELETE'>
                                                <input type='hidden' name='_token' value='$token'>
-                                               <button type='submit' title='$status' class='btn $btn btn-outline btn-xs sbold uppercase'>$status</button>
-                                               </form>";
+                                               <button type='submit' title='$status' class='btn $btn btn-outline  sbold uppercase'>$status</button>
+                                               </form>
+                                            </div>";
                     $data[] = $nestedData;
-
                 }
             }
 
