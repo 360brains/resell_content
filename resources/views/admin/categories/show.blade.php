@@ -33,7 +33,7 @@
             <div class="portlet light portlet-fit bordered">
 
                 <div class="portlet-body flip-scroll">
-                    <table class="table table-bordered table-striped flip-content">
+                    <table class="table table-bordered table-striped flip-content table-hover">
                         <thead class="flip-content">
                         <tr>
                             <th width="20%"> Sr No. </th>

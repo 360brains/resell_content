@@ -23,7 +23,7 @@
                                         <hr>
                                         <h6>Payment Methods <a href="#"  data-toggle="modal" data-target="#pay-online"><i class="fas fa-plus-circle payment-model"></i></a></h6>
                                         <div class=" table-responsive">
-                                            <table class="table table-bordered table-sm">
+                                            <table class="table table-bordered table-sm table-hover">
                                                 <thead>
                                                 <tr>
                                                     <th>Type</th>
