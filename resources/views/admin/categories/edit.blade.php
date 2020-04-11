@@ -1,7 +1,6 @@
 @extends('admin.layouts.master')
 
 @section('content')
-
     <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
@@ -54,18 +53,20 @@
                                     <div class="form-group form-md-line-input">
                                         <select class="form-control" name="parent_id">
                                             <option value="">Select a Super Category</option>
-
-                                            @foreach($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @foreach($categories as $c)
+                                                <option value="{{ $c->id }}"
+                                                @if(!is_null($category->parentCategory) )
+                                                        {{ $category->parentCategory->id ==  $c->id ? "selected" : ""}}
+                                                    @endif>
+                                                    {{ $c->name }}
+                                                </option>
                                             @endforeach
-
                                         </select>
 
                                         <label for="form_control_1">Super Category</label>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <div class="form-actions">
                             <div class="row">

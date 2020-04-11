@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Category;
 use App\Models\Level;
 use App\Models\Project;
+use App\Models\TaskComment;
 use App\Models\TimeExtend;
 use App\Models\Type;
 use App\Models\Task;
@@ -113,6 +114,7 @@ class TaskController extends Controller
         //Checking if the admin has approved the task and changing the task status.
         $details = null;
         $response = true;
+        $task_id = $task->id;
 
         if ($request->action == 'approved'){
             $task->status           = 'approved';
@@ -193,7 +195,15 @@ class TaskController extends Controller
         elseif($request->action == 'reworking'){
             $request->validate([
                 'deadline'          => 'required',
+                'comment'          => 'required',
             ]);
+            $taskComment = [
+                'comment'     => $request->comment,
+                'status'     => $request->status,
+                'task_id'     => $task_id,
+            ];
+
+            $response = TaskComment::create($taskComment);
 
             $task->status       = 'reworking';
             $task->deadline     = now()->addHours($request->deadline);
@@ -320,5 +330,23 @@ class TaskController extends Controller
             return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
         }
 
+    }
+
+    public function postComment(Request $request){
+        $request->validate([
+            'comment'         => 'required',
+        ]);
+
+        $data = [
+            'comment'     => $request->comment,
+        ];
+
+        $response = TaskComment::create($data);
+
+        if ($response){
+            return redirect()->back()->with("success", "Commented Successfully.");
+        }else{
+            return redirect()->back()->withInput($request->all())->with("error", "Something went wrong. Please try again.");
+        }
     }
 }

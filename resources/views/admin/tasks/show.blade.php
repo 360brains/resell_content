@@ -158,6 +158,9 @@
                             <input type="number" name="deadline" class="form-control" id="form_control_1" placeholder="Time Awarded for task in hours" value="{{ $task->project->deadline }}">
                             <label class="text-left">Task Deadline <small>(in hours)</small></label>
                         </div>
+                        <div class="form-group text-left">
+                            <textarea rows="4" cols="50" name="comment" placeholder="Enter Comment Here"></textarea>
+                        </div>
                         <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
                         <button type="submit" name="action" value="reworking" class="btn green">Save changes</button>
                     </form>
