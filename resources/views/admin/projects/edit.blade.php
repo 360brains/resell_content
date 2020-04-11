@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group form-md-line-input">
-                                                <input type="number" name="points" value="{{ $project->points }}" class="form-control" id="form_control_1" placeholder="Enter Points for a Task" value="{{old('points')}}">
+                                                <input type="number" name="points" value="{{ $project->points }}" class="form-control" id="form_control_1" placeholder="Enter Points for a Task">
                                                 <label>Points</label>
                                             </div>
                                         </div>
@@ -132,15 +132,47 @@
                                         </div>
                                     </div>
 
-                                    <div id="divid" class="form-group form-md-line-input">
-                                        <select class="form-control" name="template">
-                                            <option value="">Select Template for project</option>
-                                            @foreach($templates as $template)
-                                                <option value="{{ $template->id }}" {{ $project->template_id == $template->id ? 'selected' : ''}}>{{ $template->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <label>Project Template</label>
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div id="divid" class="form-group form-md-line-input">
+                                                <select class="form-control" name="template">
+                                                    <option value="">Select Template for project</option>
+                                                    @foreach($templates as $template)
+                                                        <option value="{{ $template->id }}" {{ $project->template_id == $template->id ? 'selected' : ''}}>{{ $template->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <label>Project Template</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div id="divid2">
+                                                <div class="form-group form-md-line-input">
+                                                    <input type="number" name="words" class="form-control" id="form_control_1" placeholder="Enter Number of words for a Task" value="{{ $project->words }}">
+                                                    <label>Total words</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div class="row margin-bottom-25">
+                                        <div class="col-sm-6">
+                                            <div id="divid3">
+                                                <div class="form-group form-md-line-input">
+                                                    <input type="number" name="duration" class="form-control" id="form_control_1" placeholder="Enter Video Duration" value="{{ $project->duration }}">
+                                                    <label>Total duration</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+{{--                                    <div id="divid" class="form-group form-md-line-input">--}}
+{{--                                        <select class="form-control" name="template">--}}
+{{--                                            <option value="">Select Template for project</option>--}}
+{{--                                            @foreach($templates as $template)--}}
+{{--                                                <option value="{{ $template->id }}" {{ $project->template_id == $template->id ? 'selected' : ''}}>{{ $template->name }}</option>--}}
+{{--                                            @endforeach--}}
+{{--                                        </select>--}}
+{{--                                        <label>Project Template</label>--}}
+{{--                                    </div>--}}
 
                                     <div class="row">
                                         <div class="form-group form-md-line-input">
