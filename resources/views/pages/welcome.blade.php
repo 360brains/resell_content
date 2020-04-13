@@ -205,7 +205,9 @@
                                     <td class="table-job-offers-badge"><span class="badge">{{ $project->category->name }}</span></td>
                                 </tr>
                             @empty
-                                <h1>No projects found.</h1>
+                                <div class="alert text-center">
+                                    No project found.
+                                </div>
                             @endforelse
                         </table>
                     </div>
