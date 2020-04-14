@@ -3346,7 +3346,7 @@ table th {
     border: 1px solid;
     min-width: 17px;
     min-height: 17px;
-    margin: 4px -2px 0px 0px;
+    margin: -8px 0px 0px -4px;
     left: 10px;
 }
 .notification .dropdown-menu {
