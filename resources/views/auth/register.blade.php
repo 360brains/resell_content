@@ -7,7 +7,7 @@
 <div class="login-bg">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 pt-5 offset-md-8">
+            <div class="col-lg-4 pt-5 offset-lg-8">
                 <h3 class="page-ath-heading text-uppercase">Signup</h3>
                 <p>Enter your information below to create a free account.</p>
                 <form method="POST" action="{{ route('register') }}">

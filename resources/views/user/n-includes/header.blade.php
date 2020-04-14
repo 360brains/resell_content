@@ -35,7 +35,7 @@
                         </div>
                         <div class="rd-navbar-aside">
                             <div class="rd-navbar-aside-item">
-                                <a class="button button-xs button-primary-outline button-icon button-icon-left button-anorak rd-navbar-popup-toggle" href="{{ route('register') }}">
+                                <a class="button button-xs button-primary-outline button-icon button-icon-left button-anorak rd-navbar-popup-toggle xs-wht-btn" href="{{ route('register') }}">
                                     <span class="icon mdi mdi-account white-icon"></span>Sign Up</a>
                             </div>
                             @guest
