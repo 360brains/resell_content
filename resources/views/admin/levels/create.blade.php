@@ -21,12 +21,10 @@
                 <a href="{{ url()->previous() }}" class="btn red btn-sm" > <b> <i class="fa fa-backward"></i> Back</b></a>
             </div>
         </div>
-
     </div>
     <h3 class="page-title">Levels
         <small>Create Level</small>
     </h3>
-
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN VALIDATION STATES-->

@@ -29,7 +29,7 @@
             <div class="light portlet-fit my_table">
 
                 <div class="flip-scroll">
-                    <table class="table table-bordered table-striped flip-content">
+                    <table class="table table-bordered table-striped flip-content table-hover">
                         <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>

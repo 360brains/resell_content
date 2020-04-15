@@ -1232,7 +1232,7 @@ Page footer
   .page-footer:after {
     clear: both; }
   .page-footer .page-footer-inner {
-    float: left;
+    /* float: left; */
     display: inline-block; }
   .page-footer .page-footer-tools {
     float: right;
