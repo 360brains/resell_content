@@ -22,7 +22,7 @@
         <!-- BEGIN VALIDATION STATES-->
         <div class="light portlet-fit my_table">
             <div class="portlet-body flip-scroll">
-                <table class="table table-bordered table-striped flip-content table-hover" id="users">
+                <table class="table table-bordered table-striped flip-content table-hover" id="users" data-aaSorting="[]">
                     <thead class="flip-content">
                         <tr>
                             <th width="75px"> Sr No. </th>
@@ -48,6 +48,7 @@
         $('#users').DataTable({
             "processing": true,
             "serverSide": true,
+            "orderable": false,
             "ajax": {
                 "url": "{{ route('admin.get.users') }}",
                 "dataType": "json",
