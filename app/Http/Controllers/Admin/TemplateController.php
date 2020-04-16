@@ -15,7 +15,7 @@ class TemplateController extends Controller
      */
     public function index()
     {
-        $data['templates'] = Template::orderBy('name', 'asc')->paginate(10);
+        $data['templates'] = Template::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.templates.index', $data);
     }
 

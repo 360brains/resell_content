@@ -195,7 +195,7 @@ class UserController extends Controller
             if (empty($request->input('search.value'))) {
                 $users = User::offset($start)
                     ->limit($limit)
-                    ->orderBy($order, $dir)
+                    ->latest($order, $dir)
                     ->get();
             } else {
                 $search = $request->input('search.value');
@@ -205,7 +205,7 @@ class UserController extends Controller
                     ->orWhere('gender', 'LIKE', "%{$search}%")
                     ->offset($start)
                     ->limit($limit)
-                    ->orderBy($order, $dir)
+                    ->latest($order, $dir)
                     ->get();
 
                 $totalFiltered = User::where('email', 'LIKE', "%{$search}%")

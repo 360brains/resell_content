@@ -17,7 +17,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        $data['tests'] = Test::with('types')->with('levels')->orderBy('name', 'asc')->paginate(10);
+        $data['tests'] = Test::with('types')->with('levels')->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.test.index', $data);
     }
 
