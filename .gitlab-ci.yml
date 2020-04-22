@@ -12,6 +12,6 @@ deploy_cvf:
     - echo "Deploying to development site"
     - ssh-add <(echo "$SSH_KEY")
     - rm -rf .git
-    - ssh -o StrictHostKeyChecking=no resellcontent@206.189.217.230 "cd /home/resellcontent/public_html/resellcontent.com; git reset --hard; git pull -u origin master; chmod +x purge.sh; ./purge.sh; exit"
+    - ssh -o StrictHostKeyChecking=no resell@64.225.43.118 "cd /home/resell/public_html/resellcontent; git reset --hard; git pull -u origin master; chmod +x purge.sh; ./purge.sh; exit"
   only:
     - master
