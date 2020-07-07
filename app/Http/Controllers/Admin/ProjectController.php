@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Level;
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\ProjectDescription;
 use App\Models\Task;
 use App\Models\Template;
 use App\Models\Training;
@@ -38,7 +39,6 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
             'name'          => 'required',
             'type'          => 'required',
@@ -110,6 +110,15 @@ class ProjectController extends Controller
         } else {
             $response          = $project->save();
         }
+
+//            adding additional descriptions to project start
+        foreach ($request->subdescriptions as $subdesc){
+            $projectSubDesc             = new ProjectDescription();
+            $projectSubDesc->project_id = $project->id;
+            $projectSubDesc->text       = $subdesc;
+            $projectSubDesc->save();
+        }
+//            adding additional descriptions to project end
 
         if ($response) {
             $project->trainings()->sync($request->trainings);

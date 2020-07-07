@@ -133,7 +133,15 @@
                 </table>
 
                 <h3>Description</h3>
-                <div class="description">{!! $project->description !!}</div>
+                <div class=" description">{!! $project->description !!}</div>
+
+                <div class="clearfix">
+                <h3 class="pull-left">Sub Description</h3>
+                <a href="{{ route('admin.projects.create') }}" class="pull-right mt-3 mb-3 margin-right-10 margin-top-15 margin-bottom-15 btn blue btn-sm"> <b><i class="fa fa-plus"></i> Add</b></a>
+                </div>
+            @foreach($project->subDescriptions as $subDesc)
+                    <div class="sub-descriptions">{{ $subDesc->text }}</div>
+                @endforeach
 
             </div>
         </div>

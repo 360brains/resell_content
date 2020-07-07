@@ -11,3 +11,8 @@
     text-align: center !important;
     border-radius: 50%;
 }
+.sub-descriptions{
+    border: 1px solid #e6e6e6;
+    margin: 10px;
+    padding: 10px;
+}

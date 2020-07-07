@@ -186,6 +186,24 @@
                                         </div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="clearfix mt-4 float-right text-right">
+                                                <button type="button" id="add-button" class="btn btn-success float-right btn-sm shadow-sm">+</button>
+                                                <button type="button" id="remove-button" class="btn btn-danger float-right btn-sm shadow-sm ml-1" disabled="disabled">-</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="dynamic-field-1" class="form-group form-md-line-input dynamic-field">
+                                                <label for="field" class="font-weight-bold">Sub description </label>
+                                                <input type="text" id="field" class="form-control" name="subdescriptions[]" />
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                     <div class="form-group form-md-line-input">
                                         <textarea name="description" class="summernote" placeholder="Description"></textarea>
@@ -209,3 +227,75 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        'use strict'
+        $(document).ready(function() {
+            var buttonAdd = $("#add-button");
+            var buttonRemove = $("#remove-button");
+            var className = ".dynamic-field";
+            var count = 0;
+            var field = "";
+            var maxFields = 20;
+
+            function totalFields() {
+                return $(className).length;
+            }
+
+            function addNewField() {
+                count = totalFields() + 1;
+                field = $("#dynamic-field-1").clone();
+                field.attr("id", "dynamic-field-" + count);
+                field.children("label").text("Sub description  " + count);
+                field.find("input").val("");
+                $(className + ":last").after($(field));
+            }
+
+            function removeLastField() {
+                if (totalFields() > 1) {
+                    $(className + ":last").remove();
+                }
+            }
+
+            function enableButtonRemove() {
+                if (totalFields() === 2) {
+                    buttonRemove.removeAttr("disabled");
+                    buttonRemove.addClass("shadow-sm");
+                }
+            }
+
+            function disableButtonRemove() {
+                if (totalFields() === 1) {
+                    buttonRemove.attr("disabled", "disabled");
+                    buttonRemove.removeClass("shadow-sm");
+                }
+            }
+
+            function disableButtonAdd() {
+                if (totalFields() === maxFields) {
+                    buttonAdd.attr("disabled", "disabled");
+                    buttonAdd.removeClass("shadow-sm");
+                }
+            }
+
+            function enableButtonAdd() {
+                if (totalFields() === (maxFields - 1)) {
+                    buttonAdd.removeAttr("disabled");
+                    buttonAdd.addClass("shadow-sm");
+                }
+            }
+
+            buttonAdd.click(function() {
+                addNewField();
+                enableButtonRemove();
+                disableButtonAdd();
+            });
+
+            buttonRemove.click(function() {
+                removeLastField();
+                disableButtonRemove();
+                enableButtonAdd();
+            });
+        });
+    </script>
+@endpush

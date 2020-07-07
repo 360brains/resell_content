@@ -11,6 +11,9 @@ class Project extends Model
     function type(){
         return $this->belongsTo(Type::class);
     }
+    function subDescriptions(){
+        return $this->hasMany(ProjectDescription::class);
+    }
     function template(){
         return $this->belongsTo(Template::class);
     }
