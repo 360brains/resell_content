@@ -154,6 +154,18 @@
                                         </div>
                                     </li>
                                 </ul>
+                                @if(!is_null($task->sub_desc_id))
+                                    <div class="card-head pt-2 d-flex justify-content-between align-items-center">
+                                        <h4 class="card-title pb-2 mb-0">Task Sub Description</h4>
+                                    </div>
+                                    <ul class="data-details-list ">
+                                        <li>
+                                            <div class="p-3">
+                                                    {{ $task->subDescription->text }}
+                                            </div>
+                                        </li>
+                                    </ul>
+                                @endif
                             </div>
                         </div>
                     </div>

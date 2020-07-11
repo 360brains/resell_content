@@ -51,9 +51,18 @@ class TasksController extends Controller
         return view('user.tasks', $data);
     }
 
-    public function taskTake($id){
+    public function taskTake(Request $request, $id){
+
         // find project the user wants
         $project = Project::find($id);
+
+//        check if project has subdescriptions and the user has selected one
+        if (count($project->availableSubDesc) > 0){
+            $request->validate([
+                'subDescription' => 'required'
+            ]);
+        }
+
         $training = 1;
         $isWorking = 0;
 
@@ -109,6 +118,7 @@ class TasksController extends Controller
                 'user_id'      => auth()->user()->id,
                 'status'       => 'Started',
                 'deadline'     => now()->addHours($project->deadline),
+                'sub_desc_id'  => $request->subDescription ?? null,
             ];
 
             if ($project->template_id != null){

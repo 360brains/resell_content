@@ -192,6 +192,16 @@
                                                         <!-- li -->
                                                     </ul>
                                                     <!-- .data-details -->
+                                                    @if(!is_null($task->sub_desc_id))
+                                                    <div class="gaps-3x"></div>
+                                                    <h6 class="card-sub-title">Task Sub Description</h6>
+                                                    <ul class="data-details-list">
+                                                        <li>
+                                                            <div class="data-details-des"><strong>{{ $task->subDescription->text }}</strong></div>
+                                                        </li>
+                                                        <!-- li -->
+                                                    </ul>
+                                                    @endif
                                                 </div>
                                                 <!-- .card -->
                                             </div>

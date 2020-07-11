@@ -63,15 +63,32 @@
                                             </ul>
                                         </div>
                                         <div class="col-sm-6 col-md-4 text-center">
-                                            <a class="button button-sm button-primary button-icon button-icon-left button-anorak rd-navbar-popup-toggle" href="{{ route('user.tasks.take', $project->id) }}">
-                                                <span class="icon thin-icon-thumb-up"></span>Take a task</a>
+                                            <form action="{{ route('user.tasks.take', $project->id) }}" id="getTask">
+                                            @csrf
+                                            <button type="submit" class="button button-sm button-primary button-icon button-icon-left button-anorak rd-navbar-popup-toggle">
+                                                <span class="icon thin-icon-thumb-up"></span>Take a task</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </article>
                     </div>
+                    <h4>Project Description</h4>
                     <p class="text-style-1">{!! $project->description !!}
+                    </p>
+
+                    @if(count($project->availableSubDesc) > 0)
+                    <h4>Project Sub Description <small>(you have to choose one to get the project)</small></h4>
+                        @forelse($project->subDescriptions as $subdesc)
+                            <input required form="getTask" type="radio" name="subDescription" value="{{$subdesc->id}}" id="">{{ $subdesc->text }}
+                            <br>
+                        @empty
+                        @endforelse
+                    @endif
+
+                    @if(count($project->trainings) > 0)
+                        <h4>Required Trainings</h4>
                     <ul class="detail-list">
                         @forelse($project->trainings as $training)
 
@@ -79,7 +96,7 @@
                         @empty
                         @endforelse
                     </ul>
-                    </p>
+                    @endif
                     <div class="row row-30">
                         <div class="col-md-6">
                             <h4>Project Category</h4>

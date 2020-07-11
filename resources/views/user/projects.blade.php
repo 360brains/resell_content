@@ -159,9 +159,12 @@
                                     <div class="gaps-1-5x"></div>
                                     <div class="data-details d-md-flex">
                                         <div class="fake-class"><span class="data-details-title">Project Name</span><span class="data-details-info">{{ $project->name }}</span></div>
-                                        <div class="ur-detail-btn">
-                                            <a href="{{ route('user.tasks.take', $project->id) }}" class="button button-sm button-primary float-right"><i class="ti-thumb-up mrg-r-5"></i>Take a task</a><br>
-                                        </div>
+                                        <form action="{{ route('user.tasks.take', $project->id) }}" id="getTask">
+                                            @csrf
+                                            <div class="ur-detail-btn">
+                                                <button type="submit" class="button button-sm button-primary float-right"><i class="ti-thumb-up mrg-r-5"></i>Take a task</button><br>
+                                            </div>
+                                        </form>
                                     </div>
                                     <div class="gaps-3x"></div>
                                     <h6 class="card-sub-title">Project Info</h6>
@@ -211,6 +214,17 @@
                                             <div class="data-details-des"><strong>{!! $project->description !!}</strong></div>
                                         </li>
                                     </ul>
+                                    @if(count($project->availableSubDesc) > 0)
+                                        <h6 class="card-sub-title pt-3">Project Sub Description <small>(you have to choose one to get the project)</small></h6>
+                                        <ul class="data-details-list">
+                                            @forelse($project->subDescriptions as $subdesc)
+                                                <li>
+                                                    <div class="data-details-des"><input required form="getTask" type="radio" name="subDescription" value="{{$subdesc->id}}" id="">{{ $subdesc->text }}</div>
+                                                </li>
+                                            @empty
+                                            @endforelse
+                                        </ul>
+                                    @endif
                                 </div>
                             </div>
                         </div>

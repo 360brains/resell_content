@@ -14,6 +14,9 @@ class Project extends Model
     function subDescriptions(){
         return $this->hasMany(ProjectDescription::class);
     }
+    function availableSubDesc(){
+        return $this->hasMany(ProjectDescription::class)->where('is_taken', '0');
+    }
     function template(){
         return $this->belongsTo(Template::class);
     }

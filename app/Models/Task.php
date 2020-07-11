@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    protected $fillable = ['deadline', 'user_id', 'project_id', 'status', 'body', 'video'];
+    protected $fillable = ['deadline', 'user_id', 'project_id', 'status', 'body', 'video', 'sub_desc_id'];
 
     function user(){
         return $this->belongsTo(User::class);
@@ -17,6 +17,9 @@ class Task extends Model
     }
     function project(){
         return $this->belongsTo(Project::class);
+    }
+    function subDescription(){
+        return $this->belongsTo(ProjectDescription::class, 'sub_desc_id');
     }
     function category(){
         return $this->belongsTo(Category::class);
