@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Category;
 use App\Models\Level;
 use App\Models\Project;
+use App\Models\ProjectDescription;
 use App\Models\Task;
 use App\Models\TimeExtend;
 use App\Models\Type;
@@ -120,6 +121,12 @@ class TasksController extends Controller
                 'deadline'     => now()->addHours($project->deadline),
                 'sub_desc_id'  => $request->subDescription ?? null,
             ];
+
+            if (!is_null($request->subDescription)){
+                $subdescription = ProjectDescription::find($request->subDescription);
+                $subdescription->is_taken = 1;
+                $subdescription->save();
+            }
 
             if ($project->template_id != null){
                 $data['body']       = $project->template->body;
