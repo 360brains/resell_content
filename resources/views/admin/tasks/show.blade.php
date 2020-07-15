@@ -114,6 +114,20 @@
         </div>
 
 
+        <div class="col-md-12">
+            <h3>Task Description</h3>
+            <div class="portlet light portlet-fit bordered">
+                {!! $task->project->description !!}
+            </div>
+
+            @if(!is_null($task->sub_desc_id))
+            <h3>Task Sub Description</h3>
+                <div class="portlet light portlet-fit bordered">
+                        <div class="data-details-des"><strong>{{ $task->subDescription->text }}</strong></div>
+                </div>
+            </div>
+        @endif
+
         @if($task->status == 'delivered' OR $task->status == 'reworking' OR $task->status == 'approved' OR $task->status == 'rejected')
             <div class="col-md-12">
                 <h3>Content Delivered</h3>
