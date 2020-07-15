@@ -6,6 +6,10 @@
         background: #8080800d;
         padding: 1px 10px 15px 25px;
     }
+    .pos-r{
+        position: relative;
+        top: -6px;
+    }
 </style>
 
 
@@ -137,10 +141,10 @@
 
                 <div class="clearfix">
                 <h3 class="pull-left">Sub Description</h3>
-                <a href="{{ route('admin.projects.create') }}" class="pull-right mt-3 mb-3 margin-right-10 margin-top-15 margin-bottom-15 btn blue btn-sm"> <b><i class="fa fa-plus"></i> Add</b></a>
+                <a href="" class="pull-right mt-3 mb-3 margin-right-10 margin-top-15 margin-bottom-15 btn blue btn-sm" data-toggle="modal" data-target="#sub-descriptions"> <b><i class="fa fa-plus"></i> Add</b></a>
                 </div>
             @foreach($project->subDescriptions as $subDesc)
-                    <div class="sub-descriptions">{{ $subDesc->text }}</div>
+                    <div class="sub-descriptions">{{ $subDesc->text }} <a href="" class="pull-right btn red btn-sm pos-r"> <b><i class="fa fa-trash"></i></b></a></div>
                 @endforeach
 
             </div>
@@ -197,4 +201,27 @@
             </div>
         </div>
     </div>
-    @endsection
+
+    <!-- Modal -->
+    <div class="modal fade" id="sub-descriptions" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">Add new sub description</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group form-md-line-input">
+                        <input type="text" name="sub_description" class="form-control" id="form_control_1" value="">
+                        <label>Sub description</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endsection
