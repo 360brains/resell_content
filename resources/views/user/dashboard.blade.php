@@ -20,11 +20,12 @@
                                 <p class="d-inline">Your current Writing Level is <strong>0</strong>. Take a free test and raise your level to get tasks.</p>
                             </small>
                         </div>
+
                         @if($test->pivot->status == 'completed')
                         <!-- Button trigger modal -->
-                        <button disabled class=" btn btn-sm btn-info float-right">
-                            Writing Test
-                        </button>
+{{--                        <button disabled class=" btn btn-sm btn-info float-right">--}}
+{{--                            Writing Test--}}
+{{--                        </button>--}}
                         @elseif($test->pivot->status == 'started')
                         <!-- Button trigger modal -->
                         <a href="{{ route('user.tests.writing.test') }}" class="button button-xs button-primary float-right">
@@ -71,9 +72,9 @@
                         </div>
                         @if($test->pivot->status == 'completed')
                         <!-- Button trigger modal -->
-                        <button disabled class="button button-xs button-primary float-right">
-                            Video Making Test
-                        </button>
+{{--                        <button disabled class="button button-xs button-primary float-right">--}}
+{{--                            Video Making Test--}}
+{{--                        </button>--}}
                         @elseif($test->pivot->status == 'started')
                         <!-- Button trigger modal -->
                         <a href="{{ route('user.tests.video.test') }}" class="button button-xs button-primary float-right">

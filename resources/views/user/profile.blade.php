@@ -1,5 +1,4 @@
 @extends('user.layouts.master')
-
 @section('content')
     <section class="profile-content pt-5 pb-5">
         <div class="container">
@@ -12,21 +11,32 @@
                     <div class="col-md-4 ">
                         <div class="edit-profile shadow rounded">
                             <div class="text-center">
-                                <div class="qwerty position-relative">
-                                    <img src="{{ url(auth()->user()->avatar) }}" alt="Avatar"
-                                         class="image rounded-circle">
-                                    <div class="overlay rounded-circle d-none" id="user-img">
-                                        <a href="#" class="icon-cam">
-                                            <i class="fas fa-camera" id="upfile1"></i>
-                                            <input type="file" id="file1" name="image" accept="image/*" capture style="display: none"/>
-                                        </a>
+{{--                                <div class="qwerty position-relative">--}}
+{{--                                    <img src="{{ url(auth()->user()->avatar) }}" alt="Avatar"--}}
+{{--                                       id="imagePreview"  class="image rounded-circle avatar-preview">--}}
+{{--                                    <div class="overlay rounded-circle d-none" id="user-img">--}}
+{{--                                        <a href="#" class="icon-cam">--}}
+{{--                                            <i class="fas fa-camera" id="upfile1"></i>--}}
+{{--                                            <input type="file" id="file1" name="image" accept="image/*" capture style="display: none"/>--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+                                <div class="container">
+                                    <div class="avatar-upload">
+                                        <div class="avatar-edit">
+                                            <input type='file' id="imageUpload" disabled  class="imageUpload"  name="image" accept=".png, .jpg, .jpeg"/>
+                                            <label for="imageUpload"></label>
+                                        </div>
+                                        <div class="avatar-preview">
+                                            <div id="imagePreview" style="background-image: url({{ url(auth()->user()->avatar) }})">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <h2 class="pt-2">{{ auth()->user()->name }}</h2>
                                 <p class="mt-3 m-0"><strong>{{ auth()->user()->country }} 4:04pm</strong></p>
                                 <p><strong>Member since {{ auth()->user()->created_at }} </strong></p>
-                                <button type="button" class="button button-sm button-primary mt-3 border-0 edit-profile-btn"
-                                   onclick="disableEdit()" id="edit"><i class="far fa-edit"></i> Edit Profile</button>
+                                <button type="button" class="button button-sm button-primary mt-3 border-0 edit-profile-btn" id="edit"><i class="far fa-edit"></i> Edit Profile</button>
                             </div>
                         </div>
                         <div class="linked-accounts mt-4 shadow rounded">
@@ -128,4 +138,35 @@
             </form>
         </div>
     </section>
+    @push('scripts')
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+                        $('#imagePreview').hide();
+                        $('#imagePreview').fadeIn(650);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#imageUpload").change(function() {
+                readURL(this);
+            });
+
+            $("#edit").click(function() {
+                $(this).addClass('disabled');
+                $('#save').removeClass('d-none');
+                $('#user-img').removeClass('d-none');
+                $('#full-name').prop("disabled", false);
+                $('#gender').prop("disabled", false);
+                $('#country').prop("disabled", false);
+                $('#mobile-number').prop("disabled", false);
+                $('.imageUpload').prop("disabled", false);
+            });
+        </script>
+    @endpush
 @endsection
+
+

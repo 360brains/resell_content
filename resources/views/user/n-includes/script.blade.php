@@ -66,17 +66,6 @@
     // cancel the timer
     $('#el').vTimer('cancel');
 
-
-        function disableEdit() {
-            $('#edit').addClass('disabled');
-            $('#save').removeClass('d-none');
-            $('#user-img').removeClass('d-none');
-            $('#full-name').prop("disabled", false)
-            $('#gender').prop("disabled", false)
-            $('#country').prop("disabled", false)
-            $('#mobile-number').prop("disabled", false)
-        }
-
     function visible(){
         $('#save-btn').removeClass('d-none');
         $('#close-btn').removeClass('d-none');
